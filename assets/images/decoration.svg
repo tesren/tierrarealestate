@@ -1,0 +1,15 @@
+<svg id="Grupo_12" data-name="Grupo 12" xmlns="http://www.w3.org/2000/svg" width="94.313" height="122" viewBox="0 0 94.313 122">
+  <g id="Rectángulo_60" data-name="Rectángulo 60" transform="translate(47.331 3.896) rotate(45)" fill="#f7f7f7" stroke="#0070cd" stroke-width="5">
+    <rect width="61.509" height="61.509" stroke="none"/>
+    <rect x="2.5" y="2.5" width="56.509" height="56.509" fill="none"/>
+  </g>
+  <g id="Rectángulo_60-2" data-name="Rectángulo 60" transform="translate(47.331 15.576) rotate(45)" fill="#f7f7f7" stroke="#0070cd" stroke-width="5">
+    <rect width="44.702" height="44.702" stroke="none"/>
+    <rect x="2.5" y="2.5" width="39.702" height="39.702" fill="none"/>
+  </g>
+  <path id="Trazado_7" data-name="Trazado 7" d="M0,0,22.9,1.169l1.169,22.9L1.169,22.9Z" transform="translate(47.127 30.163) rotate(45)" fill="#0070cd"/>
+  <path id="Trazado_8" data-name="Trazado 8" d="M5521.5,9104h6.593" transform="translate(-5433.783 -9056.815)" fill="none" stroke="#0070cd" stroke-width="5"/>
+  <path id="Trazado_9" data-name="Trazado 9" d="M0,0H6.927" transform="translate(47.331 6.927) rotate(-90)" fill="none" stroke="#0070cd" stroke-width="5"/>
+  <path id="Trazado_10" data-name="Trazado 10" d="M5521.5,9104h6.808" transform="translate(-5521.503 -9056.815)" fill="none" stroke="#0070cd" stroke-width="5"/>
+  <path id="Trazado_11" data-name="Trazado 11" d="M0,0H35.021" transform="translate(47.331 122) rotate(-90)" fill="none" stroke="#0070cd" stroke-width="5"/>
+</svg>

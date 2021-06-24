@@ -1,0 +1,723 @@
+*{
+    font-family: 'Montserrat', sans-serif;
+}
+
+#loading{
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: #071829;
+    background-image: url("https://media.giphy.com/media/VI2UC13hwWin1MIfmi/source.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+.container-fluid{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  
+.row, .container-fluid {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    }
+
+.col-md-4, .col-md-12, .col-12, .col-md-3{
+    padding: 0 !important;
+    position: relative;
+ }
+
+.bg-azul{
+    background-color: #07255B;
+}
+
+.bg-azul-fuerte{
+    background-color: #071829;
+}
+
+.nav-link{
+    color: white !important;
+}
+
+.logo-tierra{
+    max-width: 30% !important;
+    height: auto;
+    padding-top: 20px;
+}
+
+.caption-bucerias h1{
+    color: white;
+    width: 40%;
+    position: absolute;
+    top: 180px;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 5rem;
+    border: 3px solid white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.caption-naya h1{
+    color: white;
+    width: 30%;
+    position: absolute;
+    top: 160px;
+    margin-left: 35%;
+    margin-right: 35%;
+    font-size: 5rem;
+    border: 3px solid white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.caption-naya p{
+    color: white;
+    width: 80%;
+    position: absolute;
+    top: 280px;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 2rem;
+    text-shadow: 2px 2px 2px black;
+}
+
+.caption-susurros h1{
+    color: white;
+    width: 70%;
+    position: absolute;
+    top: 180px;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 5rem;
+    border: 3px solid white;
+    margin-bottom: 70px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.caption-susurros p{
+    margin-bottom: 0px;
+    color: white;
+    width: 30%;
+    position: absolute;
+    top: 300px;
+    margin-left: 35%;
+    margin-right: 35%;
+    font-size: 2rem;
+    text-shadow: 2px 2px 2px black;
+}
+
+.caption-green-d h1{
+    color: white;
+    width: 60%;
+    position: absolute;
+    top: 130px;
+    margin-left: 20%;
+    margin-right: 20%;
+    font-size: 4.5rem;
+    border: 3px solid white;
+    margin-bottom: 70px;
+    text-shadow: 2px 2px 2px black;
+}
+
+.caption-green-d p{
+    margin-bottom: 0px;
+    color: white;
+    width: 30%;
+    position: absolute;
+    top: 240px;
+    margin-left: 35%;
+    margin-right: 35%;
+    font-size: 2rem;
+    text-shadow: 2px 2px 2px black;
+}
+
+.torres-title{
+    text-shadow: 2px 2px 2px black !important;
+}
+
+.amenities-green{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+h2{
+    font-size: 5rem;
+}
+
+#propiedades .row .col-md-4 img{
+    height: 720px;
+    object-fit: cover;
+}
+
+.row .col-md-4 h3{
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    padding: 0px 50px;
+}
+
+.row .col-md-12 h3{
+    font-size: 60px;
+    color: white;
+    position: absolute;
+    left: 20px;
+    bottom: 50px;
+}
+
+.lineas{
+    position: absolute;
+    left: 25%;
+    bottom: 20px;
+    border-top: 3px solid white;
+    width: 50%;
+    opacity: 1;
+}
+
+.linea-grande{
+    position: absolute;
+    left: 20px;
+    bottom: 20px;
+    border-top: 3px solid white;
+    width: 50%;
+    opacity: 1;
+}
+
+.carousel-control-prev {
+    width: 4%
+}
+
+.carousel-control-next {
+    width: 4%
+}
+
+.carousel-inner .card{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#amenidades{
+    position: relative;
+}
+
+#amenidades .carousel-caption{
+    position: absolute;
+    top:0;
+}
+
+.yellow-numbers{
+    max-width:45px !important;
+    max-height:45px !important;
+}
+
+
+.carousel-caption p, .carousel-caption h1{
+    text-shadow: 2px 2px 2px black;
+}
+
+.dropdown-item{
+    color: white;
+}
+
+.vl {
+    border-left: 1px solid grey;
+    height: 50px;
+  }
+
+.iconos{
+    color: white;
+    font-size: 24px !important;
+}
+
+a{
+    text-decoration: none;
+}
+
+.btn-light{
+    border-radius: 50px;
+}
+
+.btn-go{
+    color: white;
+    background-color: #BD9028;
+    width: 100%;
+    height: 60px;
+}
+
+.btn-amarillo{
+    color: white !important;
+    background-color: #BD9028 !important;
+    border-radius: 50px !important;
+}
+
+#listings i{
+    color: black;
+    font-size: 34px;
+}
+
+#listings .row .d-flex h3{
+    font-size: 1.8rem !important;
+}
+
+#texto-formulario{
+    position: relative;
+    color: white;
+}
+
+.tr-nosotros-h4{
+    color: #07255B;
+}
+
+
+#texto-formulario h3{
+    width: 100%;
+    height: 100%;
+    padding:10%;
+    margin: 0px !important;
+}
+
+#whatsapp {
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:25px;
+    right:30px;
+    background-color:#080F24;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:45px;
+    z-index:100;
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+
+  #whatsapp:hover{
+      opacity: 1;
+      transition: 0.3s;
+  }
+
+  #whatsapp .fa-whatsapp {
+    position: relative;
+    vertical-align: top;
+    top: 7px;
+    left: 0;
+    width: 100%;
+  }
+
+  footer{
+      color: white;
+  }
+
+
+#texto-formulario{
+    color: white;
+    justify-content: center;
+}
+
+#whatsapp {
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:25px;
+    right:30px;
+    background-color:#080F24;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:45px;
+    z-index:100;
+    opacity: 0.7;
+    transition: 0.3s;
+  }
+
+  #whatsapp:hover{
+      opacity: 1;
+      transition: 0.3s;
+  }
+
+  #whatsapp .fa-whatsapp {
+    position: relative;
+    vertical-align: top;
+    top: 7px;
+    left: 0;
+    width: 100%;
+  }
+
+
+#map{
+    height:100%;
+}
+
+.tr-detalles-carousel .carousel-indicators button{
+    width: 140px !important;
+    height: auto !important;
+}
+
+.splide__slide img {
+	width : 100% !important;
+	height: auto !important;
+}
+
+/*estilos gustavo*/
+
+.tierra_azul{
+    font-size: 3rem;
+    margin: 1rem;
+    font-weight: 600;
+    color: #0070CD;
+}
+.tierra_light{
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.fa-lg{
+    color:#0070CD;
+}
+.fa-2x{
+    color:#0070CD;
+}
+
+.tierra_card-img-top {
+    position: absolute;
+    top: -110px;
+    left: 50%;
+    margin-left: -65px;
+    width: 130px !important;
+    height: 130px;
+  }
+
+  .tierra-cards-nosotros{
+    margin-top: 150px;
+    padding-top: 30px;
+  }
+
+  .d-flex p{
+    margin: 0px;
+}
+
+.card-block .btn{
+    border-radius: 1rem;
+}
+
+.icon-size h2{
+    font-weight: 600;
+    font-size: 6rem;
+    color: #0070CD;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.icon-size img{
+    height: 6rem;
+}
+.texto-encima{ 
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: 2px 2px 2px black;
+}
+
+#tr-boton-idioma-nav{
+    display: none !important;
+}
+
+#carouselRestas .carousel-caption, #carouselBares .carousel-caption{
+    bottom: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+}
+
+#carouselRestas .carousel-caption a, #carouselBares .carousel-caption a{
+    border-radius: 50px;
+    background: linear-gradient(#004D8C, #0077D9);
+    padding-left: 10%;
+    padding-right: 10%; 
+}
+
+#carouselRestas .carousel-caption h2, #carouselBares .carousel-caption h2{
+    margin-bottom: 0;
+}
+
+#carouselFrontPage .carousel-caption p{
+    font-size: 2rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 70px !important;
+}
+
+#carouselFrontPage .carousel-caption h1{
+    margin-bottom: 0 !important;
+    font-size: 5rem !important;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 3px solid white;
+    margin-bottom: 60px;
+}
+
+@media (max-width: 767px) {
+
+.caption-bucerias h1{
+    color: white;
+    width: 70%;
+    position: absolute;
+    top: 180px;
+    margin-left: 15%;
+    margin-right: 15%;
+    font-size: 2.5rem;
+}
+
+.tr-img-responsive{
+    height:60vh; 
+    object-fit:cover;
+}
+
+#tr-boton-idioma-nav{
+    display: block !important;
+}
+
+#services-icons h4{
+    font-size: 1rem !important;
+}
+
+.caption-naya h1{
+    width: 40%;
+    position: absolute;
+    top: 140px;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-size: 2.5rem !important;
+}
+
+.caption-naya p{
+    position: absolute;
+    top: 200px;
+    font-size: 1.5rem !important;
+}
+
+    .icon-size h2{
+        font-size: 3rem;
+    }
+
+    .texto-encima{
+        font-size: 1.5rem !important;
+    }
+
+    .tierra_azul{
+        font-size: 1.5rem;
+    }
+
+    .tierra_light{
+        font-size: 1.5rem;
+    }
+
+    .amenities-green{
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+    .amenities-green p{
+        font-size: 1.2rem !important;
+    }
+
+    #listings .row .d-flex i{
+        font-size: 1.3rem;
+    }
+
+    .vl{
+        display: none !important;
+        height: 0px !important;
+        border-left: 0px transparent ;
+    }
+
+   #carouselFrontPage .carousel-caption p{
+        font-size: 1.5rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 70px !important;
+    }
+
+    #carouselFrontPage .carousel-caption h1{
+        margin-bottom: 0 !important;
+        font-size: 2.5rem !important;
+        margin-left: 10%;
+        margin-right: 10%;
+        border: 3px solid white;
+        margin-bottom: 60px;
+    }
+
+    #recipeCarousel .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    #recipeCarousel .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+
+    #recipeCarousel .card{
+        margin:0 ;
+    }
+
+    #listings .row .d-flex h3{
+        font-size: 1rem !important;
+    }
+
+    #listings .row .d-flex i{
+        font-size: 1.3rem;
+    }
+
+    .vl{
+        display: none !important;
+        height: 0px !important;
+        border-left: 0px transparent ;
+    }
+
+    .row .col-md-4 img{
+        height: auto !important;
+    }
+
+    h2{
+        font-size: 24px;
+    }
+
+    .caption{
+        position: absolute;
+        top: 350px;
+    }
+
+    .caption p{
+        font-size: 16px !important;
+    }
+
+    #naya{
+        border: 3px solid white; 
+    }
+
+    #susurros-title{
+        margin-left: 25%;
+        margin-right: 25%;
+        font-size: 2rem;
+        border: 3px solid white; 
+    }
+
+    .caption-green-d h1{
+        font-size: 2.5rem !important;
+        position: absolute;
+        top:90px !important;
+        width: 80%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    .caption-green-d p{
+        font-size: 1.5rem !important;
+        position: absolute;
+        top:170px !important;
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+
+    .caption-susurros h1{
+        font-size: 2.5rem !important;
+        position: absolute;
+        top:80px !important;
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+        margin-bottom: 0;
+    }
+
+    .caption-susurros p{
+        font-size: 1.5rem !important;
+        position: absolute;
+        top:220px !important;
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+
+
+    .row .col-md-12 h3{
+        font-size: 40px;
+        color: white;
+        position: absolute;
+        left: 20px;
+        bottom: 30px;
+    }
+
+    
+
+    .linea-grande{
+        position: absolute;
+        left: 25%;
+        bottom: 20px;
+        border-top: 3px solid white;
+        width: 50%;
+        opacity: 1;
+    }
+
+    #iconsvg{
+        width: 24px;
+        height: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        padding-top: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 85%;
+        height: 100%;
+        z-index: 100;
+        background-color: #07255B;
+    }
+
+    .navbar-collapse.collapsing {
+        left: -85%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+        transition: left 300ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        transition: left 500ms ease-in-out;
+    }
+}
+
+#recipeCarousel .carousel-inner .carousel-item.active,
+#recipeCarousel .carousel-inner .carousel-item-next,
+#recipeCarousel .carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* medium and up screens */
+@media (min-width: 768px) {
+    
+    #recipeCarousel .carousel-inner .carousel-item-end.active,
+    #recipeCarousel .carousel-inner .carousel-item-next {
+      transform: translateX(25%);
+    }
+    
+    #recipeCarousel .carousel-inner .carousel-item-start.active, 
+    #recipeCarousel .carousel-inner .carousel-item-prev {
+      transform: translateX(-25%);
+    }
+}
+
+#recipeCarousel .carousel-inner .carousel-item-end,
+#recipeCarousel .carousel-inner .carousel-item-start { 
+  transform: translateX(0);
+}
+
+

@@ -8,7 +8,7 @@ else {
     <!--Acerca del proyecto-->
     <div class="container d-flex justify-content-center mt-5 mb-5">
         <img style="height: 4rem;" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>" id="iconsvg">
-        <h2 class="tierra_azul text-center fs-1">CONOCEMOS MEJOR</h2>
+        <h2 class="tierra_azul text-center fs-1">CONÓCENOS MEJOR</h2>
         <img style="height: 4rem;" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>" id="iconsvg">           
     </div>
     

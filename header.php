@@ -24,7 +24,7 @@
 
     <div class="tr-page">
       
-        <div class="container-fluid text-center bg-azul">
+        <div class="container-fluid text-center bg-azul fixed-top">
 
             <!--Nosotros-->
             <div class="d-flex justify-content-end iconos">
@@ -82,7 +82,7 @@
                                Bucerías 
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item px-5" href="/wordpress-tierra/lifestyle-bucerias">LifeStyle</a></li>
+                              <li><a class="dropdown-item px-5" href="/lifestyle/bucerias">LifeStyle</a></li>
                             </ul>
                           </li>
 

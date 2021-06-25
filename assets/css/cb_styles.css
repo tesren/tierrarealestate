@@ -8,8 +8,8 @@
     z-index: 100;
     width: 100%;
     height: 100%;
-    background-color: #071829;
-    background-image: url("https://media.giphy.com/media/VI2UC13hwWin1MIfmi/source.gif");
+    background-color: #001625;
+    /*background-image: url("public_html/tierra.punto401.com/wp-content/themes/tierrarealestate/assets/images/gif-tierra.gif");*/
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -295,6 +295,7 @@ a{
   }
 
   #whatsapp:hover{
+      background-color: #23ce63;
       opacity: 1;
       transition: 0.3s;
   }
@@ -316,36 +317,6 @@ a{
     color: white;
     justify-content: center;
 }
-
-#whatsapp {
-    position:fixed;
-    width:60px;
-    height:60px;
-    bottom:25px;
-    right:30px;
-    background-color:#080F24;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:45px;
-    z-index:100;
-    opacity: 0.7;
-    transition: 0.3s;
-  }
-
-  #whatsapp:hover{
-      opacity: 1;
-      transition: 0.3s;
-  }
-
-  #whatsapp .fa-whatsapp {
-    position: relative;
-    vertical-align: top;
-    top: 7px;
-    left: 0;
-    width: 100%;
-  }
-
 
 #map{
     height:100%;
@@ -422,6 +393,10 @@ a{
     text-shadow: 2px 2px 2px black;
 }
 
+#tr-contenedor-resoluciones-grandes{
+    margin-top: 11rem;
+}
+
 #tr-boton-idioma-nav{
     display: none !important;
 }
@@ -458,6 +433,11 @@ a{
 }
 
 @media (max-width: 767px) {
+
+
+#tr-contenedor-resoluciones-grandes{
+    margin-top: 1.7rem !important;
+}
 
 .caption-bucerias h1{
     color: white;

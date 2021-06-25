@@ -132,7 +132,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'author',
             ),
             'menu_icon' => 'dashicons-email-alt',
-            'menu_positions' => 26,
+            'menu_positions' => 9,
 
         );
 
@@ -225,13 +225,13 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
     require get_template_directory() . '/inc/ajax.php';
 
-    require get_template_directory() . '/inc/properties-cpt.php';
+    //require get_template_directory() . '/inc/properties-cpt.php';
 
     require get_template_directory() . '/inc/listings-cpt.php';
 
     require get_template_directory() . '/inc/developments-cpt.php';
 
-    // require get_template_directory() . '/inc/sales-team-cpt.php';
+    require get_template_directory() . '/inc/lifestyle-cpt.php';
 
     // require get_template_directory() . '/inc/featured-gallery-cpt.php';
 

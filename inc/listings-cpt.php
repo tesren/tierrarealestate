@@ -80,7 +80,7 @@
 
         register_taxonomy('listing', array('listings'), $args );
 
-        //add new taxonomi NOT heirarchical
+        //add new taxonomy NOT heirarchical
 
         // register_taxonomy('status', 'listings', array(
         //     'label' => 'Status',

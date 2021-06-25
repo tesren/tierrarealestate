@@ -8,7 +8,7 @@ else {
 
  <!--Imagen con texto-->
  <div class="container-fluid " style="position:relative;">
-            <img class="img-fluid tr-img-responsive"  src="<?php echo get_template_directory_uri() .'/assets/images/naya.jpg';?>" alt="Render de una propiedad en Naya">
+            <img width="100%" class="img-fluid tr-img-responsive"  src="<?php echo get_template_directory_uri() .'/assets/images/naya.jpg';?>" alt="Render de una propiedad en Naya">
             <div class="caption-naya text-center">
                 <h1 id="naya">NAYA</h1>
                 <p class="fs-3">Punta de Mita <br> Desde: $1,200,000 USD </p>

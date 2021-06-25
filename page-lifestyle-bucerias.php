@@ -117,14 +117,38 @@ else {
     <!--VIVE EN-->
     <div style="position: relative; text-align: center;" class="container-fluid pt-5 pb-5">
         <div class="row justify-content-center">
+
             <h4 style="font-size: 3.5rem; z-index: 1;" class="texto-encima">VIVE EN BUCERIAS</h4>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/vive-bucerias.jpg';?>" class="p-0 tr-img-responsive img-fluid" alt="vive en">
+            
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="<?php echo get_template_directory_uri() .'/assets/images/vive-bucerias.jpg';?>" class="p-0 tr-img-responsive img-fluid" alt="vive en">    
+                    </div>
+                    <div class="carousel-item">
+                        <img src="<?php echo get_template_directory_uri() .'/assets/images/snorkel.jpg';?>" class="p-0 tr-img-responsive img-fluid" alt="vive en">
+                    </div>
+                    
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            
         </div>
     </div>
 
     <!--MAPA-->
     <div class="container-fluid">
-        <div style="height: 100vh;" class="col-12">
+        <div style="height: 50vh;" class="col-12">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29847.097611788773!2d-105.35147876339234!3d20.755365513396434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842140950f9c5c33%3A0xb77539c48b2e548f!2zQnVjZXLDrWFzLCBOYXku!5e0!3m2!1ses-419!2smx!4v1623869454470!5m2!1ses-419!2smx" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </div>

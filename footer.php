@@ -1,6 +1,10 @@
 
         </div><!--div resoluciones grandes-->
-        
+
+        <!--boton whatsapp-->
+        <a href="https://wa.me/523221350108?text=Hola%20quisiera%20saber%20mas%20información%20de%20Tierra%20Real%20Estate" id="whatsapp" target="_blank"> 
+            <i class="fab fa-whatsapp"></i>
+        </a>
 
         <!--footer-->
         <footer class="page-footer bg-azul text-center pb-3">
@@ -23,7 +27,7 @@
 
         </div><!--Div de todo el body-->
         <div id="loading-logo"></div><!--animacion de carga-->
-        <div id="loading"></div><!--animacion de carga-->
+        <div id="loading" style="background-image: url('<?php echo get_template_directory_uri() ."/assets/images/gif-tierra.gif";?>');"></div><!--animacion de carga-->
 
         <!--font awesome-->
         <script src="https://kit.fontawesome.com/164e915f72.js" crossorigin="anonymous"></script>

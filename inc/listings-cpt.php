@@ -13,7 +13,7 @@
             'singular_name' => 'Listing',
             'add_new' => 'Add Listing',
             'all_items' => 'All Listings',
-            'add_new_items' => 'Add Listing',
+            'add_new_item' => 'Add Listing',
             'edit_item' => 'Edit Listing',
             'new_item' => 'New Listing',
             'view_item' => 'View Listing',
@@ -35,7 +35,7 @@
             'supports' => array(
                 'title',
                 'editor',
-                'excerpt',
+                //'excerpt',
                 'thumbnail',
                 'revisions',
             ),
@@ -72,21 +72,27 @@
         $args = array(
             'hierarchical' => true,
             'labels' => $labels,
+            'show_in_menu' => true,
             'show_ui' => true,
             'show_admin_column' => true, //muestra u oculta la columna en vista admon para filtrar
             'query_var' => true,
-            'rewrite' => array('slug' => 'listings') //Este parametro saldra en la URL
+            'rewrite' => array('slug' => 'property-type') //Este parametro saldra en la URL
         );
 
-        register_taxonomy('listing', array('listings'), $args );
+        register_taxonomy('property_type', array('listings'), $args );
 
-        //add new taxonomy NOT heirarchical
+        //add new taxonomi NOT heirarchical
 
-        // register_taxonomy('status', 'listings', array(
-        //     'label' => 'Status',
-        //     'rewrite' => array('slug' => 'listing-status'), //Este parametro saldra en la URL
-        //     'hierarchical' => false
-        // ));
+         register_taxonomy('regiones', array('listings','developments'), array(
+            'label' => 'Areas',
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'show_admin_column' => true, //muestra u oculta la columna en vista admon para filtrar
+            'query_var' => true,
+            'rewrite' => array('slug' => 'area'), //Este parametro saldra en la URL
+            'hierarchical' => true,
+        ));
+
 
  
     }
@@ -96,45 +102,142 @@
       /*CONTACT META BOXES si quiero recolectar más campos del form solo tengo que añadirlos aquí */
 
           
-add_filter( 'rwmb_meta_boxes', 'prefix_listings_meta_boxes' );
+add_filter( 'rwmb_meta_boxes', 'listings_meta_boxes' );
 
-function prefix_listings_meta_boxes( $meta_boxes ) {
+function listings_register_meta_boxes( $meta_boxes ) {
+    
     $meta_boxes[] = [
         'title'      => 'Details',
         'post_types' => 'listings',
 
         'fields' => [
             [
-                'name'            => 'Select',
-                'id'              => $prefix . 'selectList',
+                'name'  => 'Precio',
+                'desc'  => 'Solo numeros, sin signos ni puntos',
+                'id'    => 'price',
+                'type'  => 'text',
+            ],
+            [
+                'name'            => 'Moneda',
+                'id'              => 'currency',
                 'type'            => 'select',
                 // Array of 'value' => 'Label' pairs
                 'options'         => array(
-                    'java'       => 'Java',
-                    'javascript' => 'JavaScript',
-                    'php'        => 'PHP',
-                    'csharp'     => 'C#',
-                    'objectivec' => 'Objective-C',
-                    'kotlin'     => 'Kotlin',
-                    'swift'      => 'Swift',
+                    'USD'       => 'USD',
+                    'MXN'       => 'MXN',
                 ),
                 // Allow to select multiple value?
                 'multiple'        => false,
                 // Placeholder text
-                'placeholder'     => 'Select an Item',
+                'placeholder'     => 'Seccione la moneda',
                 // Display "Select All / None" button?
-                'select_all_none' => true,
+                'select_all_none' => false,
             ],
-            
             [
-                'name'  => 'Last name',
-                'desc'  => 'Format: {First Name} {Last Name}',
-                'id'    => 'prefix_sname',
+                    'name'       => 'Tipo propiedad',
+                    'id'         => 'taxonomy',
+                    'type'       => 'taxonomy',
+
+                    // Taxonomy slug.
+                    'taxonomy'   => 'property_type',
+
+                    // How to show taxonomy.
+                    'field_type' => 'radio_list',
+            ],
+
+            [
+                    'name'       => 'Ubicación',
+                    'id'         => 'location',
+                    'type'       => 'taxonomy',
+
+                    // Taxonomy slug.
+                    'taxonomy'   => 'regiones',
+
+                    // How to show taxonomy.
+                    'field_type' => 'select_tree',
+            ],
+             [
+                'name'  => 'Recámaras',
+                'desc'  => 'Solo numeros',
+                'id'    => 'bedrooms',
+                'type'  => 'number',
+            ],
+            [
+                'name'  => 'Baños',
+                'desc'  => 'Solo números',
+                'id'    => 'bathrooms',
+                'type'  => 'number',
+            ],
+            [
+                'name'  => 'Medios Baños',
+                'desc'  => 'Solo números',
+                'id'    => 'half_baths',
+                'type'  => 'number',
+            ],
+            [
+                'name'            => 'Muebles',
+                'id'              => 'furniture',
+                'type'            => 'select',
+                // Array of 'value' => 'Label' pairs
+                'options'         => array(
+                    'Amueblado'       => 'Amueblado',
+                    'Sin amueblar'       => 'Sin amueblar',
+                    'Semi-amueblado' => 'Semi-amueblado'
+                ),
+                // Allow to select multiple value?
+                'multiple'        => false,
+                // Placeholder text
+                'placeholder'     => 'Eliga una opción',
+                // Display "Select All / None" button?
+                'select_all_none' => false,
+            ],
+            [
+                'name'  => 'Construcción',
+                'desc'  => 'Solo números (m2)',
+                'id'    => 'construction',
                 'type'  => 'text',
             ],
+            [
+                'name'  => 'Lote',
+                'desc'  => 'Solo números (m2)',
+                'id'    => 'lot_area',
+                'type'  => 'text',
+            ],
+            [
+                'name'  => 'Estacionamiento',
+                'desc'  => 'Especificar tipo de estacionamiento',
+                'id'    => 'parking_stalls',
+                'type'  => 'text',
+            ],
+            
             // More fields.
         ],
     ];
+
+    // $meta_boxes[] = [
+    //     'title'      => 'Descripciones',
+    //     'post_types' => 'listings',
+
+    //     'fields' => [
+            
+    //          [
+    //             'name'  => 'Descripción Español',
+    //             'placeholder'  => 'Describe the place',
+    //             'id'    => 'place_description_es',
+    //             'type'  => 'textarea',
+    //             'rows'  => '14',
+    //         ],
+    //         [
+    //             'name'  => 'Descripción Inglés',
+    //             'placeholder'  => 'Describe the place',
+    //             'id'    => 'place_description_en',
+    //             'type'  => 'textarea',
+    //             'rows'  => '14',
+    //         ],
+
+            
+    //     ],
+    // ];
 
     // Add more field groups if you want
     $meta_boxes[] = [
@@ -144,7 +247,7 @@ function prefix_listings_meta_boxes( $meta_boxes ) {
 
         'fields' => [
             [
-                'id'               => 'image',
+                'id'               => 'listing_gallery',
                 'name'             => 'Image upload',
                 'type'             => 'image_upload',
 
@@ -153,7 +256,7 @@ function prefix_listings_meta_boxes( $meta_boxes ) {
                 'force_delete'     => false,
 
                 // Maximum file uploads.
-                'max_file_uploads' => 20,
+                'max_file_uploads' => 40,
 
                 // Do not show how many files uploaded/remaining.
                 'max_status'       => 'false',
@@ -162,6 +265,35 @@ function prefix_listings_meta_boxes( $meta_boxes ) {
                 'image_size'       => 'thumbnail',
             ],
         ]
+    ];
+
+     $meta_boxes[] = [
+        
+        'title' => 'Location',
+        'post_types' => 'listings',
+
+        'fields' => [
+            [
+                'id'   => 'address',
+                'name' => 'Address',
+                'type' => 'text',
+            ],
+            // Map field.
+            [
+                'id'            => 'listings_map',
+                'name'          => 'Location',
+                'type'          => 'map',
+
+                // Default location: 'latitude,longitude[,zoom]' (zoom is optional)
+                'std'           => '20.6985662,-105.3090504,14',
+
+                // Address field ID
+                'address_field' => 'address',
+
+                // Google API key
+                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
+            ]
+        ],
     ];
     // More fields..
 

@@ -72,7 +72,7 @@
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item px-5" href="/wordpress-tierra/naya">Naya</a></li>
                             <li><a class="dropdown-item px-5" href="/wordpress-tierra/susurros">Susurros del Corazón</a></li>  
-                            <li><a class="dropdown-item px-5" href="#">LifeStyle</a></li>
+                            <li><a class="dropdown-item px-5" href="/lifestyle/punta-mita/">LifeStyle</a></li>
                             </ul>
                           </li>
 
@@ -82,7 +82,7 @@
                                Bucerías 
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item px-5" href="/lifestyle/bucerias">LifeStyle</a></li>
+                              <li><a class="dropdown-item px-5" href="/lifestyle/bucerias/">LifeStyle</a></li>
                             </ul>
                           </li>
 
@@ -93,7 +93,7 @@
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
                               <li><a class="dropdown-item px-5" href="/wordpress-tierra/green-district">Green District</a></li>
-                              <li><a class="dropdown-item px-5" href="#">LifeStyle</a></li>
+                              <li><a class="dropdown-item px-5" href="/lifestyle/nuevo-vallarta/">LifeStyle</a></li>
                             </ul>
                           </li>
                           <div class="vl"></div>

@@ -29,8 +29,8 @@ else {
                 </div>
             </div>
         </div>
-        <div class="col-12 mb-5">
-            <p class="fs-3 mt-2 mx-4">Bucerías es un pintoresco pueblito en el estado de Nayarit. En Bucerías, que significa “lugar de buzos”, encontrará principalmente un sitio para relajarse del ajetreo de la vida diaria, donde podrá contemplar el sigiloso vuelo de las aves, disfrutar de largas caminatas por la playa, paseos a caballo, surfear y por supuesto bucear. En el corazón de este colorido pueblito no encontrará más que la plaza central, su mercado local, lugares de hospedaje, la iglesia, el colegio y encantadores restaurantes donde se sirven los más frescos platillos de mariscos y otras especialidades.
+        <div class="col-12 mb-5 fs-3 mt-2 mx-4">
+            <p>Bucerías es un pintoresco pueblito en el estado de Nayarit. En Bucerías, que significa “lugar de buzos”, encontrará principalmente un sitio para relajarse del ajetreo de la vida diaria, donde podrá contemplar el sigiloso vuelo de las aves, disfrutar de largas caminatas por la playa, paseos a caballo, surfear y por supuesto bucear. En el corazón de este colorido pueblito no encontrará más que la plaza central, su mercado local, lugares de hospedaje, la iglesia, el colegio y encantadores restaurantes donde se sirven los más frescos platillos de mariscos y otras especialidades.
             </p>
         </div>       
     </div>

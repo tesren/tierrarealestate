@@ -432,6 +432,45 @@ a{
     margin-bottom: 60px;
 }
 
+
+#carouselDesarrollos .carousel-caption p{
+    font-size: 2rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 150px !important;
+}
+
+#carouselDesarrollos .carousel-caption h2{
+    font-size: 5rem !important;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 3px solid white;
+    margin-bottom: 50px;
+}
+
+#lf-properties .card{
+    border-radius: 50px;
+}
+
+#lf-properties img{
+    border-radius: 50px;
+}
+
+.lf-properties-caption{
+    color: #FFF;
+    text-shadow: 2px 2px 2px black;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 100%;
+}
+
+.lf-properties-caption h3{
+    font-size: 2.5rem;
+}
+.lf-properties-caption p{
+    font-size: 1.5rem;
+}
+
 @media (max-width: 767px) {
 
 
@@ -525,6 +564,16 @@ a{
         margin-right: 10%;
         border: 3px solid white;
         margin-bottom: 60px;
+        
+    }
+
+    #carouselDesarrollos .carousel-caption p{
+        font-size: 1.2rem !important;
+    }
+    
+    #carouselDesarrollos .carousel-caption h2{
+        font-size: 2.5rem !important;
+        
     }
 
     #recipeCarousel .carousel-inner .carousel-item > div {

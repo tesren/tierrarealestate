@@ -13,7 +13,7 @@
             'singular_name' => 'Lifestyle',
             'add_new' => 'Add Lifestyle',
             'all_items' => 'All Lifestyles',
-            'add_new_items' => 'Add Lifestyle',
+            'add_new_item' => 'Add Lifestyle',
             'edit_item' => 'Edit Lifestyle',
             'new_item' => 'New Lifestyle',
             'view_item' => 'View Lifestyle',
@@ -34,7 +34,7 @@
             'hierarchical' => false,
             'supports' => array(
                 'title',
-                //'editor',
+                'editor',
                 //'excerpt',
                 'thumbnail',
                 'revisions',
@@ -59,28 +59,12 @@
 add_filter( 'rwmb_meta_boxes', 'prefix_lifestyle_meta_boxes' );
 
 function prefix_lifestyle_meta_boxes( $meta_boxes ) {
-    $meta_boxes[] = [
-        'title'      => 'Details',
-        'post_types' => 'lifestyle',
-
-        'fields' => [
-            
-             [
-                'name'  => 'Descripción',
-                'placeholder'  => 'Describe the place',
-                'id'    => 'place_description',
-                'type'  => 'textarea',
-                'rows'  => '14',
-            ],
-
-            // More fields.
-        ],
-    ];
+    
 
     // Add more field groups if you want
     $meta_boxes[] = [
         
-        'title' => 'Galeria de Restaurantes',
+        'title' => 'Restaurantes recomendados',
         'post_types' => 'lifestyle',
 
         'fields' => [
@@ -108,7 +92,7 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         
-        'title' => 'Galeria de Bares',
+        'title' => 'Bares recomenados',
         'post_types' => 'lifestyle',
 
         'fields' => [
@@ -135,7 +119,7 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         
-        'title' => 'Galeria lifestyle',
+        'title' => 'Fotos Lifestyle',
         'post_types' => 'lifestyle',
 
         'fields' => [
@@ -149,7 +133,7 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
                 'force_delete'     => false,
 
                 // Maximum file uploads.
-                'max_file_uploads' => 3,
+                'max_file_uploads' => 10,
 
                 // Do not show how many files uploaded/remaining.
                 'max_status'       => 'false',
@@ -160,6 +144,32 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
         ]
     ];
 
+    $meta_boxes[] = [
+        
+        'title' => 'Fotos Desarollos',
+        'post_types' => 'lifestyle',
+
+        'fields' => [
+            [
+                'id'               => 'lf_desarrollos_gallery',
+                'name'             => 'Image upload',
+                'type'             => 'image_upload',
+
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+
+                // Maximum file uploads.
+                'max_file_uploads' => 10,
+
+                // Do not show how many files uploaded/remaining.
+                'max_status'       => 'false',
+
+                // Image size that displays in the edit page.
+                'image_size'       => 'thumbnail',
+            ],
+        ]
+    ];
     // More fields..
 
     $meta_boxes[] = [
@@ -180,7 +190,7 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
                 'type'          => 'map',
 
                 // Default location: 'latitude,longitude[,zoom]' (zoom is optional)
-                'std'           => '-6.233406,-35.049906,15',
+                'std'           => '20.6985662,-105.3090504,15',
 
                 // Address field ID
                 'address_field' => 'address',

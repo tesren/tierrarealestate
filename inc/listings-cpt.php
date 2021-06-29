@@ -102,7 +102,7 @@
       /*CONTACT META BOXES si quiero recolectar más campos del form solo tengo que añadirlos aquí */
 
           
-add_filter( 'rwmb_meta_boxes', 'listings_meta_boxes' );
+add_filter( 'rwmb_meta_boxes', 'listings_register_meta_boxes' );
 
 function listings_register_meta_boxes( $meta_boxes ) {
     
@@ -263,6 +263,27 @@ function listings_register_meta_boxes( $meta_boxes ) {
 
                 // Image size that displays in the edit page.
                 'image_size'       => 'thumbnail',
+            ],
+        ]
+    ];
+
+    $meta_boxes[] = [
+        
+        'title' => 'Tour virtual y video del lugar',
+        'post_types' => 'listings',
+
+        'fields' => [
+             [
+                'id'               => 'listing_video',
+                'name'             => 'Video de Youtube',
+                'desc'             => 'Por favor pegue el enlace ',
+                'type'             => 'oembed',
+             ],
+            [
+                'id'               => 'listing_tour',
+                'name'             => 'Link del Tour virtual',
+                'desc'             => 'Por favor pegue el enlace del Tour virtual" ',
+                'type'             => 'text',
             ],
         ]
     ];

@@ -11,7 +11,7 @@ else {
             <img width="100%" class="img-fluid tr-img-responsive"  src="<?php echo get_template_directory_uri() .'/assets/images/green-disctrict.jpg';?>" alt="...">
             <div class="caption-green-d text-center">
                 <h1 id="green-d">Green District</h1>
-                <p class="fs-3">Nuevo Vallarta <br> Desde USD$2,588,735 <br> hasta USD$6,667,789 </p>
+                <p class="fs-3">Nuevo Vallarta <br> Desde MXN$2,588,735 <br> hasta MXN$6,667,789 </p>
             </div>
         </div>
 
@@ -63,7 +63,7 @@ else {
             </div>
         </div>
 
-        <!--carrusel de cards de propiedades-->
+        <!--carrusel de cards de propiedades>
         <div class="container-fluid text-center my-5">
           <div class="row mx-auto my-auto justify-content-center">
               <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -139,11 +139,11 @@ else {
                   </a>
               </div>
           </div>
-      </div>
+        </div-->
 
         
         <!--fotos y mapas-->
-        <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/air-view-green.jpg';?>">
+        <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/air-view-green.jpg';?>">
 
 
        <!--Carrusel de amenidades-->

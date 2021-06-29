@@ -198,11 +198,11 @@ h2{
     margin-right: 20px;
 }
 
-#amenidades{
+#carouselAmenidades{
     position: relative;
 }
 
-#amenidades .carousel-caption{
+#carouselAmenidades .carousel-inner .carousel-caption{
     position: absolute;
     top:0;
 }
@@ -264,6 +264,7 @@ a{
 #texto-formulario{
     position: relative;
     color: white;
+    justify-content: center;
 }
 
 .tr-nosotros-h4{
@@ -312,11 +313,6 @@ a{
       color: white;
   }
 
-
-#texto-formulario{
-    color: white;
-    justify-content: center;
-}
 
 #map{
     height:100%;
@@ -406,11 +402,11 @@ a{
     padding-bottom: 0.25rem !important;
 }
 
-#carouselRestas .carousel-caption a, #carouselBares .carousel-caption a{
+#carouselRestas .carousel-caption div, #carouselBares .carousel-caption div{
     border-radius: 50px;
     background: linear-gradient(#004D8C, #0077D9);
-    padding-left: 10%;
-    padding-right: 10%; 
+    margin-left: 30%;
+    margin-right: 30%; 
 }
 
 #carouselRestas .carousel-caption h2, #carouselBares .carousel-caption h2{
@@ -470,6 +466,16 @@ a{
 .lf-properties-caption p{
     font-size: 1.5rem;
 }
+
+#video_listing iframe{
+    width: 100% !important;
+    height: 70vh !important;
+}
+
+.rwmb-oembed-not-available {
+    display: none;
+}
+
 
 @media (max-width: 767px) {
 
@@ -692,6 +698,12 @@ a{
         width: 24px;
         height: auto;
     }
+
+    #listing-hr{
+        margin-left: 5% !important;
+        margin-right: 5% !important;
+        width: 90% !important;
+    }
 }
 
 @media (max-width: 992px) {
@@ -749,4 +761,85 @@ a{
   transform: translateX(0);
 }
 
+@media (min-width: 2048px){
+
+    #carouselFrontPage .carousel-caption p{
+        font-size: 3.5rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 270px !important;
+    }
+    
+    #carouselFrontPage .carousel-caption h1{
+        font-size: 7rem !important;
+        margin-left: 10%;
+        margin-right: 10%;
+        border: 5px solid white;
+        margin-bottom: 60px;
+    }
+
+    #texto-formulario h3{
+        font-size: 4rem !important;
+    }
+
+    #listings h3{
+        font-size: 3rem !important;
+    }
+
+    .caption-bucerias h1{
+        color: white;
+        width: 40%;
+        position: absolute;
+        top: 350px;
+        margin-left: 30%;
+        margin-right: 30%;
+        font-size: 7rem;
+        border: 5px solid white;
+        text-shadow: 2px 2px 2px black;
+    }
+
+    #carouselDesarrollos .carousel-caption p{
+        font-size: 3.5rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 250px !important;
+    }
+    
+    #carouselDesarrollos .carousel-caption h2{
+        font-size: 7rem !important;
+        margin-left: 10%;
+        margin-right: 10%;
+        border: 5px solid white;
+        margin-bottom: 50px;
+    }
+
+    .caption-naya h1{
+        top: 260px;
+        font-size: 7rem;
+        border: 5px solid white;
+    }
+    
+    .caption-naya p{
+        top: 440px;
+    }
+
+    .caption-green-d h1{
+        top: 260px;
+        font-size: 7rem;
+        border: 5px solid white;
+    }
+    
+    .caption-green-d p{
+        top: 440px;
+    }
+
+    .caption-susurros h1{
+        top: 260px;
+        font-size: 7rem;
+        border: 5px solid white;
+    }
+    
+    .caption-susurros p{
+        top: 440px;
+    }
+    
+}
 

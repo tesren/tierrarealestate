@@ -8,7 +8,7 @@ else {
 
  <!--Imagen con texto-->
  <div class="container-fluid " style="position:relative;">
-            <img width="100%" class="img-fluid tr-img-responsive"  src="<?php echo get_template_directory_uri() .'/assets/images/naya.jpg';?>" alt="Render de una propiedad en Naya">
+            <img width="100%" class="img-fluid tr-img-responsive w-100"  src="<?php echo get_template_directory_uri() .'/assets/images/naya.jpg';?>" alt="Render de una propiedad en Naya">
             <div class="caption-naya text-center">
                 <h1 id="naya">NAYA</h1>
                 <p class="fs-3">Punta de Mita <br> Desde: $1,200,000 USD </p>
@@ -59,14 +59,14 @@ else {
                 </div>
 
                 <div class="col-md-12">
-                    <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/beach_front.jpg';?>">
+                    <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/beach_front.jpg';?>">
                     <h3>Residencias frente a la playa</h3>
                     <hr class="linea-grande">
                 </div>
             </div>
         </div>
 
-        <!--carrusel de cards de propiedades-->
+        <!--carrusel de cards de propiedades>
         <div class="container-fluid text-center my-5">
           <div class="row mx-auto my-auto justify-content-center">
               <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -207,12 +207,12 @@ else {
                   </a>
               </div>
           </div>
-        </div>
+        </div-->
 
         
         <!--fotos y mapas-->
-        <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/air-view.jpg';?>">
-        <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/naya-map.png';?>">
+        <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/air-view.jpg';?>">
+        <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/naya-map.png';?>">
 
        <!--Carrusel de amenidades-->
         <div class="d-flex justify-content-center">
@@ -259,8 +259,8 @@ else {
         </div>
 
         <!-- mas fotos y mapas-->
-        <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/naya-experiencies.jpg';?>">
-        <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/beach-club.jpg';?>">
+        <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/naya-experiencies.jpg';?>">
+        <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/beach-club.jpg';?>">
         <div class="d-flex justify-content-center">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
             <h2 class="fw-bold my-5 text-center"> Mapa</h2>

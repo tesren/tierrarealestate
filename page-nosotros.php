@@ -22,18 +22,18 @@ else {
             <div class="col-md-10 card my-3 mx-4" >
                     <div class="row justify-content-center text-center text-md-start ">
                         
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xxl-2">
                             <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
                         </div>
     
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5  my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Ignacio</h4>
                             <h4 class="fs-4 my-2">Real Estate Agent</h4>
                             <h5 class="tr-nosotros-h4">+52 (322) 7797935</h5>
                             <h5 class="tr-nosotros-h4">ignacio@tierravallarta.com</h5>
                         </div>
 
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5 my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
                             <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
                             <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>
@@ -45,18 +45,18 @@ else {
             <div class="col-md-10 card my-3 mx-4" >
                     <div class="row justify-content-center text-center text-md-start ">
                         
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xxl-2">
                             <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
                         </div>
     
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5 my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Frisek</h4>
                             <h4 class="fs-4 my-2">Real Estate Agent</h4>
                             <h5 class="tr-nosotros-h4">+52 (33) 1671 6536</h5>
                             <h5 class="tr-nosotros-h4">frisek@tierravallarta.com</h5>
                         </div>
 
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5 my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
                             <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
                             <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>
@@ -68,18 +68,18 @@ else {
             <div class="col-md-10 card my-3 mx-4" >
                     <div class="row justify-content-center text-center text-md-start ">
                         
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xxl-2">
                             <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
                         </div>
     
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5 my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Oziel</h4>
                             <h4 class="fs-4 my-2">Real Estate Agent</h4>
                             <h5 class="tr-nosotros-h4">+52 (322) 1339409</h5>
                             <h5 class="tr-nosotros-h4">oziel@tierravallarta.com	</h5>
                         </div>
 
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5 my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
                             <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
                             <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>
@@ -91,18 +91,18 @@ else {
             <div class="col-md-10 card my-3 mx-4" >
                     <div class="row justify-content-center text-center text-md-start ">
                         
-                        <div class="col-md-4">
+                        <div class="col-md-4 col-xxl-2">
                             <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
                         </div>
     
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5 my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Gina</h4>
                             <h4 class="fs-4 my-2">Real Estate Agent</h4>
                             <h5 class="tr-nosotros-h4">+52 (322) 1495357</h5>
                             <h5 class="tr-nosotros-h4">gina@tierravallarta.com</h5>
                         </div>
 
-                        <div class="col-md-4 my-3">
+                        <div class="col-md-4 col-xxl-5 my-3">
                             <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
                             <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
                             <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>

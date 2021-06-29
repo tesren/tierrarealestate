@@ -127,7 +127,7 @@ else {
         <div class="container-fluid" id="listings">
 
             <!--Punta mita-->
-            <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/punta-mita.jpg';?>" alt="punta mita">
+            <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/punta-mita.jpg';?>" alt="punta mita">
             
             <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
                 <div class="col-md-7 text-center">
@@ -149,7 +149,7 @@ else {
             </div>
 
             <!--Casa flor-->
-            <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/casa-flor.jpg';?>" alt="Casa flor">
+            <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/casa-flor.jpg';?>" alt="Casa flor">
             
             <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
                 <div class="col-md-7 text-center">
@@ -171,7 +171,7 @@ else {
             </div>
 
             <!--Francia 332-->
-            <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/francia.jpg';?>" alt="Francia 332">
+            <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/francia.jpg';?>" alt="Francia 332">
             
             <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
                 <div class="col-md-7 text-center">
@@ -206,14 +206,14 @@ else {
        <div class="container-fluid py-5">
            <div class="row">
 
-                <div class="col-sm-6 order-sm-1 bg-azul text-start" id="texto-formulario">
-                    <h3 class="fs-1">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
+                <div class="col-sm-6 order-sm-1 bg-azul text-start px-xxl-5" id="texto-formulario">
+                    <h3 class="">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
                 </div>
                
                 <!--formulario-->
                 <div class="col-sm-6 order-sm-12">
-                    <h2 class="pt-3 px-3 fs-1">Formulario de contacto</h2>
-                    <form action="#" class="text-start px-3" method="POST">
+                    <h2 class="pt-3 px-3 px-xxl-5 fs-1">Formulario de contacto</h2>
+                    <form action="#" class="text-start px-3 px-xxl-5" method="POST">
                         <div class="form-floating mb-3">
                             <h4 class="labels-form-grande">Nombre</h4>
                             <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>
@@ -239,7 +239,7 @@ else {
                         </div>
 
                         
-                        <button type="submit" class="btn btn-amarillo">Submit</button>
+                        <button type="submit" class="btn btn-amarillo btn-lg">Submit</button>
 
                     </form>
                 </div>

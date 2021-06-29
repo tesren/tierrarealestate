@@ -52,13 +52,13 @@
 
     }
 
-    add_action('init', 'tierra_development_cpt');
+    add_action('init', 'tierra_developments_cpt');
 
 
     function tierra_development_inventory_cpt(){
 
         $labels = array(
-            'name' => 'Invetory',
+            'name' => 'Inventory',
             'singular_name' => 'Inventory',
             'add_new' => 'Add unit',
             'all_items' => 'All units',
@@ -193,7 +193,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
                 // Allow to select multiple value?
                 'multiple'        => false,
                 // Placeholder text
-                'placeholder'     => 'Seccione la moneda',
+                'placeholder'     => 'Seleccione la moneda',
                 // Display "Select All / None" button?
                 'select_all_none' => false,
             ],
@@ -230,6 +230,60 @@ function developments_register_meta_boxes( $meta_boxes ) {
 
                 // Maximum file uploads.
                 'max_file_uploads' => 30,
+
+                // Do not show how many files uploaded/remaining.
+                'max_status'       => 'false',
+
+                // Image size that displays in the edit page.
+                'image_size'       => 'thumbnail',
+            ],
+        ]
+    ];
+
+    $meta_boxes[] = [
+        
+        'title' => 'Foto destacada 2',
+        'post_types' => 'developments',
+
+        'fields' => [
+            [
+                'id'               => 'featured_img_2',
+                'name'             => 'Image upload',
+                'type'             => 'image_upload',
+
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+
+                // Maximum file uploads.
+                'max_file_uploads' => 1,
+
+                // Do not show how many files uploaded/remaining.
+                'max_status'       => 'false',
+
+                // Image size that displays in the edit page.
+                'image_size'       => 'thumbnail',
+            ],
+        ]
+    ];
+
+    $meta_boxes[] = [
+        
+        'title' => 'Mas fotos',
+        'post_types' => 'developments',
+
+        'fields' => [
+            [
+                'id'               => 'more_photos',
+                'name'             => 'Image upload',
+                'type'             => 'image_upload',
+
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+
+                // Maximum file uploads.
+                'max_file_uploads' => 5,
 
                 // Do not show how many files uploaded/remaining.
                 'max_status'       => 'false',

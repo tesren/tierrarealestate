@@ -92,9 +92,9 @@
                 </p>
                 
 
-            <div class="row justify-content-start mx-5">
-                    <div class="col-11 px-5 text-start">
-                        <hr style="width:70%;text-align:left;margin-left:0">
+            <div class="row justify-content-center justify-content-md-start px-5">
+                    <div class="col-10">
+                        <hr style="width:70%;text-align:left;margin-left:0" id="listing-hr">
                         
                         <div class="row justify-content-start" id="services-icons">
                             
@@ -171,12 +171,24 @@
                         </div>
 
                         
-                        <hr style="width:70%;text-align:left;margin-left:0">
+                        <hr style="width:70%;text-align:left;margin-left:0" id="listing-hr">
                     </div>
             </div>
 
+            <div class="row">
+                <!--div class="col-6 col-md-3">
+                    <a href="#contact-form" class="my-3 mx-5 btn btn-amarillo">Agenda tu cita</a>
+                </div-->
+
+                <?php if( !empty(rwmb_meta( 'listing_tour') ) ): ?>
+                <div class="col-6 col-md-3">
+                     <a href="<?php echo rwmb_meta( 'listing_tour' );?>" class="my-3 mx-5 btn btn-amarillo" target="_blank" >Tour vitual</a>
+                </div>
+
+                <?php endif; ?>
+
+            </div>
             
-            <a href="#contact-form" class="my-3 mx-5 btn btn-amarillo">Agenda tu cita</a>
 
             <!--Servicios-->
             <!--div class="container-fluid">
@@ -227,6 +239,12 @@
             </div>
         </div-->
 
+        <!--Video-->
+        <div id="video_listing" >
+            <?php echo rwmb_meta( 'listing_video' );?>
+        </div>
+        
+
             <h2 class="fs-1 m-5 text-center">Ubicación</h2>
               <?php $args = array(
                         'width'        => '100%',
@@ -252,7 +270,7 @@
                     <!--formulario-->
                     <div class="col-sm-6 order-sm-12">
                         <h2 class="pt-3 px-3 fs-1">Formulario de contacto</h2>
-                        <form action="#" class="text-start px-3" method="POST" id="contact-form">
+                        <form class="text-start px-3" method="POST" id="contact-form">
                             <div class="form-floating mb-3">
                                 <h4 class="labels-form-grande">Nombre</h4>
                                 <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>

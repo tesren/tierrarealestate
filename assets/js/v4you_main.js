@@ -14,12 +14,12 @@ if($(window).width() > 768) {
 }
 
 if($(window).width() > 2048){
-    $('#tr-contenedor-resoluciones-grandes').addClass('container');
+    //$('#tr-contenedor-resoluciones-grandes').addClass('container');
 
     $('.labels-form-small').addClass('d-none');
     $('.labels-form-grande').removeClass('d-none');
 }else{
-    $('#tr-contenedor-resoluciones-grandes').removeClass('container');
+    //$('#tr-contenedor-resoluciones-grandes').removeClass('container');
 
     $('.labels-form-small').removeClass('d-none');
     $('.labels-form-grande').addClass('d-none');

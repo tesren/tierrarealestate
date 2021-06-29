@@ -14,7 +14,7 @@ else {
             <img width="100%" class="img-fluid tr-img-responsive"  src="<?php echo get_template_directory_uri() .'/assets/images/susurros_cora.jpg';?>" alt="Render de una propiedad en Naya">
             <div class="caption-susurros text-center">
                 <h1>Susurros del corazón</h1>
-                <p class="fs-3">Punta de Mita <br> Desde: $500,000 USD </p>
+                <p class="fs-3">Punta de Mita <br> Desde: $3,600,000 USD </p>
             </div>
         </div>
 
@@ -26,9 +26,9 @@ else {
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
             </div>
 
-            <p class="fs-3 py-5">NAYA está diseñado para adaptarse y celebrar la privacidad y las maravillas de la selva en la que se inspira, 
-                su materialidad imita el entorno natural, coexistiendo en armonía con ellos. Un hábitat de espacios sofisticados 
-                diseñados que se pueden experimentar a través de nuestros sentidos humanos.</p>        
+            <p class="fs-3 py-5">On a pristine stretch of Mexico’s Pacific coast is a white-sands beach nestled between jungled cliffs and 
+              the deep blue waters of Banderas Bay—and now, a new Auberge Collection resort and residences. Introducing Susurros del Corazón, 
+              30 residences and 59 hotel suites that capture the spirit of this stunning landscape.</p>        
             
         </div>
 
@@ -69,7 +69,7 @@ else {
             </div>
         </div>
 
-        <!--carrusel de cards de propiedades-->
+        <!--carrusel de cards de propiedades>
         <div class="container-fluid text-center my-5">
           <div class="row mx-auto my-auto justify-content-center">
               <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -80,7 +80,7 @@ else {
                           
                       <div class="col-md-3">
                             <div class="card">
-                              <img src="<?php echo get_template_directory_uri() .'/assets/images/ocean-villas.jpg';?>" class="card-img-top" alt="...">
+                              <img src="<?php //echo get_template_directory_uri() .'/assets/images/ocean-villas.jpg';?>" class="card-img-top" alt="...">
                               <div class="card-body">
                                 <h5 class="card-title fw-bold">Quetzal 3 - Bluff Villa</h5>
                                 <p class="card-text">
@@ -102,7 +102,7 @@ else {
                           
                         <div class="col-md-3">
                             <div class="card">
-                              <img src="<?php echo get_template_directory_uri() .'/assets/images/ocean-villas.jpg';?>" class="card-img-top" alt="...">
+                              <img src="<?php //echo get_template_directory_uri() .'/assets/images/ocean-villas.jpg';?>" class="card-img-top" alt="...">
                               <div class="card-body">
                                 <h5 class="card-title fw-bold">Rio 4 - Bluff Villa</h5>
                                 <p class="card-text">
@@ -124,7 +124,7 @@ else {
                           
                         <div class="col-md-3">
                             <div class="card">
-                              <img src="<?php echo get_template_directory_uri() .'/assets/images/hacienda_villas.jpg';?>" class="card-img-top" alt="...">
+                              <img src="<?php //echo get_template_directory_uri() .'/assets/images/hacienda_villas.jpg';?>" class="card-img-top" alt="...">
                               <div class="card-body">
                                 <h5 class="card-title fw-bold">Rio 4 - Bluff Villa</h5>
                                 <p class="card-text">
@@ -146,7 +146,7 @@ else {
                           
                         <div class="col-md-3">
                             <div class="card">
-                              <img src="<?php echo get_template_directory_uri() .'/assets/images/presidential.png';?>" class="card-img-top" alt="...">
+                              <img src="<?php //echo get_template_directory_uri() .'/assets/images/presidential.png';?>" class="card-img-top" alt="...">
                               <div class="card-body">
                                 <h5 class="card-title fw-bold">Quetzal 3 - Bluff Villa</h5>
                                 <p class="card-text">
@@ -168,7 +168,7 @@ else {
                           
                         <div class="col-md-3">
                             <div class="card">
-                              <img src="<?php echo get_template_directory_uri() .'/assets/images/beach-casitas.jpg';?>" class="card-img-top" alt="...">
+                              <img src="<?php //echo get_template_directory_uri() .'/assets/images/beach-casitas.jpg';?>" class="card-img-top" alt="...">
                               <div class="card-body">
                                 <h5 class="card-title fw-bold">Rio 4 - Bluff Villa</h5>
                                 <p class="card-text">
@@ -195,7 +195,7 @@ else {
                   </a>
               </div>
           </div>
-      </div>
+        </div-->
 
         
         <!--fotos y mapas-->

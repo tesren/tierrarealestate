@@ -13,7 +13,7 @@
                 <div class="container-fluid " style="position:relative;">
                 <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
 
-                    <img class="img-fluid mb-5 tr-img-responsive" src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
+                    <img class="w-100 img-fluid mb-5 tr-img-responsive" src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
                     <div class="caption-bucerias text-center">
                         <h1><?php the_title();?></h1>
                     </div>
@@ -52,7 +52,7 @@
                                 <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
                                     <img class="d-block w-100 tr-img-responsive" src="<?php echo $image['url'];?>">
                                     <div class="carousel-caption d-md-block">
-                                        <a class="btn btn-primary"><h2 class="fs-1"><?php echo $image['title'];?></h2></a>
+                                        <div><h2 class="fs-1"><?php echo $image['title'];?></h2></div>
                                     </div>
                                 </div>
                                 
@@ -86,7 +86,7 @@
                                 <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
                                     <img class="d-block w-100 tr-img-responsive" src="<?php echo $bar['url'];?>">
                                     <div class="carousel-caption d-md-block">
-                                        <a class="btn btn-primary"><h2 class="fs-1"><?php echo $bar['title'];?></h2></a>
+                                        <div><h2 class="fs-1"><?php echo $bar['title'];?></h2></div>
                                     </div>
                                 </div>
                                 
@@ -144,8 +144,9 @@
                         
                     </div>
                 </div>
-
-                <!--Desarrollos-->
+                
+                
+                <!--Desarrollos>
                 <div class="container-fluid text-center mb-5">
                     <h2 class="fs-1 my-5">Desarrollos en <b><?php the_title();?></b> </h2>
                         <div id="carouselDesarrollos" class="carousel slide bg-azul" data-bs-ride="carousel" style="position:relative;">
@@ -185,9 +186,9 @@
                             <span class="visually-hidden">Next</span>
                             </button>
                         </div>
-                </div>
+                </div-->
 
-                <!--propiedades en esta region-->
+                <!--propiedades en esta region>
                 <div class="container-fluid text-center my-5" id="lf-properties">
                     <h2 class="fs-1 my-5">Propiedades en <b><?php the_title();?></b> </h2>
                     <div class="row justify-content-evenly">
@@ -213,7 +214,7 @@
                         </div>
 
                     </div>
-                </div>
+                </div--> 
 
                 <!--MAPA-->
                 <div class="container-fluid">
@@ -232,6 +233,7 @@
                     ?>
                     </div>
                 </div>
+                
             </div>
         </div>
 

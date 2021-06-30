@@ -19,7 +19,7 @@ else {
         <div class="container text-center p-5">
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                <h2 class="fw-bold py-5">Acerca del proyecto</h2>
+                <h2 class="fw-bold fs-1">Acerca del proyecto</h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
             </div>
 
@@ -34,7 +34,7 @@ else {
             
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                <h2 class="fw-bold py-5">Propiedades</h2>
+                <h2 class="fw-bold fs-1">Propiedades</h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
             </div>
             
@@ -66,7 +66,7 @@ else {
             </div>
         </div>
 
-        <!--carrusel de cards de propiedades>
+       <!--carrusel de cards de propiedades>
         <div class="container-fluid text-center my-5">
           <div class="row mx-auto my-auto justify-content-center">
               <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
@@ -207,7 +207,7 @@ else {
                   </a>
               </div>
           </div>
-        </div-->
+        </div> -->
 
         
         <!--fotos y mapas-->
@@ -215,55 +215,70 @@ else {
         <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/naya-map.png';?>">
 
        <!--Carrusel de amenidades-->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center my-5">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center">Amenidades</h2>
+            <h2 class="fw-bold fs-1 text-center">Amenidades</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
         </div>
         
-        <div id="carouselExampleCaptions" class="carousel  slide" data-bs-ride="carousel">
+        <div id="carouselAmenidades" class="carousel slide" data-bs-ride="carousel">
+           
+            <div class="carousel-inner">
 
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner" id="amenidades">
               <div class="carousel-item active">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/gym.png';?>" class="d-block w-100" alt="...">
+              <img src="<?php echo get_template_directory_uri() .'/assets/images/spa.png';?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption  d-md-block">
-                  <h5 class="fs-1">Gym</h5>
+                  <h5>Spa</h5>
                 </div>
               </div>
+
               <div class="carousel-item">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/ludoteca.png';?>" class="d-block w-100" alt="...">
+              <img src="<?php echo get_template_directory_uri() .'/assets/images/gym.png';?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption  d-md-block">
-                  <h5 class="fs-1">Ludoteca</h5>
+                  <h5>Gym</h5>
                 </div>
               </div>
+
               <div class="carousel-item">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/beach-club-render.png';?>" class="d-block w-100" alt="...">
+              <img src="<?php echo get_template_directory_uri() .'/assets/images/ludoteca.png';?>" class="d-block w-100" alt="...">
                 <div class="carousel-caption  d-md-block">
-                  <h5 class="fs-1">Beach Club</h5>
+                  <h5>Ludoteca</h5>
                 </div>
               </div>
+
+              <div class="carousel-item">
+              <img src="<?php echo get_template_directory_uri() .'/assets/images/beach-club-render.png';?>" class="d-block w-100" alt="...">
+                <div class="carousel-caption  d-md-block">
+                  <h5>Beach club</h5>
+                </div>
+              </div>
+
+              <div class="carousel-item">
+              <img src="<?php echo get_template_directory_uri() .'/assets/images/arrival.png';?>" class="d-block w-100" alt="...">
+                <div class="carousel-caption  d-md-block">
+                  <h5>Arrival</h5>
+                </div>
+              </div>
+
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselAmenidades" data-bs-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Previous</span>
             </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselAmenidades" data-bs-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="visually-hidden">Next</span>
             </button>
         </div>
+       
 
         <!-- mas fotos y mapas-->
         <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/naya-experiencies.jpg';?>">
         <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/beach-club.jpg';?>">
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center my-5">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center"> Mapa</h2>
+            <h2 class="fw-bold fs-1 text-center"> Mapa</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
         </div>
         

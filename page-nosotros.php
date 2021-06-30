@@ -7,109 +7,59 @@ else {
 } ?>
     <!--Acerca del proyecto-->
     <div class="container d-flex justify-content-center mt-5 mb-5">
-        <img style="height: 4rem;" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>" id="iconsvg">
-        <h2 class="tierra_azul text-center fs-1">CONÓCENOS MEJOR</h2>
-        <img style="height: 4rem;" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>" id="iconsvg">           
+        <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">
+        <h2 class=" text-center fs-1">CONÓCENOS MEJOR</h2>
+        <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">           
     </div>
     
     <!--VENDEDORES-->
 
     <div class="container-fluid text-center">
-        <h2 class=fs-1>Nuestros Vendedores</h2>
+        <h2 class=fs-1>Nuestro equipo de trabajo</h2>
         
         <div class="row justify-content-evenly">
+            <?php 
             
-            <div class="col-md-10 card my-3 mx-4" >
-                    <div class="row justify-content-center text-center text-md-start ">
+                $realtors = get_posts(array(
+                    'post_type' => 'realtors',
+                    'numberofposts' => -1
+
+                    )
+
+                );
+                
+            ?>
+
+            <?php if( $realtors ): ?>
+  
+                <?php foreach( $realtors as $realtor ): ?>
+
+                <?php
+                    $images = rwmb_meta( 'profile_picture', array( 'size' => 'thumbnail', 'limit' => 1 ), $realtor->ID ); 
+                    $image = reset( $images );?>
+
+            <div class="col-11 col-md-5 card my-3 mx-4" >
+                    <div class="row justify-content-center justify-content-md-start text-center text-md-start ">
                         
                         <div class="col-md-4 col-xxl-2">
-                            <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
+                            <img class="img-fluid p-2 w-70" src="<?php echo $image['url']; ?>">
                         </div>
     
-                        <div class="col-md-4 col-xxl-5  my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Ignacio</h4>
-                            <h4 class="fs-4 my-2">Real Estate Agent</h4>
-                            <h5 class="tr-nosotros-h4">+52 (322) 7797935</h5>
-                            <h5 class="tr-nosotros-h4">ignacio@tierravallarta.com</h5>
+                        <div class="col-md-8 col-xxl-5 my-3">
+                            <h4 class="fs-3 fw-bold tr-nosotros-h4"><?php echo get_the_title( $realtor->ID); ?></h4>
+                            <h4 class="fs-4 my-2"><?php echo $realtor->realtor_position; ?></h4>
                         </div>
 
-                        <div class="col-md-4 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
-                            <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
-                            <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>
+                         <div class="col-md-4 col-xxl-5 my-3">
+                            <h5 class="tr-nosotros-h4"><?php echo $realtor->realtor_phone_number; ?></h5>
+                            <h5 class="tr-nosotros-h4"><?php echo $realtor->realtor_email; ?></h5>
                         </div>
     
                     </div>
             </div>
-
-            <div class="col-md-10 card my-3 mx-4" >
-                    <div class="row justify-content-center text-center text-md-start ">
-                        
-                        <div class="col-md-4 col-xxl-2">
-                            <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
-                        </div>
-    
-                        <div class="col-md-4 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Frisek</h4>
-                            <h4 class="fs-4 my-2">Real Estate Agent</h4>
-                            <h5 class="tr-nosotros-h4">+52 (33) 1671 6536</h5>
-                            <h5 class="tr-nosotros-h4">frisek@tierravallarta.com</h5>
-                        </div>
-
-                        <div class="col-md-4 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
-                            <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
-                            <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>
-                        </div>
-    
-                    </div>
-            </div>
-
-            <div class="col-md-10 card my-3 mx-4" >
-                    <div class="row justify-content-center text-center text-md-start ">
-                        
-                        <div class="col-md-4 col-xxl-2">
-                            <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
-                        </div>
-    
-                        <div class="col-md-4 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Oziel</h4>
-                            <h4 class="fs-4 my-2">Real Estate Agent</h4>
-                            <h5 class="tr-nosotros-h4">+52 (322) 1339409</h5>
-                            <h5 class="tr-nosotros-h4">oziel@tierravallarta.com	</h5>
-                        </div>
-
-                        <div class="col-md-4 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
-                            <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
-                            <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>
-                        </div>
-    
-                    </div>
-            </div>
-
-            <div class="col-md-10 card my-3 mx-4" >
-                    <div class="row justify-content-center text-center text-md-start ">
-                        
-                        <div class="col-md-4 col-xxl-2">
-                            <img class="img-fluid p-2 w-70" src="<?php echo get_template_directory_uri() .'/assets/images/profile-pic.png'?>">
-                        </div>
-    
-                        <div class="col-md-4 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Gina</h4>
-                            <h4 class="fs-4 my-2">Real Estate Agent</h4>
-                            <h5 class="tr-nosotros-h4">+52 (322) 1495357</h5>
-                            <h5 class="tr-nosotros-h4">gina@tierravallarta.com</h5>
-                        </div>
-
-                        <div class="col-md-4 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4">Oficina</h4>
-                            <h4 class="fs-4 my-2">Mexico Sotheby's International Realty</h4>
-                            <h5 class="tr-nosotros-h4">Calle Julio Verne 9, Polanco <br> Ciudad de México</h5>
-                        </div>
-    
-                    </div>
-            </div>
+                <?php endforeach; ?>
+            
+            <?php endif; ?>
 
         </div>
 

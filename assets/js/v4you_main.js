@@ -1,17 +1,12 @@
-if ($(window).width() < 768) {
-    $('#tr-logo-header-grande').addClass('d-none');
-    $('.tr-header-brand').removeClass('d-none');
-
-    $('#tr-boton-nosotros').removeClass('d-none');
-    $('#tr-nosotros-grande').addClass('d-none');
+if ($(window).width() < 768) {   
+    $('#tr-header-brand-1').removeClass('d-none');
+    $('#tr-header-brand-2').removeClass('d-none');
 }
 if($(window).width() > 768) {
-    $('#tr-logo-header-grande').removeClass('d-none');
-    $('.tr-header-brand').addClass('d-none');
-
-    $('#tr-boton-nosotros').addClass('d-none');
-    $('#tr-nosotros-grande').removeClass('d-none');   
+    $('#tr-header-brand-1').addClass('d-none');  
+    $('#tr-header-brand-2').addClass('d-none');  
 }
+
 
 if($(window).width() > 2048){
     //$('#tr-contenedor-resoluciones-grandes').addClass('container');
@@ -24,6 +19,44 @@ if($(window).width() > 2048){
     $('.labels-form-small').removeClass('d-none');
     $('.labels-form-grande').addClass('d-none');
 }
+
+//Comportamiento navbar
+$(window).scroll(function () {
+
+    var scrolled = $(this).scrollTop();
+
+    //let heightViewPort = $(window).height();
+    let navHeigth = $('#mainHeader').height();
+   // console.log(heightViewPort);
+    //console.log(scrolled);
+
+    if ($(window).width() > 768) {
+
+        if (scrolled > (navHeigth) ) {
+            $('#mainHeader').addClass('fixed-top');
+            $('#tr-logo-header-grande').addClass('d-none');
+            $('#tr-header-brand-1').removeClass('d-none');
+            $('.navbar-nav').addClass('ms-auto');
+            $('.navbar-nav').removeClass('mx-auto');
+            $('.vl').addClass('d-none');
+            //$('#tr-boton-nosotros').css('display','block');
+
+        } else {
+            $('#mainHeader').removeClass('fixed-top');
+            $('#tr-logo-header-grande').removeClass('d-none');
+            $('#tr-header-brand-1').addClass('d-none');  
+            $('.navbar-nav').addClass('mx-auto');
+            $('.navbar-nav').removeClass('ms-auto');
+            $('.vl').removeClass('d-none');
+            //$('#tr-boton-nosotros').css('display','none');
+        }
+
+    }else{
+        $('#mainHeader').addClass('fixed-top');
+        //$('#tr-boton-nosotros').css('display','block');
+    }
+
+});
 
 //slide de imagenes
 document.addEventListener( 'DOMContentLoaded', () => wait(1700).then(() =>{
@@ -66,9 +99,9 @@ const setVisible = (elementOrSelector, visible) =>
     : elementOrSelector
   ).style.display = visible ? 'block' : 'none';
 
-setVisible('.tr-page', false);
-setVisible('#loading-logo', true);
-setVisible('#loading', true);
+    setVisible('.tr-page', false);
+    setVisible('#loading-logo', true);
+    setVisible('#loading', true);
 
 document.addEventListener('DOMContentLoaded', () =>
   wait(1500).then(() => {
@@ -76,6 +109,39 @@ document.addEventListener('DOMContentLoaded', () =>
     setVisible('#loading', false);
     setVisible('#loading-logo', false);
   }));
+
+
+  wait(1700).then(() => {
+  //animaciones
+  jQuery(function($) {
+  
+    // Function which adds the 'animated' class to any '.animatable' in view
+    var doAnimations = function() {
+      
+      // Calc current offset and get all animatables
+      var offset = $(window).scrollTop() + $(window).height();
+      var $animatables = $('.animatable');
+      
+      // Unbind scroll handler if we have no animatables
+      if ($animatables.length == 0) {
+        $(window).off('scroll', doAnimations);
+      }
+      
+      // Check all animatables and animate them if necessary
+          $animatables.each(function(i) {
+         var $animatable = $(this);
+              if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+          $animatable.removeClass('animatable').addClass('animated');
+              }
+      });
+  
+      };
+    
+    // Hook doAnimations on scroll, and trigger a scroll
+      $(window).on('scroll', doAnimations);
+    $(window).trigger('scroll');
+  
+  });   });
     
     
   //mapa

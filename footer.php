@@ -21,7 +21,7 @@
             </div>
             
             <div class="container-fluid text-center">
-                <p> &copy;2014-2021 Tierra Vallarta <a>Política de Privacidad</a></p>
+                <p> &copy;2014-2021 Tierra Vallarta <a class="link-light" href="/privacy-policy/">Política de Privacidad</a></p>
             </div>
         </footer>
 

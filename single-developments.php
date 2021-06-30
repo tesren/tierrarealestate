@@ -35,9 +35,9 @@
         <div class="container text-center p-5">
 
             <div class="d-flex justify-content-center">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                <h2 class="fw-bold py-5">Acerca del proyecto</h2>
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+                <h2 class="fw-bold fs-1">Acerca del proyecto</h2>
+                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
 
             <div class="fs-3 py-5">
@@ -50,9 +50,9 @@
         <div class="container-fluid text-center" id="propiedades">
             
             <div class="d-flex justify-content-center">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                <h2 class="fw-bold py-5">Propiedades</h2>
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+                <h2 class="fw-bold fs-1">Propiedades</h2>
+                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
             
             <div class="row">
@@ -237,9 +237,9 @@
 
        <!--Carrusel de amenidades-->
         <div class="d-flex justify-content-center">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center">Amenidades</h2>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+            <h2 class="fw-bold fs-1 text-center">Amenidades</h2>
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
         <div id="carouselAmenidades" class="carousel slide" data-bs-ride="carousel">
@@ -274,9 +274,9 @@
        
           <!--CARRUSEL mas fotos-->
         <div class="d-flex justify-content-center">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center">Mas fotos</h2>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+            <h2 class="fw-bold fs-1 text-center">Mas fotos</h2>
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
         <div id="carouselMasFotos" class="carousel slide" data-bs-ride="carousel">
@@ -307,9 +307,9 @@
        
        
         <div class="d-flex justify-content-center">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center"> Mapa</h2>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+            <h2 class="fw-bold fs-1 text-center"> Mapa</h2>
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
 
         <!--MAPA google-->

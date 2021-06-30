@@ -65,7 +65,7 @@ else {
           <div class="container-fluid my-5">
               <div class="d-flex justify-content-center">
                   <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                  <h3 class="fw-bold py-5">Developments</h3>
+                  <h3 class="fw-bold">Developments</h3>
                   <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
               </div>
           </div>

@@ -233,6 +233,8 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
     require get_template_directory() . '/inc/lifestyle-cpt.php';
 
+    require get_template_directory() . '/inc/sales-team-cpt.php';
+
     // require get_template_directory() . '/inc/featured-gallery-cpt.php';
 
     // require get_template_directory() . '/inc/destinations-cpt.php';
@@ -241,7 +243,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     function check_post_type_and_remove_media_buttons() {
     global $current_screen;
     // Replace following array items with your own custom post types
-    $post_types = array('listings','lifestyle');
+    $post_types = array('listings','lifestyle', 'developments', 'realtors');
     if (in_array($current_screen->post_type,$post_types)) {
     remove_action('media_buttons', 'media_buttons');
     }

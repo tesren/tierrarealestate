@@ -22,7 +22,7 @@ else {
         <div class="container text-center p-5">
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                <h2 class="fw-bold py-5">Acerca del proyecto</h2>
+                <h2 class="fw-bold fs-1">Acerca del proyecto</h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
             </div>
 
@@ -37,7 +37,7 @@ else {
             
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                <h2 class="fw-bold py-5">Propiedades</h2>
+                <h2 class="fw-bold fs-1">Propiedades</h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
             </div>
             
@@ -203,9 +203,9 @@ else {
         
 
        <!--Carrusel de amenidades-->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center my-5">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center">Amenidades</h2>
+            <h2 class="fw-bold fs-1 text-center">Amenidades</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
         </div>
         
@@ -247,9 +247,9 @@ else {
         </div>
 
         <!-- mas fotos y mapas-->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center my-5">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center"> Mapa</h2>
+            <h2 class="fw-bold fs-1 text-center"> Mapa</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
         </div>
         <img width="100%" class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/mapa-susurros.jpg';?>">
@@ -299,7 +299,7 @@ else {
 
         <div class="d-flex justify-content-center">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center"> Ubicación</h2>
+            <h2 class="fw-bold fs-1 text-center"> Ubicación</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
         </div>
         

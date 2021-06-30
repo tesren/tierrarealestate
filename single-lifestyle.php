@@ -19,24 +19,24 @@
                     </div>
                 </div>
                 <!--Lifestyle-->
-                <div class="container-fluid text-center px-5">
-                    <div class="row justify-content-center">
+                <div class="container-fluid text-center px-5 animatable fadeIn animationDelay">
+                    <div class="row justify-content-center ">
                         <div class="col-12">
-                            <div class="icon-size d-flex justify-content-center">
-                                <img class="" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                                <h2 class="">LIFESTYLE</h2>
-                                <img class="" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+                            <div class="d-flex justify-content-center">
+                                <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
+                                <h2 class="fs-1">LIFESTYLE</h2>
+                                <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 mb-5">
-                        <div class="fs-3 mt-2 mx-4">
+                    <div class="col-12 mb-5  ">
+                        <div class="container fs-3 mt-2">
                             <p><?php echo the_content();?></p>
                         </div>
                     </div>       
                 </div>
 
-                <h3 class="text-center my-5 fs-1">Recomendaciones de Restaurantes</h3>
+                <h3 class="text-center my-5 fs-1 animatable fadeInDown animationDelay">Recomendaciones de Restaurantes</h3>
 
                 <!--carrusel restaurantes-->
                 <div id="carouselRestas" class="carousel slide" data-bs-ride="carousel">
@@ -70,7 +70,7 @@
                     </button>
                 </div>
 
-                <h3 class="text-center px-5 pt-5 pb-2 fs-1">Recomendaciones de Bares</h3>
+                <h3 class="text-center px-5 pt-5 pb-2 fs-1 animatable fadeInUp">Recomendaciones de Bares</h3>
 
                 <!--carrusel Bares-->
                 <div id="carouselBares" class="carousel slide" data-bs-ride="carousel">
@@ -106,11 +106,11 @@
 
                 <!--VIVE EN-->
                 <div style="position: relative; text-align: center;" class="container-fluid pt-5 pb-5">
-                    <div class="row justify-content-center">
+                    <div class="row justify-content-center p-0">
 
                         <h4 style="font-size: 3.5rem; z-index: 1;" class="texto-encima">Vive en <?php the_title();?></h4>
                         
-                        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                        <div id="carouselExampleControls" class="carousel slide p-0" data-bs-ride="carousel">
 
                             <div class="carousel-inner">
                                 <?php
@@ -200,14 +200,14 @@
                                     
                                 <div class="lf-properties-caption">
                                     <div class = "row justify-content-start">
-                                        <h3 class="col-6"> Casa Lavanda </h3>
+                                        <h3 class="col-8 col-md-6"> Casa Lavanda </h3>
                                     </div>
                                     <div class = "row justify-content-start">
                                         <p class="col-10"> $500,000 | 2 recámaras | 192 m2</p>
                                     </div>
                                     <div class = "row justify-content-between ps-3 pe-5">
-                                        <a class="col-2 btn btn-dark"> Casa </a>
-                                        <a class="col-2 btn btn-amarillo">Info</a>
+                                        
+                                        <a class="col-5 col-md-2 btn btn-amarillo">Info</a>
                                     </div>
                                 </div>
                             </div>
@@ -217,7 +217,7 @@
                 </div--> 
 
                 <!--MAPA-->
-                <div class="container-fluid">
+                <div class="container-fluid animatable fadeInUp">
                     <div style="height: 50vh;" class="col-12">
                     <?php $args = array(
                         'width'        => '100%',
@@ -233,6 +233,51 @@
                     ?>
                     </div>
                 </div>
+
+                <!--contacto-->
+       <div class="container-fluid py-5 animatable fadeInDown">
+           <div class="row">
+
+                <div class="col-sm-6 order-sm-1 bg-azul text-start px-xxl-5" id="texto-formulario">
+                    <h3 class="">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
+                </div>
+               
+                <!--formulario-->
+                <div class="col-sm-6 order-sm-12">
+                    <h2 class="pt-3 px-3 px-xxl-5 fs-1">Formulario de contacto</h2>
+                    <form action="#" class="text-start px-3 px-xxl-5" method="POST">
+                        <div class="form-floating mb-3">
+                            <h4 class="labels-form-grande">Nombre</h4>
+                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>
+                            <label class="labels-form-small" for="floatingInput">Nombre</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <h4 class="labels-form-grande">Correo electrónico</h4>
+                            <input type="email" class="form-control" id="correo" name="correo" placeholder="name@example.com" required>
+                            <label class="labels-form-small" for="floatingInput">Correo electrónico</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <h4 class="labels-form-grande">Teléfono</h4>
+                            <input type="number" class="form-control" id="telefono" name="telefono" placeholder="322 555 5555" required>
+                            <label class="labels-form-small" for="floatingInput">Teléfono</label>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <h4 class="labels-form-grande">Mensaje</h4>
+                            <textarea class="form-control" placeholder="Mensaje" id="mensaje" name="mensaje" style="height: 150px" required></textarea>
+                            <label class="labels-form-small" for="floatingTextarea2">Mensaje</label>
+                        </div>
+
+                        
+                        <button type="submit" class="btn btn-amarillo btn-lg">Submit</button>
+
+                    </form>
+                </div>
+
+           </div>
+       </div>
                 
             </div>
         </div>

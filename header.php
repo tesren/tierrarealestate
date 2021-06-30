@@ -24,7 +24,7 @@
 
     <div class="tr-page">
       
-        <div class="container-fluid text-center bg-azul fixed-top">
+        <div class="container-fluid text-center bg-azul" id="mainHeader">
 
             <!--Nosotros-->
             <div class="d-flex justify-content-end iconos">
@@ -44,7 +44,7 @@
     
                 <!-- Navbar content -->
                 <div class="container-fluid">
-                  <a class="navbar-brand ms-2 tr-header-brand" href="/">
+                  <a class="navbar-brand ms-2 " href="/" id="tr-header-brand-1">
                      <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo Tierra" width="150px" height="auto">
                   </a>
 
@@ -57,7 +57,7 @@
                         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                           
                           <li id="tr-boton-idioma" class="nav-item py-3">
-                            <a class="navbar-brand ms-2 tr-header-brand" href="/">
+                            <a class="navbar-brand ms-2" href="/" id="tr-header-brand-2">
                               <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo Tierra" width="70%" height="auto">
                             </a>
                           </li>
@@ -70,9 +70,9 @@
                               Punta de Mita
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item px-5" href="/wordpress-tierra/naya">Naya</a></li>
-                            <li><a class="dropdown-item px-5" href="/wordpress-tierra/susurros">Susurros del Corazón</a></li>  
-                            <li><a class="dropdown-item px-5" href="/lifestyle/punta-mita/">LifeStyle</a></li>
+                            <li><a class="dropdown-item px-5 fs-4" href="/wordpress-tierra/naya">Naya</a></li>
+                            <li><a class="dropdown-item px-5 fs-4" href="/wordpress-tierra/susurros">Susurros del Corazón</a></li>  
+                            <li><a class="dropdown-item px-5 fs-4" href="/lifestyle/punta-mita/">LifeStyle</a></li>
                             </ul>
                           </li>
 
@@ -82,7 +82,8 @@
                                Bucerías 
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item px-5" href="/lifestyle/bucerias/">LifeStyle</a></li>
+                              <li><a class="dropdown-item px-5 fs-4" href="/lifestyle/bucerias/">LifeStyle</a></li>
+                              <li><a class="dropdown-item px-5 fs-4" href="/propiedades-bucerias">Propiedades</a></li>
                             </ul>
                           </li>
 
@@ -92,8 +93,8 @@
                               Nuevo Vallarta
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item px-5" href="/wordpress-tierra/green-district">Green District</a></li>
-                              <li><a class="dropdown-item px-5" href="/lifestyle/nuevo-vallarta/">LifeStyle</a></li>
+                              <li><a class="dropdown-item px-5 fs-4" href="/wordpress-tierra/green-district">Green District</a></li>
+                              <li><a class="dropdown-item px-5 fs-4" href="/lifestyle/nuevo-vallarta/">LifeStyle</a></li>
                             </ul>
                           </li>
                           <div class="vl"></div>

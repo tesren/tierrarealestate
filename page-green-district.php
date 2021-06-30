@@ -18,9 +18,9 @@ else {
         <!--Acerca del proyecto-->
         <div class="container text-center p-5">
             <div class="d-flex justify-content-center">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
-                <h2 class="fw-bold py-5">Acerca del proyecto</h2>
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
+                <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
+                <h2 class="fw-bold fs-1">Acerca del proyecto</h2>
+                <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
             </div>
 
             <p class="fs-3 py-5">Ki Green District, abre sus puertas para que descubras tu
@@ -35,9 +35,9 @@ else {
         <div class="container-fluid text-center" id="propiedades">
             
             <div class="d-flex justify-content-center">
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                <h2 class="fw-bold py-5">Propiedades</h2>
-                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+                <h2 class="fw-bold fs-1">Propiedades</h2>
+                <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
             
             <div class="row">
@@ -149,9 +149,9 @@ else {
        <!--Carrusel de amenidades-->
 
        <div class="container-fluid text-center">
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center my-5">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center">Amenidades</h2>
+            <h2 class="fw-bold fs-1 text-center">Amenidades</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
         </div>
 
@@ -193,10 +193,10 @@ else {
 
       </div>
       
-        <div class="d-flex justify-content-center">
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-            <h2 class="fw-bold my-5 text-center"> Mapa</h2>
-            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+        <div class="d-flex justify-content-center my-5">
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+            <h2 class="fw-bold fs-1 text-center"> Mapa</h2>
+            <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.0029507161603!2d-105.2867339851221!3d20.71010478617192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8421470f76338913%3A0x25a99d2c8f0aff69!2sKi%20Green%20District%20Nuevo%20Vallarta!5e0!3m2!1ses-419!2smx!4v1623968422043!5m2!1ses-419!2smx" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>

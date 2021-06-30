@@ -10,7 +10,7 @@ else {
             <div class="col-12">
 
                 <!--Carrusel de imagenes de propiedades-->
-            <div id="carouselFrontPage" class="carousel slide bg-azul" data-bs-ride="carousel">
+            <div id="carouselFrontPage" class="carousel slide bg-azul " data-bs-ride="carousel">
                 
                 <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselFrontPage" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -126,71 +126,81 @@ else {
         <!--listings-->
         <div class="container-fluid" id="listings">
 
-            <!--Punta mita-->
-            <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/punta-mita.jpg';?>" alt="punta mita">
+        <?php 
+
+/*
+*  Query posts for a relationship value.
+*  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
+*/
+
+$listings = get_posts(array(
+    'post_type' => 'listings',
+    'numberposts' => -1,
+));
+
+?>
+<?php if( $listings ): ?>
+
+<?php foreach( $listings as $unit ): ?>
+    <?php 
+
+    //$photo = get_field('photo', $unit->ID);
+    $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+
+    ?>
+            <!--listing info-->
+        <div id="container-img" style="position:relative;">
+                <img class="img-fluid w-100" src="<?php echo $portada[0];?>" alt="">
+
+            <div class="listing-caption-pc">
+                <h3 class="fs-1"><?php echo get_the_title( $unit->ID );?></h3>
+                <p class="fs-3"> <?php 
             
-            <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
-                <div class="col-md-7 text-center">
+            $locations = array_reverse( $unit->location );
 
-                    <hr style="width:100%;text-align:left;margin-left:0">
+            $j =1;
+            if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
+                foreach ( $locations as $location ) {
+                    echo $location->name;
+                    if( $i < count($locations) ){
+                        echo ', ';
+                    }
+                    $j++;
+                }
+            }
+        ?> 
+        <?php echo $unit->currency;?> $ <?php echo number_format($unit->price);?></p>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
+            <div class="col-md-7 text-center">
 
-                    <div class="row justify-content-center">
-
-                       <h3 class="col-md-4"> <i class="fas fa-bed"></i> 3 Recámaras</h3>
-                       <h3 class="col-md-4"><i class="fas fa-shower"></i> 2 baños</h3>
-                       <h3 class="col-md-4"><i class="fas fa-home"></i> 450m2</h3>
-                       
-                    </div>
-                    <hr style="width:100%;text-align:left;margin-left:0">
-                </div>
-                <div class="col-md-2 text-center">
-                    <a href="#" class="btn btn-amarillo btn-lg mt-1 mt-md-4">Mas info</a>
-                </div>
+            <div class="listing-caption-mobile">
+                <h3 class="fs-4 mb-1"><?php echo get_the_title( $unit->ID );?></h3>
+                <p class="fs-5 m-0"><i class="fas fa-map-marker-alt"></i> Bucerías, Nayarit</p>
+                <p class="fs-5 m-0"><?php echo $unit->currency;?>$<?php echo $unit->price;?></p>
             </div>
 
-            <!--Casa flor-->
-            <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/casa-flor.jpg';?>" alt="Casa flor">
-            
-            <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
-                <div class="col-md-7 text-center">
+                <hr style="width:100%;text-align:left;margin-left:0">
 
-                    <hr style="width:100%;text-align:left;margin-left:0">
+                <div class="row justify-content-center">
 
-                    <div class="row justify-content-center">
-
-                       <h3 class="col-md-4"> <i class="fas fa-bed"></i> 3 Recámaras</h3>
-                       <h3 class="col-md-4"><i class="fas fa-shower"></i> 2 baños</h3>
-                       <h3 class="col-md-4"><i class="fas fa-home"></i> 450m2</h3>
-                       
-                    </div>
-                    <hr style="width:100%;text-align:left;margin-left:0">
+                    <h3 class="col-md-4"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> Recámaras</h3>
+                    <h3 class="col-md-4"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> baños</h3>
+                    <h3 class="col-md-4"><i class="fas fa-home"></i> <?php echo $unit->construction;?> m2</h3>
+                    
                 </div>
-                <div class="col-md-2 text-center">
-                    <a href="#" class="btn btn-amarillo btn-lg mt-1 mt-md-4">Mas info</a>
-                </div>
+                <hr style="width:100%;text-align:left;margin-left:0">
             </div>
-
-            <!--Francia 332-->
-            <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/francia.jpg';?>" alt="Francia 332">
-            
-            <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
-                <div class="col-md-7 text-center">
-
-                    <hr style="width:100%;text-align:left;margin-left:0">
-
-                    <div class="row justify-content-center">
-
-                       <h3 class="col-md-4"> <i class="fas fa-bed"></i> 3 Recámaras</h3>
-                       <h3 class="col-md-4"><i class="fas fa-shower"></i> 2 baños</h3>
-                       <h3 class="col-md-4"><i class="fas fa-home"></i> 450m2</h3>
-                       
-                    </div>
-                    <hr style="width:100%;text-align:left;margin-left:0">
-                </div>
-                <div class="col-md-2 text-center">
-                    <a href="#" class="btn btn-amarillo btn-lg mt-1 mt-md-4">Mas info</a>
-                </div>
+            <div class="col-md-2 text-center">
+                <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg mt-1 mt-md-4">Mas info</a>
             </div>
+        </div>
+
+        <?php endforeach; ?>
+       
+    <?php endif; ?>
 
         </div>
 
@@ -206,12 +216,12 @@ else {
        <div class="container-fluid py-5">
            <div class="row">
 
-                <div class="col-sm-6 order-sm-1 bg-azul text-start px-xxl-5" id="texto-formulario">
+                <div class="col-sm-6 order-sm-1 bg-azul text-start px-xxl-5 animatable fadeInUp" id="texto-formulario">
                     <h3 class="">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
                 </div>
                
                 <!--formulario-->
-                <div class="col-sm-6 order-sm-12">
+                <div class="col-sm-6 order-sm-12 animatable fadeInDown">
                     <h2 class="pt-3 px-3 px-xxl-5 fs-1">Formulario de contacto</h2>
                     <form action="#" class="text-start px-3 px-xxl-5" method="POST">
                         <div class="form-floating mb-3">

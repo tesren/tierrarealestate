@@ -23,9 +23,9 @@ else {
         <div class="row justify-content-center">
             <div class="col-12">
                 <div class="icon-size d-flex justify-content-center">
-                    <img class="" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
-                    <h2 class="">LIFESTYLE</h2>
-                    <img class="" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" id="iconsvg">
+                    <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
+                    <h2 class="fs-1">LIFESTYLE</h2>
+                    <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
                 </div>
             </div>
         </div>

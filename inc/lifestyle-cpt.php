@@ -144,32 +144,6 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
         ]
     ];
 
-    $meta_boxes[] = [
-        
-        'title' => 'Fotos Desarollos',
-        'post_types' => 'lifestyle',
-
-        'fields' => [
-            [
-                'id'               => 'lf_desarrollos_gallery',
-                'name'             => 'Image upload',
-                'type'             => 'image_upload',
-
-                // Delete file from Media Library when remove it from post meta?
-                // Note: it might affect other posts if you use same file for multiple posts
-                'force_delete'     => false,
-
-                // Maximum file uploads.
-                'max_file_uploads' => 10,
-
-                // Do not show how many files uploaded/remaining.
-                'max_status'       => 'false',
-
-                // Image size that displays in the edit page.
-                'image_size'       => 'thumbnail',
-            ],
-        ]
-    ];
     // More fields..
 
     $meta_boxes[] = [

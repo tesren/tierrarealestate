@@ -19,7 +19,7 @@
                     </div>
                 </div>
                 <!--Lifestyle-->
-                <div class="container-fluid text-center px-5 animatable fadeIn animationDelay">
+                <div class="container-fluid text-center px-5 animatable fadeIn">
                     <div class="row justify-content-center ">
                         <div class="col-12">
                             <div class="d-flex justify-content-center">
@@ -36,7 +36,7 @@
                     </div>       
                 </div>
 
-                <h3 class="text-center my-5 fs-1 animatable fadeInDown animationDelay">Recomendaciones de Restaurantes</h3>
+                <h3 class="text-center my-5 fs-1 animatable fadeInDown ">Recomendaciones de Restaurantes</h3>
 
                 <!--carrusel restaurantes-->
                 <div id="carouselRestas" class="carousel slide" data-bs-ride="carousel">
@@ -188,33 +188,51 @@
                         </div>
                 </div-->
 
-                <!--propiedades en esta region>
+                <!--propiedades en esta region-->
                 <div class="container-fluid text-center my-5" id="lf-properties">
+                
+                <?php 
+                    $listings = get_posts(array(
+                        'post_type' => 'listings',
+                            'tax_query' => array(
+                                array(
+                                    'taxonomy' => 'regiones',
+                                    'field'    => 'slug',
+                                    'terms'    => 'bucerias',
+                                )
+                            )
+                        )
+                    );
+                ?>
                     <h2 class="fs-1 my-5">Propiedades en <b><?php the_title();?></b> </h2>
                     <div class="row justify-content-evenly">
+
+                        <?php if( $listings ): ?>
+                        <?php foreach( $listings as $unit ): 
+                        $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+                        ?>
                         
-                        <div class="col-md-6">
-                            
-                            <div class="card text-start" style="position:relative;">
-                                <img class="img-fluid" src = "<?php echo get_template_directory_uri() .'/assets/images/casa-izma.jpg';?>">
-                                    
-                                <div class="lf-properties-caption">
-                                    <div class = "row justify-content-start">
-                                        <h3 class="col-8 col-md-6"> Casa Lavanda </h3>
-                                    </div>
-                                    <div class = "row justify-content-start">
-                                        <p class="col-10"> $500,000 | 2 recámaras | 192 m2</p>
-                                    </div>
-                                    <div class = "row justify-content-between ps-3 pe-5">
+                            <div class="col-md-6 mb-2">
+                                
+                                <div class="card text-start" style="position:relative;">
+                                    <img class="img-fluid" src = "<?php echo $portada[0];?>">
                                         
-                                        <a class="col-5 col-md-2 btn btn-amarillo">Info</a>
+                                    <div class="lf-properties-caption ms-1">
+                                        <div class = "row justify-content-md-start justify-content-center">
+                                            <h3 class="col-12"> <?php echo get_the_title( $unit->ID );?> </h3>
+                                        </div>
+                                        <div class = "row justify-content-md-start justify-content-center mb-2">
+                                            <p class="col-12 mb-1"> $<?php echo number_format($unit->price);?> | <?php echo $unit->bedrooms;?> recámaras | <?php echo $unit->construction;?> m<sup>2</sup></p>
+                                            <a href="<?php echo get_the_permalink( $unit->ID );?>" class="col-5 col-md-2 fs-5 p-0 btn btn-amarillo">Info</a>
+                                        </div>
+                                                              
                                     </div>
                                 </div>
                             </div>
+                            <?php endforeach; ?>
+                            <?php endif; ?>
                         </div>
-
-                    </div>
-                </div--> 
+                </div> 
 
                 <!--MAPA-->
                 <div class="container-fluid animatable fadeInUp">

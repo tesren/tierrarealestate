@@ -6,7 +6,7 @@ else {
  get_header();
 } ?>
     <!--Acerca del proyecto-->
-    <div class="container d-flex justify-content-center mt-5 mb-5">
+    <div class="container d-flex justify-content-center mt-5 mb-4 pt-5 pt-md-0">
         <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">
         <h2 class=" text-center fs-1">CONÓCENOS MEJOR</h2>
         <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">           
@@ -14,10 +14,10 @@ else {
     
     <!--VENDEDORES-->
 
-    <div class="container-fluid text-center">
-        <h2 class=fs-1>Nuestro equipo de trabajo</h2>
+    <div class="container text-center">
+        <h2 class="fs-1 mt-3">Nuestro equipo de trabajo</h2>
         
-        <div class="row justify-content-evenly">
+        <div class="row justify-content-center mt-4">
             <?php 
             
                 $realtors = get_posts(array(
@@ -35,22 +35,19 @@ else {
                 <?php foreach( $realtors as $realtor ): ?>
 
                 <?php
-                    $images = rwmb_meta( 'profile_picture', array( 'size' => 'thumbnail', 'limit' => 1 ), $realtor->ID ); 
+                    $images = rwmb_meta( 'profile_picture', array( 'size' => 'full', 'limit' => 1 ), $realtor->ID ); 
                     $image = reset( $images );?>
 
-            <div class="col-11 col-md-5 card my-3 mx-4" >
-                    <div class="row justify-content-center justify-content-md-start text-center text-md-start ">
+            <div class="col-10 col-md-5 bg-light my-3 mx-4 px-0" >
+                    <div class="row justify-content-start justify-content-md-start text-center text-md-start ">
                         
-                        <div class="col-md-4 col-xxl-2">
-                            <img class="img-fluid p-2 w-70" src="<?php echo $image['url']; ?>">
+                        <div class="col-md-6">
+                            <img class="img-fluid w-100" src="<?php echo $image['url']; ?>">
                         </div>
     
-                        <div class="col-md-8 col-xxl-5 my-3">
-                            <h4 class="fs-3 fw-bold tr-nosotros-h4"><?php echo get_the_title( $realtor->ID); ?></h4>
-                            <h4 class="fs-4 my-2"><?php echo $realtor->realtor_position; ?></h4>
-                        </div>
-
-                         <div class="col-md-4 col-xxl-5 my-3">
+                        <div class="col-md-5 my-3 ms-2">
+                            <h4 class="fs-2 fw-bold tr-nosotros-h4"><?php echo get_the_title( $realtor->ID); ?></h4>
+                            <h4 class="fs-3 my-2"><?php echo $realtor->realtor_position; ?></h4>
                             <h5 class="tr-nosotros-h4"><?php echo $realtor->realtor_phone_number; ?></h5>
                             <h5 class="tr-nosotros-h4"><?php echo $realtor->realtor_email; ?></h5>
                         </div>

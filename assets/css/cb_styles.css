@@ -24,7 +24,7 @@
     margin-right: 0px !important;
     }
 
-.col-md-4, .col-md-12, .col-12, .col-md-3{
+.col-md-4, .col-md-12, .col-12, .col-md-3, .col-md-6{
     padding: 0 !important;
     position: relative;
  }
@@ -61,11 +61,11 @@
 
 .caption-naya h1{
     color: white;
-    width: 30%;
+    width: 40%;
     position: absolute;
     top: 160px;
-    margin-left: 35%;
-    margin-right: 35%;
+    margin-left: 30%;
+    margin-right: 30%;
     font-size: 5rem;
     border: 3px solid white;
     text-shadow: 2px 2px 2px black;
@@ -150,7 +150,7 @@ h2{
     object-fit: cover;
 }
 
-.row .col-md-4 h3{
+#propiedades .row .col-md-4 h3{
     font-size: 40px;
     color: white;
     position: absolute;
@@ -159,7 +159,16 @@ h2{
     padding: 0px 50px;
 }
 
-.row .col-md-12 h3{
+#propiedades .row .col-md-6 h3{
+    font-size: 40px;
+    color: white;
+    position: absolute;
+    width: 100%;
+    bottom: 30px;
+    padding: 0px 50px;
+}
+
+#propiedades .row .col-md-12 h3{
     font-size: 60px;
     color: white;
     position: absolute;
@@ -476,20 +485,6 @@ a{
     display: none;
 }
 
-.listing-caption-pc{
-    display: block;
-    position: absolute;
-    color: #FFF;
-    right: 0;
-    bottom: 30px;
-    background-color: rgba(0, 0, 0, 0.6);
-    text-shadow: 2px 2px 2px black;
-    padding: 3rem;
-}
-.listing-caption-mobile{
-    display: none;
-}
-
 .iconsvg{
     height: calc(1.375rem + 1.5vw);
     width: auto;
@@ -723,7 +718,15 @@ a{
 	animation-name: fadeInUp;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+
+#lf-properties .card{
+    border-radius: 20px;
+}
+    
+#lf-properties img{
+    border-radius: 20px;
+}
 
 #tr-logo-header-grande{
     display: none;
@@ -736,19 +739,11 @@ a{
     display: none;
 }
 
-.listing-caption-pc{
-    display: none;
-}
-.listing-caption-mobile{
-    display: block;
-    color: black;  
-}
-
 .lf-properties-caption h3{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 .lf-properties-caption p{
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 #carouselRestas .carousel-caption div, #carouselBares .carousel-caption div{
@@ -784,17 +779,17 @@ a{
 }
 
 .caption-naya h1{
-    width: 40%;
+    width: 70%;
     position: absolute;
     top: 140px;
-    margin-left: 30%;
-    margin-right: 30%;
+    margin-left: 15%;
+    margin-right: 15%;
     font-size: 2.5rem !important;
 }
 
 .caption-naya p{
     position: absolute;
-    top: 200px;
+    top: 260px;
     font-size: 1.5rem !important;
 }
 
@@ -1015,7 +1010,7 @@ a{
 }
 
 /* medium and up screens */
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     
     #recipeCarousel .carousel-inner .carousel-item-end.active,
     #recipeCarousel .carousel-inner .carousel-item-next {

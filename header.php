@@ -28,10 +28,10 @@
 
             <!--Nosotros-->
             <div class="d-flex justify-content-end iconos">
-                  <h3 id="tr-nosotros-grande" class="fs-5 pt-1">
-                    <a href="#" class="link-light my-3 mx-2"><i class="fas fa-globe"></i> En</a>
+                  <h3 id="tr-nosotros-grande" class="fs-5 pt-3">
+                    <a href="#" class="link-light my-5 mx-2"><i class="fas fa-globe"></i> En</a>
                      /
-                    <a href="/wordpress-tierra/nosotros" class="link-light mx-2 my-3"> Nosotros</a>
+                    <a href="/wordpress-tierra/nosotros" class="link-light ms-2 me-4 my-5"> Nosotros</a>
                   </h3>  
            </div>
            
@@ -70,7 +70,7 @@
                               Punta de Mita
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item px-5 fs-4" href="/wordpress-tierra/naya">Naya</a></li>
+                            <li><a class="dropdown-item px-5 fs-4" href="/developments/naya/">Naya</a></li>
                             <li><a class="dropdown-item px-5 fs-4" href="/wordpress-tierra/susurros">Susurros del Corazón</a></li>  
                             <li><a class="dropdown-item px-5 fs-4" href="/lifestyle/punta-mita/">LifeStyle</a></li>
                             </ul>
@@ -82,8 +82,8 @@
                                Bucerías 
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item px-5 fs-4" href="/lifestyle/bucerias/">LifeStyle</a></li>
                               <li><a class="dropdown-item px-5 fs-4" href="/propiedades-bucerias">Propiedades</a></li>
+                              <li><a class="dropdown-item px-5 fs-4" href="/lifestyle/bucerias/">LifeStyle</a></li>
                             </ul>
                           </li>
 
@@ -93,7 +93,7 @@
                               Nuevo Vallarta
                             </a>
                             <ul class="dropdown-menu bg-azul-fuerte" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item px-5 fs-4" href="/wordpress-tierra/green-district">Green District</a></li>
+                              <li><a class="dropdown-item px-5 fs-4" href="/developments/green-district/">Green District</a></li>
                               <li><a class="dropdown-item px-5 fs-4" href="/lifestyle/nuevo-vallarta/">LifeStyle</a></li>
                             </ul>
                           </li>

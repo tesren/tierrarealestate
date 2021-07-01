@@ -97,7 +97,7 @@ function tierra_realtors_register_meta_boxes( $meta_boxes ) {
                 'max_status'       => 'false',
 
                 // Image size that displays in the edit page.
-                'image_size'       => 'thumbnail',
+                'image_size'       => 'full',
             ],
             
             

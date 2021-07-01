@@ -54,177 +54,157 @@
                 <h2 class="fw-bold fs-1">Propiedades</h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
-            
+
             <div class="row">
-                
-                <div class="col-md-4">
-                    <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/panoramic.jpg';?>">
-                    <h3>Residencias con vista panoramica</h3>
-                    <hr class="lineas">
-                </div>
+            <?php 
+            
+                    $residences = rwmb_meta( 'residences_gallery', array( 'size' => 'full' ) ); 
+                    
+                    $total = count($residences);
+                    
+                    switch($total)
+                    {
+                        case 1:
+                            
+                            foreach ( $residences as $residence ) { ?>
 
-                <div class="col-md-4">
-                    <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/ocean_view.jpg';?>">
-                    <h3>Residencias con vista al mar</h3>
-                    <hr class="lineas">
-                </div>
+                                <div class="col-md-12">
+                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
+                                    <h3><?php echo $residence['title'];?></h3>
+                                    <hr class="linea-grande">
+                                </div>
+                            
+                            <?php
+                            }
 
-                <div class="col-md-4">
-                    <img class="img-fluid" src="<?php echo get_template_directory_uri() .'/assets/images/ocean_front.jpg';?>">
-                    <h3>Residencias frente al mar</h3>
-                    <hr class="lineas">
-                </div>
+                            break;
 
-                <div class="col-md-12">
-                    <img class="img-fluid w-100" src="<?php echo get_template_directory_uri() .'/assets/images/beach_front.jpg';?>">
-                    <h3>Residencias frente a la playa</h3>
-                    <hr class="linea-grande">
-                </div>
+                        case 2:
+                            foreach ( $residences as $residence ) { ?>
+
+                                <div class="col-md-6">
+                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
+                                    <h3><?php echo $residence['title'];?></h3>
+                                    <hr class="lineas">
+                                </div>
+                            
+                            <?php
+                            }
+                        break;
+                       
+                        case 3:
+                            foreach ( $residences as $residence ) { ?>
+
+                                <div class="col-md-4">
+                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
+                                    <h3><?php echo $residence['title'];?></h3>
+                                    <hr class="lineas">
+                                </div>
+        
+                            <?php
+                            }
+                        break;
+                        
+                        case 4:
+                            $i=0;
+                            foreach ( $residences as $residence ) {   ?>
+
+                                <div class="col-md-<?php if($i==3){echo '12';}else{echo '4';} ?>">
+                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
+                                    <h3><?php echo $residence['title'];?></h3>
+                                    <hr class="<?php if($i==3){echo 'linea-grande';}else{echo 'lineas';} ?>">
+                                </div>
+        
+                            <?php 
+                            $i++;}
+                        break;
+
+                    }
+
+                   // echo $total;
+            ?>
+
             </div>
         </div>
 
-        <!--carrusel de cards de propiedades-->
-        <div class="container-fluid text-center my-5">
-          <div class="row mx-auto my-auto justify-content-center">
-              <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
+         <!--carrusel de cards de propiedades-->
+
+         <div class="container-fluid text-center my-5">
+
+<div class="row mx-auto my-auto justify-content-center">
+    <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
+        
+      <div class="carousel-inner" role="listbox">
+
+
+      <?php 
+
+          /*
+          *  Query posts for a relationship value.
+          *  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
+          */
+
+          $units = get_posts(array(
+              'post_type' => 'inventory',
+              'meta_query' => array(
+                  array(
+                      'key' => 'developments', // name of custom field
+                      'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
+                      'compare' => 'LIKE'
+                  )
+              )
+          ));
+
+      ?>
+      <?php if( $units ): ?>
+          <?php $i=1;?>
+          <?php foreach( $units as $unit ): ?>
+              <?php 
+
+          
+              $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+
+              ?>
+              <div class="carousel-item<?php if($i==1){echo ' active';}?>">
+                  <div class="col-md-3">
+                      <div class="card">
+                          <img src="<?php echo $portada[0];?>" class="card-img-top" alt="...">
+                          <div class="card-body">
+                              <h5 class="card-title fw-bold"> <?php echo get_the_title( $unit->ID );?></h5>
+                              <p class="card-text">
+                                  <ul class="list-unstyled">
+                                      <li><?php echo $unit->bedrooms;?> recámaras</li>
+                                      <li><?php echo $unit->bathrooms;?> baños</li>
+                                      <li><?php echo $unit->half_baths;?> medios baños</li>
+                                      <li><?php echo $unit->construction;?> m<sup>2</sup></li>
+                                  </ul>        
+                              </p>
+                              <h5 class="card-title fw-bold">Desde <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
+                          </div>
+                      </div>
                   
-                <div class="carousel-inner" role="listbox">
-                      
-                    <div class="carousel-item active">
-                          
-                      <div class="col-md-3">
-                            <div class="card">
-                              <img src="<?php echo get_template_directory_uri() .'/assets/images/planos-cafes.png';?>" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title fw-bold">Residencias con vistas panorámicas</h5>
-                                <p class="card-text">
-                                  <ul class="list-unstyled">
-                                      <li>3 habitaciones</li>
-                                      <li>340m2</li>
-                                      <li>3-4 pisos</li>
-                                      <li>2 unidades por piso</li>
-                                  </ul>        
-                                  </p>
-                                  <h5 class="card-title fw-bold">Desde 1,200,000</h5>
-                              </div>
-                            </div>
-                          </div>
-                      </div>
-
-                      <div class="carousel-item">
-                          
-                        <div class="col-md-3">
-                          <div class="card">
-                            <img src="<?php echo get_template_directory_uri() .'/assets/images/planos-verdes.png';?>" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                <h5 class="card-title fw-bold">Residencias con vista al mar</h5>
-                                <p class="card-text">
-                                  <ul class="list-unstyled">
-                                      <li>4 habitaciones</li>
-                                      <li>420m2</li>
-                                      <li>4 pisos</li>
-                                      <li>2 unidades por piso</li>
-                                  </ul>        
-                                  </p>
-                                  <h5 class="card-title fw-bold">Desde 1,600,000</h5>
-                              </div>
-                          </div>
-                          </div>
-                      </div>
-
-                      <div class="carousel-item">
-                          <div class="col-md-3">
-
-                            <div class="card">
-                              <img src="<?php echo get_template_directory_uri() .'/assets/images/planos-cafes.png';?>" class="card-img-top" alt="...">
-                              <div class="card-body">
-                                  <h5 class="card-title fw-bold">Residencias frente a la playa</h5>
-                                  <p class="card-text">
-                                    <ul class="list-unstyled">
-                                        <li>4 habitaciones</li>
-                                        <li>420m2</li>
-                                        <li>4 pisos</li>
-                                        <li>2 unidades por piso</li>
-                                    </ul>        
-                                    </p>
-                                    <h5 class="card-title fw-bold">Desde 1,700,000</h5>
-                                </div>
-                            </div>
-                          </div>
-                      </div>
-
-                      <div class="carousel-item">
-                          
-                        <div class="col-md-3">
-                          <div class="card">
-                            <img src="<?php echo get_template_directory_uri() .'/assets/images/planos-verdes.png';?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title fw-bold">Residencias con vistas panorámicas</h5>
-                              <p class="card-text">
-                                <ul class="list-unstyled">
-                                    <li>3 habitaciones</li>
-                                    <li>340m2</li>
-                                    <li>3-4 pisos</li>
-                                    <li>2 unidades por piso</li>
-                                </ul>        
-                                </p>
-                                <h5 class="card-title fw-bold">Desde 1,200,000</h5>
-                            </div>
-                          </div>
-                          </div>
-                      </div>
-
-                      <div class="carousel-item">
-                          
-                        <div class="col-md-3">
-                          <div class="card">
-                            <img src="<?php echo get_template_directory_uri() .'/assets/images/planos-cafes.png';?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title fw-bold">Residencias con vistas panorámicas</h5>
-                              <p class="card-text">
-                                <ul class="list-unstyled">
-                                    <li>3 habitaciones</li>
-                                    <li>340m2</li>
-                                    <li>3-4 pisos</li>
-                                    <li>2 unidades por piso</li>
-                                </ul>        
-                                </p>
-                                <h5 class="card-title fw-bold">Desde 1,200,000</h5>
-                            </div>
-                          </div>
-                          </div>
-                      </div>
-
-                      <div class="carousel-item">
-                          
-                        <div class="col-md-3">
-                          <div class="card">
-                            <img src="<?php echo get_template_directory_uri() .'/assets/images/planos-verdes.png';?>" class="card-img-top" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-title fw-bold">Residencias con vistas panorámicas</h5>
-                              <p class="card-text">
-                                <ul class="list-unstyled">
-                                    <li>3 habitaciones</li>
-                                    <li>340m2</li>
-                                    <li>3-4 pisos</li>
-                                    <li>2 unidades por piso</li>
-                                </ul>        
-                                </p>
-                                <h5 class="card-title fw-bold">Desde 1,200,000</h5>
-                            </div>
-                          </div>
-                          </div>
-                      </div>
                   </div>
-                  <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  </a>
-                  <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  </a>
               </div>
+          <?php $i++; ?>
+          <?php endforeach; ?>
+         
+      <?php endif; ?>
+            
+          
           </div>
-        </div>
+
+
+
+        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>
+</div>
+
 
         
         <!--foto destacada-->
@@ -236,9 +216,9 @@
         <?php     $i++; }?>
 
        <!--Carrusel de amenidades-->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center">Amenidades</h2>
+            <h2 class="fw-bold fs-1 text-center ">Amenidades</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
@@ -273,9 +253,9 @@
 
        
           <!--CARRUSEL mas fotos-->
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center">Mas fotos</h2>
+            <h2 class="fw-bold fs-1 text-center ">Mas fotos</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
@@ -306,14 +286,14 @@
         </div>
        
        
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center"> Mapa</h2>
+            <h2 class="fw-bold fs-1 text-center "> Mapa</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
 
         <!--MAPA google-->
-        <div class="container-fluid">
+        <div class="container-fluid animatable fadeIn">
                     <div style="height: 50vh;" class="col-12">
                     <?php $args = array(
                         'width'        => '100%',
@@ -334,12 +314,12 @@
        <div class="container-fluid py-5">
         <div class="row">
 
-               <div class="col-sm-6 order-sm-1 bg-azul text-start" id="texto-formulario">
+               <div class="col-sm-6 order-sm-1 bg-azul text-start animatable fadeInUp" id="texto-formulario">
                     <h3 class="fs-1">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
                 </div>
             
              <!--formulario-->
-             <div class="col-sm-6 order-sm-12">
+             <div class="col-sm-6 order-sm-12 animatable fadeInDown">
                  <h1 class="pt-3 px-3">Formulario de contacto</h1>
                  <form action="#" class="text-start px-3" method="POST">
                         <div class="form-floating mb-3">

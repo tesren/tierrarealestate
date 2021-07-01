@@ -29,51 +29,65 @@
 
         ?>
         <?php if( $listings ): ?>
-  
-            <?php foreach( $listings as $unit ): ?>
-                <?php 
 
-                //$photo = get_field('photo', $unit->ID);
-                $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+        <?php foreach( $listings as $unit ): ?>
+        <?php 
 
-                ?>
-                        <!--listing info-->
-                    <div id="container-img" style="position:relative;">
-                            <img class="img-fluid w-100" src="<?php echo $portada[0];?>" alt="">
+        //$photo = get_field('photo', $unit->ID);
+        $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
 
-                        <div class="listing-caption-pc">
-                            <h3 class="fs-1"><?php echo get_the_title( $unit->ID );?></h3>
-                            <p class="fs-3">Bucerias, Nayarit, <?php echo $unit->currency;?> $ <?php echo $unit->price;?></p>
-                        </div>
+        ?>
+            <!--listing info-->
+        <div class="my-4" style="position:relative;">
+                
+
+            <div class="row justify-content-center mt-2 mb-0 text-center">
+                <h3 class="col-11 fs-1 mb-1 fw-bold"><?php echo get_the_title( $unit->ID );?></h3>
+                <p class="col-11 fs-1 mb-1"> <?php 
+                                        $locations = array_reverse( $unit->location );
+
+                                        $j =1;
+                                        if ( ! empty( $locations ) && ! is_wp_error( $locations ) ) {
+                                            foreach ( $locations as $location ) {
+                                                echo $location->name;
+                                                if( $i < count($locations) ){
+                                                    echo ', ';
+                                                }
+                                                $j++;
+                                            }
+                                        }
+                                    ?> 
+             <?php echo $unit->currency;?> $ <?php echo number_format($unit->price);?></p>
+            </div>
+
+            <!--Imagen del listing-->
+            <img class="img-fluid w-100" src="<?php echo $portada[0];?>" alt="">
+        
+            <div class="row justify-content-center justify-content-md-between pb-3 pt-2">
+                <div class="col-md-7 text-center">
+
+                    <hr style="width:100%;text-align:left;margin-left:0">
+
+                    <div class="row justify-content-center">
+
+                        <h3 class="col-md-4"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> Recámaras</h3>
+                        <h3 class="col-md-4"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> baños</h3>
+                        <h3 class="col-md-4"><i class="fas fa-home"></i> <?php echo $unit->construction;?> m<sup>2</sup></h3>
+                        
                     </div>
-                    
-                    <div class="row justify-content-center justify-content-md-between pb-5 pt-2">
-                        <div class="col-md-7 text-center">
+                    <hr style="width:100%;text-align:left;margin-left:0">
+                </div>
 
-                        <div class="listing-caption-mobile">
-                            <h3 class="fs-4 mb-1"><?php echo get_the_title( $unit->ID );?></h3>
-                            <p class="fs-5 m-0"><i class="fas fa-map-marker-alt"></i> Bucerías, Nayarit</p>
-                            <p class="fs-5 m-0"><?php echo $unit->currency;?>$<?php echo $unit->price;?></p>
-                        </div>
+                <div class="col-md-2 text-center">
+                    <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg mt-1 mt-md-4">Mas info</a>
+                </div>
+            </div>
+            <hr style="width:100%;text-align:center;">
+        </div>
+        <?php endforeach; ?>
+       
+         <?php endif; ?>
 
-                            <hr style="width:100%;text-align:left;margin-left:0">
-
-                            <div class="row justify-content-center">
-
-                                <h3 class="col-md-4"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> Recámaras</h3>
-                                <h3 class="col-md-4"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> baños</h3>
-                                <h3 class="col-md-4"><i class="fas fa-home"></i> <?php echo $unit->construction;?> m2</h3>
-                                
-                            </div>
-                            <hr style="width:100%;text-align:left;margin-left:0">
-                        </div>
-                        <div class="col-md-2 text-center">
-                            <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg mt-1 mt-md-4">Mas info</a>
-                        </div>
-                    </div>
-
-                    <?php endforeach; ?>
-                   
-                <?php endif; ?>
     </div>
+        
 <?php get_footer(); ?>

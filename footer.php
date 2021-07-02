@@ -16,7 +16,7 @@
                 
                 <a href="#" class="link-light"><i class="fab fa-facebook mt-2"></i></a>
                 <a href="#" class="link-light"><i class="fab fa-instagram mt-2 mx-3"></i></a>
-                <a href="#" class="link-light"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="link-light"><i class="fab fa-whatsapp pt-1"></i></a>
       
             </div>
             

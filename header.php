@@ -24,7 +24,7 @@
 
     <div class="tr-page">
       
-        <div class="container-fluid text-center bg-azul" id="mainHeader">
+        <div class="container-fluid text-center bg-azul fixed-top" id="mainHeader">
 
             <!--Nosotros-->
             <div class="d-flex justify-content-end iconos">
@@ -36,14 +36,36 @@
            </div>
            
             <!--LOGO Tierra-->
-            <a href="/"><img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
+            <a href="<?php echo get_home_url(); ?>" class="d-none d-md-block"><img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
             
            <!--navBar-->
-            <nav class="navbar navbar-expand-lg navbar-dark bg-azul" style="position:relative;">
-
-    
+               <nav class="navbar navbar-expand-md navbar-dark bg-azul" role="navigation" style="position:relative;">
+                  <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <a class="navbar-brand ms-2 d-md-none" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
+                     <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" id="nav_heder_logo" alt="Logo Tierra" width="180px" height="auto">
+                    </a>
+                      <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                    
+                        <?php
+                        wp_nav_menu( array(
+                            'theme_location'    => 'primary',
+                            'depth'             => 2,
+                            'container'         => 'div',
+                            'container_class'   => 'collapse navbar-collapse',
+                            'container_id'      => 'navbarSupportedContent',
+                            'menu_class'        => 'navbar-nav mx-auto mb-2 mb-lg-0',
+                            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                            'walker'            => new WP_Bootstrap_Navwalker(),
+                        ) );
+                        ?>
+                    </div>
+                </nav>
+            <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-azul" style="position:relative;">-->
                 <!-- Navbar content -->
-                <div class="container-fluid">
+                <!--<div class="container-fluid">
                   <a class="navbar-brand ms-2 " href="/" id="tr-header-brand-1">
                      <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo Tierra" width="150px" height="auto">
                   </a>
@@ -111,20 +133,8 @@
                        
                       </div>
                 </div>
-            </nav>
+            </nav> -->
         </div>
 
         
         <div id="tr-contenedor-resoluciones-grandes">
-
-  <?php
-      // wp_nav_menu(
-      //     [
-      //         'menu'        => 'primary',
-      //         'container'   => '',
-      //         'theme_location' => 'primary',
-      //         'items_wrap'  => '<ul>%3$s</ul>',
-      //         'walker' => new Walker_Nav_Primary(),
-      //     ]
-      // )
-  ?>

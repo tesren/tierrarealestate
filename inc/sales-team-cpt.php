@@ -63,6 +63,12 @@ function tierra_realtors_register_meta_boxes( $meta_boxes ) {
 
         'fields' => [
             [
+                'name'  => 'Lema',
+                'desc'  => 'Escriba un lema corto',
+                'id'    => 'realtor_slogan',
+                'type'  => 'text',
+            ],
+            [
                 'name'  => 'Email',
                 'desc'  => 'Correo electrónico',
                 'id'    => 'realtor_email',
@@ -74,6 +80,17 @@ function tierra_realtors_register_meta_boxes( $meta_boxes ) {
                 'desc'  => 'Teléfono',
                 'id'    => 'realtor_phone_number',
                 'type'  => 'text',
+            ],
+            [
+                'name'             => 'Codigo QR',
+                'id'               => 'realtor_qr',
+                'type'             => 'image',
+                'desc'             => 'Suba el codigo QR de su contacto de teléfono',
+
+                // Delete image from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same image for multiple posts
+                'force_delete'     => false,
+
             ],
             [
                 'name'  => 'Puesto',

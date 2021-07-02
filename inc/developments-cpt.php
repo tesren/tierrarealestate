@@ -44,7 +44,8 @@
             //'taxonomies' => array('category', 'post_tag'),
             'menu_icon' => 'dashicons-columns',
             'menu_positions' => 5,
-            'exclude_from_search' => false
+            'exclude_from_search' => false,
+            'show_in_nav_menus' => true,
 
         );
 
@@ -145,6 +146,19 @@ function developments_register_meta_boxes( $meta_boxes ) {
 
                     // How to show taxonomy.
                     'field_type' => 'select_tree',
+            ],
+            [
+                'id'          => 'dev_brochure',
+                'name'        => 'Brochure',
+                'type'        => 'file',
+                'desc'        => 'Suba el PDF del brochure',
+        
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+            
+                // Maximum file uploads.
+                'max_file_uploads' => 1,
             ],
             
             // More fields.

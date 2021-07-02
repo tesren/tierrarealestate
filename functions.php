@@ -16,7 +16,7 @@ add_action('after_setup_theme', 'v4you_theme_support');
 function cb_menus()
 {    
     $locations = array(
-        'primary' => "Desktop primary left sidebar",
+        'primary' => __( 'Primary Menu', 'TierraRealEsatate' ),
         'footer' => "Footer menu Items",
     );
     
@@ -24,7 +24,6 @@ function cb_menus()
 }
 
 add_action('init', 'cb_menus');
-
 
 
 function cb_register_styles()
@@ -88,8 +87,14 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 		==========================================
 
 	*/
-
-	require get_template_directory() . '/inc/walker-header.php';
+    /**
+     * Register Custom Navigation Walker
+     */
+    function register_navwalker(){
+        require_once get_template_directory() . '/classes/class-wp-bootstrap-navwalker.php';
+    }
+    add_action( 'after_setup_theme', 'register_navwalker' );
+	//require get_template_directory() . '/inc/walker-header.php';
 
 
 /*
@@ -241,12 +246,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
 
     function check_post_type_and_remove_media_buttons() {
-    global $current_screen;
-    // Replace following array items with your own custom post types
-    $post_types = array('listings','lifestyle', 'developments', 'realtors');
-    if (in_array($current_screen->post_type,$post_types)) {
-    remove_action('media_buttons', 'media_buttons');
-    }
+        global $current_screen;
+        // Replace following array items with your own custom post types
+        $post_types = array('listings','lifestyle', 'developments', 'realtors');
+        if (in_array($current_screen->post_type,$post_types)) {
+        remove_action('media_buttons', 'media_buttons');
+        }
     }
     
     add_action('admin_head','check_post_type_and_remove_media_buttons');

@@ -205,7 +205,19 @@
 </div>
 </div>
 
+            <div class="container">
+            <?php if( !empty(rwmb_meta( 'dev_brochure') ) ): 
+                    $files = rwmb_meta( 'dev_brochure' );
+                    foreach ( $files as $file ) {
+                        ?>
+                        <a href="<?php echo $file['url']; ?>" class="my-3 mx-5 btn btn-azul w-75" target="_blank" >Descargar Brochure</a>
+                <?php
+                    }?>
+              
 
+                <?php endif; ?>
+
+            </div>
         
         <!--foto destacada-->
         <?php          $ft_photos = rwmb_meta( 'featured_img_2', array( 'size' => 'large' ) );
@@ -312,47 +324,7 @@
         
         <!--contacto-->
        <div class="container-fluid py-5">
-        <div class="row">
-
-               <div class="col-sm-6 order-sm-1 bg-azul text-start animatable fadeInUp" id="texto-formulario">
-                    <h3 class="fs-1">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
-                </div>
-            
-             <!--formulario-->
-             <div class="col-sm-6 order-sm-12 animatable fadeInDown">
-                 <h1 class="pt-3 px-3">Formulario de contacto</h1>
-                 <form action="#" class="text-start px-3" method="POST">
-                        <div class="form-floating mb-3">
-                            <h4 class="labels-form-grande">Nombre</h4>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>
-                            <label class="labels-form-small" for="floatingInput">Nombre</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <h4 class="labels-form-grande">Correo electrónico</h4>
-                            <input type="email" class="form-control" id="correo" name="correo" placeholder="name@example.com" required>
-                            <label class="labels-form-small" for="floatingInput">Correo electrónico</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <h4 class="labels-form-grande">Teléfono</h4>
-                            <input type="number" class="form-control" id="telefono" name="telefono" placeholder="322 555 5555" required>
-                            <label class="labels-form-small" for="floatingInput">Teléfono</label>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <h4 class="labels-form-grande">Mensaje</h4>
-                            <textarea class="form-control" placeholder="Mensaje" id="mensaje" name="mensaje" style="height: 150px" required></textarea>
-                            <label class="labels-form-small" for="floatingTextarea2">Mensaje</label>
-                        </div>
-
-                        
-                        <button type="submit" class="btn btn-amarillo">Submit</button>
-
-                    </form>
-             </div>
-
-        </div>
+           <?php get_template_part( 'partials/content', 'contact-form' ); ?>
        </div>
 
         <?php   

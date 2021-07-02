@@ -36,20 +36,33 @@ else {
 
                 <?php
                     $images = rwmb_meta( 'profile_picture', array( 'size' => 'full', 'limit' => 1 ), $realtor->ID ); 
-                    $image = reset( $images );?>
+                    $image = reset( $images );
 
-            <div class="col-10 col-md-5 bg-light my-3 mx-4 px-0" >
+                    $qrcodes = rwmb_meta( 'realtor_qr', array( 'size' => 'thumbnail' ),$realtor->ID );
+                    $qrcode = reset($qrcodes); ?>
+
+            <div class="col-12 col-md-5 bg-light my-3 mx-4 px-0" >
                     <div class="row justify-content-start justify-content-md-start text-center text-md-start ">
                         
-                        <div class="col-md-6">
-                            <img class="img-fluid w-100" src="<?php echo $image['url']; ?>">
+                        <div class="col-md-6 round-borders">
+                            <img class="img-fluid w-100 round-borders" src="<?php echo $image['url']; ?>">
                         </div>
     
                         <div class="col-md-5 my-3 ms-2">
-                            <h4 class="fs-2 fw-bold tr-nosotros-h4"><?php echo get_the_title( $realtor->ID); ?></h4>
+                            <h4 class="fs-2 fw-bold texto-azul"><?php echo get_the_title( $realtor->ID); ?></h4>
                             <h4 class="fs-3 my-2"><?php echo $realtor->realtor_position; ?></h4>
-                            <h5 class="tr-nosotros-h4"><?php echo $realtor->realtor_phone_number; ?></h5>
-                            <h5 class="tr-nosotros-h4"><?php echo $realtor->realtor_email; ?></h5>
+                            <p  class="fs-5 mt-2 mb-4">"<?php echo $realtor->realtor_slogan; ?>"</p>
+                            <h5 class="texto-azul mb-2"> <i class="fas fa-phone-alt"></i> +52 <?php echo $realtor->realtor_phone_number; ?></h5>
+                            <h5 class="texto-azul mb-4"> <i class="fas fa-envelope"></i> <?php echo $realtor->realtor_email; ?></h5>
+
+                            <div class="row justify-content-center">
+                                <div class="col-md-6 mt-3">
+                                    <p>Agregame <br> a tus contactos</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <img class="img-fluid" src="<?php echo $qrcode['url']; ?>" alt="Codigo QR">
+                                </div>
+                            </div>
                         </div>
     
                     </div>

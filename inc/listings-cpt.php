@@ -209,6 +209,20 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'id'    => 'parking_stalls',
                 'type'  => 'text',
             ],
+            [
+                'id'          => 'list_brochure',
+                'name'        => 'Brochure',
+                'type'        => 'file',
+                'desc'        =>  'Suba el PDF del brochure',
+        
+                // Delete file from Media Library when remove it from post meta?
+                // Note: it might affect other posts if you use same file for multiple posts
+                'force_delete'     => false,
+            
+                // Maximum file uploads.
+                'max_file_uploads' => 1,
+            ],
+            
             
             // More fields.
         ],

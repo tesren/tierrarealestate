@@ -1,6 +1,14 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+#menu-principal>li.nav-item:nth-child(2) {
+    border-left: 1px groove #f5f5f5 ;
+    border-right: 1px groove #f5f5f5 ;
+}
+
+.dropdown-toggle::after{
+    content: none;
+}
 
 #loading{
     display: flex;
@@ -258,7 +266,12 @@ a{
 .btn-amarillo{
     color: white !important;
     background-color: #BD9028 !important;
-    border-radius: 50px !important;
+    border-radius: 10px !important;
+}
+.btn-azul{
+    color: white !important;
+    background-color: #080F24 !important;
+    border-radius: 10px !important;
 }
 
 #listings i{
@@ -275,11 +288,6 @@ a{
     color: white;
     justify-content: center;
 }
-
-.tr-nosotros-h4{
-    color: #07255B;
-}
-
 
 #texto-formulario h3{
     width: 100%;
@@ -398,9 +406,9 @@ a{
     text-shadow: 2px 2px 2px black;
 }
 
-/* #tr-contenedor-resoluciones-grandes{
+ #tr-contenedor-resoluciones-grandes{
     margin-top: 11rem;
-} */
+} 
 
 #tr-boton-idioma-nav{
     display: none !important;
@@ -718,6 +726,23 @@ a{
 	animation-name: fadeInUp;
 }
 
+.texto-azul{
+    color: #080F24;
+}
+
+/*Estilos listas de listings*/
+ .contenedor-listings{
+     position: relative;
+     border-radius: 30px;
+ }
+
+ .contenedor-listings .imagen-listing{
+     object-fit: cover;
+     max-height: 55vh !important;
+     border-top-right-radius: 30px;
+     border-top-left-radius: 30px;
+}
+
 @media (max-width: 768px) {
 
 #lf-properties .card{
@@ -751,9 +776,9 @@ a{
     margin-right: 5%; 
 }
 
-/* #tr-contenedor-resoluciones-grandes{
+ #tr-contenedor-resoluciones-grandes{
     margin-top: 1.7rem !important;
-} */
+} 
 
 .caption-bucerias h1{
     color: white;
@@ -974,6 +999,7 @@ a{
 }
 
 @media (max-width: 992px) {
+
     .navbar-collapse {
         position: fixed;
         top: 0px;
@@ -1029,6 +1055,7 @@ a{
 }
 
 @media (min-width: 2048px){
+    
 
     #carouselFrontPage .carousel-caption p{
         font-size: 3.5rem !important;

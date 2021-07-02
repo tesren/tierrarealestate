@@ -2,13 +2,12 @@
 
     get_header(); 
 
-    if ( have_posts() ){
+    if ( have_posts() ):
         
-        while( have_posts() ) {
-            
+        while( have_posts() ) : the_post();
             $currentlang = get_bloginfo('language');
              //Declarar array con etiquetas
-             ?>
+?>
 
     <div class="row">
         <div class="col-12">
@@ -123,7 +122,6 @@
                                     $css_slug = $category[0]->slug;
                                 }
 
-                                 
                                 
                             ?>
 
@@ -181,63 +179,30 @@
                 </div-->
 
                 <?php if( !empty(rwmb_meta( 'listing_tour') ) ): ?>
-                <div class="col-6 col-md-3">
-                     <a href="<?php echo rwmb_meta( 'listing_tour' );?>" class="my-3 mx-5 btn btn-amarillo" target="_blank" >Tour vitual</a>
+                <div class="col-md-4">
+                     <a href="<?php echo rwmb_meta( 'listing_tour' );?>" class="my-3 mx-5 btn btn-amarillo w-75" target="_blank" >Tour vitual</a>
                 </div>
+
+                <?php endif; ?>
+
+
+                <?php if( !empty(rwmb_meta( 'list_brochure') ) ): 
+                    $files = rwmb_meta( 'list_brochure' );
+                    foreach ( $files as $file ) {
+                        ?>
+                        <div class="col-md-4">
+                             <a href="<?php echo $file['url']; ?>" class="my-3 mx-5 btn btn-azul w-75" target="_blank" >Descargar Brochure</a>
+                        </div>
+                        <?php
+                    }?>
+              
 
                 <?php endif; ?>
 
             </div>
             
 
-            <!--Servicios-->
-            <!--div class="container-fluid">
-            
-                <div class="row justify-content-center my-5">
-                
-                <div class="col-12 align-self-center">
-                    
-                    <div class="row justify-content-center pb-5">
-                    <hr class="mb-5" style="width:90%;text-align:center;">
-                        <div class="col-md-3 col-6 pb-3">
-                            <div class="d-flex align-items-center justify-content-center">
-                            <h4 class="fs-4"><i class="fas fa-seedling"></i> Jardín</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 pb-3">
-                            <div class="d-flex align-items-center justify-content-center">
-                            <h4 class="fs-4"><i class="fas fa-couch"></i> Sala</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12 pb-3">
-                            <div class="d-flex align-items-center justify-content-center">
-                            <h4 class="fs-4"><i class="fas fa-tint"></i> Agua</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-center">
-                        <div class="col-md-3 col-6 pb-3">
-                            <div class="d-flex align-items-center justify-content-center">
-                            <h4 class="fs-4"><i class="fas fa-chair"></i> Comedor</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 pb-3">
-                            <div class="d-flex align-items-center justify-content-center">
-                            <h4 class="fs-4"><i class="fas fa-plug"></i> Luz</h4>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-12 pb-3">
-                            <div class="d-flex align-items-center justify-content-center">
-                            <h4 class="fs-4"><i class="fas fa-burn"></i> Gas</h4>
-                            </div>
-                        </div>
-                        <hr class="mt-4" style="width:90%;text-align:center;">
-                    </div>
-
-                </div>
-            </div>
-        </div-->
+           
 
         <!--Video-->
         <div id="video_listing" >
@@ -261,61 +226,16 @@
     
             <!--contacto-->
         <div class="container-fluid py-5">
-            <div class="row">
-
-                    <div class="col-sm-6 order-sm-1 bg-azul text-start" id="texto-formulario">
-                        <h3 class="fs-1">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
-                    </div>
-                
-                    <!--formulario-->
-                    <div class="col-sm-6 order-sm-12">
-                        <h2 class="pt-3 px-3 fs-1">Formulario de contacto</h2>
-                        <form class="text-start px-3" method="POST" id="contact-form">
-                            <div class="form-floating mb-3">
-                                <h4 class="labels-form-grande">Nombre</h4>
-                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" required>
-                                <label class="labels-form-small" for="floatingInput">Nombre</label>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <h4 class="labels-form-grande">Correo electrónico</h4>
-                                <input type="email" class="form-control" id="correo" name="correo" placeholder="name@example.com" required>
-                                <label class="labels-form-small" for="floatingInput">Correo electrónico</label>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <h4 class="labels-form-grande">Teléfono</h4>
-                                <input type="number" class="form-control" id="telefono" name="telefono" placeholder="322 555 5555" required>
-                                <label class="labels-form-small" for="floatingInput">Teléfono</label>
-                            </div>
-
-                            <div class="form-floating mb-3">
-                                <h4 class="labels-form-grande">Mensaje</h4>
-                                <textarea class="form-control" placeholder="Mensaje" id="mensaje" name="mensaje" style="height: 150px" required></textarea>
-                                <label class="labels-form-small" for="floatingTextarea2">Mensaje</label>
-                            </div>
-
-                            
-                            <button type="submit" class="btn btn-amarillo">Submit</button>
-
-                        </form>
-                    </div>
-
-            </div>
+            <?php get_template_part( 'partials/content', 'contact-form' ); ?>
         </div>
 
         </div>
     </div>
 
-
-
     <?php   
-     the_post();
-        
-     
 
-        }
+        endwhile;
 
-    };
+    endif;
 
     get_footer();

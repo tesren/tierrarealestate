@@ -1,12 +1,12 @@
 <div class="row">
 
         <div class="col-sm-6 order-sm-1 bg-azul text-start px-xxl-5" id="texto-formulario">
-            <h3 class="">Por favor sientase libre de contactarnos por medio de nuestro formulario de contacto o por nuestros numeros de teléfono</h3>
+            <h3 class="">Solicite mas información y consulte con nuestro equipo profesional</h3>
         </div>
         
         <!--formulario-->
         <div class="col-sm-6 order-sm-12">
-            <h3 class="pt-3 px-3 px-xxl-5 fs-1">Escríbenos</h3>
+            <h3 class="pt-3 px-3 px-xxl-5 fs-1">Contacto</h3>
             <form id="v4youContactForm" action="#" class="text-start px-3 px-xxl-5" method="POST" data-url="<?php echo admin_url('admin-ajax.php');?>">
                 <div class="form-floating mb-3">
                     <h4 class="labels-form-grande">Nombre</h4>
@@ -33,7 +33,7 @@
                 </div>
 
                 
-                <button type="submit" class="btn btn-amarillo btn-lg">Enviar mensaje</button>
+                <button type="submit" class="btn btn-amarillo btn-lg">Enviar</button>
 
             </form>
         </div>

@@ -1,21 +1,23 @@
-<?php /*
-@package vallarta4yourentalstheme
-*/
+<?php 
 get_header(); 
 ?>
-<article class="v4you-page-dark-color mt-5">
-<?php the_title('<h1 class="v4you-title">','</h1>');?>
 
 <?php 
-        if ( have_posts() ){
+        if ( have_posts() ):
             
-            while( have_posts() ){
-                
-                the_post();
-                the_content(); ?>
-<?php       }
+            while( have_posts() ): the_post();
+                 ?>
+                 
+                <div class="container text-start mt-5 fs-5">
+                    <h1 class="text-center fs-1 my-5 pt-5"><?php echo the_title();?></h1>
+                    <?php echo the_content();?>
+                </div>
+
+<?php       endwhile;
             
-        }
+            endif;
     ?>
-</article>
+
+    
+
 <?php get_footer(); ?>

@@ -14,14 +14,15 @@
              <!--iconos redes sociales-->
              <div class="d-flex justify-content-center iconos">
                 
-                <a href="#" class="link-light"><i class="fab fa-facebook mt-2"></i></a>
-                <a href="#" class="link-light"><i class="fab fa-instagram mt-2 mx-3"></i></a>
+                <a href="https://www.facebook.com/Tierra-Real-Estate-Lifestyle-1865454683779555" class="link-light"><i class="fab fa-facebook mt-2"></i></a>
+                <a href="https://www.instagram.com/tierrarealestate.pv/" class="link-light"><i class="fab fa-instagram mt-2 mx-3"></i></a>
                 <a href="#" class="link-light"><i class="fab fa-whatsapp pt-1"></i></a>
       
             </div>
             
             <div class="container-fluid text-center">
-                <p> &copy;2014-2021 Tierra Vallarta <a class="link-light" href="/privacy-policy/">Política de Privacidad</a></p>
+                <p>Afiliados: <a href=""><img class = "logo-ampi" src="<?php echo get_template_directory_uri() ."/assets/images/ampi-logo.png";?>" alt="ampi logo"></a> </p>
+                <p class="m-0"> &copy;2014-2021 Tierra Vallarta <a class="link-light" href="/politicas-privacidad/">Política de Privacidad</a></p>
             </div>
         </footer>
 

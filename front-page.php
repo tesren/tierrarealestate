@@ -4,16 +4,27 @@
     $developments = get_posts(array(
         'post_type' => 'developments',
         'numberposts' => -1,
+        'meta_query'=> array(
+            array(
+                'key' => 'featured_development',
+                'compare' => '=',
+                'value' => 1,
+            )
+    ),
+
         
     ));
     $listings = get_posts(array(
         'post_type' => 'listings',
         'numberposts' => -1,
+        'meta_query'=> array(
+            array(
+                'key' => 'featured_listing',
+                'compare' => '=',
+                'value' => 1,
+            )
+        ),
     ));
-    // $listings = get_posts(array(
-    //     'post_type' => 'listings',
-    //     'numberposts' => -1,
-    // ));
 ?>
 
         <div class="row">
@@ -21,63 +32,46 @@
 
             <!--Carrusel de imagenes de propiedades-->
             <div id="carouselFrontPage" class="carousel slide bg-azul" data-bs-ride="carousel">
-                
-                <div class="carousel-inner">
+                    <div class="fondo-oscuro"></div>
+                    <div class="carousel-inner">
                    
-                    <?php if( $developments ): $i=0; ?>
-                     
-                    <?php foreach( $developments as $development ): 
+                        <?php if( $developments ): $i=0; ?>
+                        
+                        <?php foreach( $developments as $development ): 
 
-                        $profile = wp_get_attachment_image_src( get_post_thumbnail_id( $development->ID ), 'full' );
-                        
-                        $active='';
-                        
-                        if($i==0){ $active = ' class="active"';}
-                        
-                        $indicators .= '<button type="button" data-bs-target="#carouselFrontPage" data-bs-slide-to="'. $i .'"'. $active.'> aria-current="true" aria-label="Slide 1"></button>';
-                        
-                       ?>
-                        <div class="carousel-item<?php if($i==0){echo ' active';}?>">
-                            <img src="<?php echo $profile[0];?>" class="d-block w-100 tr-img-responsive" alt="...">
-                            <div class="carousel-caption d-md-block text-center">
-                                <h1><?php echo get_the_title( $development->ID );?></h1>
-                                <p><?php 
-        
-                                        
-                                        $terms_list = array_reverse(wp_get_post_terms( $development->ID, 'regiones' ) );
-
-                                        $j =1;
-                                        if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                                            foreach ( $terms_list as $term ) {
-                                                echo $term->name;
-                                                if( $j < count($terms_list) ){
-                                                    echo ', ';
-                                                }
-                                                $j++;
-                                            }
-                                        }
-
-                                        
-                                ?> <br>
-                                Desde:<br> $<?php echo number_format($development->starting_at);?> <?php echo $development->currency;?></p>
-                                <a href="<?php echo get_the_permalink( $development->ID );?>" class="btn btn-light">Más info</a>
+                            $profile = wp_get_attachment_image_src( get_post_thumbnail_id( $development->ID ), 'full' );
+                            
+                            $active='';
+                            
+                            if($i==0){ $active = ' class="active"';}
+                            
+                            $indicators .= '<button type="button" data-bs-target="#carouselFrontPage" data-bs-slide-to="'. $i .'"'. $active.' aria-current="true" aria-label="Slide 1"></button>';
+                            
+                        ?>
+                            <div class="carousel-item<?php if($i==0){echo ' active';}?>">
+                                <img src="<?php echo $profile[0];?>" class="d-block w-100 tr-img-responsive " alt="...">
+                                <div class="carousel-caption d-md-block text-center" style="z-index:3;">
+                                    <h1><?php echo get_the_title( $development->ID );?></h1>
+                                    <p><?php tierra_get_list_terms($development->ID, 'regiones');?> <br>
+                                    Desde:<br> <?php echo $development->currency;?> $<?php echo number_format($development->starting_at);?> </p>
+                                    <a href="<?php echo get_the_permalink( $development->ID );?>" class="btn btn-light">Más info</a>
+                                </div>
                             </div>
-                        </div>
 
-                    <?php $i++; endforeach; ?>
-                        
-                    <?php endif; ?>
-
-                </div>
+                        <?php $i++; endforeach; ?>
+                            
+                        <?php endif; ?>
+                    </div>
+                
 
                 <div class="carousel-indicators">
                     <?php echo $indicators;?>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselFrontPage" data-bs-slide="prev">
+                <button class="carousel-control-prev" style="z-index:3;" type="button" data-bs-target="#carouselFrontPage" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselFrontPage" data-bs-slide="next">
+                <button class="carousel-control-next" style="z-index:3;" type="button" data-bs-target="#carouselFrontPage" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="visually-hidden">Next</span>
                 </button>
@@ -100,10 +94,10 @@
             ?>
             
             <!--Imagen listing-->
-            <img class="img-fluid w-100 imagen-listing" src="<?php echo $portada[0];?>" alt="Listing image">
+            <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $portada[0];?>" alt="Listing image">
 
-            <div class="row justify-content-center bg-light">
-                <div class="col-12">
+            <div class="row justify-content-center bg-light animatable fadeInDown">
+                <div class="col-12 ">
                     <!--Nombre y Lugar del listing-->
                     <h2 class="fs-1 fw-bold mt-2"><?php echo get_the_title( $unit->ID );?> 
                         <?php                                          
@@ -133,11 +127,11 @@
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">
                 <div class="col-12 col-md-4">
-                    <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4">Mas info</a>
+                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>">Vista Previa</button>
                 </div>
                 <div class="col-12 col-md-4">         
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>">Vista Previa</button>
+                    <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4">Mas info</a>
                 </div>
             </div>
 
@@ -188,7 +182,7 @@
 
 
         <!--video-->
-        <div style="padding:0 ;position:relative;">
+        <div style="padding:0 ;position:relative;" class="">
         <video width="100%" height="auto" autoplay loop controls>
         <source src="<?php echo get_template_directory_uri() .'/assets/videos/mar_comprimido-5MB.mp4';?>" type="video/mp4">
         Your browser does not support the video tag.
@@ -196,7 +190,7 @@
         </div>
 
        <!--contacto-->
-       <div class="container-fluid py-5">
+       <div class="container-fluid py-5 animatable fadeInUp">
            <?php get_template_part( 'partials/content', 'contact-form' ); ?>
            
        </div>

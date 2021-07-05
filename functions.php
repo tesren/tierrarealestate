@@ -17,6 +17,7 @@ function cb_menus()
 {    
     $locations = array(
         'primary' => __( 'Primary Menu', 'TierraRealEsatate' ),
+        'pre-header' => __('Pre Header Menu', 'TierraRealEsatate'),
         'footer' => "Footer menu Items",
     );
     
@@ -230,7 +231,6 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
     require get_template_directory() . '/inc/ajax.php';
 
-    //require get_template_directory() . '/inc/properties-cpt.php';
 
     require get_template_directory() . '/inc/listings-cpt.php';
 
@@ -239,10 +239,6 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     require get_template_directory() . '/inc/lifestyle-cpt.php';
 
     require get_template_directory() . '/inc/sales-team-cpt.php';
-
-    // require get_template_directory() . '/inc/featured-gallery-cpt.php';
-
-    // require get_template_directory() . '/inc/destinations-cpt.php';
 
 
     function check_post_type_and_remove_media_buttons() {
@@ -255,6 +251,23 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     }
     
     add_action('admin_head','check_post_type_and_remove_media_buttons');
+
+
+    function tierra_get_list_terms($postID, $taxonomy)
+    {
+         $terms_list = array_reverse(wp_get_post_terms( $postID, $taxonomy ) );
+
+        $j =1;
+        if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
+            foreach ( $terms_list as $term ) {
+                echo $term->name;
+                if( $j < count($terms_list) ){
+                    echo ', ';
+                }
+                $j++;
+            }
+        }
+    }
 
 
 ?>

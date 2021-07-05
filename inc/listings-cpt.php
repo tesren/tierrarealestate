@@ -222,6 +222,12 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 // Maximum file uploads.
                 'max_file_uploads' => 1,
             ],
+            [
+                'name' => 'Mostrar en homepage',
+                'id'   => 'featured_listing',
+                'type' => 'checkbox',
+                'std'  => 0, // 0 or 1
+            ],
             
             
             // More fields.

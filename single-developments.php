@@ -8,11 +8,12 @@
 
         <!--Imagen con texto-->
       <div class="container-fluid " style="position:relative;">
+      <div class="fondo-oscuro"></div>
         <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
                   <img width="100%" class="img-fluid tr-img-responsive"  src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
                   <div class="caption-naya text-center">
-                      <h1 id="naya"><?php the_title();?></h1>
-                      <p class="fs-3"> <?php 
+                      <h1 id="naya" style="z-index:3;"><?php the_title();?></h1>
+                      <p class="fs-2" style="z-index:3;"> <?php 
             
                           $locations = array_reverse(rwmb_meta( 'location' ));
 
@@ -26,7 +27,7 @@
                                   $i++;
                               }
                           }
-                      ?> <br> Desde: <?php echo rwmb_meta( 'currency' );?> $ <?php echo rwmb_meta( 'starting_at' ); ?> 
+                      ?> <br> Desde: <?php echo rwmb_meta( 'currency' );?> $ <?php echo number_format(rwmb_meta( 'starting_at' )); ?> 
                       </p>
                   </div>
       </div>
@@ -36,11 +37,11 @@
 
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                <h2 class="fw-bold fs-1">Acerca del proyecto</h2>
+                <h2 class="fw-bold fs-1 animatable fadeInUp">Acerca del proyecto</h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
 
-            <div class="fs-3 py-5">
+            <div class="fs-3 py-5 animatable fadeInDown">
               <p><?php echo the_content();?></p>
             </div>      
 
@@ -51,7 +52,7 @@
             
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                <h2 class="fw-bold fs-1">Propiedades</h2>
+                <h2 class="fw-bold fs-1 animatable fadeInDown">Propiedades</h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
 
@@ -70,7 +71,7 @@
 
                                 <div class="col-md-12">
                                     <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
+                                    <h3 class="animatable fadeInDown"><?php echo $residence['title'];?></h3>
                                     <hr class="linea-grande">
                                 </div>
                             
@@ -84,7 +85,7 @@
 
                                 <div class="col-md-6">
                                     <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
+                                    <h3 class="animatable fadeInDown"><?php echo $residence['title'];?></h3>
                                     <hr class="lineas">
                                 </div>
                             
@@ -97,7 +98,7 @@
 
                                 <div class="col-md-4">
                                     <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
+                                    <h3 class="animatable fadeInDown"><?php echo $residence['title'];?></h3>
                                     <hr class="lineas">
                                 </div>
         
@@ -111,7 +112,7 @@
 
                                 <div class="col-md-<?php if($i==3){echo '12';}else{echo '4';} ?>">
                                     <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
-                                    <h3><?php echo $residence['title'];?></h3>
+                                    <h3 class="animatable fadeInDown"><?php echo $residence['title'];?></h3>
                                     <hr class="<?php if($i==3){echo 'linea-grande';}else{echo 'lineas';} ?>">
                                 </div>
         
@@ -167,7 +168,7 @@
               ?>
               <div class="carousel-item<?php if($i==1){echo ' active';}?>">
                   <div class="col-md-3">
-                      <div class="card">
+                      <div class="card" style="min-height:100%;">
                           <img src="<?php echo $portada[0];?>" class="card-img-top" alt="...">
                           <div class="card-body">
                               <h5 class="card-title fw-bold"> <?php echo get_the_title( $unit->ID );?></h5>
@@ -179,7 +180,9 @@
                                       <li><?php echo $unit->construction;?> m<sup>2</sup></li>
                                   </ul>        
                               </p>
-                              <h5 class="card-title fw-bold">Desde <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
+                              <?php if( !empty($unit->starting_at)):?>
+                                <h5 class="card-title fw-bold">Desde <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
+                              <?php endif; ?>
                           </div>
                       </div>
                   
@@ -205,12 +208,12 @@
 </div>
 </div>
 
-            <div class="container">
+            <div class="container text-center">
             <?php if( !empty(rwmb_meta( 'dev_brochure') ) ): 
                     $files = rwmb_meta( 'dev_brochure' );
                     foreach ( $files as $file ) {
                         ?>
-                        <a href="<?php echo $file['url']; ?>" class="my-3 mx-5 btn btn-azul w-75" target="_blank" >Descargar Brochure</a>
+                        <a href="<?php echo $file['url']; ?>" class="mt-2 mb-5 mt-md-4 mb-md-5 mx-5 btn btn-azul w-50" target="_blank" >Descargar Brochure</a>
                 <?php
                     }?>
               
@@ -230,7 +233,7 @@
        <!--Carrusel de amenidades-->
         <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center ">Amenidades</h2>
+            <h2 class="fw-bold fs-1 text-center animatable fadeInDown">Amenidades</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
@@ -267,7 +270,7 @@
           <!--CARRUSEL mas fotos-->
         <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center ">Mas fotos</h2>
+            <h2 class="fw-bold fs-1 text-center animatable fadeInDown">Mas fotos</h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
@@ -323,7 +326,7 @@
                 </div>
         
         <!--contacto-->
-       <div class="container-fluid py-5">
+       <div class="container-fluid py-5 animatable fadeInUp">
            <?php get_template_part( 'partials/content', 'contact-form' ); ?>
        </div>
 

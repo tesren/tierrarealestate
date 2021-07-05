@@ -32,6 +32,22 @@ if($(window).width() > 2048){
     $('.labels-form-grande').addClass('d-none');
 }
 
+//comportamiento de boton nosotros en navbar
+var lastScrollTop = 0;
+$(window).scroll(function(event){
+    var st = $(this).scrollTop();
+    let navHeigth = $('#mainHeader').height();
+    if (st > lastScrollTop && st > navHeigth){
+        // downscroll code
+        $('#tr-nosotros-grande').addClass('d-none');
+    } else {
+        // upscroll code
+        $('#tr-nosotros-grande').removeClass('d-none');
+    }
+    lastScrollTop = st;
+    });
+
+
 //Comportamiento navbar
 $(window).scroll(function () {
 
@@ -39,6 +55,7 @@ $(window).scroll(function () {
 
     //let heightViewPort = $(window).height();
     let navHeigth = $('#mainHeader').height();
+  
    // console.log(heightViewPort);
     //console.log(scrolled);
 
@@ -50,20 +67,6 @@ $(window).scroll(function () {
             $('#tr-header-brand-1').removeClass('d-md-none');
             $('.navbar-nav').addClass('ms-auto');
             $('.navbar-nav').removeClass('mx-auto');
-
-            //comportamiento de boton nosotros en navbar
-            var lastScrollTop = 0;
-            $(window).scroll(function(event){
-            var st = $(this).scrollTop();
-            if (st > lastScrollTop){
-                // downscroll code
-                $('#tr-nosotros-grande').addClass('d-none');
-            } else {
-                // upscroll code
-                $('#tr-nosotros-grande').removeClass('d-none');
-            }
-            lastScrollTop = st;
-            });
           
             //$('#tr-boton-nosotros').css('display','block');
 
@@ -129,14 +132,14 @@ const setVisible = (elementOrSelector, visible) =>
     setVisible('#loading', true);
 
 document.addEventListener('DOMContentLoaded', () =>
-  wait(1500).then(() => {
+  wait(1000).then(() => {
     setVisible('.tr-page', true);
     setVisible('#loading', false);
     setVisible('#loading-logo', false);
   }));
 
 
-  wait(1700).then(() => {
+  wait(1800).then(() => {
   //animaciones
   jQuery(function($) {
   

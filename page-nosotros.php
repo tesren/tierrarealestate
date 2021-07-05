@@ -6,7 +6,7 @@ else {
  get_header();
 } ?>
     <!--Acerca del proyecto-->
-    <div class="container d-flex justify-content-center mt-5 mb-4 pt-5 pt-md-0">
+    <div class="container d-flex justify-content-center mt-5 mb-4 pt-5 pt-md-4">
         <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">
         <h2 class=" text-center fs-1">CONÓCENOS MEJOR</h2>
         <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">           
@@ -41,14 +41,14 @@ else {
                     $qrcodes = rwmb_meta( 'realtor_qr', array( 'size' => 'thumbnail' ),$realtor->ID );
                     $qrcode = reset($qrcodes); ?>
 
-            <div class="col-12 col-md-5 bg-light my-3 mx-4 px-0" >
-                    <div class="row justify-content-start justify-content-md-start text-center text-md-start ">
+            <div class="col-12 col-md-5 bg-light my-3 mx-4 px-0 " >
+                    <div class="row justify-content-start justify-content-md-start text-center text-md-start">
                         
                         <div class="col-md-6 round-borders">
                             <img class="img-fluid w-100 round-borders" src="<?php echo $image['url']; ?>">
                         </div>
     
-                        <div class="col-md-5 my-3 ms-2">
+                        <div class="col-md-6 my-3 ps-2">
                             <h4 class="fs-2 fw-bold texto-azul"><?php echo get_the_title( $realtor->ID); ?></h4>
                             <h4 class="fs-3 my-2"><?php echo $realtor->realtor_position; ?></h4>
                             <p  class="fs-5 mt-2 mb-4">"<?php echo $realtor->realtor_slogan; ?>"</p>
@@ -56,12 +56,14 @@ else {
                             <h5 class="texto-azul mb-4"> <i class="fas fa-envelope"></i> <?php echo $realtor->realtor_email; ?></h5>
 
                             <div class="row justify-content-center">
+                                <?php if(!empty($qrcode)):?>
                                 <div class="col-md-6 mt-3">
                                     <p>Agregame <br> a tus contactos</p>
                                 </div>
                                 <div class="col-md-6">
                                     <img class="img-fluid" src="<?php echo $qrcode['url']; ?>" alt="Codigo QR">
                                 </div>
+                                <?php endif;?>
                             </div>
                         </div>
     
@@ -121,16 +123,17 @@ else {
 
     <!--MISION-->
     <div class="container">
-        <div style="height: 50vh;" class="row justify-content-center">
+        <div style="height: 30vh;" class="row justify-content-center">
             <div class="col-12 align-self-center">
                 <div class="row">
                     <div class="col-12">
-                    <h2 class="tierra_light text-center">MISIÓN</h2>
+                    <!-- <h2 class="tierra_light text-center">MISIÓN</h2> -->
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p class="fs-3 text-center">Garantizarle al cliente productos de calidad y el mejor servicio de la bahía.
+                        <p class="fs-3 text-center animatable fadeInDown"> Amplia experiencia laboral en propiedades de lujo y en exclusivos desarrollos residenciales <br><br>
+                            Eficiencia en la gestion y cierres de transacciones inmobiliarias de alto nivel
                         </p>
                     </div>
                 </div>

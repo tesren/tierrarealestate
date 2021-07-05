@@ -91,7 +91,7 @@
                 'page-attributes',
             ),
             //'taxonomies' => array('category', 'post_tag'),
-            'menu_icon' => 'dashicons-columns',
+            'menu_icon' => 'dashicons-admin-multisite',
             'menu_positions' => 6,
             'exclude_from_search' => false
 
@@ -159,6 +159,12 @@ function developments_register_meta_boxes( $meta_boxes ) {
             
                 // Maximum file uploads.
                 'max_file_uploads' => 1,
+            ],
+            [
+                'name' => 'Mostrar en homepage',
+                'id'   => 'featured_development',
+                'type' => 'checkbox',
+                'std'  => 0, // 0 or 1
             ],
             
             // More fields.

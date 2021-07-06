@@ -92,21 +92,21 @@
                 
 
             <div class="row justify-content-center justify-content-md-start px-5">
-                    <div class="col-10">
+                    <div class="col-11 col-md-10">
                         <hr style="width:70%;text-align:left;margin-left:0" id="listing-hr">
                         
                         <div class="row justify-content-start" id="services-icons">
                             
                             <div class="col-6 col-md-3">
-                                <h4><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'bedrooms' );?> recámaras</h4>
+                                <h4><i class="fas fa-bed"></i> <?php echo rwmb_meta( 'bedrooms' );?> <?php pll_e( 'Recámaras' );?></h4>
                             </div>
 
                             <div class="col-6 col-md-3">
-                                <h4><i class="fas fa-shower"></i> <?php echo rwmb_meta( 'bathrooms' );?> baños</h4>
+                                <h4><i class="fas fa-shower"></i> <?php echo rwmb_meta( 'bathrooms' );?> <?php pll_e( 'Baños' );?></h4>
                             </div>
 
                             <div class="col-6 col-md-3">
-                                <h4><i class="fas fa-home"></i> <?php echo rwmb_meta( 'construction' );?> m2 total</h4>
+                                <h4><i class="fas fa-home"></i><?php echo tierra_get_sqft( pll_current_language(), rwmb_meta( 'construction' ) );?> total</h4>
                             </div>
                         
                         </div>
@@ -130,24 +130,24 @@
                         <div class="row justify-content-start my-3" id="services-icons">
                             
                             <div class="col-6 col-md-3">
-                                <h4><i class="fas fa-couch"></i> <?php echo rwmb_meta( 'furniture' );?> </h4>
+                                <h4><i class="fas fa-couch"></i> <?php echo pll_e( rwmb_meta( 'furniture' ) );?> </h4>
                             </div>
 
                             <?php if( !empty(rwmb_meta( 'lot_area') ) ): ?>
                             <div class="col-6 col-md-3">
-                                <h4><i class="fas fa-ruler-combined"></i> <?php echo rwmb_meta( 'lot_area' );?> m2 lote</h4>
+                                <h4><i class="fas fa-ruler-combined"></i> <?php echo tierra_get_sqft( pll_current_language(), rwmb_meta( 'lot_area' ) );?> <?php pll_e( 'Lote' );?></h4>
                             </div>
 
                             <?php
                                 endif;
                             ?>
                                 
-                                <?php if( !empty(rwmb_meta( 'parking_stalls') ) ): ?>
+                                <?php if( !empty(rwmb_meta( 'parking_stalls') ) && !empty(rwmb_meta('parking_type')) ): ?>
                                     
                                 
                                <div class="col-6 col-md-3">
                                 <!--Parkings-->
-                                <h4><i class="fas fa-car"></i> <?php echo rwmb_meta( 'parking_stalls' );?> </h4>
+                                <h4><i class="fas fa-car"></i> <?php echo rwmb_meta( 'parking_type' );?>: <?php echo rwmb_meta( 'parking_stalls' );?>  </h4>
                             </div>
 
                             <?php
@@ -157,9 +157,12 @@
                         </div>
 
                         <div class="row justify-content-start my-3" id="services-icons">
-                                <div class="col-12 col-md-5">
+                                <div class="col-12 col-md-4">
                                     <h3 class="fs-1 py-3"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format( rwmb_meta( 'price' ) );?></h3>
+                                </div>
 
+                                <div class="col-12 col-md-6">
+                                    <h3 class="fs-1 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php echo number_format(rwmb_meta( 'price_square_m' ));?></h3>
                                 </div>
 
                                 <!-- <div class="col-12 col-md-3 my-4">
@@ -180,7 +183,7 @@
 
                 <?php if( !empty(rwmb_meta( 'listing_tour') ) ): ?>
                 <div class="col-md-4">
-                     <a href="<?php echo rwmb_meta( 'listing_tour' );?>" class="my-3 mx-5 btn btn-amarillo w-75" target="_blank" >Tour vitual</a>
+                     <a href="<?php echo rwmb_meta( 'listing_tour' );?>" class="my-3 mx-5 btn btn-amarillo w-75" target="_blank" ><?php pll_e( 'Tour Vitual' );?></a>
                 </div>
 
                 <?php endif; ?>
@@ -191,7 +194,7 @@
                     foreach ( $files as $file ) {
                         ?>
                         <div class="col-md-4">
-                             <a href="<?php echo $file['url']; ?>" class="my-3 mx-5 btn btn-azul w-75" target="_blank" >Descargar Brochure</a>
+                             <a href="<?php echo $file['url']; ?>" class="my-3 mx-5 btn btn-azul w-75" target="_blank" ><?php pll_e( 'Descargar brochure' );?></a>
                         </div>
                         <?php
                     }?>
@@ -210,7 +213,7 @@
         </div>
         
 
-            <h2 class="fs-1 m-5 text-center">Ubicación</h2>
+            <h2 class="fs-1 m-5 text-center"><?php pll_e( 'Ubicación' );?></h2>
               <?php $args = array(
                         'width'        => '100%',
                         'height'       => '500px',

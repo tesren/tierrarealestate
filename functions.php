@@ -33,7 +33,7 @@ function cb_register_styles()
     wp_enqueue_style('cb-style', get_template_directory_uri() . "/style.css", array('cb-bootstrap'), $version , 'all');
     // wp_enqueue_style('cb-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css", array(), '5.0.0', 'all');
     wp_enqueue_style('cb-bootstrap', get_template_directory_uri() . "/assets/css/bootstrap.min.css", array(), '5.0.0', 'all');
-    wp_enqueue_style('cb-style-primary', get_template_directory_uri() . "/assets/css/cb_styles.css", array(), $version , 'all');
+    wp_enqueue_style('tierra-style-primary', get_template_directory_uri() . "/assets/css/tierra_styles.css", array(), $version , 'all');
     wp_enqueue_style('cb-fontawesome', get_template_directory_uri() . "/assets/css/all.min.css", array(), '5.15.1' , 'all');
     //Fontawesome cdn
     //wp_enqueue_style('cb-fontawesome', "/style.css", array(), '1.0', 'all');
@@ -269,5 +269,273 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         }
     }
 
+    function tierra_get_sqft( $lang, $val){
 
+        if( !empty($val) )
+        {
+            if($lang === 'en' ){
+                return number_format($val * 10.76 ) . ' ft2'; 
+            }
+            else
+            {
+                return number_format( $val ) . 'm2';
+            }
+        }else{
+             return '0';
+        }
+
+       
+    }
+
+
+    function tierra_set_strings_transtaltion(){
+        
+        $strings = array(
+            array(
+                'name' => 'price_from',
+                'string' => 'Precios Desde',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'more_info',
+                'string' => 'Más info',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'bedrooms',
+                'string' => 'Recámaras',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'price_m2',
+                'string' => 'Precio m2',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'bathrooms',
+                'string' => 'Baños',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'half_bathrooms',
+                'string' => 'Medios Baños',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'preview',
+                'string' => 'Vista previa',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'furnished_label',
+                'string' => 'Amueblado',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'unfurnished_label',
+                'string' => 'Sin amueblar',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'partly_furnished_label',
+                'string' => 'Semi-amueblado',
+                'group' => 'tierra labels',
+                'multiline' => false,
+             ),
+            array(
+                'name' => 'close',
+                'string' => 'Cerrar',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'affiliate',
+                'string' => 'Afiliados',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'properties',
+                'string' => 'Propiedades',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'make_apointment',
+                'string' => 'Agenda tu cita',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'amenities',
+                'string' => 'Amenidades',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'more_photos',
+                'string' => 'Más fotos',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'map_title',
+                'string' => 'Título Mapas',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'listings_in_title',
+                'string' => 'Listings en',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'virtual_tour',
+                'string' => 'Tour Vitual',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'download_brochure',
+                'string' => 'Descargar brochure',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'lote_label',
+                'string' => 'Lote',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'location_label',
+                'string' => 'Ubicación',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'contact_page_title',
+                'string' => 'Conócenos mejor',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'contact_page_tagline',
+                'string' => 'Nuestro equipo',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'contact_page_qr_cta',
+                'string' => 'Agregame a tus contactos',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'project_desc_title',
+                'string' => 'Acerca del proyecto',
+                'group' => 'tierra developments',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'master_plan',
+                'string' => 'Master plan',
+                'group' => 'tierra developments',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'restaurant_section_title',
+                'string' => 'Restaurantes recomendados',
+                'group' => 'tierra lifestyle',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'properties_section_title',
+                'string' => 'Propiedades en',
+                'group' => 'tierra lifestyle',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'properties_types_section',
+                'string' => 'Propiedades',
+                'group' => 'tierra developments',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'bars_section_title',
+                'string' => 'Bares recomendados',
+                'group' => 'tierra lifestyle',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'gallery_lifestyle_title',
+                'string' => 'Vive en',
+                'group' => 'tierra lifestyle',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_form_title',
+                'string' => 'Título Formulario Contacto',
+                'group' => 'tierra contact form',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_form_desc',
+                'string' => 'Descripción Formulario Contacto',
+                'group' => 'tierra contact form',
+                'multiline' => true,
+            ),
+             array(
+                'name' => 'input_tel_form',
+                'string' => 'Campo Teléfono',
+                'group' => 'tierra contact form',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'input_name_form',
+                'string' => 'Campo Nombre',
+                'group' => 'tierra contact form',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'input_email_form',
+                'string' => 'Campo Email',
+                'group' => 'tierra contact form',
+                'multiline' => false,
+            ),
+             array(      
+                'name' => 'input_msg_form',
+                'string' => 'Campo Mensaje',
+                'group' => 'tierra contact form',
+                'multiline' => false,
+            ),
+             array(
+                'name' => 'btn_send_form',
+                'string' => 'Botón Enviar',
+                'group' => 'tierra contact form',
+                'multiline' => false,
+            ),
+        );
+
+
+        foreach ($strings as $string ) {
+            
+            pll_register_string( $string['name'], $string['string'], $string['group'], $string['multiline'] );
+        };
+
+    }
+
+    add_action('init', 'tierra_set_strings_transtaltion');
+
+    
 ?>

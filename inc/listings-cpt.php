@@ -134,6 +134,12 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'select_all_none' => false,
             ],
             [
+                'name'  => 'Precio por metro cuadrado',
+                'desc'  => 'Solo numeros',
+                'id'    => 'price_square_m',
+                'type'  => 'number',
+            ],
+            [
                     'name'       => 'Tipo propiedad',
                     'id'         => 'taxonomy',
                     'type'       => 'taxonomy',
@@ -206,8 +212,14 @@ function listings_register_meta_boxes( $meta_boxes ) {
             [
                 'name'  => 'Estacionamiento',
                 'desc'  => 'Especificar tipo de estacionamiento',
-                'id'    => 'parking_stalls',
+                'id'    => 'parking_type',
                 'type'  => 'text',
+            ],
+            [
+                'name'  => 'Cantidad de estacionamientos',
+                'desc'  => 'Especificar cuantos estacionamiento hay',
+                'id'    => 'parking_stalls',
+                'type'  => 'number',
             ],
             [
                 'id'          => 'list_brochure',
@@ -314,11 +326,7 @@ function listings_register_meta_boxes( $meta_boxes ) {
         'post_types' => 'listings',
 
         'fields' => [
-            [
-                'id'   => 'address',
-                'name' => 'Address',
-                'type' => 'text',
-            ],
+            
             // Map field.
             [
                 'id'            => 'listings_map',

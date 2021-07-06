@@ -62,12 +62,7 @@ function tierra_realtors_register_meta_boxes( $meta_boxes ) {
         'post_types' => 'realtors',
 
         'fields' => [
-            [
-                'name'  => 'Lema',
-                'desc'  => 'Escriba un lema corto',
-                'id'    => 'realtor_slogan',
-                'type'  => 'text',
-            ],
+           
             [
                 'name'  => 'Email',
                 'desc'  => 'Correo electrónico',

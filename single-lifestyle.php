@@ -37,7 +37,7 @@
                     </div>       
                 </div>
 
-                <h3 class="text-center my-5 fs-1 animatable fadeInDown ">Recomendaciones de Restaurantes</h3>
+                <h3 class="text-center my-5 fs-1 animatable fadeInDown "><?php pll_e( 'Restaurantes recomendados' );?></h3>
 
                 <!--carrusel restaurantes-->
                 <div id="carouselRestas" class="carousel slide" data-bs-ride="carousel">
@@ -71,7 +71,7 @@
                     </button>
                 </div>
 
-                <h3 class="text-center px-5 pt-5 pb-2 fs-1 animatable fadeInUp">Recomendaciones de Bares</h3>
+                <h3 class="text-center px-5 pt-5 pb-2 fs-1 animatable fadeInUp"><?php pll_e( 'Bares recomendados' );?></h3>
 
                 <!--carrusel Bares-->
                 <div id="carouselBares" class="carousel slide" data-bs-ride="carousel">
@@ -109,7 +109,7 @@
                 <div style="position: relative; text-align: center;" class="container-fluid pt-5 pb-5">
                     <div class="row justify-content-center p-0">
 
-                        <h4 style="font-size: 3.5rem; z-index: 1;" class="texto-encima">Vive en <?php the_title();?></h4>
+                        <h4 style="font-size: 3.5rem; z-index: 1;" class="texto-encima"><?php pll_e( 'Vive en' );?> <?php the_title();?></h4>
                         
                         <div id="carouselExampleControls" class="carousel slide p-0" data-bs-ride="carousel">
 

@@ -53,8 +53,8 @@
                                 <div class="carousel-caption d-md-block text-center" style="z-index:3;">
                                     <h1><?php echo get_the_title( $development->ID );?></h1>
                                     <p><?php tierra_get_list_terms($development->ID, 'regiones');?> <br>
-                                    Desde:<br> <?php echo $development->currency;?> $<?php echo number_format($development->starting_at);?> </p>
-                                    <a href="<?php echo get_the_permalink( $development->ID );?>" class="btn btn-light">Más info</a>
+                                    <?php pll_e( 'Precios Desde' );?> :<br> <?php echo $development->currency;?> $<?php echo number_format($development->starting_at);?> </p>
+                                    <a href="<?php echo get_the_permalink( $development->ID );?>" class="btn btn-light"><?php pll_e( 'Más info' );?></a>
                                 </div>
                             </div>
 
@@ -88,7 +88,7 @@
             <?php foreach( $listings as $unit ): ?>
                 <?php 
             setup_postdata($unit);
-            //$photo = get_field('photo', $unit->ID);
+    
             $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
 
             ?>
@@ -118,20 +118,20 @@
                 </div>
                 <div class="col-12">
                     <!--precio y moneda-->
-                    <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo $unit->price;?></h3>
+                    <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
                 </div>
-                    <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> Recámaras</h3>
-                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> baños</h3>
+                    <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
+                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
                     <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo $unit->construction;?> m<sup>2</sup></h3>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">
                 <div class="col-12 col-md-4">
-                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>">Vista Previa</button>
+                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista previa' );?></button>
                 </div>
                 <div class="col-12 col-md-4">         
                     <!-- Button trigger modal -->
-                    <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4">Mas info</a>
+                    <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
                 </div>
             </div>
 
@@ -149,8 +149,8 @@
 
                     <div class="modal-body mt-1">
                         <div class="row justify-content-center">
-                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> Recámaras</h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> baños</h3>
+                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
+                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
                             <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo $unit->construction;?> m<sup>2</sup></h3>
                         </div>
                     </div>
@@ -163,7 +163,7 @@
                         </div>
                         <div class="row justify-content-evenly">
                             <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal">Cerrar</button>
-                            <a href="<?php echo get_the_permalink( $unit->ID );?>" class="col-4 btn btn-amarillo">Mas info</a>
+                            <a href="<?php echo get_the_permalink( $unit->ID );?>" class="col-4 btn btn-amarillo"><?php pll_e( 'Más info' );?></a>
                         </div>
                       
                     </div>
@@ -191,6 +191,8 @@
 
        <!--contacto-->
        <div class="container-fluid py-5 animatable fadeInUp">
+
+
            <?php get_template_part( 'partials/content', 'contact-form' ); ?>
            
        </div>

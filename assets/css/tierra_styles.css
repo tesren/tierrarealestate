@@ -36,6 +36,10 @@
     content: none;
 }
 
+#titulo-propiedades{
+    padding-top: 7.5rem;
+}
+
 #loading{
     display: flex;
     position: fixed;
@@ -84,7 +88,7 @@
 }
 
 .logo-ampi{
-    max-width: 50px;
+    max-width: 40px;
     height: auto;
 }
 
@@ -788,6 +792,11 @@ a{
 }
 
 @media (max-width: 768px) {
+
+
+#titulo-propiedades{
+    padding-top: 5rem;
+}
 
 #lf-properties .card{
     border-radius: 20px;

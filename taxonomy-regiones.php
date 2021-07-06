@@ -1,18 +1,11 @@
 <?php get_header(); ?>
-<article>
-
-<!-- <h1 class="mt-5" style="color:#000;">Taxonomy areas</h1> -->
-
-
-
-
-
 
 <?php 
         if ( have_posts() ) :
             
             $modalId = 0; ?>
-            <h1 class="fs-1 my-5 pt-5 text-center">Listings en <?php                                          
+           
+            <h1 class="fs-1 mt-0 mb-5 my-md-5 text-center" id="titulo-propiedades"><?php pll_e( 'Listings en' );?> <?php                                          
             $terms_list = array_reverse(wp_get_post_terms( get_the_ID(), 'regiones' ) );
 
             $i =1;
@@ -74,18 +67,18 @@
                     <!--precio y moneda-->
                     <h3 class="fs-1 my-3"><?php echo rwmb_meta( 'currency');?>$ <?php echo number_format(rwmb_meta('price'));?></h3>
                 </div>
-                    <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Recámaras</h3>
-                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> baños</h3>
+                    <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h3>
+                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'baños' );?></h3>
                     <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo rwmb_meta('construction')?> m<sup>2</sup></h3>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">
                 <div class="col-12 col-md-4">
-                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>">Vista Previa</button>
+                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista Previa' );?></button>
                 </div>
                 <div class="col-12 col-md-4">         
                     <!-- Button trigger modal -->
-                    <a href="<?php echo get_the_permalink();?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4">Mas info</a>
+                    <a href="<?php echo get_the_permalink();?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más Info' );?></a>
                 </div>
             </div>
 
@@ -103,8 +96,8 @@
 
                     <div class="modal-body mt-1">
                         <div class="row justify-content-center">
-                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Recámaras</h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> baños</h3>
+                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h3>
+                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h3>
                             <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo rwmb_meta('construction')?> m<sup>2</sup></h3>
                         </div>
                     </div>
@@ -116,8 +109,8 @@
                             </div>
                         </div>
                         <div class="row justify-content-evenly">
-                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal">Cerrar</button>
-                            <a href="<?php echo get_the_permalink();?>" class="col-4 btn btn-amarillo">Mas info</a>
+                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal"><?php pll_e( 'Cerrar' );?></button>
+                            <a href="<?php echo get_the_permalink();?>" class="col-4 btn btn-amarillo"><?php pll_e( 'Más info' );?></a>
                         </div>
                       
                     </div>
@@ -142,5 +135,5 @@
             
         endif;
     ?>
-</article>
+
 <?php get_footer(); ?>

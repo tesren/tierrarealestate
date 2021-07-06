@@ -27,7 +27,8 @@
                                   $i++;
                               }
                           }
-                      ?> <br> Desde: <?php echo rwmb_meta( 'currency' );?> $ <?php echo number_format(rwmb_meta( 'starting_at' )); ?> 
+                      ?> <br> <?php pll_e( 'Precios Desde' );?> : <?php echo rwmb_meta( 'currency' );?> $ <?php echo number_format(rwmb_meta( 'starting_at' )); ?> 
+                        <br> <?php pll_e( 'Precio m²' );?> : <?php echo rwmb_meta( 'currency' );?> $ <?php echo number_format(rwmb_meta( 'dev_price_square_m' )); ?> 
                       </p>
                   </div>
       </div>
@@ -37,7 +38,7 @@
 
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                <h2 class="fw-bold fs-1 animatable fadeInUp">Acerca del proyecto</h2>
+                <h2 class="fw-bold fs-1 animatable fadeInUp"><?php pll_e( 'Acerca del proyecto' );?></h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
 
@@ -52,7 +53,7 @@
             
             <div class="d-flex justify-content-center">
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                <h2 class="fw-bold fs-1 animatable fadeInDown">Propiedades</h2>
+                <h2 class="fw-bold fs-1 animatable fadeInDown"><?php pll_e( 'Propiedades' );?></h2>
                 <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
             </div>
 
@@ -174,14 +175,14 @@
                               <h5 class="card-title fw-bold"> <?php echo get_the_title( $unit->ID );?></h5>
                               <p class="card-text">
                                   <ul class="list-unstyled">
-                                      <li><?php echo $unit->bedrooms;?> recámaras</li>
-                                      <li><?php echo $unit->bathrooms;?> baños</li>
-                                      <li><?php echo $unit->half_baths;?> medios baños</li>
+                                      <li><?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
+                                      <li><?php echo $unit->bathrooms;?> <?php pll_e( 'baños' );?></li>
+                                      <li><?php echo $unit->half_baths;?> <?php pll_e( 'Medios Baños' );?></li>
                                       <li><?php echo $unit->construction;?> m<sup>2</sup></li>
                                   </ul>        
                               </p>
                               <?php if( !empty($unit->starting_at)):?>
-                                <h5 class="card-title fw-bold">Desde <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
+                                <h5 class="card-title fw-bold"><?php pll_e( 'Precios Desde' );?> <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
                               <?php endif; ?>
                           </div>
                       </div>
@@ -213,7 +214,7 @@
                     $files = rwmb_meta( 'dev_brochure' );
                     foreach ( $files as $file ) {
                         ?>
-                        <a href="<?php echo $file['url']; ?>" class="mt-2 mb-5 mt-md-4 mb-md-5 mx-5 btn btn-azul w-50" target="_blank" >Descargar Brochure</a>
+                        <a href="<?php echo $file['url']; ?>" class="mt-2 mb-5 mt-md-4 mb-md-5 mx-5 btn btn-azul w-50" target="_blank" ><?php pll_e( 'Descargar Brochure' );?></a>
                 <?php
                     }?>
               
@@ -233,7 +234,7 @@
        <!--Carrusel de amenidades-->
         <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center animatable fadeInDown">Amenidades</h2>
+            <h2 class="fw-bold fs-1 text-center animatable fadeInDown"><?php pll_e( 'Amenidades' );?></h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
@@ -270,7 +271,7 @@
           <!--CARRUSEL mas fotos-->
         <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center animatable fadeInDown">Mas fotos</h2>
+            <h2 class="fw-bold fs-1 text-center animatable fadeInDown"><?php pll_e( 'Master Plan' );?></h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
         
@@ -303,7 +304,7 @@
        
         <div class="d-flex justify-content-center mt-5 mb-3">
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-            <h2 class="fw-bold fs-1 text-center "> Mapa</h2>
+            <h2 class="fw-bold fs-1 text-center "> <?php pll_e( 'Ubicación' );?></h2>
             <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
         </div>
 

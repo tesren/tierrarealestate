@@ -8,14 +8,14 @@ else {
     <!--Acerca del proyecto-->
     <div class="container d-flex justify-content-center mt-5 mb-4 pt-5 pt-md-4">
         <img class="iconsvg mt-5" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">
-        <h2 class=" text-center fs-1 mt-5">CONÓCENOS MEJOR</h2>
+        <h2 class=" text-center fs-1 mt-5">CONTACT US</h2>
         <img class="iconsvg mt-5" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">           
     </div>
     
     <!--VENDEDORES-->
 
     <div class="container text-center">
-        <h2 class="fs-1 mt-3">Nuestro equipo de trabajo</h2>
+        <h2 class="fs-1 mt-3">OUR TEAM</h2>
         
         <div class="row justify-content-center mt-4">
             <?php 
@@ -51,13 +51,14 @@ else {
                         <div class="col-md-6 my-3 ps-2">
                             <h4 class="fs-2 fw-bold texto-azul"><?php echo get_the_title( $realtor->ID); ?></h4>
                             <h4 class="fs-3 my-2"><?php echo $realtor->realtor_position; ?></h4>
+                            <p  class="fs-5 mt-2 mb-4">"<?php echo $realtor->realtor_slogan; ?>"</p>
                             <h5 class="texto-azul mb-2"> <i class="fas fa-phone-alt"></i> +52 <?php echo $realtor->realtor_phone_number; ?></h5>
                             <h5 class="texto-azul mb-4"> <i class="fas fa-envelope"></i> <?php echo $realtor->realtor_email; ?></h5>
 
                             <div class="row justify-content-center">
                                 <?php if(!empty($qrcode)):?>
                                 <div class="col-md-6 mt-3">
-                                    <p>Agregame <br> a tus contactos</p>
+                                    <p>Add me <br> to your contacts</p>
                                 </div>
                                 <div class="col-md-6">
                                     <img class="img-fluid" src="<?php echo $qrcode['url']; ?>" alt="Codigo QR">
@@ -83,31 +84,32 @@ else {
             <div class="col-12 align-self-center">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="tierra_light text-center pb-4">VALORES DE LA EMPRESA</h2>
+                        <h2 class="tierra_light text-center pb-4">Business moral values</h2>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-6 pb-3">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-handshake m-2 fa-2x" alt="Equipo"></i><p>Respeto</p>
+                        <i class="fas fa-handshake m-2 fa-2x" alt="Equipo"></i><p>Honesty</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6 pb-3">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-check fa-2x m-2" alt="Resolución"></i><p>Resolución</p>
+                        <i class="fas fa-check fa-2x m-2" alt="Resolución"></i><p>Efficiency</p>
                         </div>
                     </div>
+                  
                 </div>
                 
                 <div class="row justify-content-center">
                     <div class="col-6 col-lg-4">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-user-tie fa-2x m-2" alt="Profesionalismo"></i><p>Profesionalismo</p>
+                        <i class="fas fa-user-tie fa-2x m-2" alt="Profesionalismo"></i><p>Professionalism</p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-12 pb-3">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-users fa-2x m-2" alt="Equipo"></i><p>Trabajo en equipo</p>
+                        <i class="fas fa-users fa-2x m-2" alt="Equipo"></i><p>Teamwork</p>
                         </div>
                     </div>
                 </div>
@@ -126,8 +128,8 @@ else {
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p class="fs-3 text-center animatable fadeInDown"> Amplia experiencia laboral en propiedades de lujo y en exclusivos desarrollos residenciales<br>
-                            Eficiencia en la gestion y cierres de transacciones inmobiliarias de alto nivel
+                        <p class="fs-3 text-center animatable fadeInDown"> Extensive work experience in luxury properties and exclusive residential developments <br>
+                            Efficiency in the management and closing of high-level real estate transactions
                         </p>
                     </div>
                 </div>
@@ -135,12 +137,12 @@ else {
         </div>   
     </div>
 
-    <!--contacto-->
-    <div class="container-fluid py-5 animatable fadeInUp">
+     <!--contacto-->
+     <div class="container-fluid py-5 animatable fadeInUp">
 
-        <?php get_template_part( 'partials/content', 'contact-form' ); ?>
+      <?php get_template_part( 'partials/content', 'contact-form' ); ?>
 
-    </div>
+     </div>
 
 
 <?php get_footer(); ?>

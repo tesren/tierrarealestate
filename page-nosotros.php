@@ -48,18 +48,18 @@ else {
                             <img class="img-fluid w-100 round-borders" src="<?php echo $image['url']; ?>">
                         </div>
     
-                        <div class="col-md-6 my-3 ps-2">
+                        <div class="col-md-6 mt-3 ps-2">
                             <h4 class="fs-2 fw-bold texto-azul"><?php echo get_the_title( $realtor->ID); ?></h4>
                             <h4 class="fs-3 my-2"><?php echo $realtor->realtor_position; ?></h4>
                             <h5 class="texto-azul mb-2"> <i class="fas fa-phone-alt"></i> +52 <?php echo $realtor->realtor_phone_number; ?></h5>
                             <h5 class="texto-azul mb-4"> <i class="fas fa-envelope"></i> <?php echo $realtor->realtor_email; ?></h5>
 
-                            <div class="row justify-content-center">
+                            <div class="row justify-content-center text-center">
                                 <?php if(!empty($qrcode)):?>
-                                <div class="col-md-6 mt-3">
+                                <div class="col-md-12 ">
                                     <p>Agregame <br> a tus contactos</p>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <img class="img-fluid" src="<?php echo $qrcode['url']; ?>" alt="Codigo QR">
                                 </div>
                                 <?php endif;?>

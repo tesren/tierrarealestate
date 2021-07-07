@@ -364,6 +364,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'multiline' => false,
             ),
             array(
+                'name' => 'privacy_policy',
+                'string' => 'Politicas de Privacidad',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
                 'name' => 'properties',
                 'string' => 'Propiedades',
                 'group' => 'tierra labels',

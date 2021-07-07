@@ -28,7 +28,7 @@
                               }
                           }
                       ?> <br> <?php pll_e( 'Precios Desde' );?> : <?php echo rwmb_meta( 'currency' );?> $ <?php echo number_format(rwmb_meta( 'starting_at' )); ?> 
-                        <br> <?php pll_e( 'Precio m²' );?> : <?php echo rwmb_meta( 'currency' );?> $ <?php echo number_format(rwmb_meta( 'dev_price_square_m' )); ?> 
+                        
                       </p>
                   </div>
       </div>
@@ -285,7 +285,7 @@
                             foreach ( $masfotos as $foto ) { ?>
 
                                 <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                    <img class="d-block w-100 tr-img-responsive" src="<?php echo $foto['url'];?>" alt="<?php echo $foto['title'];?>">
+                                    <img class="d-block w-100" src="<?php echo $foto['url'];?>" alt="<?php echo $foto['title'];?>">
                                 </div>
                                 
 

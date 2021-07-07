@@ -134,12 +134,6 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'select_all_none' => false,
             ],
             [
-                'name'  => 'Precio por metro cuadrado',
-                'desc'  => 'Solo numeros',
-                'id'    => 'price_square_m',
-                'type'  => 'number',
-            ],
-            [
                     'name'       => 'Tipo propiedad',
                     'id'         => 'taxonomy',
                     'type'       => 'taxonomy',

@@ -791,7 +791,33 @@ a{
      border-top-left-radius: 30px;
 }
 
+.labels-form-small{
+    display: block;
+}
+.labels-form-grande{
+    display: none;
+}
 @media (max-width: 768px) {
+
+.labels-form-small{
+    display: block;
+}
+.labels-form-grande{
+    display: none;
+}
+
+.animatable {
+
+    /* initially hide animatable objects */
+    visibility: visible !important;
+    
+    /* initially pause animatable objects their animations */
+    -webkit-animation-play-state: paused;   
+    -moz-animation-play-state: paused;     
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;   
+    animation-play-state: paused; 
+    }
 
 
 #titulo-propiedades{
@@ -909,7 +935,7 @@ a{
    #carouselFrontPage .carousel-caption p{
         font-size: 1.5rem !important;
         margin-top: 0 !important;
-        margin-bottom: 70px !important;
+        margin-bottom: 50px !important;
     }
 
     #carouselFrontPage .carousel-caption h1{
@@ -1107,6 +1133,13 @@ a{
 }
 
 @media (min-width: 2048px){
+
+    .labels-form-small{
+        display: none;
+    }
+    .labels-form-grande{
+        display: block;
+    }
     
 
     #carouselFrontPage .carousel-caption p{

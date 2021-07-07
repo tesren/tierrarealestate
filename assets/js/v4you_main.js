@@ -21,17 +21,6 @@ if ($(window).width() < 768) {
 }
 
 
-if($(window).width() > 2048){
-    
-
-    $('.labels-form-small').addClass('d-none');
-    $('.labels-form-grande').removeClass('d-none');
-}else{
-   
-    $('.labels-form-small').removeClass('d-none');
-    $('.labels-form-grande').addClass('d-none');
-}
-
 //comportamiento de boton nosotros en navbar
 var lastScrollTop = 0;
 $(window).scroll(function(event){
@@ -82,7 +71,6 @@ $(window).scroll(function () {
 
     }else{
         $('#mainHeader').addClass('fixed-top');
-        //$('#tr-boton-nosotros').css('display','block');
     }
 
 });
@@ -140,37 +128,37 @@ document.addEventListener('DOMContentLoaded', () =>
 
 
   wait(1800).then(() => {
-  //animaciones
-  jQuery(function($) {
-  
-    // Function which adds the 'animated' class to any '.animatable' in view
-    var doAnimations = function() {
-      
-      // Calc current offset and get all animatables
-      var offset = $(window).scrollTop() + $(window).height();
-      var $animatables = $('.animatable');
-      
-      // Unbind scroll handler if we have no animatables
-      if ($animatables.length == 0) {
-        $(window).off('scroll', doAnimations);
-      }
-      
-      // Check all animatables and animate them if necessary
-          $animatables.each(function(i) {
-         var $animatable = $(this);
-              if (($animatable.offset().top + $animatable.height() - 20) < offset) {
-          $animatable.removeClass('animatable').addClass('animated');
-              }
-      });
-  
-      };
+    //animaciones
+    jQuery(function($) {
     
-    // Hook doAnimations on scroll, and trigger a scroll
-      $(window).on('scroll', doAnimations);
-    $(window).trigger('scroll');
-  
-  });   });
+      // Function which adds the 'animated' class to any '.animatable' in view
+      var doAnimations = function() {
+        
+        // Calc current offset and get all animatables
+        var offset = $(window).scrollTop() + $(window).height();
+        var $animatables = $('.animatable');
+        
+        // Unbind scroll handler if we have no animatables
+        if ($animatables.length == 0) {
+          $(window).off('scroll', doAnimations);
+        }
+        
+        // Check all animatables and animate them if necessary
+            $animatables.each(function(i) {
+           var $animatable = $(this);
+                if (($animatable.offset().top + $animatable.height() - 20) < offset) {
+            $animatable.removeClass('animatable').addClass('animated');
+                }
+        });
     
+        };
+      
+      // Hook doAnimations on scroll, and trigger a scroll
+        $(window).on('scroll', doAnimations);
+      $(window).trigger('scroll');
+    
+    });   });
+  
     
   //mapa
     function initMap() {

@@ -115,6 +115,7 @@
                             }                                                                                     
                             ?>  
                     </h2>
+                    
                 </div>
                 <div class="col-12">
                     <!--precio y moneda-->
@@ -127,10 +128,10 @@
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">
                 <div class="col-12 col-md-4">
+                 <!-- Button trigger modal -->
                 <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista previa' );?></button>
                 </div>
                 <div class="col-12 col-md-4">         
-                    <!-- Button trigger modal -->
                     <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
                 </div>
             </div>
@@ -158,7 +159,7 @@
                     <div class="modal-footer d-block">
                         <div class="row">
                             <div class="col-12">
-                                <div class="fs-5 text-start py-3"><?php the_content();?></div>
+                                <div class="fs-5 text-start py-3"><?php echo the_content($unit->ID);?></div>
                             </div>
                         </div>
                         <div class="row justify-content-evenly">

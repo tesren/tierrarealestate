@@ -161,13 +161,46 @@
                                     <h3 class="fs-1 py-3"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format( rwmb_meta( 'price' ) );?></h3>
                                 </div>
 
+                                <!--Calculo de precio por metro cuadrado-->
+                                <?php if( !empty(rwmb_meta( 'construction' ) ) && !empty(rwmb_meta('lot_area')) ){ ?>
                                 <div class="col-12 col-md-6">
-                                    <h3 class="fs-1 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php echo number_format(rwmb_meta( 'price_square_m' ));?></h3>
+                                    <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
+
+                                        $price = rwmb_meta( 'price' );
+                                        $lot = rwmb_meta('lot_area');
+
+                                        $priceMeterSquareLot = $price / $lot;
+
+                                        echo number_format($priceMeterSquareLot); ?> </h3>
                                 </div>
 
-                                <!-- <div class="col-12 col-md-3 my-4">
-                                    <a href="#" class="mx-4 btn btn-amarillo">Ficha técnica</a>
-                                </div> -->
+                                <?php }elseif( empty(rwmb_meta( 'lot_area' )) && !empty(rwmb_meta( 'construction' )) ){ ?>
+
+                                    <div class="col-12 col-md-6">
+                                         <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
+                                    
+                                        $price = rwmb_meta( 'price' );
+                                        $construction = rwmb_meta('construction');
+                                        
+                                        $priceMeterSquareConst = $price / $construction;
+
+                                        echo number_format($priceMeterSquareConst); ?> </h3>
+                                    </div>
+
+                                    <?php } else{?>
+
+                                    <div class="col-12 col-md-6">
+                                        <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
+
+                                            $price = rwmb_meta( 'price' );
+                                            $lot = rwmb_meta('lot_area');
+
+                                            $priceMeterSquareLot = $price / $lot;
+
+                                            echo number_format($priceMeterSquareLot); ?> </h3>
+                                    </div>
+
+                                <?php }?>
 
                         </div>
 

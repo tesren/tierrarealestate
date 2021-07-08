@@ -9,8 +9,21 @@
         <!--Imagen con texto-->
       <div class="container-fluid " style="position:relative;">
       <div class="fondo-oscuro"></div>
-        <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
-                  <img width="100%" class="img-fluid tr-img-responsive"  src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
+
+        <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+
+        $backgroundLg = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+
+        $backgroundMd = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'medium' );?>
+        
+
+                  <img width="100%" class="img-fluid tr-img-responsive"  
+                                srcset="<?php echo $backgroundMd[0];?> 300w,
+                                        <?php echo $backgroundLg[0];?> 1024w"
+                                sizes="(max-width: 480px) 100%,
+                                        (max-width: 768px) 100%,
+                                        992px" src="<?php echo $backgroundImg[0]; ?>" alt="<?php the_title();?>">
+                  
                   <div class="caption-naya text-center">
                       <h1 id="naya" style="z-index:3;"><?php the_title();?></h1>
                       <p class="fs-2" style="z-index:3;"> <?php 
@@ -68,10 +81,17 @@
                     {
                         case 1:
                             
-                            foreach ( $residences as $residence ) { ?>
+                            foreach ( $residences as $residence ) { 
+
+                                $residence = wp_get_attachment_image_src( get_post_thumbnail_id($residence->ID), 'full' );
+
+                                $residenceLg = wp_get_attachment_image_src( get_post_thumbnail_id( $residence->ID ), 'large' );
+
+                                $residenceMd = wp_get_attachment_image_src( get_post_thumbnail_id( $residence->ID ), 'medium' );?>
 
                                 <div class="col-md-12">
-                                    <img class="img-fluid w-100" src="<?php echo $residence['url'];?>">
+
+                                    <img class="img-fluid w-100"  src="<?php echo $residence['url'];?>">
                                     <h3 class="animatable fadeInDown"><?php echo $residence['title'];?></h3>
                                     <hr class="linea-grande">
                                 </div>
@@ -178,7 +198,7 @@
                                       <li><?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
                                       <li><?php echo $unit->bathrooms;?> <?php pll_e( 'baños' );?></li>
                                       <li><?php echo $unit->half_baths;?> <?php pll_e( 'Medios Baños' );?></li>
-                                      <li><?php echo $unit->construction;?> m<sup>2</sup></li>
+                                      <li><?php echo  tierra_get_sqft(pll_current_language(),$unit->construction);?> </li>
                                   </ul>        
                               </p>
                               <?php if( !empty($unit->starting_at)):?>
@@ -248,7 +268,7 @@
                             foreach ( $amenities as $amenitie ) { ?>
 
                                 <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                    <img class="d-block w-100 tr-img-responsive" src="<?php echo $amenitie['url'];?>">
+                                    <img class="d-block w-100 tr-img-responsive carousel-img-sizing" src="<?php echo $amenitie['url'];?>">
                                     <div class="carousel-caption d-md-block">
                                         <h2 class="fs-1"><?php echo $amenitie['title'];?></h2>
                                     </div>
@@ -285,7 +305,7 @@
                             foreach ( $masfotos as $foto ) { ?>
 
                                 <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                    <img class="d-block w-100" src="<?php echo $foto['url'];?>" alt="<?php echo $foto['title'];?>">
+                                    <img class="d-block w-100 carousel-img-sizing" src="<?php echo $foto['url'];?>" alt="<?php echo $foto['title'];?>">
                                 </div>
                                 
 

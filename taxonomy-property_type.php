@@ -1,24 +1,18 @@
 <?php get_header(); ?>
-<article>
+
 
 <?php 
-        if ( have_posts() ):
-            
-            while( have_posts() ) : the_post();
-
-             
-                //setup_postdata($unit);
-                //$photo = get_field('photo', $unit->ID);
-
-                ?>
+    if ( have_posts() ):
+        
+        while( have_posts() ) : the_post();
+            //setup_postdata($unit);
+            ?>
             
             <!--Nuevo y mejorado diseño listings chido-->
            
-<div class="container-fluid text-center contenedor-listings mt-5">
+        <div class="container-fluid text-center contenedor-listings mt-5">
             <!--listing info-->
-       
-  
-            
+
                 <?php 
             //setup_postdata($unit);
             //$photo = get_field('photo', $unit->ID);
@@ -81,9 +75,9 @@
 
                     <div class="modal-body mt-1">
                         <div class="row justify-content-center">
-                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Recámaras</h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> baños</h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo rwmb_meta('construction')?> m<sup>2</sup></h3>
+                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h3>
+                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h3>
+                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(),rwmb_meta('construction'));?> </h3>
                         </div>
                     </div>
 
@@ -94,8 +88,8 @@
                             </div>
                         </div>
                         <div class="row justify-content-evenly">
-                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal">Cerrar</button>
-                            <a href="<?php echo get_the_permalink();?>" class="col-4 btn btn-amarillo">Mas info</a>
+                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal"><?php pll_e('Cerrar'); ?></button>
+                            <a href="<?php echo get_the_permalink();?>" class="col-4 btn btn-amarillo"><?php pll_e( 'Más info' );?></a>
                         </div>
                       
                     </div>
@@ -108,10 +102,10 @@
             <?php 
             $modalId++;
             
-            wp_reset_postdata();
+           
          endwhile;
-            
+        // wp_reset_postdata();
         endif;
     ?>
-</article>
+
 <?php get_footer(); ?>

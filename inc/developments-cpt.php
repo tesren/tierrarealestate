@@ -255,7 +255,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
 
     $meta_boxes[] = [
         
-        'title' => 'Mas fotos',
+        'title' => 'Fotos Masterplan',
         'post_types' => 'developments',
 
         'fields' => [

@@ -1,34 +1,33 @@
 <?php 
-if(is_front_page()) {
- get_header('front');
-}
-else {
+
+ /*
+ Template Name: Contact Page 
+  */
+            
+  $realtors = get_posts(array(
+      'post_type' => 'realtors',
+      'numberofposts' => -1
+
+      )
+
+  );
+  
  get_header();
-} ?>
+?>
     <!--Acerca del proyecto-->
     <div class="container d-flex justify-content-center mt-5 mb-4 pt-5 pt-md-4">
         <img class="iconsvg mt-5" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">
-        <h2 class=" text-center fs-1 mt-5">CONÓCENOS MEJOR</h2>
+        <h2 class=" text-center fs-1 mt-5"><?php pll_e('Conócenos mejor');?></h2>
         <img class="iconsvg mt-5" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">           
     </div>
     
     <!--VENDEDORES-->
 
     <div class="container text-center">
-        <h2 class="fs-1 mt-3">Nuestro equipo de trabajo</h2>
+        <h2 class="fs-1 mt-3"><?php pll_e('Nuestro equipo');?></h2>
         
         <div class="row justify-content-center mt-4">
-            <?php 
-            
-                $realtors = get_posts(array(
-                    'post_type' => 'realtors',
-                    'numberofposts' => -1
-
-                    )
-
-                );
-                
-            ?>
+           
 
             <?php if( $realtors ): ?>
   
@@ -41,7 +40,7 @@ else {
                     $qrcodes = rwmb_meta( 'realtor_qr', array( 'size' => 'thumbnail' ),$realtor->ID );
                     $qrcode = reset($qrcodes); ?>
 
-            <div class="col-12 col-md-5 bg-light my-3 mx-4 px-0 " >
+            <div class="col-11 col-md-5 bg-light my-3 mx-4 px-0 realtors" >
                     <div class="row justify-content-start justify-content-md-start text-center text-md-start">
                         
                         <div class="col-md-6 round-borders">
@@ -57,7 +56,7 @@ else {
                             <div class="row justify-content-center text-center">
                                 <?php if(!empty($qrcode)):?>
                                 <div class="col-md-12 ">
-                                    <p>Agregame <br> a tus contactos</p>
+                                    <p><?php pll_e('Agregame a tus contactos');?></p>
                                 </div>
                                 <div class="col-md-12">
                                     <img class="img-fluid" src="<?php echo $qrcode['url']; ?>" alt="Codigo QR">
@@ -83,18 +82,18 @@ else {
             <div class="col-12 align-self-center">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="tierra_light text-center pb-4">VALORES DE LA EMPRESA</h2>
+                        <h2 class="tierra_light text-center pb-4"><?php pll_e('Valores');?></h2>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-lg-4 col-6 pb-3">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-handshake m-2 fa-2x" alt="Equipo"></i><p>Respeto</p>
+                        <i class="fas fa-handshake m-2 fa-2x" alt="Equipo"></i><p><?php pll_e('Respeto');?></p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-6 pb-3">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-check fa-2x m-2" alt="Resolución"></i><p>Resolución</p>
+                        <i class="fas fa-check fa-2x m-2" alt="Resolución"></i><p><?php pll_e('Resolucion');?></p>
                         </div>
                     </div>
                 </div>
@@ -102,12 +101,12 @@ else {
                 <div class="row justify-content-center">
                     <div class="col-6 col-lg-4">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-user-tie fa-2x m-2" alt="Profesionalismo"></i><p>Profesionalismo</p>
+                        <i class="fas fa-user-tie fa-2x m-2" alt="Profesionalismo"></i><p><?php pll_e('Profesionalismo');?></p>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-12 pb-3">
+                    <div class="col-lg-4 col-6 pb-3">
                         <div class="d-flex align-items-center justify-content-center">
-                        <i class="fas fa-users fa-2x m-2" alt="Equipo"></i><p>Trabajo en equipo</p>
+                        <i class="fas fa-users fa-2x m-2" alt="Equipo"></i><p><?php pll_e('Trabajo en Equipo');?></p>
                         </div>
                     </div>
                 </div>
@@ -126,8 +125,7 @@ else {
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <p class="fs-3 text-center animatable fadeInDown"> Amplia experiencia laboral en propiedades de lujo y en exclusivos desarrollos residenciales<br>
-                            Eficiencia en la gestion y cierres de transacciones inmobiliarias de alto nivel
+                        <p class="fs-3 text-center animatable fadeInDown"><?php pll_e('Descripcion');?> 
                         </p>
                     </div>
                 </div>

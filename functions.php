@@ -274,17 +274,27 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         if( !empty($val) )
         {
             if($lang === 'en' ){
-                return number_format($val * 10.76 ) . ' ft2'; 
+                return number_format($val * 10.76 ) . ' ft²'; 
             }
             else
             {
-                return number_format( $val ) . 'm2';
+                return number_format( $val ) . 'm²';
             }
         }else{
              return '0';
         }
 
        
+    }
+
+    function feetOrMeters($lang, $priceMeter, $priceFeet ){
+        
+        if($lang == 'en'){
+            return number_format($priceFeet);
+        }
+        else{
+            return number_format($priceMeter);
+        }
     }
 
 
@@ -311,7 +321,13 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             ),
             array(
                 'name' => 'price_m2',
-                'string' => 'Precio m2',
+                'string' => 'Precio m2 lote',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'price_m2',
+                'string' => 'Precio m2 const',
                 'group' => 'tierra labels',
                 'multiline' => false,
             ),
@@ -444,6 +460,42 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
              array(
                 'name' => 'contact_page_qr_cta',
                 'string' => 'Agregame a tus contactos',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_page_valores',
+                'string' => 'Valores',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_page_respeto',
+                'string' => 'Respeto',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_page_pro',
+                'string' => 'Profesionalismo',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_page_team',
+                'string' => 'Trabajo en Equipo',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_page_resolu',
+                'string' => 'Resolucion',
+                'group' => 'tierra contact page',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'contact_page_desc',
+                'string' => 'Descripcion',
                 'group' => 'tierra contact page',
                 'multiline' => false,
             ),

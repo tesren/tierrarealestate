@@ -81,7 +81,7 @@
                             </div>
                         </div>
                         <div class="row justify-content-evenly">
-                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal"><?php pll_e('Cerrar'); ?></button>
                             <a href="<?php echo get_the_permalink( $unit->ID );?>" class="col-4 btn btn-amarillo">Mas info</a>
                         </div>
                       

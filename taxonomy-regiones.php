@@ -68,17 +68,17 @@
                     <h3 class="fs-1 my-3"><?php echo rwmb_meta( 'currency');?>$ <?php echo number_format(rwmb_meta('price'));?></h3>
                 </div>
                     <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h3>
-                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'baños' );?></h3>
-                    <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo rwmb_meta('construction')?> m<sup>2</sup></h3>
+                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h3>
+                    <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?> </h3>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">
                 <div class="col-12 col-md-4">
-                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista Previa' );?></button>
+                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista previa' );?></button>
                 </div>
                 <div class="col-12 col-md-4">         
                     <!-- Button trigger modal -->
-                    <a href="<?php echo get_the_permalink();?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más Info' );?></a>
+                    <a href="<?php echo get_the_permalink();?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
                 </div>
             </div>
 
@@ -98,7 +98,7 @@
                         <div class="row justify-content-center">
                             <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h3>
                             <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo rwmb_meta('construction')?> m<sup>2</sup></h3>
+                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(),rwmb_meta('construction'));?> </h3>
                         </div>
                     </div>
 

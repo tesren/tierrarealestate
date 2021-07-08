@@ -41,6 +41,10 @@
 
                             $profile = wp_get_attachment_image_src( get_post_thumbnail_id( $development->ID ), 'full' );
                             
+                            $profileLg = wp_get_attachment_image_src( get_post_thumbnail_id( $development->ID ), 'large' );
+
+                            $profileMd = wp_get_attachment_image_src( get_post_thumbnail_id( $development->ID ), 'medium' );
+                            
                             $active='';
                             
                             if($i==0){ $active = ' class="active"';}
@@ -49,7 +53,13 @@
                             
                         ?>
                             <div class="carousel-item<?php if($i==0){echo ' active';}?>">
-                                <img src="<?php echo $profile[0];?>" class="d-block w-100 tr-img-responsive " alt="...">
+                                <img srcset="<?php echo $profileMd[0];?> 300w,
+                                        <?php echo $profileLg[0];?> 1024w"
+                                sizes="(max-width: 480px) 100%,
+                                        (max-width: 768px) 100%,
+                                        992px"
+                                        src="<?php echo $profile[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $development->ID );?>">
+                                
                                 <div class="carousel-caption d-md-block text-center" style="z-index:3;">
                                     <h1><?php echo get_the_title( $development->ID );?></h1>
                                     <p><?php tierra_get_list_terms($development->ID, 'regiones');?> <br>
@@ -88,32 +98,28 @@
             <?php foreach( $listings as $unit ): ?>
                 <?php 
             setup_postdata($unit);
-    
-            $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+            $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+
+            $imgLg = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'large' );
+
+            $imgMd = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'medium' );
 
             ?>
             
             <!--Imagen listing-->
-            <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $portada[0];?>" alt="Listing image">
+            <img class="img-fluid w-100 imagen-listing animatable fadeInUp" 
+                                srcset="<?php echo $imgMd[0];?> 300w,
+                                        <?php echo $imgLg[0];?> 1024w"
+                                sizes="(max-width: 480px) 100%,
+                                        (max-width: 768px) 100%,
+                                        992px"
+                                        src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
             <div class="row justify-content-center bg-light animatable fadeInDown">
                 <div class="col-12 ">
                     <!--Nombre y Lugar del listing-->
                     <h2 class="fs-1 fw-bold mt-2"><?php echo get_the_title( $unit->ID );?> 
-                        <?php                                          
-                            $terms_list = array_reverse(wp_get_post_terms( $unit->ID, 'regiones' ) );
-
-                            $i =1;
-                            if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                                foreach ( $terms_list as $term ) {
-                                    echo $term->name;
-                                    if( $i < count($terms_list) ){
-                                        echo ', ';
-                                    }
-                                    $i++;
-                                }
-                            }                                                                                     
-                            ?>  
+                        <?php tierra_get_list_terms($unit->ID, 'regiones'); ?>  
                     </h2>
                     
                 </div>
@@ -123,7 +129,7 @@
                 </div>
                     <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
                     <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
-                    <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo $unit->construction;?> m<sup>2</sup></h3>
+                    <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h3>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">
@@ -145,25 +151,30 @@
 
                         <h5 class="modal-title fw-bold fs-3" id="exampleModalLabel" style="position:absolute; bottom:20px; left:20px; color:#fff;"><?php echo get_the_title( $unit->ID );?></h5>                    
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:20px; right:20px; background-color:#fff;"></button>
-                        <img class="img-fluid w-100" src="<?php echo $portada[0];?>" alt="Listing image">
+                        <img srcset="<?php echo $imgMd[0];?> 300w,
+                                        <?php echo $imgLg[0];?> 1024w"
+                                sizes="(max-width: 480px) 100%,
+                                        (max-width: 768px) 100%,
+                                        992px"
+                                        src="<?php echo $imgFull[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $unit->ID );?>">
                     </div>
 
                     <div class="modal-body mt-1">
                         <div class="row justify-content-center">
                             <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
                             <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo $unit->construction;?> m<sup>2</sup></h3>
+                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h3>
                         </div>
                     </div>
 
                     <div class="modal-footer d-block">
                         <div class="row">
                             <div class="col-12">
-                                <div class="fs-5 text-start py-3"><?php echo the_content($unit->ID);?></div>
+                                <div class="fs-5 text-start py-3"><?php the_content($unit->ID);?></div>
                             </div>
                         </div>
                         <div class="row justify-content-evenly">
-                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal"><?php pll_e('Cerrar'); ?></button>
                             <a href="<?php echo get_the_permalink( $unit->ID );?>" class="col-4 btn btn-amarillo"><?php pll_e( 'Más info' );?></a>
                         </div>
                       

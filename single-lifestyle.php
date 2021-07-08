@@ -51,7 +51,7 @@
                             foreach ( $restaurants as $image ) { ?>
 
                                 <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                    <img class="d-block w-100 tr-img-responsive" src="<?php echo $image['url'];?>">
+                                    <img class="d-block w-100 tr-img-responsive carousel-img-sizing" src="<?php echo $image['url'];?>">
                                     <div class="carousel-caption d-md-block">
                                         <div><h2 class="fs-1"><?php echo $image['title'];?></h2></div>
                                     </div>
@@ -85,7 +85,7 @@
                             foreach ( $bares as $bar ) { ?>
 
                                 <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                    <img class="d-block w-100 tr-img-responsive" src="<?php echo $bar['url'];?>">
+                                    <img class="d-block w-100 tr-img-responsive carousel-img-sizing" src="<?php echo $bar['url'];?>">
                                     <div class="carousel-caption d-md-block">
                                         <div><h2 class="fs-1"><?php echo $bar['title'];?></h2></div>
                                     </div>
@@ -121,7 +121,7 @@
                                         foreach ( $lifestyles as $lifestyle ) { ?>
 
                                             <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                                <img class="d-block w-100 p-0 tr-img-responsive img-fluid" src="<?php echo $lifestyle['url'];?>">
+                                                <img class="d-block w-100 p-0 tr-img-responsive img-fluid carousel-img-sizing" src="<?php echo $lifestyle['url'];?>">
                                             </div>
                                         
 

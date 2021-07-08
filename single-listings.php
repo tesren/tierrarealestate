@@ -37,12 +37,12 @@
                 <ul class="splide__list">
                     <?php
 
-                    $images_full = rwmb_meta( 'listing_gallery', array( 'size' => 'thumbnail' ) );
+                    $images_thumbnails = rwmb_meta( 'listing_gallery', array( 'size' => 'thumbnail' ) );
                    
-                        foreach ( $images_full as $image_full ) { ?>
+                        foreach ( $images_thumbnails as $image_thumbnail ) { ?>
 
                         <li class="splide__slide">
-                            <img src="<?php echo $image_full['url'];?>" alt="<?php echo $image_full['title'];?>">
+                            <img src="<?php echo $image_thumbnail['url'];?>" alt="<?php echo $image_thumbnail['title'];?>">
                         </li>
 
                     <?php    }?>
@@ -91,7 +91,7 @@
                 </p>
                 
 
-            <div class="row justify-content-center justify-content-md-start px-5">
+            <div class="row justify-content-center justify-content-md-start px-1 px-md-5">
                     <div class="col-11 col-md-10">
                         <hr style="width:70%;text-align:left;margin-left:0" id="listing-hr">
                         
@@ -157,47 +157,68 @@
                         </div>
 
                         <div class="row justify-content-start my-3" id="services-icons">
-                                <div class="col-12 col-md-4">
+                                <div class="col-12 col-md-3">
                                     <h3 class="fs-1 py-3"><?php echo rwmb_meta( 'currency' );?> <i class="fas fa-dollar-sign"></i><?php echo number_format( rwmb_meta( 'price' ) );?></h3>
                                 </div>
 
                                 <!--Calculo de precio por metro cuadrado-->
                                 <?php if( !empty(rwmb_meta( 'construction' ) ) && !empty(rwmb_meta('lot_area')) ){ ?>
-                                <div class="col-12 col-md-6">
-                                    <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
-
+                                <div class="col-12 col-md-7 d-block d-md-flex">
+                                    <h3 class="fs-3 py-3"><?php pll_e( 'Precio m2 lote' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
+                                        
+                                        //precio
                                         $price = rwmb_meta( 'price' );
+
+                                        //areas en metros
+                                        $construction = rwmb_meta('construction');
                                         $lot = rwmb_meta('lot_area');
+                                        
+                                        //areas en pies
+                                        $lotFt = $lot * 10.76;
+                                        $constFt = $construction * 10.76;
 
+                                        //precios por metro cuadrado
                                         $priceMeterSquareLot = $price / $lot;
+                                        $priceMeterSquareConst = $price / $construction;
 
-                                        echo number_format($priceMeterSquareLot); ?> </h3>
+                                        //precios por pie cuadrado
+                                        $priceFtSquareLot = $price / $lotFt;
+                                        $priceFtSquareConst = $price / $constFt;
+
+                                        echo feetOrMeters(pll_current_language(), $priceMeterSquareLot, $priceFtSquareLot); ?> </h3>
+                                        <h3 class="fs-3 py-3 ps-0 ps-md-3"><?php pll_e( 'Precio m2 const' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php echo feetOrMeters(pll_current_language(), $priceMeterSquareConst, $priceFtSquareConst ); ?></h3>
+                                        
                                 </div>
 
                                 <?php }elseif( empty(rwmb_meta( 'lot_area' )) && !empty(rwmb_meta( 'construction' )) ){ ?>
 
                                     <div class="col-12 col-md-6">
-                                         <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
+                                         <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2 const' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
                                     
                                         $price = rwmb_meta( 'price' );
                                         $construction = rwmb_meta('construction');
+                                        $constFt = $construction * 10.76;
                                         
                                         $priceMeterSquareConst = $price / $construction;
+                                        $priceFtSquareConst = $price / $constFt;
 
-                                        echo number_format($priceMeterSquareConst); ?> </h3>
+                                        echo feetOrMeters(pll_current_language(),$priceMeterSquareConst, $priceFtSquareConst); ?> </h3>
                                     </div>
 
                                     <?php } else{?>
 
                                     <div class="col-12 col-md-6">
-                                        <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
+                                        <h3 class="fs-2 py-3"><?php pll_e( 'Precio m2 lote' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
 
                                             $price = rwmb_meta( 'price' );
                                             $lot = rwmb_meta('lot_area');
 
-                                            $priceMeterSquareLot = $price / $lot;
+                                            $lotFt = $lot * 10.76;
 
-                                            echo number_format($priceMeterSquareLot); ?> </h3>
+                                            $priceMeterSquareLot = $price / $lot;
+                                            $priceFtSquareLot = $price / $lotFt;
+
+                                            echo feetOrMeters(pll_current_language(),$priceMeterSquareLot,$priceFtSquareLot); ?> </h3>
                                     </div>
 
                                 <?php }?>

@@ -60,13 +60,13 @@
            </div> -->
            
             <!--LOGO Tierra-->
-            <a href="<?php echo get_home_url(); ?>" class="d-none d-md-block"><img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
+            <a href="<?php echo get_home_url(); ?>" class="d-none d-lg-block"><img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
             
            <!--navBar-->
-               <nav class="navbar navbar-expand-md navbar-dark bg-azul" role="navigation" style="position:relative;">
+               <nav class="navbar navbar-expand-lg navbar-dark bg-azul" role="navigation">
                   <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand ms-2 d-md-none" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
+                    <a class="navbar-brand ms-2 d-lg-none" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
                      <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" id="nav_header_logo" alt="Logo Tierra" width="170px" height="auto">
                     </a>
                       <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,7 +76,7 @@
                         <?php
                         wp_nav_menu( array(
                             'theme_location'    => 'primary',
-                            'depth'             => 2,
+                            'depth'             => 3,
                             'container'         => 'div',
                             'container_class'   => 'collapse navbar-collapse',
                             'container_id'      => 'navbarSupportedContent',

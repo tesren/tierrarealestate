@@ -1,14 +1,14 @@
 <div class="row">
 
-        <div class="col-sm-6 order-sm-1 bg-azul text-start px-xxl-5" id="texto-formulario">
+        <div class="col-lg-6  text-center text-lg-end px-xxl-5 my-5" id="texto-formulario">
             <h3><?php pll_e( 'Descripción Formulario Contacto' );?></h3>
             <!-- <h3>Solicite mas información y consulte con nuestro equipo profesional</h3> -->
         </div>
         
         <!--formulario-->
-        <div class="col-sm-6 order-sm-12">
+        <div class="col-lg-6 text-center">
             <h3 class="pt-3 px-3 px-xxl-5 fs-1"><?php pll_e( 'Título Formulario Contacto' );?></h3>
-            <form id="v4youContactForm" action="#" class="text-start px-3 px-xxl-5" method="POST" data-url="<?php echo admin_url('admin-ajax.php');?>">
+            <form id="v4youContactForm" action="#" class="text-center px-3 px-xxl-5" method="POST" data-url="<?php echo admin_url('admin-ajax.php');?>">
                 <div class="form-floating mb-3">
                     <h4 class="labels-form-grande"><?php pll_e( 'Campo Nombre' );?></h4>
                     <input type="text" class="form-control" id="name" name="name" placeholder="nombre" required>
@@ -34,7 +34,7 @@
                 </div>
 
                 
-                <button type="submit" class="btn btn-amarillo btn-lg"><?php pll_e( 'Botón Enviar' );?></button>
+                <button style="border-radius:0;" type="submit" class="btn btn-amarillo btn-lg"><?php pll_e( 'Botón Enviar' );?></button>
 
             </form>
         </div>

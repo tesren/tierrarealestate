@@ -7,7 +7,7 @@
         </a>
 
         <!--footer-->
-        <footer class="page-footer bg-azul text-center pb-3">
+        <footer class="page-footer bg-azul text-center">
 
             <a href="/home.html"><img class="img-fluid logo-tierra" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
                         
@@ -20,8 +20,8 @@
       
             </div>
             
-            <div class="container-fluid text-center">
-                <p class="m-0"> &copy;2014-2021 Tierra Vallarta <a class="link-light" href="/politicas-privacidad/"><?php pll_e('Politicas de Privacidad')?></a></p>
+            <div class="container-fluid text-center bg-azul-fuerte py-3">
+                <p class="m-0"> &copy;2014-2021 Tierra Vallarta <a style="text-decoration:underline;" class="link-light" href="/politicas-privacidad/"><?php pll_e('Politicas de Privacidad')?></a></p>
             </div>
         </footer>
 

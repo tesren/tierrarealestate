@@ -46,9 +46,9 @@
                     <!--precio y moneda-->
                     <h3 class="fs-1 my-3"><?php echo rwmb_meta( 'currency');?>$ <?php echo number_format(rwmb_meta('price'));?></h3>
                 </div>
-                    <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Recámaras</h3>
-                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> baños</h3>
-                    <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo rwmb_meta('construction')?> m<sup>2</sup></h3>
+                    <h3 class="col-md-4 col-lg-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> Recámaras</h3>
+                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> baños</h3>
+                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-home"></i> <?php echo rwmb_meta('construction')?> m<sup>2</sup></h3>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">

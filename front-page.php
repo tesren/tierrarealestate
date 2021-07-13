@@ -88,7 +88,7 @@
             </div>
         
         <!--Nuevo y mejorado diseño listings chido-->
-        <div class="container-fluid text-center contenedor-listings mt-5">
+        <div class="container-fluid text-center contenedor-listings mt-5 px-1">
             <!--listing info-->
             <?php 
             if( $listings ): 
@@ -127,9 +127,9 @@
                     <!--precio y moneda-->
                     <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
                 </div>
-                    <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
-                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
-                    <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h3>
+                    <h3 class="col-md-4 col-lg-2"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
+                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
+                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h3>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">

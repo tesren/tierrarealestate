@@ -53,13 +53,13 @@
   }
 
 .container-fluid{
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+    padding-left: 0px;
+    padding-right: 0px;
   }
   
 .row, .container-fluid {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
+    margin-left: 0px;
+    margin-right: 0px;
     }
 
 .col-md-4, .col-md-12, .col-12, .col-md-3, .col-md-6{
@@ -110,7 +110,7 @@
     margin-left: 30%;
     margin-right: 30%;
     font-size: 5rem;
-    border: 3px solid white;
+    border: 2px solid white;
     text-shadow: 2px 2px 2px black;
 }
 
@@ -122,7 +122,7 @@
     margin-left: 30%;
     margin-right: 30%;
     font-size: 5rem;
-    border: 3px solid white;
+    border: 2px solid white;
     text-shadow: 2px 2px 2px black;
 }
 
@@ -145,7 +145,7 @@
     margin-left: 15%;
     margin-right: 15%;
     font-size: 5rem;
-    border: 3px solid white;
+    border: 2px solid white;
     margin-bottom: 70px;
     text-shadow: 2px 2px 2px black;
 }
@@ -170,7 +170,7 @@
     margin-left: 20%;
     margin-right: 20%;
     font-size: 4.5rem;
-    border: 3px solid white;
+    border: 2px solid white;
     margin-bottom: 70px;
     text-shadow: 2px 2px 2px black;
 }
@@ -313,7 +313,7 @@ a{
 .btn-amarillo{
     color: white !important;
     background-color: #BD9028 !important;
-    border-radius: 10px !important;
+    border-radius: 10px;
 }
 .btn-azul{
     color: white !important;
@@ -332,8 +332,14 @@ a{
 
 #texto-formulario{
     position: relative;
-    color: white;
-    justify-content: center;
+    color: #07255B;
+}
+
+.form-control{
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-radius: 0 !important;
 }
 
 #texto-formulario h3{
@@ -499,7 +505,7 @@ a{
     font-size: 5rem !important;
     margin-left: 10%;
     margin-right: 10%;
-    border: 3px solid white;
+    border: 2.5px solid white;
     margin-bottom: 60px;
 }
 
@@ -514,7 +520,7 @@ a{
     font-size: 5rem !important;
     margin-left: 10%;
     margin-right: 10%;
-    border: 3px solid white;
+    border: 2px solid white;
     margin-bottom: 50px;
 }
 
@@ -799,16 +805,19 @@ a{
 }
 
 .labels-form-small{
+    color: #07255B;
     display: block;
 }
 .labels-form-grande{
+    text-align: start !important;
     display: none;
+    color: #07255B;
 }
 .carousel-img-sizing{
     max-height: 85vh !important;
     object-fit:cover;
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 
 .realtors{
     position: relative;
@@ -818,9 +827,11 @@ a{
 }
 
 .labels-form-small{
+    color: #07255B;
     display: block;
 }
 .labels-form-grande{
+    color: #07255B;
     display: none;
 }
 
@@ -888,7 +899,7 @@ a{
 }
 
 .tr-img-responsive{
-    height:60vh;
+    height:65vh;
     object-fit:cover;
 }
 
@@ -951,18 +962,17 @@ a{
     }
 
    #carouselFrontPage .carousel-caption p{
-        font-size: 1.5rem !important;
+        font-size: 1.3rem !important;
         margin-top: 0 !important;
-        margin-bottom: 50px !important;
+        margin-bottom: 30px !important;
     }
 
     #carouselFrontPage .carousel-caption h1{
         margin-bottom: 0 !important;
-        font-size: 2.5rem !important;
-        margin-left: 10%;
-        margin-right: 10%;
-        border: 3px solid white;
-        margin-bottom: 60px;
+        font-size: 2.4rem !important;
+        margin-left: 1%;
+        margin-right: 1%;
+        border: 2.5px solid white;
         
     }
 
@@ -1018,14 +1028,14 @@ a{
     }
 
     #naya{
-        border: 3px solid white; 
+        border: 2px solid white; 
     }
 
     #susurros-title{
         margin-left: 25%;
         margin-right: 25%;
         font-size: 2rem;
-        border: 3px solid white; 
+        border: 2px solid white; 
     }
 
     .caption-green-d h1{
@@ -1092,10 +1102,7 @@ a{
         margin-right: 5% !important;
         width: 90% !important;
     }
-}
-
-@media (max-width: 992px) {
-
+    /*Navbar Mobile*/
     .navbar-collapse {
         position: fixed;
         top: 0px;
@@ -1104,14 +1111,62 @@ a{
         padding-left: 15px;
         padding-right: 15px;
         padding-bottom: 15px;
-        width: 85%;
+        width:80%;
         height: 100%;
         z-index: 100;
         background-color: #07255B;
     }
 
     .navbar-collapse.collapsing {
-        left: -85%;
+        left: -80%;
+        transition: height 0s ease;
+    }
+
+    .navbar-collapse.show {
+        left: 0;
+        transition: left 300ms ease-in-out;
+    }
+
+    .navbar-toggler.collapsed ~ .navbar-collapse {
+        transition: left 500ms ease-in-out;
+    }
+}
+
+@media (min-width: 767px) and (max-width: 992px) {
+    #carouselFrontPage .carousel-caption p{
+        font-size: 1.5rem !important;
+        margin-top: 0 !important;
+        margin-bottom: 30px !important;
+    }
+    
+    #carouselFrontPage .carousel-caption h1{
+        margin-bottom: 0 !important;
+        font-size: 2.5rem !important;
+        margin-left: 10%;
+        margin-right: 10%;
+        border: 2.5px solid white;
+    }
+    
+    #tr-contenedor-resoluciones-grandes{
+        margin-top: 5rem;
+    } 
+/*Navbar Ipad*/
+    .navbar-collapse {
+        position: fixed;
+        top: 0px;
+        left: 0;
+        padding-top: 50px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        width: 40%;
+        height: 100%;
+        z-index: 100;
+        background-color: #07255B;
+    }
+
+    .navbar-collapse.collapsing {
+        left: -40%;
         transition: height 0s ease;
     }
 
@@ -1153,9 +1208,11 @@ a{
 @media (min-width: 2048px){
 
     .labels-form-small{
+        color: #07255B;
         display: none;
     }
     .labels-form-grande{
+        color: #07255B;
         display: block;
     }
     
@@ -1170,7 +1227,7 @@ a{
         font-size: 7rem !important;
         margin-left: 10%;
         margin-right: 10%;
-        border: 5px solid white;
+        border: 4px solid white;
         margin-bottom: 60px;
     }
 

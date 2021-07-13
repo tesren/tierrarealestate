@@ -29,7 +29,7 @@
 
                 ?>
                 <!--Nuevo y mejorado diseño listings chido--> 
-        <div class="container-fluid text-center contenedor-listings mt-5">
+        <div class="container-fluid text-center contenedor-listings mt-5 px-1">
             <!--listing info-->
        
   

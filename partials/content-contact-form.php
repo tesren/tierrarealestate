@@ -34,7 +34,7 @@
                 </div>
 
                 
-                <button style="border-radius:0;" type="submit" class="btn btn-amarillo btn-lg"><?php pll_e( 'Botón Enviar' );?></button>
+                <button style="border-radius:0;" type="submit" class="btn btn-amarillo btn-lg w-75"><?php pll_e( 'Botón Enviar' );?></button>
 
             </form>
         </div>

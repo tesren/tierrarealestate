@@ -14,8 +14,9 @@
         <!--Bootstrap-->
         <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"-->
         <!--fuente-->
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css">
         
     </head>
@@ -66,7 +67,7 @@
                <nav class="navbar navbar-expand-lg navbar-dark bg-azul" role="navigation">
                   <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand ms-2 d-lg-none" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
+                    <a class="navbar-brand ms-2 d-md-none" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
                      <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" id="nav_header_logo" alt="Logo Tierra" width="170px" height="auto">
                     </a>
                       <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

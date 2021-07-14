@@ -137,63 +137,8 @@
     text-shadow: 2px 2px 2px black;
 }
 
-.caption-susurros h1{
-    color: white;
-    width: 70%;
-    position: absolute;
-    top: 180px;
-    margin-left: 15%;
-    margin-right: 15%;
-    font-size: 5rem;
-    border: 2px solid white;
-    margin-bottom: 70px;
-    text-shadow: 2px 2px 2px black;
-}
-
-.caption-susurros p{
-    margin-bottom: 0px;
-    color: white;
-    width: 30%;
-    position: absolute;
-    top: 300px;
-    margin-left: 35%;
-    margin-right: 35%;
-    font-size: 2rem;
-    text-shadow: 2px 2px 2px black;
-}
-
-.caption-green-d h1{
-    color: white;
-    width: 60%;
-    position: absolute;
-    top: 130px;
-    margin-left: 20%;
-    margin-right: 20%;
-    font-size: 4.5rem;
-    border: 2px solid white;
-    margin-bottom: 70px;
-    text-shadow: 2px 2px 2px black;
-}
-
-.caption-green-d p{
-    margin-bottom: 0px;
-    color: white;
-    width: 30%;
-    position: absolute;
-    top: 240px;
-    margin-left: 35%;
-    margin-right: 35%;
-    font-size: 2rem;
-    text-shadow: 2px 2px 2px black;
-}
-
 .torres-title{
     text-shadow: 2px 2px 2px black !important;
-}
-
-.amenities-green{
-    margin-top: 25px;
-    margin-bottom: 25px;
 }
 
 h2{
@@ -271,12 +216,6 @@ h2{
     top:0;
 }
 
-.yellow-numbers{
-    max-width:45px !important;
-    max-height:45px !important;
-}
-
-
 .carousel-caption p, .carousel-caption h1{
     text-shadow: 2px 2px 2px black;
 }
@@ -301,13 +240,6 @@ a{
 
 .btn-light{
     border-radius: 50px;
-}
-
-.btn-go{
-    color: white;
-    background-color: #BD9028;
-    width: 100%;
-    height: 60px;
 }
 
 .btn-amarillo{
@@ -335,7 +267,7 @@ a{
     color: #07255B;
 }
 
-.form-control{
+#v4youContactForm .form-control{
     border-top: none !important;
     border-left: none !important;
     border-right: none !important;
@@ -349,6 +281,7 @@ a{
     margin: 0px !important;
 }
 
+/*Boton de whatsapp*/
 #whatsapp {
     position:fixed;
     width:60px;
@@ -382,7 +315,6 @@ a{
   footer{
       color: white;
   }
-
 
 #map{
     height:100%;
@@ -817,6 +749,7 @@ a{
     max-height: 85vh !important;
     object-fit:cover;
 }
+
 @media (max-width: 767px) {
 
 .realtors{
@@ -942,15 +875,6 @@ a{
         font-size: 1.5rem;
     }
 
-    .amenities-green{
-        margin-top: 5px;
-        margin-bottom: 5px;
-    }
-
-    .amenities-green p{
-        font-size: 1.2rem !important;
-    }
-
     #listings .row .d-flex i{
         font-size: 1.3rem;
     }
@@ -962,14 +886,14 @@ a{
     }
 
    #carouselFrontPage .carousel-caption p{
-        font-size: 1.3rem !important;
+        font-size: 1.2rem !important;
         margin-top: 0 !important;
-        margin-bottom: 30px !important;
+        margin-bottom: 40px !important;
     }
 
     #carouselFrontPage .carousel-caption h1{
         margin-bottom: 0 !important;
-        font-size: 2.4rem !important;
+        font-size: 2.5rem !important;
         margin-left: 1%;
         margin-right: 1%;
         border: 2.5px solid white;
@@ -1036,44 +960,6 @@ a{
         margin-right: 25%;
         font-size: 2rem;
         border: 2px solid white; 
-    }
-
-    .caption-green-d h1{
-        font-size: 2.5rem !important;
-        position: absolute;
-        top:90px !important;
-        width: 80%;
-        margin-left: 10%;
-        margin-right: 10%;
-    }
-
-    .caption-green-d p{
-        font-size: 1.5rem !important;
-        position: absolute;
-        top:170px !important;
-        width: 70%;
-        margin-left: 15%;
-        margin-right: 15%;
-    }
-
-
-    .caption-susurros h1{
-        font-size: 2.5rem !important;
-        position: absolute;
-        top:80px !important;
-        width: 70%;
-        margin-left: 15%;
-        margin-right: 15%;
-        margin-bottom: 0;
-    }
-
-    .caption-susurros p{
-        font-size: 1.5rem !important;
-        position: absolute;
-        top:220px !important;
-        width: 70%;
-        margin-left: 15%;
-        margin-right: 15%;
     }
 
 
@@ -1278,25 +1164,5 @@ a{
         top: 540px;
     }
 
-    .caption-green-d h1{
-        top: 260px;
-        font-size: 7rem;
-        border: 5px solid white;
-    }
-    
-    .caption-green-d p{
-        top: 440px;
-    }
-
-    .caption-susurros h1{
-        top: 260px;
-        font-size: 7rem;
-        border: 5px solid white;
-    }
-    
-    .caption-susurros p{
-        top: 440px;
-    }
-    
 }
 

@@ -28,62 +28,62 @@
 
             <!-- Modal para buscar propiedades -->
             <div class="modal fade" id="ModalSearch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="exampleModalLabel">Busqueda de propiedades</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form class=" my-2 text-center justify-content-center mx-2 mx-lg-0" action="">
-
-                    <select class="form-select form-select-lg mb-3" aria-label="form-select-lg lugar">
-                        <option selected>Elige un lugar</option>
-                        <option value="1">Puerto Vallarta</option>
-                        <option value="2">Bucerías</option>
-                        <option value="2">Punta de Mita</option>
-                        </option>
-                    </select>
-
-                    <select class="form-select form-select-lg mb-3" aria-label="form-select-lg tipo">
-                        <option selected>Tipo</option>
-                        <option value="1">Casa</option>
-                        <option value="2">Departamento</option>
-                    </select>
-
-                    <div class="row">
-                        <h5><?php pll_e( 'Recámaras' );?></h5>
-                        <div class="col-6 form-floating mb-3 ps-0">
-                            <input type="number" class="form-control" id="bedrooms-min" placeholder="Recámaras">
-                            <label class="ms-2" for="bedrooms-min">Min</label>
-                        </div>
-                        <div class="col-6 form-floating mb-3 pe-0">
-                            <input type="number" class="form-control" id="bedrooms-max" placeholder="Recámaras">
-                            <label class="ms-2" for="bedrooms-max">Max</label>
-                        </div>
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="exampleModalLabel">Busqueda de propiedades</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                   
-                    <div class="row">
-                        <h5>Precio</h5>
-                        <div class="col-6 form-floating mb-3 ps-0">
-                            <input type="number" class="form-control" id="min-price" placeholder="Precio">
-                            <label class="ms-2" for="min-price">Min</label>
+                    <div class="modal-body">
+                    <form class=" my-2 text-center justify-content-center mx-2 mx-lg-0" action="">
+
+                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg lugar">
+                            <option selected>Elige un lugar</option>
+                            <option value="1">Puerto Vallarta</option>
+                            <option value="2">Bucerías</option>
+                            <option value="2">Punta de Mita</option>
+                            </option>
+                        </select>
+
+                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg tipo">
+                            <option selected>Tipo</option>
+                            <option value="1">Casa</option>
+                            <option value="2">Departamento</option>
+                        </select>
+
+                        <div class="row">
+                            <h5><?php pll_e( 'Recámaras' );?></h5>
+                            <div class="col-6 form-floating mb-3 ps-0">
+                                <input type="number" class="form-control" id="bedrooms-min" placeholder="Recámaras">
+                                <label class="ms-2" for="bedrooms-min">Min</label>
+                            </div>
+                            <div class="col-6 form-floating mb-3 pe-0">
+                                <input type="number" class="form-control" id="bedrooms-max" placeholder="Recámaras">
+                                <label class="ms-2" for="bedrooms-max">Max</label>
+                            </div>
+                        </div>
+                    
+                        <div class="row">
+                            <h5>Precio</h5>
+                            <div class="col-6 form-floating mb-3 ps-0">
+                                <input type="number" class="form-control" id="min-price" placeholder="Precio">
+                                <label class="ms-2" for="min-price">Min</label>
+                            </div>
+
+                            <div class="col-6 form-floating mb-3 pe-0">
+                                <input type="number" class="form-control" id="max-price" placeholder="Precio">
+                                <label class="ms-2" for="max-price">Max</label>
+                            </div>
                         </div>
 
-                        <div class="col-6 form-floating mb-3 pe-0">
-                            <input type="number" class="form-control" id="max-price" placeholder="Precio">
-                            <label class="ms-2" for="max-price">Max</label>
-                        </div>
+
                     </div>
-
-
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-amarillo">Buscar</button>
+                        </form>
+                    </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-amarillo">Buscar</button>
-                    </form>
-                </div>
-                </div>
-            </div>
             </div>
             
            <?php while( have_posts() ): the_post();
@@ -198,6 +198,8 @@
         
 <?php
             endwhile;
+
+            the_posts_pagination();
             
         endif;
     ?>

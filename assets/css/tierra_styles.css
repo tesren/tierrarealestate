@@ -336,6 +336,35 @@ a{
     object-fit: contain;
     overflow: hidden;
 }
+/*Paginación*/
+.pagination{
+    text-align: center;
+    display: block;
+}
+
+.pagination h2{
+    display: none;
+    font-size: 2rem;
+}
+
+.pagination .nav-links{
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.pagination .nav-links .current{
+    text-decoration: none;
+    color: black;
+}
+
+.pagination .page-numbers{
+    margin-right: 5px;
+    text-decoration: underline;
+}
+
+.pagination a{
+    color: #07255B;
+}
 
 /*estilos gustavo*/
 

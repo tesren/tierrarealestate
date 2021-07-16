@@ -12,7 +12,7 @@
             <a href="/home.html"><img class="img-fluid logo-tierra" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
                         
              <!--iconos redes sociales-->
-             <div class="d-flex justify-content-center iconos">
+             <div class="d-flex justify-content-center iconos py-3">
                 <p class="pe-1"><?php pll_e('Afiliados')?> <a href=""><img class = "logo-ampi" src="<?php echo get_template_directory_uri() ."/assets/images/ampi-logo.png";?>" alt="ampi logo"></a> | </p>
                 <a href="https://www.facebook.com/Tierra-Real-Estate-Lifestyle-1865454683779555" class="link-light"><i class="fab fa-facebook mt-2"></i></a>
                 <a href="https://www.instagram.com/tierrarealestate.pv/" class="link-light"><i class="fab fa-instagram mt-2 mx-3"></i></a>

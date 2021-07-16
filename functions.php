@@ -33,7 +33,7 @@ function cb_register_styles()
     wp_enqueue_style('cb-style', get_template_directory_uri() . "/style.css", array('cb-bootstrap'), $version , 'all');
     // wp_enqueue_style('cb-bootstrap', "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css", array(), '5.0.0', 'all');
     wp_enqueue_style('cb-bootstrap', get_template_directory_uri() . "/assets/css/bootstrap.min.css", array(), '5.0.0', 'all');
-    wp_enqueue_style('tierra-style-primary', get_template_directory_uri() . "/assets/css/tierra_styles.css", array(), $version , 'all');
+    wp_enqueue_style('tierra-style-primary', get_template_directory_uri() . "/assets/css/tierrareal_styles.css", array(), $version , 'all');
     wp_enqueue_style('cb-fontawesome', get_template_directory_uri() . "/assets/css/all.min.css", array(), '5.15.1' , 'all');
     //Fontawesome cdn
     //wp_enqueue_style('cb-fontawesome', "/style.css", array(), '1.0', 'all');

@@ -17,20 +17,7 @@ if ($(window).width() < 768) {
     navListAnc.appendChild(navListImg);
         
     const element = document.getElementById("menu-principal");
-    element.prepend(navListEle);
-
- /*    //agrega logo a menu version movil
-    const navListLogo = document.createElement("li");
-    navListLogo.setAttribute('class', 'nav-item py-3');
-    //navListEle.setAttribute('id', 'tr-boton-idioma');
-
-  
-    const navListLogo = document.createElement("img");
-    const logoImg2 = document.getElementById('nav_header_logo');
-    srcLogo = logoImg2.getAttribute('src');
-    navListLogo.setAttribute('src', srcLogo); */
-    
-        
+    element.prepend(navListEle);        
 }
 
 

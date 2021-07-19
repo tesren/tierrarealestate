@@ -110,6 +110,10 @@
             <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $portada[0];?>" alt="Listing image">
 
             <div class="row justify-content-center bg-light animatable fadeInDown">
+                <!--Disponibilidad-->
+                <div class="col-12 <?php echo rwmb_meta('avaliable');?>">
+                    <p class="mt-2 mb-0 fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable') );?></p>
+                </div>
                 <div class="col-12 ">
                     <!--Nombre y Lugar del listing-->
                     <h2 class="fs-1 fw-bold mt-2"><?php echo get_the_title();?> 

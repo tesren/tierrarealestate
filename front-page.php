@@ -116,13 +116,18 @@
                                         src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
             <div class="row justify-content-center bg-light animatable fadeInDown">
+                <!--Disponibilidad-->
+                <div class="col-12 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?>">
+                    <p class="mt-2 mb-0 fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></p>
+                </div>
+
                 <div class="col-12 ">
                     <!--Nombre y Lugar del listing-->
                     <h2 class="fs-1 fw-bold mt-2"><?php echo get_the_title( $unit->ID );?> 
                         <?php tierra_get_list_terms($unit->ID, 'regiones'); ?>  
                     </h2>
-                    
                 </div>
+
                 <div class="col-12">
                     <!--precio y moneda-->
                     <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>

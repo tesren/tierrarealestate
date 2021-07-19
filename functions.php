@@ -302,6 +302,24 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         
         $strings = array(
             array(
+                'name'     =>'disponible',
+                'string'   =>'Disponible',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'apartado',
+                'string'   =>'Apartado',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'vendido',
+                'string'   =>'Vendido',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
                 'name' => 'price_from',
                 'string' => 'Precios Desde',
                 'group' => 'tierra labels',

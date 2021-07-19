@@ -51,7 +51,8 @@
         </div>
 
 
-            <h1 class="mx-5 mt-5 mb-1"><?php the_title();?><h1>
+            <p class="mt-5 ms-5 mb-1 fs-5 fw-bold <?php echo rwmb_meta('avaliable');?>"><?php echo pll_e( rwmb_meta('avaliable') );?></p>
+            <h1 class="ms-5 mb-1"><?php the_title();?></h1>
             <h4 class="mx-5 mt-1 mb-2 fs-4">
             <?php 
             
@@ -92,7 +93,7 @@
                 
 
             <div class="row justify-content-center justify-content-md-start px-1 px-md-5">
-                    <div class="col-11 col-md-10">
+                    <div class="col-11">
                         <hr style="width:70%;text-align:left;margin-left:0" id="listing-hr">
                         
                         <div class="row justify-content-start" id="services-icons">
@@ -163,7 +164,7 @@
 
                                 <!--Calculo de precio por metro cuadrado-->
                                 <?php if( !empty(rwmb_meta( 'construction' ) ) && !empty(rwmb_meta('lot_area')) ){ ?>
-                                <div class="col-12 col-md-7 d-block d-md-flex">
+                                <div class="col-12 col-md-8 d-block d-md-flex">
                                     <h3 class="fs-3 py-3"><?php pll_e( 'Precio m2 lote' );?>: <?php echo rwmb_meta( 'currency' );?>$<?php 
                                         
                                         //precio

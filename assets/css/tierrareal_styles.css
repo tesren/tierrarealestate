@@ -102,6 +102,19 @@
     padding-top: 20px;
 }
 
+/* Colores disponibilidad */
+.Apartado {
+    color : goldenrod !important;
+   }
+   
+.Vendido{
+color : red !important;
+}
+   
+.Disponible{
+color : darkgreen !important;
+}
+
 .caption-bucerias h1{
     color: white;
     width: 40%;

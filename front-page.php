@@ -123,7 +123,7 @@
 
                 <div class="col-12 ">
                     <!--Nombre y Lugar del listing-->
-                    <h2 class="fs-1 fw-bold mt-2"><?php echo get_the_title( $unit->ID );?> 
+                    <h2 class="fs-1 fw-bold mt-0"><?php echo get_the_title( $unit->ID );?> 
                         <?php tierra_get_list_terms($unit->ID, 'regiones'); ?>  
                     </h2>
                 </div>

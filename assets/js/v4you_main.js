@@ -1,26 +1,3 @@
-if ($(window).width() < 768) {
-    
-    const navListEle = document.createElement("li");
-    navListEle.setAttribute('class', 'nav-item py-3');
-    navListEle.setAttribute('id', 'tr-boton-idioma');
-
-    const navListAnc = document.createElement("a");
-    navListAnc.setAttribute('src', '/');
-    navListAnc.setAttribute('class', 'navbar-brand ms-2 d-md-none');
-    navListAnc.setAttribute('id', 'tr-header-brand-2');
-    navListEle.appendChild(navListAnc);
-
-    const navListImg = document.createElement("img");
-    const logoImg = document.getElementById('nav_header_logo');
-    srcLogo = logoImg.getAttribute('src');
-    navListImg.setAttribute('src', srcLogo);
-    navListAnc.appendChild(navListImg);
-        
-    const element = document.getElementById("menu-principal");
-    element.prepend(navListEle);        
-}
-
-
 //comportamiento de boton nosotros en navbar
 var lastScrollTop = 0;
 $(window).scroll(function(event){
@@ -74,35 +51,6 @@ $(window).scroll(function () {
     }
 
 });
-//slide de imagenes
-document.addEventListener( 'DOMContentLoaded', () => wait(1700).then(() =>{
-	var secondarySlider = new Splide( '#secondary-slider', {
-		fixedWidth  : 100,
-		height      : 60,
-		gap         : 10,
-        pagination : false,
-		cover       : true,
-		isNavigation: true,
-		focus       : 'center',
-		breakpoints : {
-			'600': {
-				fixedWidth: 66,
-				height    : 40,
-			}
-		},
-	} ).mount();
-	
-	var primarySlider = new Splide( '#primary-slider', {
-		type       : 'fade',
-		heightRatio: 0.5,
-		pagination : false,
-		arrows     : false,
-		cover      : true,
-        visibility : true,
-	} ); // do not call mount() here.
-	
-	primarySlider.sync( secondarySlider ).mount();
-} ));
 
 
 //animacion de carga
@@ -159,37 +107,37 @@ document.addEventListener('DOMContentLoaded', () =>
     
     });   });
   
-    
-  //mapa
-    function initMap() {
-        const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 12,
-          center: { lat: 20.760950, lng: -105.419700 }, 
-        });
-        // Create an array of alphabetical characters used to label the markers.
-        const labels = "NSG";
-        // Add some markers to the map.
-        // Note: The code uses the JavaScript Array.prototype.map() method to
-        // create an array of markers based on a given "locations" array.
-        // The map() method here has nothing to do with the Google Maps API.
-        const markers = locations.map((location, i) => {
-          return new google.maps.Marker({
-            position: location,
-            label: labels[i % labels.length],
-          });
-        });
-    
-        new MarkerClusterer(map, markers, {
-            imagePath:
-              "https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m",
-          });
-        
-      }
-      const locations = [
-        { lat: 20.7491092, lng: -105.4317617 },
-        { lat: 20.7600277, lng: -105.4784779 },
-        { lat: 20.7101048, lng: -105.286734 },
-      ];
+
+    //slide de imagenes
+document.addEventListener( 'DOMContentLoaded', () => wait(2000).then(() =>{
+	var secondarySlider = new Splide( '#secondary-slider', {
+		fixedWidth  : 100,
+		height      : 60,
+		gap         : 10,
+        pagination : false,
+		cover       : true,
+		isNavigation: true,
+		focus       : 'center',
+		breakpoints : {
+			'600': {
+				fixedWidth: 66,
+				height    : 40,
+			}
+		},
+	} ).mount();
+	
+	var primarySlider = new Splide( '#primary-slider', {
+		type       : 'fade',
+		heightRatio: 0.5,
+		pagination : false,
+		arrows     : false,
+		cover      : true,
+        visibility : true,
+	} ); // do not call mount() here.
+	
+	primarySlider.sync( secondarySlider ).mount();
+} ));
+
 
       //carrusel de cards
       let items = document.querySelectorAll('#recipeCarousel .carousel-item')
@@ -206,7 +154,30 @@ document.addEventListener('DOMContentLoaded', () =>
                 el.appendChild(cloneChild.children[0])
                 next = next.nextElementSibling
             }
-        })
+        });
+
+
+        if ($(window).width() < 768) {
+    
+            const navListEle = document.createElement("li");
+            navListEle.setAttribute('class', 'nav-item py-3');
+            navListEle.setAttribute('id', 'tr-boton-idioma');
+        
+            const navListAnc = document.createElement("a");
+            navListAnc.setAttribute('src', '/');
+            navListAnc.setAttribute('class', 'navbar-brand ms-2 d-md-none');
+            navListAnc.setAttribute('id', 'tr-header-brand-2');
+            navListEle.appendChild(navListAnc);
+        
+            const navListImg = document.createElement("img");
+            const logoImg = document.getElementById('nav_header_logo');
+            srcLogo = logoImg.getAttribute('src');
+            navListImg.setAttribute('src', srcLogo);
+            navListAnc.appendChild(navListImg);
+                
+            const element = document.getElementById("menu-principal");
+            element.prepend(navListEle);        
+        }else{}
     
     /**Contact form submission */
 

@@ -381,56 +381,20 @@ a{
 
 /*estilos gustavo*/
 
-.tierra_azul{
-    font-size: 3rem;
-    margin: 1rem;
-    font-weight: 600;
-    color: #0070CD;
-}
 .tierra_light{
     font-size: 2.5rem;
     font-weight: 300;
 }
 
-.fa-lg{
-    color:#0070CD;
-}
 .fa-2x{
     color:#0070CD;
 }
 
-.tierra_card-img-top {
-    position: absolute;
-    top: -110px;
-    left: 50%;
-    margin-left: -65px;
-    width: 130px !important;
-    height: 130px;
-  }
 
-  .tierra-cards-nosotros{
-    margin-top: 150px;
-    padding-top: 30px;
-  }
-
-  .d-flex p{
+.d-flex p{
     margin: 0px;
 }
-
-.card-block .btn{
-    border-radius: 1rem;
-}
-
-.icon-size h2{
-    font-weight: 600;
-    font-size: 6rem;
-    color: #0070CD;
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
-.icon-size img{
-    height: 6rem;
-}
+/**/
 .texto-encima{ 
     color: white;
     position: absolute;
@@ -531,10 +495,7 @@ a{
     height: calc(1.375rem + 1.5vw);
     width: auto;
 }
-#iconsvg{
-    height: calc(1.375rem + 1.5vw);
-    width: auto;
-}
+
 
 #tr-logo-header-grande{
     display:initial;
@@ -810,18 +771,18 @@ a{
     display: none;
 }
 
-.animatable {
+/* .animatable { */
 
     /* initially hide animatable objects */
-    visibility: visible !important;
+    /* visibility: visible !important; */
     
     /* initially pause animatable objects their animations */
-    -webkit-animation-play-state: paused;   
+   /*  -webkit-animation-play-state: paused;   
     -moz-animation-play-state: paused;     
     -ms-animation-play-state: paused;
     -o-animation-play-state: paused;   
     animation-play-state: paused; 
-    }
+    } */
 
 
 #titulo-propiedades{

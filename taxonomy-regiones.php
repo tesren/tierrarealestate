@@ -37,7 +37,7 @@
                     <div class="modal-body">
                     <form class=" my-2 text-center justify-content-center mx-2 mx-lg-0" action="">
 
-                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg lugar">
+                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg lugar" name="lugar">
                             <option selected>Elige un lugar</option>
                             <option value="1">Puerto Vallarta</option>
                             <option value="2">Bucerías</option>
@@ -45,7 +45,7 @@
                             </option>
                         </select>
 
-                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg tipo">
+                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg tipo" name="tipo">
                             <option selected>Tipo</option>
                             <option value="1">Casa</option>
                             <option value="2">Departamento</option>
@@ -54,11 +54,11 @@
                         <div class="row">
                             <h5><?php pll_e( 'Recámaras' );?></h5>
                             <div class="col-6 form-floating mb-3 ps-0">
-                                <input type="number" class="form-control" id="bedrooms-min" placeholder="Recámaras">
+                                <input type="number" class="form-control" id="bedrooms-min" placeholder="Recámaras" name="minBed">
                                 <label class="ms-2" for="bedrooms-min">Min</label>
                             </div>
                             <div class="col-6 form-floating mb-3 pe-0">
-                                <input type="number" class="form-control" id="bedrooms-max" placeholder="Recámaras">
+                                <input type="number" class="form-control" id="bedrooms-max" placeholder="Recámaras" name="maxBed">
                                 <label class="ms-2" for="bedrooms-max">Max</label>
                             </div>
                         </div>
@@ -66,12 +66,12 @@
                         <div class="row">
                             <h5>Precio</h5>
                             <div class="col-6 form-floating mb-3 ps-0">
-                                <input type="number" class="form-control" id="min-price" placeholder="Precio">
+                                <input type="number" class="form-control" id="min-price" placeholder="Precio" name="minPrice">
                                 <label class="ms-2" for="min-price">Min</label>
                             </div>
 
                             <div class="col-6 form-floating mb-3 pe-0">
-                                <input type="number" class="form-control" id="max-price" placeholder="Precio">
+                                <input type="number" class="form-control" id="max-price" placeholder="Precio" name="maxPrice">
                                 <label class="ms-2" for="max-price">Max</label>
                             </div>
                         </div>
@@ -110,36 +110,25 @@
             <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $portada[0];?>" alt="Listing image">
 
             <div class="row justify-content-center bg-light animatable fadeInDown">
-                <!--Disponibilidad-->
-                <div class="col-12 <?php echo rwmb_meta('avaliable');?>">
-                    <p class="mt-2 mb-0 fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable') );?></p>
+                <!--Disponibilidad y tipo-->
+                <div class="col-12 d-flex justify-content-center mt-2 mb-0">
+                    <h4 class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type(get_the_ID(), 'property_type'); ?></h4>
+                    <h3 class="<?php echo rwmb_meta('avaliable');?> ps-3 fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable') );?></h3>
                 </div>
                 <div class="col-12 ">
                     <!--Nombre y Lugar del listing-->
-                    <h2 class="fs-1 fw-bold mt-2"><?php echo get_the_title();?> 
-                        <?php                                          
-                            $terms_list = array_reverse(wp_get_post_terms( get_the_ID(), 'regiones' ) );
-
-                            $i =1;
-                            if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                                foreach ( $terms_list as $term ) {
-                                    echo $term->name;
-                                    if( $i < count($terms_list) ){
-                                        echo ', ';
-                                    }
-                                    $i++;
-                                }
-                            }                                                                                     
-                            ?>  
+                    <h2 class="fs-1 fw-bold mt-2">
+                        <?php echo get_the_title();?> 
+                        <?php tierra_get_list_terms(get_the_ID(), 'regiones'); ?>  
                     </h2>
                 </div>
                 <div class="col-12">
                     <!--precio y moneda-->
                     <h3 class="fs-1 my-3"><?php echo rwmb_meta( 'currency');?>$ <?php echo number_format(rwmb_meta('price'));?></h3>
                 </div>
-                    <h3 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h3>
-                    <h3 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h3>
-                    <h3 class="col-md-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?> </h3>
+                    <h4 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h4>
+                    <h4 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h4>
+                    <h4 class="col-md-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?> </h4>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">

@@ -152,11 +152,6 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
         'post_types' => 'lifestyle',
 
         'fields' => [
-            [
-                'id'   => 'address',
-                'name' => 'Address',
-                'type' => 'text',
-            ],
             // Map field.
             [
                 'id'            => 'map',

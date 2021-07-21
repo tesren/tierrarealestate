@@ -88,6 +88,7 @@
             </div>
         
         <!--Nuevo y mejorado diseño listings chido-->
+        
         <div class="container-fluid text-center contenedor-listings mt-5 px-1">
             <!--listing info-->
             <?php 
@@ -95,57 +96,59 @@
                 $modalId = 0;
                 ?>
   
-            <?php foreach( $listings as $unit ): ?>
-                <?php 
+            <?php foreach( $listings as $unit ): 
             setup_postdata($unit);
             $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
 
-            $imgLg = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'large' );
-
-            $imgMd = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'medium' );
-
             ?>
-            
-            <!--Imagen listing-->
-            <img class="img-fluid w-100 imagen-listing animatable fadeInUp" 
-                                srcset="<?php echo $imgMd[0];?> 300w,
-                                        <?php echo $imgLg[0];?> 1024w"
-                                sizes="(max-width: 480px) 100%,
-                                        (max-width: 768px) 100%,
-                                        992px"
-                                        src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
+            <article>
+                <!--Imagen listing-->
+                <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
-            <div class="row justify-content-center bg-light animatable fadeInDown">
-                <!--Disponibilidad-->
-                <div class="col-12 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?>">
-                    <p class="mt-2 mb-0 fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></p>
+                <div class="row justify-content-center bg-light animatable fadeInDown">
+                    <!--Disponibilidad y tipo-->
+                    <div class="col-12 d-flex justify-content-center mt-2 mb-0">
+                        <h4 class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></h4>
+                        <h3 class="ps-3 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?> fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></h3>
+                    </div>
+
+                    <div class="col-12 ">
+                        <!--Nombre y Lugar del listing-->
+                        <h2 class="fs-1 fw-bold mt-0"><?php echo get_the_title( $unit->ID );?> 
+                            <?php tierra_get_list_terms($unit->ID, 'regiones'); ?>  
+                        </h2>
+                    </div>
+
+                    <div class="col-12">
+                        <!--precio y moneda-->
+                        <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
+                    </div>
+
+                        <div class="row justify-content-center text-center d-flex">
+                            <div class="col-md-4 col-lg-2">
+                                <p><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></p>
+                            </div>
+                            <div class="col-md-4 col-lg-2">
+                                <p><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></p>
+                            </div>
+                            <div class="col-md-4 col-lg-2">
+                                <p><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </p>
+                            </div>
+
+                        </div>
+                        
                 </div>
 
-                <div class="col-12 ">
-                    <!--Nombre y Lugar del listing-->
-                    <h2 class="fs-1 fw-bold mt-0"><?php echo get_the_title( $unit->ID );?> 
-                        <?php tierra_get_list_terms($unit->ID, 'regiones'); ?>  
-                    </h2>
+                <div class="row justify-content-center pb-4 mb-5 bg-light">
+                    <div class="col-12 col-md-4">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista previa' );?></button>
+                    </div>
+                    <div class="col-12 col-md-4">         
+                        <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
+                    </div>
                 </div>
-
-                <div class="col-12">
-                    <!--precio y moneda-->
-                    <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
-                </div>
-                    <h3 class="col-md-4 col-lg-2"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
-                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
-                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h3>
-            </div>
-
-            <div class="row justify-content-center pb-4 mb-5 bg-light">
-                <div class="col-12 col-md-4">
-                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista previa' );?></button>
-                </div>
-                <div class="col-12 col-md-4">         
-                    <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
-                </div>
-            </div>
+            </article>
 
              <!-- Modal -->
             <div class="modal fade" id="modal-<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -166,9 +169,9 @@
 
                     <div class="modal-body mt-1">
                         <div class="row justify-content-center">
-                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h3>
+                            <h6 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h6>
+                            <h6 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h6>
+                            <h6 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h6>
                         </div>
                     </div>
 
@@ -200,10 +203,10 @@
 
         <!--video-->
         <div style="padding:0 ;position:relative;" class="">
-        <video width="100%" height="auto" autoplay loop controls>
-        <source src="<?php echo get_template_directory_uri() .'/assets/videos/mar_comprimido-5MB.mp4';?>" type="video/mp4">
-        Your browser does not support the video tag.
-        </video>
+            <video width="100%" height="auto" autoplay loop controls>
+                <source src="<?php echo get_template_directory_uri() .'/assets/videos/mar_comprimido-5MB.mp4';?>" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
 
        <!--contacto-->

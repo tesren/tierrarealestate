@@ -20,21 +20,25 @@
                     </div>
                 </div>
                 <!--Lifestyle-->
-                <div class="container-fluid text-center px-5 animatable fadeIn mt-5">
+                <div class="container-fluid text-center mt-5">
                     <div class="row justify-content-center ">
+
                         <div class="col-12">
                             <div class="d-flex justify-content-center">
                                 <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
-                                <h2 class="fs-1">LIFESTYLE</h2>
+                                <h2 class="fs-1 animatable fadeIn">LIFESTYLE</h2>
                                 <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
                             </div>
                         </div>
+
+                        <div class="col-11 mb-5 me-0 col-lg-9">
+                            <div class="fs-3 mt-2 animatable fadeIn">
+                                <p><?php echo the_content();?></p>
+                            </div>
+                        </div>   
+
                     </div>
-                    <div class="col-12 mb-5  ">
-                        <div class="container fs-3 mt-2">
-                            <p><?php echo the_content();?></p>
-                        </div>
-                    </div>       
+                       
                 </div>
 
                 <h3 class="text-center my-5 fs-1 animatable fadeInDown "><?php pll_e( 'Restaurantes recomendados' );?></h3>
@@ -47,10 +51,10 @@
                     <?php
 
                         $restaurants = rwmb_meta( 'restaurant_gallery', array( 'size' => 'large' ) );
-                        $i = 0;
+                        $j = 0;
                             foreach ( $restaurants as $image ) { ?>
 
-                                <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
+                                <div class="carousel-item<?php if($j==0){echo ' active';} ?>  ">
                                     <img class="d-block w-100 tr-img-responsive carousel-img-sizing" src="<?php echo $image['url'];?>">
                                     <div class="carousel-caption d-md-block">
                                         <div><h2 class="fs-1"><?php echo $image['title'];?></h2></div>
@@ -58,7 +62,7 @@
                                 </div>
                                 
 
-                    <?php   $i++; }?>
+                    <?php   $j++; }?>
 
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselRestas" data-bs-slide="prev">
@@ -145,109 +149,149 @@
                         
                     </div>
                 </div>
+
+                <!--MAPA-->
+                <div class="d-flex justify-content-center mt-5 mb-3">
+                    <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
+                    <h2 class="fs-1 animatable fadeIn"><?php pll_e('Ubicación') ?></h2>
+                    <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
+                </div>
+
+                <div class="container-fluid animatable fadeInUp">
+                    <div style="height: 50vh;" class="col-12">
+                    <?php $args = array(
+                        'width'        => '100%',
+                        'height'       => '100%',
+                        'zoom'         => 14,
+                        'marker'       => true,
+                        //'marker_icon'  => 'https://url_to_icon.png',
+                        //'marker_title' => 'Click me',
+                        //'info_window'  => '<h3>Title</h3><p>Content</p>.',
+                    );
+                    
+                    echo rwmb_meta( 'map', $args );
+                    ?>
+                    </div>
+                </div>
+
                 
+
+              
+        <?php $developments = get_field('developments'); 
+        if( !empty($developments) ):?>
+        <!--Desarrollos-->
+        <div class="container-fluid text-center mb-5">
+            <h2 class="fs-1 my-5"><?php pll_e('Desarrollos en'); ?> <b><?php the_title();?></b> </h2>
+                <div id="carouselDesarrollos" class="carousel slide bg-azul" data-bs-ride="carousel" style="position:relative;">
                 
-                <!--Desarrollos>
-                <div class="container-fluid text-center mb-5">
-                    <h2 class="fs-1 my-5">Desarrollos en <b><?php the_title();?></b> </h2>
-                        <div id="carouselDesarrollos" class="carousel slide bg-azul" data-bs-ride="carousel" style="position:relative;">
-                        
-                            <div class="carousel-inner">
-                            
-                                <?php
+                    <div class="carousel-inner">
+                    
+                        <?php
+                            $i = 0;
+                            foreach( $developments as $development ): 
 
-                                    $desarrollos = rwmb_meta( 'lf_desarrollos_gallery', array( 'size' => 'large' ) );
-                                    $i = 0;
-                                        foreach ( $desarrollos as $image ) { ?>
-
-                                            <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
-                                                
-                                            <img class="d-block w-100 tr-img-responsive" src="<?php echo $image['url'];?>">
-                                            
-                                                <div class="carousel-caption d-md-block">
-                                                    <h2 class="fs-1"><?php echo $image['title'];?></h2>
-                                                    <p class="fs-5"><?php echo $image['description'];?></p>
-                                                </div>
-                                            </div>
-                        
-
-                                <?php   $i++; }?>
-
+                            $desImages = wp_get_attachment_image_src( get_post_thumbnail_id( $development->ID ), 'full' );?>
                                 
-                            </div>
 
+                                    <div class="carousel-item<?php if($i==0){echo ' active';} ?>  ">
+                                        
+                                        <img class="d-block w-100 tr-img-responsive" src="<?php echo $desImages[0];?>">
+
+                                        <div class="carousel-caption d-md-block text-center" style="z-index:3;">
+                                            <h2><?php echo get_the_title( $development->ID );?></h2>
+                                            <p><?php tierra_get_list_terms($development->ID, 'regiones');?> <br>
+                                            <?php pll_e( 'Precios Desde' );?> :<br> <?php echo $development->currency;?> $<?php echo number_format($development->starting_at);?> </p>
+                                            <a href="<?php echo get_the_permalink( $development->ID );?>" class="btn btn-light"><?php pll_e( 'Más info' );?></a>
+                                        </div>
+
+                                    </div>
+                
+
+                        <?php $i++; endforeach;?>
 
                         
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDesarrollos" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselDesarrollos" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                            </button>
-                        </div>
-                </div-->
+                    </div>
+                
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDesarrollos" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselDesarrollos" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+        </div>
+        <?php endif;?>
+
+
+        <?php $listings = get_field('listings');
+         if( !empty($listings) ):?>                      
+
+        <h2 class="fs-1 my-5 text-center"><?php pll_e('Listings en'); ?> <b><?php the_title();?></b> </h2>
                             
         <!--Nuevo y mejorado diseño listings chido-->
         <div class="container-fluid text-center contenedor-listings mt-5 px-1">
+        
             <!--listing info-->
-            <?php 
-            if( $listings ): 
-                $modalId = 0;
-                ?>
+            <?php $modalId = 0;?>
   
             <?php foreach( $listings as $unit ): ?>
                 <?php 
             setup_postdata($unit);
             $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
 
-            $imgLg = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'large' );
-
-            $imgMd = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'medium' );
-
             ?>
             
-            <!--Imagen listing-->
-            <img class="img-fluid w-100 imagen-listing animatable fadeInUp" 
-                                srcset="<?php echo $imgMd[0];?> 300w,
-                                        <?php echo $imgLg[0];?> 1024w"
-                                sizes="(max-width: 480px) 100%,
-                                        (max-width: 768px) 100%,
-                                        992px"
-                                        src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
+            <article>
+                <!--Imagen listing-->
+                <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
-            <div class="row justify-content-center bg-light animatable fadeInDown">
-                <!--Disponibilidad-->
-                <div class="col-12 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?>">
-                    <p class="mt-2 mb-0 fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></p>
+                <div class="row justify-content-center bg-light animatable fadeInDown">
+                    <!--Disponibilidad y tipo-->
+                    <div class="col-12 d-flex justify-content-center mt-2 mb-0">
+                        <h4 class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></h4>
+                        <h3 class="ps-3 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?> fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></h3>
+                    </div>
+
+                    <div class="col-12 ">
+                        <!--Nombre y Lugar del listing-->
+                        <h2 class="fs-1 fw-bold mt-0"><?php echo get_the_title( $unit->ID );?> 
+                            <?php tierra_get_list_terms($unit->ID, 'regiones'); ?>  
+                        </h2>
+                    </div>
+
+                    <div class="col-12">
+                        <!--precio y moneda-->
+                        <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
+                    </div>
+
+                        <div class="row justify-content-center text-center d-flex">
+                            <div class="col-md-4 col-lg-2">
+                                <p><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></p>
+                            </div>
+                            <div class="col-md-4 col-lg-2">
+                                <p><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></p>
+                            </div>
+                            <div class="col-md-4 col-lg-2">
+                                <p><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </p>
+                            </div>
+
+                        </div>
+                        
                 </div>
 
-                <div class="col-12 ">
-                    <!--Nombre y Lugar del listing-->
-                    <h2 class="fs-1 fw-bold mt-0"><?php echo get_the_title( $unit->ID );?> 
-                        <?php tierra_get_list_terms($unit->ID, 'regiones'); ?>  
-                    </h2>
+                <div class="row justify-content-center pb-4 mb-5 bg-light">
+                    <div class="col-12 col-md-4">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista previa' );?></button>
+                    </div>
+                    <div class="col-12 col-md-4">         
+                        <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
+                    </div>
                 </div>
+            </article>
 
-                <div class="col-12">
-                    <!--precio y moneda-->
-                    <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
-                </div>
-                    <h3 class="col-md-4 col-lg-2"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h3>
-                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h3>
-                    <h3 class="col-md-4 col-lg-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h3>
-            </div>
-
-            <div class="row justify-content-center pb-4 mb-5 bg-light">
-                <div class="col-12 col-md-4">
-                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-azul btn-lg w-75 mt-3 mt-md-4" data-bs-toggle="modal" data-bs-target="#modal-<?php echo $modalId; ?>"><?php pll_e( 'Vista previa' );?></button>
-                </div>
-                <div class="col-12 col-md-4">         
-                    <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
-                </div>
-            </div>
 
              <!-- Modal -->
             <div class="modal fade" id="modal-<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -296,28 +340,10 @@
             endforeach; 
             wp_reset_postdata();?>
             
-            <?php endif; ?>
             </div>
 
-               
- 
-                <!--MAPA-->
-                <div class="container-fluid animatable fadeInUp">
-                    <div style="height: 50vh;" class="col-12">
-                    <?php $args = array(
-                        'width'        => '100%',
-                        'height'       => '100%',
-                        'zoom'         => 14,
-                        'marker'       => true,
-                        //'marker_icon'  => 'https://url_to_icon.png',
-                        //'marker_title' => 'Click me',
-                        //'info_window'  => '<h3>Title</h3><p>Content</p>.',
-                    );
-                    
-                    echo rwmb_meta( 'map', $args );
-                    ?>
-                    </div>
-                </div>
+        <?php endif;?>
+
 
                 <!--contacto-->
                 <div class="container-fluid py-5 animatable fadeInDown">

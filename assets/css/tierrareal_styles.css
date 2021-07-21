@@ -102,7 +102,7 @@
     padding-top: 20px;
 }
 
-/* Colores disponibilidad */
+/* Colores disponibilidad y property type*/
 .Apartado {
     color : goldenrod !important;
    }
@@ -113,6 +113,12 @@ color : red !important;
    
 .Disponible{
 color : darkgreen !important;
+}
+
+.tr-ptype{
+    color: white;
+    background-color: #07255B;
+    border-radius: 4px;
 }
 
 .caption-bucerias h1{
@@ -455,6 +461,7 @@ a{
 }
 
 #carouselDesarrollos .carousel-caption h2{
+    text-shadow: 2px 2px 2px black;
     font-size: 5rem !important;
     margin-left: 10%;
     margin-right: 10%;
@@ -730,6 +737,10 @@ a{
  .contenedor-listings{
      position: relative;
      border-radius: 30px;
+ }
+
+ .contenedor-listings p{
+     font-size: 1.5rem;
  }
 
  .contenedor-listings .imagen-listing{

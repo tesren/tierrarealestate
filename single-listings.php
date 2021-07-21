@@ -51,7 +51,10 @@
         </div>
 
 
-            <p class="mt-5 ms-5 mb-1 fs-5 fw-bold <?php echo rwmb_meta('avaliable');?>"><?php echo pll_e( rwmb_meta('avaliable') );?></p>
+            <h3 class="mt-5 ms-5 mb-1 fs-5 fw-bold <?php echo rwmb_meta('avaliable');?>">
+                <span class="tr-ptype px-2"><?php tierra_get_property_type(get_the_ID(), 'property_type'); ?></span>
+                <?php echo pll_e( rwmb_meta('avaliable') );?>
+            </h3>
             <h1 class="ms-5 mb-1"><?php the_title();?></h1>
             <h4 class="mx-5 mt-1 mb-2 fs-4">
             <?php 

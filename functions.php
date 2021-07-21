@@ -269,6 +269,17 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
         }
     }
 
+    function tierra_get_property_type($postID, $taxonomy){
+        
+        $terms_list = array_reverse(wp_get_post_terms( $postID, $taxonomy ) );
+
+        if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
+            foreach ( $terms_list as $term ) {
+                echo $term->name;
+            }
+        }
+    }
+
     function tierra_get_sqft( $lang, $val){
 
         if( !empty($val) )
@@ -436,6 +447,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
              array(
                 'name' => 'listings_in_title',
                 'string' => 'Listings en',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'desarrollos_in_title',
+                'string' => 'Desarrollos en',
                 'group' => 'tierra labels',
                 'multiline' => false,
             ),

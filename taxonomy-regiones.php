@@ -5,87 +5,11 @@
             
             $modalId = 0; ?>
            
-            <h1 class="fs-1 mt-0 mb-5 my-md-5 text-center" id="titulo-propiedades"><?php pll_e( 'Listings en' );?> <?php                                          
-            $terms_list = array_reverse(wp_get_post_terms( get_the_ID(), 'regiones' ) );
-
-            $i =1;
-            if ( ! empty( $terms_list ) && ! is_wp_error( $terms_list ) ) {
-                foreach ( $terms_list as $term ) {
-                    echo $term->name;
-                    if( $i < count($terms_list) ){
-                        echo ', ';
-                    }
-                    $i++;
-                }
-            }                                                                                     
-            ?>  </h1>
-
-            <!-- Button trigger modal -->
-            <div class="container text-center">
-                <button type="button" class="btn btn-amarillo w-50" data-bs-toggle="modal" data-bs-target="#ModalSearch">Buscar</button>
-            </div>
-           
-
-            <!-- Modal para buscar propiedades -->
-            <div class="modal fade" id="ModalSearch" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fw-bold" id="exampleModalLabel">Busqueda de propiedades</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <form class=" my-2 text-center justify-content-center mx-2 mx-lg-0" action="">
-
-                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg lugar" name="lugar">
-                            <option selected>Elige un lugar</option>
-                            <option value="1">Puerto Vallarta</option>
-                            <option value="2">Bucerías</option>
-                            <option value="2">Punta de Mita</option>
-                            </option>
-                        </select>
-
-                        <select class="form-select form-select-lg mb-3" aria-label="form-select-lg tipo" name="tipo">
-                            <option selected>Tipo</option>
-                            <option value="1">Casa</option>
-                            <option value="2">Departamento</option>
-                        </select>
-
-                        <div class="row">
-                            <h5><?php pll_e( 'Recámaras' );?></h5>
-                            <div class="col-6 form-floating mb-3 ps-0">
-                                <input type="number" class="form-control" id="bedrooms-min" placeholder="Recámaras" name="minBed">
-                                <label class="ms-2" for="bedrooms-min">Min</label>
-                            </div>
-                            <div class="col-6 form-floating mb-3 pe-0">
-                                <input type="number" class="form-control" id="bedrooms-max" placeholder="Recámaras" name="maxBed">
-                                <label class="ms-2" for="bedrooms-max">Max</label>
-                            </div>
-                        </div>
-                    
-                        <div class="row">
-                            <h5>Precio</h5>
-                            <div class="col-6 form-floating mb-3 ps-0">
-                                <input type="number" class="form-control" id="min-price" placeholder="Precio" name="minPrice">
-                                <label class="ms-2" for="min-price">Min</label>
-                            </div>
-
-                            <div class="col-6 form-floating mb-3 pe-0">
-                                <input type="number" class="form-control" id="max-price" placeholder="Precio" name="maxPrice">
-                                <label class="ms-2" for="max-price">Max</label>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-amarillo">Buscar</button>
-                        </form>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            
+            <h1 class="fs-1 mt-0 mb-5 my-md-5 text-center" id="titulo-propiedades">
+                <?php pll_e( 'Listings en' );?> 
+                <?php tierra_get_list_terms(get_the_ID() , 'regiones'); ?>
+            </h1>
+         
            <?php while( have_posts() ): the_post();
 
            $postType = get_post_type();
@@ -112,9 +36,10 @@
             <div class="row justify-content-center bg-light animatable fadeInDown">
                 <!--Disponibilidad y tipo-->
                 <div class="col-12 d-flex justify-content-center mt-2 mb-0">
-                    <h4 class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type(get_the_ID(), 'property_type'); ?></h4>
-                    <h3 class="<?php echo rwmb_meta('avaliable');?> ps-3 fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable') );?></h3>
+                    <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type( get_the_ID() ,'property_type' ); ?></span>
+                    <span class="fs-5 fw-bold ps-3 <?php echo rwmb_meta('avaliable');?>"><?php echo pll_e( rwmb_meta('avaliable') );?></span>
                 </div>
+
                 <div class="col-12 ">
                     <!--Nombre y Lugar del listing-->
                     <h2 class="fs-1 fw-bold mt-2">
@@ -122,13 +47,19 @@
                         <?php tierra_get_list_terms(get_the_ID(), 'regiones'); ?>  
                     </h2>
                 </div>
+
                 <div class="col-12">
                     <!--precio y moneda-->
                     <h3 class="fs-1 my-3"><?php echo rwmb_meta( 'currency');?>$ <?php echo number_format(rwmb_meta('price'));?></h3>
                 </div>
-                    <h4 class="col-md-2"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h4>
-                    <h4 class="col-md-2"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h4>
-                    <h4 class="col-md-2"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?> </h4>
+
+                    <div class="col-12">
+                        <ul class="list-inline fs-4">
+                            <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
+                            <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
+                            <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                        </ul>
+                    </div>
             </div>
 
             <div class="row justify-content-center pb-4 mb-5 bg-light">

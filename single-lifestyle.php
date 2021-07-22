@@ -243,15 +243,15 @@
 
             ?>
             
-            <article>
+            
                 <!--Imagen listing-->
                 <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
                 <div class="row justify-content-center bg-light animatable fadeInDown">
-                    <!--Disponibilidad y tipo-->
+                    <!--Disponibilidad y tipo-->  
                     <div class="col-12 d-flex justify-content-center mt-2 mb-0">
-                        <h4 class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></h4>
-                        <h3 class="ps-3 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?> fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></h3>
+                        <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></span>
+                        <span class="fs-5 fw-bold ps-3 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?>"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></span>
                     </div>
 
                     <div class="col-12 ">
@@ -266,18 +266,15 @@
                         <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
                     </div>
 
-                        <div class="row justify-content-center text-center d-flex">
-                            <div class="col-md-4 col-lg-2">
-                                <p><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></p>
-                            </div>
-                            <div class="col-md-4 col-lg-2">
-                                <p><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></p>
-                            </div>
-                            <div class="col-md-4 col-lg-2">
-                                <p><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </p>
-                            </div>
-
-                        </div>
+                
+                    <div class="col-12 text-center">
+                        <ul class="list-inline fs-4">
+                            <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
+                            <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></li>
+                            <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?></li>
+                        </ul>
+                    </div>
+                        
                         
                 </div>
 
@@ -290,7 +287,7 @@
                         <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
                     </div>
                 </div>
-            </article>
+          
 
 
              <!-- Modal -->

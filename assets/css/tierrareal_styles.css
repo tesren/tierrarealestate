@@ -264,12 +264,19 @@ a{
 .btn-amarillo{
     color: white !important;
     background-color: #BD9028 !important;
-    border-radius: 10px;
+    border-radius: 5px;
+}
+
+.btn-amarillo:hover{
+    background-color: #A28234 !important;
 }
 .btn-azul{
     color: white !important;
     background-color: #080F24 !important;
-    border-radius: 10px !important;
+    border-radius: 5px !important;
+}
+.btn-azul:hover{
+    background-color: #000e20 !important;   
 }
 
 #listings i{
@@ -313,7 +320,7 @@ a{
     text-align:center;
     font-size:45px;
     z-index:100;
-    opacity: 0.7;
+    opacity: 0.6;
     transition: 0.3s;
   }
 
@@ -330,6 +337,38 @@ a{
     left: 0;
     width: 100%;
   }
+
+  /*boton de busqueda*/
+  #btn-search {
+    position:fixed;
+    width:60px;
+    height:60px;
+    bottom:25px;
+    left:30px;
+    background-color:#080F24;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:44px;
+    z-index:100;
+    opacity: 0.6;
+    transition: 0.3s;
+  }
+
+  #btn-search:hover{
+      background-color: #07255B;
+      opacity: 1;
+      transition: 0.3s;
+  }
+
+  #btn-search .fa-search {
+    position: relative;
+    vertical-align: top;
+    top: 7px;
+    left: 0;
+    width: 100%;
+  }
+
 
   footer{
       color: white;
@@ -750,6 +789,13 @@ a{
      border-top-left-radius: 30px;
 }
 
+.imagen-archive-listing{
+    object-fit: cover;
+    height: 40vh;
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
 .labels-form-small{
     color: #07255B;
     display: block;
@@ -765,6 +811,28 @@ a{
 }
 
 @media (max-width: 767px) {
+
+/*Boton de whatsapp mobile*/
+#whatsapp {
+    width:50px;
+    height:50px;
+    bottom:15px;
+    right:20px;
+    font-size:35px;
+  }
+
+  /*boton de busqueda mobile*/
+#btn-search {
+    width:50px;
+    height:50px;
+    bottom:15px;
+    left:20px;
+    font-size:35px;
+  }
+
+.imagen-archive-listing{
+    height: initial;
+}
 
 .realtors{
     position: relative;

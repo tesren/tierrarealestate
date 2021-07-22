@@ -331,6 +331,36 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'multiline'=>false,
             ),
             array(
+                'name'     =>'listings_for_sale',
+                'string'   =>'Listings a la venta',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'find_your_place',
+                'string'   =>'Encuentra tu lugar perfecto',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'property_type',
+                'string'   =>'Tipo de Propiedad',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'listing_search',
+                'string'   =>'Buscar',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'price',
+                'string'   =>'Precio',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
                 'name' => 'price_from',
                 'string' => 'Precios Desde',
                 'group' => 'tierra labels',
@@ -629,6 +659,93 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     }
 
     add_action('init', 'tierra_set_strings_transtaltion');
+
+
+      /**
+     * Create Custom Query Vars
+     * https://codex.wordpress.org/Function_Reference/get_query_var#Custom_Query_Vars
+     */
+    function add_query_vars_filter( $vars ) {
+        // add custom query vars that will be public
+        // https://codex.wordpress.org/WordPress_Query_Vars
+        $vars[] .= 'min_price';
+        $vars[] .= 'max_price';
+        $vars[] .= 'min_beds';
+        $vars[] .= 'max_beds';
+        $vars[] .= 'property_type_cat_ids';
+        $vars[] .= 'regiones_cat_ids';
+        return $vars;
+    }
+    add_filter( 'query_vars', 'add_query_vars_filter' );
+
+
+    /**
+     * Override Movie Archive Query
+     * https://codex.wordpress.org/Plugin_API/Action_Reference/pre_get_posts
+     */
+    function listings_archive( $query ) {
+        // only run this query if we're on the movie archive page and not on the admin side
+        if ( $query->is_archive('listings') && $query->is_main_query() && !is_admin() ) {
+
+            // get query vars from url.
+            // https://codex.wordpress.org/Function_Reference/get_query_var#Examples
+
+            // example.com/movie/?rating=4
+            $min_price = get_query_var( 'min_price', FALSE );
+
+            $max_price = get_query_var( 'max_price', FALSE );
+
+            $min_beds = get_query_var( 'min_beds', FALSE );
+
+            $max_beds = get_query_var( 'max_beds', FALSE );
+            // example.com/movie/?director_id=14
+            //$property_type_id = get_query_var( 'property_type_id', FALSE );
+            // example.com/movie/?movie_category_ids[]=6
+            $propertyType = get_query_var( 'property_type_cat_ids', FALSE );
+
+            $location = get_query_var( 'regiones_cat_ids', FALSE );
+
+            //$category = get_query_var( 'movie_category_ids', FALSE);
+
+            // used to conditionally build the meta_query
+            // the meta_query is used for searching against custom fields
+            $meta_query_array = array('relation' => 'AND');
+
+            // conditionally add arrays to the meta_query based on values in the URL
+            // the `key` is the name of my custom fields
+            $price_range = array();
+            
+            $min_price ? $price_range[] = $min_price : null;
+
+            $max_price ? $price_range[] = $max_price : null;
+
+            $price_range ? array_push($meta_query_array, array('key' => 'price', 'value' =>  $price_range, 'compare' => 'BETWEEN') ) : null ;
+            
+            $beds_range = array();
+            
+            $min_price ? $beds_range[] = $min_beds : null;
+
+            $max_price ? $beds_range[] = $max_beds : null;
+
+            $beds_range ? array_push($meta_query_array, array('key' => 'bedrooms', 'value' =>  $beds_range, 'compare' => 'BETWEEN') ) : null ;
+            
+            // final meta_query
+            $query->set( 'meta_query', $meta_query_array );
+
+            // used to conditionally build the tax_query
+            // the tax_query is used for a custom taxonomy assigned to the post type
+            // i'm using the `'relation' => 'OR'` to make the search more broad
+            $tax_query_array = array('relation' => 'OR');
+
+            // conditionally add arrays to the tax_query based on values in the URL
+            // `movie_category` is the name of my custom taxonomy
+            $location ? array_push($tax_query_array, array('taxonomy' => 'regiones', 'field' => 'term_id', 'terms' => $location) ) : null ;
+
+            // final tax_query
+            $query->set( 'tax_query', $tax_query_array);
+        }
+    }
+    add_action( 'pre_get_posts', 'listings_archive' );
 
     
 ?>

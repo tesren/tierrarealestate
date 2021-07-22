@@ -108,8 +108,8 @@
                 <div class="row justify-content-center bg-light animatable fadeInDown">
                     <!--Disponibilidad y tipo-->
                     <div class="col-12 d-flex justify-content-center mt-2 mb-0">
-                        <h4 class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></h4>
-                        <h3 class="ps-3 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?> fs-5 fw-bold"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></h3>
+                        <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></span>
+                        <span class="fs-5 fw-bold ps-3 <?php echo rwmb_meta('avaliable',$args = [], $unit->ID);?>"><?php echo pll_e( rwmb_meta('avaliable',$args = [], $unit->ID) );?></span>
                     </div>
 
                     <div class="col-12 ">
@@ -124,18 +124,13 @@
                         <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
                     </div>
 
-                        <div class="row justify-content-center text-center d-flex">
-                            <div class="col-md-4 col-lg-2">
-                                <p><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></p>
-                            </div>
-                            <div class="col-md-4 col-lg-2">
-                                <p><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></p>
-                            </div>
-                            <div class="col-md-4 col-lg-2">
-                                <p><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </p>
-                            </div>
-
-                        </div>
+                    <div class="col-12 text-center">
+                        <ul class="list-inline fs-4">
+                            <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
+                            <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></li>
+                            <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?></li>
+                        </ul>
+                    </div>
                         
                 </div>
 
@@ -159,19 +154,18 @@
 
                         <h5 class="modal-title fw-bold fs-3" id="exampleModalLabel" style="position:absolute; bottom:20px; left:20px; color:#fff;"><?php echo get_the_title( $unit->ID );?></h5>                    
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:20px; right:20px; background-color:#fff;"></button>
-                        <img srcset="<?php echo $imgMd[0];?> 300w,
-                                        <?php echo $imgLg[0];?> 1024w"
-                                sizes="(max-width: 480px) 100%,
-                                        (max-width: 768px) 100%,
-                                        992px"
-                                        src="<?php echo $imgFull[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $unit->ID );?>">
+                        <img src="<?php echo $imgFull[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $unit->ID );?>">
                     </div>
 
                     <div class="modal-body mt-1">
                         <div class="row justify-content-center">
-                            <h6 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></h6>
-                            <h6 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></h6>
-                            <h6 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?> </h6>
+                            <div class="col-12">
+                                <ul class="list-inline fs-4">
+                                    <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
+                                    <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></li>
+                                    <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

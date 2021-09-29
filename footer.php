@@ -2,7 +2,7 @@
         
         </div><!--div resoluciones grandes-->
         <?php 
-
+/* 
             $regiones = get_terms( array(
                 'taxonomy'          => 'regiones',
                 'parent'            => 0,
@@ -13,10 +13,10 @@
                 'taxonomy'          => 'property_type',
                 'parent'            => 0,
                 'hide_empty'        => false,
-            ) );
+            ) ); */
         ?>
           <!--Boton de busqueda-->
-          <a id="btn-search" href="#" data-bs-toggle="modal" data-bs-target="#modal-search"><i class="fas fa-search"></i></a>
+          <!-- <a id="btn-search" href="#" data-bs-toggle="modal" data-bs-target="#modal-search"><i class="fas fa-search"></i></a> -->
 
           <!--modal de busqueda-->
           <div class="modal fade" id="modal-search" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

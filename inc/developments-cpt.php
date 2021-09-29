@@ -42,7 +42,7 @@
                 'page-attributes',
             ),
             //'taxonomies' => array('category', 'post_tag'),
-            'menu_icon' => 'dashicons-columns',
+            'menu_icon' => 'dashicons-building',
             'menu_positions' => 5,
             'exclude_from_search' => false,
             'show_in_nav_menus' => true,

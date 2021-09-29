@@ -23,19 +23,19 @@ function v4you_save_contact(){
         'post_title' => $title,
         'post_content' => $message,
         'post_author' => 1,
-        'pots_status' => 'publish',
+        'post_status' => 'publish',
         'post_type' => 'v4you-contact',
         'meta_input' => array(
             '_contact_email_value_key' => $email
         )
     );
 
-    $postID = wp_insert_post( $args );
+    $postID = wp_insert_post( $args, true );
 
     if( $postID !== 0 ){
 
         //$to = get_bloginfo('admin_email');
-        $to = 'info@punto401.com';
+        $to = 'erick@punto401.com';
 
         $subject = 'Contact Email Tierra Real Estate - '. $title;
 

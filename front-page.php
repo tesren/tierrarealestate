@@ -28,7 +28,7 @@
 ?>
 
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 p-0">
 
             <!--Carrusel de imagenes de propiedades-->
             <div id="carouselFrontPage" class="carousel slide bg-azul" data-bs-ride="carousel">
@@ -89,7 +89,7 @@
         
         <!--Nuevo y mejorado diseño listings chido-->
         
-        <div class="container-fluid text-center contenedor-listings mt-5 px-1">
+        <div class="container-fluid text-center contenedor-listings mt-5 px-1 ">
             <!--listing info-->
             <?php 
             if( $listings ): 
@@ -121,7 +121,7 @@
 
                     <div class="col-12">
                         <!--precio y moneda-->
-                        <h3 class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
+                        <h3 itemprop="price" class="fs-1 my-3"><?php echo $unit->currency;?>$<?php echo number_format($unit->price);?></h3>
                     </div>
 
                     <div class="col-12 text-center">
@@ -177,7 +177,7 @@
                         </div>
                         <div class="row justify-content-evenly">
                             <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal"><?php pll_e('Cerrar'); ?></button>
-                            <a href="<?php echo get_the_permalink( $unit->ID );?>" class="col-4 btn btn-amarillo"><?php pll_e( 'Más info' );?></a>
+                            <a href="<?php echo get_the_permalink( $unit->ID );?>" class="col-4 btn btn-amarillo "><?php pll_e( 'Más info' );?></a>
                         </div>
                       
                     </div>

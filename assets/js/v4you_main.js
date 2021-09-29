@@ -181,6 +181,9 @@ document.addEventListener( 'DOMContentLoaded', () => wait(2000).then(() =>{
     
     /**Contact form submission */
 
+    /**Contact form */
+    $('.wpcf7 textarea').attr('rows', 5);
+
     $('#osContactForm').on('submit', function (e) {
         e.preventDefault();
 

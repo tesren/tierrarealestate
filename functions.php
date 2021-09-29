@@ -98,135 +98,6 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 	//require get_template_directory() . '/inc/walker-header.php';
 
 
-/*
-		==========================================
-			CUSTOM CONTACT FORM
-		==========================================
-
-    */
-    
-    function v4you_contact_custom_post_type(){
-
-        $labels = array(
-            'name'          => 'Messages',
-            'singular_name' => 'Message',
-            'add_new'       => 'Add new message',
-            'all_items'     => 'All Messages',
-            'add_new_items' => 'Add item',
-            'edit_item'     => 'Edit Message',
-            'new_item'      => 'New Item',
-            'view_item'     => 'View Item',
-            'name_admin_bar'=> 'Message',
-            'search_item'   => 'Search Listing',
-            'not_found'     => 'No items found',
-            'parent_item_colon' => 'Parent item'
-
-        );
-
-        $args = array(
-            'labels' => $labels,
-            'public' => true,
-            'has_archive' => true,
-            'publicly_queryable' =>  true,
-            'query_var' => true,
-            'rewrite' => true,
-            'capability_type' => 'post',
-            'hierarchical' => false,
-            'supports' => array(
-                'title',
-                'editor',
-                'author',
-            ),
-            'menu_icon' => 'dashicons-email-alt',
-            'menu_positions' => 9,
-
-        );
-
-        register_post_type('v4you-contact', $args);
-
-    }
-
-    add_action('init', 'v4you_contact_custom_post_type');
-    
-    add_filter( 'manage_v4you-contact_posts_columns', 'v4you_set_contact_columns' );
-
-    add_action( 'manage_v4you-contact_posts_custom_column', 'v4you_contact_custom_column', 10, 2);
-
-    function v4you_set_contact_columns( $columns ){
-        
-        $newColumns = array();
-        $newColumns['title'] = 'Full Name';
-        $newColumns['message'] = 'Message';
-        $newColumns['email'] = 'Email';
-        $newColumns['date'] = 'Date';
-        return $newColumns;
-
-    }
-
-    function v4you_contact_custom_column( $column, $post_id ){
-
-        switch( $column ){
-
-            case 'message' :
-                echo get_the_excerpt();
-                break;
-            case 'email' :
-                $email = get_post_meta( $post_id, '_contact_email_value_key', true);
-                echo '<a href="mailto:'.$email.'">'.$email.'</a>';
-                break;
-        }
-
-    }
-
-    /*CONTACT META BOXES si quiero recolectar más campos del form solo tengo que añadirlos aquí */
-
-    function v4you_contact_add_meta_box(){
-        add_meta_box( 'contact_email', 'User Email', 'v4you_contact_email_callback', 'v4you-contact', 'normal', 'high' );
-    }
-
-    function v4you_contact_email_callback( $post ){
-
-        wp_nonce_field( 'v4you_save_contact_email_data', 'v4you_contact_email_meta_box_nonce' );
-        
-        $value = get_post_meta( $post->ID, '_contact_email_value_key', tue);
-
-        echo '<label for="v4you_contact_email_field">User Email Address</label>';
-        echo '<input type="email" id="v4you_contact_email_field" name="v4you_contact_email_field" value="'. esc_attr( $value ) .'" size="25" />';
-    };
-
-    add_action('add_meta_boxes', 'v4you_contact_add_meta_box');
-
-    //Storage data
-    function v4you_save_contact_email_data( $post_id ){
-
-        if( ! isset( $_POST['v4you_contact_email_meta_box_nonce'] ) ){
-            return;
-        }
-
-        if( ! wp_verify_nonce( $_POST['v4you_contact_email_meta_box_nonce'],'v4you_save_contact_email_data') ) {
-            return;
-        }
-
-        if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE ){
-            return;
-        }
-
-        //revisar si el usuario tiene permisos
-        if( ! current_user_can('edit_post', $post_id) ){
-            return;
-        }
-        //Validar que el campo enviado no esté vacio
-        if( !isset( $_POST['v4you_contact_email_field'] ) ){
-            return;
-        }
-
-        $my_data = sanitize_text_field( $_POST['v4you_contact_email_field'] );
-
-        update_post_meta( $post_id, '_contact_email_value_key', $my_data );
-
-    }
-
-    add_action('save_post', 'v4you_save_contact_email_data');
 
 
     require get_template_directory() . '/inc/ajax.php';
@@ -239,6 +110,8 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     require get_template_directory() . '/inc/lifestyle-cpt.php';
 
     require get_template_directory() . '/inc/sales-team-cpt.php';
+
+    require get_template_directory() . '/inc/messages-cpt.php';
 
 
     function check_post_type_and_remove_media_buttons() {

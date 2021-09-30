@@ -1,7 +1,7 @@
 <?php 
 
  /*
- Template Name: Contact Page 
+ Template Name: Page Realtors Template 
   */
             
   $realtors = get_posts(array(
@@ -41,13 +41,13 @@
                     $qrcode = reset($qrcodes); ?>
 
             <div class="col-11 col-md-5 bg-light my-3 mx-4 px-0 realtors" >
-                    <div class="row justify-content-start justify-content-md-start text-center text-md-start">
+                    <div class="row justify-content-start justify-content-md-start text-center text-md-start shadow-7">
                         
                         <div class="col-md-6 round-borders">
                             <img class="img-fluid w-100 round-borders" src="<?php echo $image['url']; ?>">
                         </div>
     
-                        <div class="col-md-6 mt-3 ps-2">
+                        <div class="col-md-6 mt-3 ps-2" style="overflow:hidden;">
                             <h4 class="fs-2 fw-bold texto-azul"><?php echo get_the_title( $realtor->ID); ?></h4>
                             <h4 class="fs-3 my-2"><?php echo $realtor->realtor_position; ?></h4>
                             <h5 class="texto-azul mb-2"> <i class="fas fa-phone-alt"></i> +52 <?php echo $realtor->realtor_phone_number; ?></h5>

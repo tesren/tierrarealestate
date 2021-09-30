@@ -98,8 +98,6 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 	//require get_template_directory() . '/inc/walker-header.php';
 
 
-
-
     require get_template_directory() . '/inc/ajax.php';
 
 
@@ -113,6 +111,7 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
 
     require get_template_directory() . '/inc/messages-cpt.php';
 
+    require get_template_directory() . '/inc/vendor/autoload.php';
 
     function check_post_type_and_remove_media_buttons() {
         global $current_screen;
@@ -620,5 +619,5 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
     }
     add_action( 'pre_get_posts', 'listings_archive' );
 
-    
+    remove_filter ('the_content', 'wpautop');
 ?>

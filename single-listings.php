@@ -10,7 +10,7 @@
 ?>
 
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 p-0">
 
         <div id="primary-slider" class="splide">
             <div class="splide__track">
@@ -18,7 +18,7 @@
 
                 <?php
 
-                    $images_full = rwmb_meta( 'listing_gallery', array( 'size' => 'full' ) );
+                    $images_full = rwmb_meta( 'listing_gallery', array( 'size' => 'full', 'limit'=> 40 ) );
                    
                         foreach ( $images_full as $image_full ) { ?>
 
@@ -259,6 +259,24 @@
               
 
                 <?php endif; ?>
+
+                <div class="col-md-4">
+                    <?php $descr = get_the_content(); ?>
+                    <form action="<?php echo get_template_directory_uri(); ?>/inc/convertopdf.php" method="post">
+                        <input type="hidden" name="titulo" value="<?php echo the_title(); ?>">
+                        <input type="hidden" name="descripcion" value="<?php echo $descr; ?>">
+                        <input type="hidden" name="region" value="<?php echo tierra_get_list_terms(get_the_ID(), 'regiones'); ?>">
+                        <input type="hidden" name="precio" value="<?php echo rwmb_meta('price'); ?>">
+                        <input type="hidden" name="currency" value="<?php echo rwmb_meta('currency'); ?>">
+                        <input type="hidden" name="bedrooms" value="<?php echo rwmb_meta('bedrooms'); ?>">
+                        <input type="hidden" name="bathrooms" value="<?php echo rwmb_meta('bathrooms'); ?>">
+                        <input type="hidden" name="const" value="<?php echo rwmb_meta('construction'); ?>">
+                        <input type="hidden" name="lote" value="<?php echo rwmb_meta('lot_area'); ?>">
+                        <input type="hidden" name="furniture" value="<?php echo rwmb_meta('furniture'); ?>">
+                        <input type="hidden" name="imagen" value="<?php echo $images_full[0]['url'] ?>">
+                        <button type="submit" class="my-3 mx-5 btn btn-azul w-75" name="sendpdf">PDF</button>
+                    </form>
+                </div>
 
             </div>
             

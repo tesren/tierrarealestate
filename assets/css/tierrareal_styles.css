@@ -310,7 +310,7 @@ a{
     height:60px;
     bottom:25px;
     right:30px;
-    background-color:#080F24;
+    background-color:#07255B;
     color:#FFF;
     border-radius:50px;
     text-align:center;
@@ -388,7 +388,7 @@ a{
     position: relative;
     height: 395px;
     object-fit: contain;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 /*Paginación*/
 .pagination{

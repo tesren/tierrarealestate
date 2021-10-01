@@ -25,7 +25,7 @@
 
     <div class="tr-page">
       
-        <div class="container-fluid text-center bg-azul fixed-top" id="mainHeader">
+      <div class="container-fluid text-center bg-azul fixed-top" id="mainHeader">
 
             <!--Nosotros-->
           <div id="tr-nosotros-grande">
@@ -67,8 +67,8 @@
             <!--LOGO Tierra-->
             <a href="<?php echo get_home_url(); ?>" class="d-none d-lg-block"><img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
             
-           <!--navBar-->
-               <nav class="navbar navbar-expand-lg navbar-dark bg-azul" role="navigation">
+           <!--Nav Bar Primario-->
+               <nav class="navbar navbar-expand-lg navbar-dark bg-azul" role="navigation" id="main-navbar"> 
                   <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand ms-2 d-md-none" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
@@ -81,7 +81,7 @@
                         <?php
                         wp_nav_menu( array(
                             'theme_location'    => 'primary',
-                            'depth'             => 3,
+                            'depth'             => 2,
                             'container'         => 'div',
                             'container_class'   => 'collapse navbar-collapse',
                             'container_id'      => 'navbarSupportedContent',
@@ -92,7 +92,33 @@
                         ?>
                     </div>
                 </nav>
+
+                <!--Nav Bar Secundario-->
+                <nav class="navbar navbar-expand navbar-dark bg-azul" role="navigation" id="sec-navbar">
+                  <div class="container-fluid">
+               
+                      <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSec" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                      </button>
+                    
+                        <?php
+                        wp_nav_menu( array(
+                            'theme_location'    => 'secondary',
+                            'depth'             => 2,
+                            'container'         => 'div',
+                            'container_class'   => 'collapse navbar-collapse',
+                            'container_id'      => 'navbarSec',
+                            'menu_class'        => 'navbar-nav mx-auto mb-2 mb-lg-0',
+                            'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
+                            'walker'            => new WP_Bootstrap_Navwalker(),
+                        ) );
+                        ?>
+                    </div>
+                </nav>
+
         </div>
+
+          
 
         
         <div id="tr-contenedor-resoluciones-grandes">

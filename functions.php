@@ -17,6 +17,7 @@ function cb_menus()
 {    
     $locations = array(
         'primary' => __( 'Primary Menu', 'TierraRealEsatate' ),
+        'secondary' => __( 'Secondary Menu', 'TierraRealEsatate' ),
         'pre-header' => __('Pre Header Menu', 'TierraRealEsatate'),
         'footer' => "Footer menu Items",
     );

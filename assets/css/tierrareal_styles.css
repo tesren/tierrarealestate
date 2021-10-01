@@ -513,6 +513,21 @@ a{
     margin-bottom: 50px;
 }
 
+.archive-dev-img{
+    height: 55vh;
+    object-fit: cover;
+    box-shadow: 0 4px 5px -2px #0003,0 7px 10px 1px #00000024,0 2px 16px 1px #0000001f;
+}
+
+.tr-img-responsive{
+    height:80vh;
+    object-fit:cover;
+}
+
+#sec-navbar .nav-link{
+    font-size: 1rem !important;
+}
+
 #lf-properties .card{
     border-radius: 50px;
 }
@@ -1076,7 +1091,7 @@ a{
         width: 90% !important;
     }
     /*Navbar Mobile*/
-    .navbar-collapse {
+    #main-navbar .navbar-collapse {
         position: fixed;
         top: 0px;
         left: 0;
@@ -1090,17 +1105,17 @@ a{
         background-color: #07255B;
     }
 
-    .navbar-collapse.collapsing {
+    #main-navbar .navbar-collapse.collapsing {
         left: -80%;
         transition: height 0s ease;
     }
 
-    .navbar-collapse.show {
+    #main-navbar .navbar-collapse.show {
         left: 0;
         transition: left 300ms ease-in-out;
     }
 
-    .navbar-toggler.collapsed ~ .navbar-collapse {
+    #main-navbar .navbar-toggler.collapsed ~ .navbar-collapse {
         transition: left 500ms ease-in-out;
     }
 }
@@ -1124,7 +1139,7 @@ a{
         margin-top: 5rem;
     } 
 /*Navbar Ipad*/
-    .navbar-collapse {
+    #main-navbar .navbar-collapse {
         position: fixed;
         top: 0px;
         left: 0;
@@ -1138,17 +1153,17 @@ a{
         background-color: #07255B;
     }
 
-    .navbar-collapse.collapsing {
+    #main-navbar .navbar-collapse.collapsing {
         left: -40%;
         transition: height 0s ease;
     }
 
-    .navbar-collapse.show {
+    #main-navbar .navbar-collapse.show {
         left: 0;
         transition: left 300ms ease-in-out;
     }
 
-    .navbar-toggler.collapsed ~ .navbar-collapse {
+    #main-navbar .navbar-toggler.collapsed ~ .navbar-collapse {
         transition: left 500ms ease-in-out;
     }
 }

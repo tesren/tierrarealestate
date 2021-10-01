@@ -31,7 +31,7 @@
 
                         ?>
                             
-                            <div class="col-12 col-md-6 tre-listing-card px-2">
+                            <div class="col-12 col-md-6 col-lg-4 tre-listing-card px-2">
 
                                 <!-- Old layout -->
                                     
@@ -120,6 +120,8 @@
 
                         
                 <?php $modalId++;   endwhile;
+                    
+                    the_posts_pagination();
                         
                     endif;
                 ?>

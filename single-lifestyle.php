@@ -8,9 +8,9 @@
                
         <!--Imagen con texto-->
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 p-0">
                 <!--Imagen con texto-->
-                <div class="container-fluid " style="position:relative;">
+                <div class="container-fluid p-0" style="position:relative;">
                 <div class="fondo-oscuro"></div>
                 <?php $backgroundImg = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );?>
 
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <!--Lifestyle-->
-                <div class="container-fluid text-center mt-5">
+                <div class="container-fluid p-0 text-center mt-5">
                     <div class="row justify-content-center ">
 
                         <div class="col-12">
@@ -110,7 +110,7 @@
 
 
                 <!--VIVE EN-->
-                <div style="position: relative; text-align: center;" class="container-fluid pt-5 pb-5">
+                <div style="position: relative; text-align: center;" class="container-fluid my-5 p-0">
                     <div class="row justify-content-center p-0">
 
                         <h4 style="font-size: 3.5rem; z-index: 1;" class="texto-encima"><?php pll_e( 'Vive en' );?> <?php the_title();?></h4>
@@ -157,7 +157,7 @@
                     <img class="iconsvg" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>">
                 </div>
 
-                <div class="container-fluid animatable fadeInUp">
+                <div class="container-fluid p-0 animatable fadeInUp">
                     <div style="height: 50vh;" class="col-12">
                     <?php $args = array(
                         'width'        => '100%',
@@ -180,7 +180,7 @@
         <?php $developments = get_field('developments'); 
         if( !empty($developments) ):?>
         <!--Desarrollos-->
-        <div class="container-fluid text-center mb-5">
+        <div class="container-fluid p-0 text-center mb-5">
             <h2 class="fs-1 my-5"><?php pll_e('Desarrollos en'); ?> <b><?php the_title();?></b> </h2>
                 <div id="carouselDesarrollos" class="carousel slide bg-azul" data-bs-ride="carousel" style="position:relative;">
                 
@@ -335,8 +335,14 @@
             <?php 
             $modalId++;
             endforeach; 
-            wp_reset_postdata();?>
-            
+        
+            // Get the queried object and sanitize it
+            $current_page = sanitize_post( $GLOBALS['wp_the_query']->get_queried_object() );
+            var_dump($current_page );
+            // Get the page slug
+            $post_slug = $current_page->post_name;
+            ?>
+            <a class="btn btn-azul" href="<?php echo get_home_url()."/area/".$post_slug;?>"><?php pll_e('Ver Todos');?></a>
             </div>
 
         <?php endif;?>

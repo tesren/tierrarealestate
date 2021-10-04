@@ -13,14 +13,13 @@
     ) );
 
     //global $wp_query; print_r($wp_query);
-    get_header(); 
-?>
+    get_header(); ?>
 <div class="container-fluid pt-5">
     <div class="row">
-        <div class="col-md-9">
-            <div class="row mb-5">
-                <h1><?php echo pll_e('Listings a la venta');?></h1>
-            </div>
+        <div class="col-md-12">
+            
+            <h1><?php echo pll_e('Listings a la venta');?></h1>
+            
             <div class="row">
                 <?php 
                     if ( have_posts() ) :
@@ -128,102 +127,6 @@
             </div>
         </div>
         
-        <!--Form de busqueda-->
-         <div class="d-none d-md-block col-md-3 mt-5 pt-5">
-            <aside class="sticky-top">
-                <h4><?php echo pll_e( 'Encuentra tu lugar perfecto' );?></h4>
-                <hr>
-                <form class=" my-2 justify-content-center mx-2 mx-lg-0" method="get" action="<?php echo get_post_type_archive_link('listings'); ?>">
-                    
-                    <div class="mb-3">
-                        <h5><?php echo pll_e( 'Ubicación' );?></h5>
-                        <?php if( !empty($regiones) ) : 
-
-                                foreach($regiones as &$category) : 
-                                    
-                                    $childrenTerms =  get_term_children( $category->term_id, 'regiones' );
-
-                                    foreach($childrenTerms as $child) :
-                                         
-                                        $term = get_term_by( 'id', $child, 'regiones');
-
-                            ?>
-                                <!-- 'name' must match the custom query var -->
-                                <!-- we add `[]` to `movie_category_ids` in order to read the results as an array -->
-                            <div class="form-check">
-                                <input
-                                    class="form-check-input"
-                                    type="checkbox"
-                                    id="<?php echo $term->name; ?>"
-                                    value="<?php echo $term->term_id; ?>"
-                                    name="regiones_cat_ids[]"
-                                    <?php echo in_array($term->term_id, get_query_var( 'regiones_cat_ids', FALSE)) ? 'checked' : null ;?>
-                                />
-                                <label class="form-check-label" for="<?php echo $term->name; ?>"><?php echo $term->name; ?></label>
-                            </div>
-
-                            <?php endforeach;
-                                endforeach;
-                            endif; 
-                        ?>  
-                    </div>
-
-                    <div class="mb-3">
-                        <h5><?php echo pll_e( 'Tipo de Propiedad' );?></h5>
-                        <?php if( !empty($propertiesType) ) : 
-
-                                foreach($propertiesType as &$propertyType) : 
-
-                        ?>
-                                <div class="form-check">
-                                    <input 
-                                        class="form-check-input"
-                                        type="checkbox"
-                                        id="<?php echo $propertyType->name; ?>"
-                                        value="<?php echo $propertyType->term_id; ?>"
-                                        name="property_type_cat_ids[]"
-                                        <?php echo in_array($propertyType->term_id, get_query_var( 'property_type_cat_ids', FALSE)) ? 'checked' : null ;?>
-                                    />
-                                    <label class="form-check-label" for="<?php echo $propertyType->name; ?>"><?php echo $propertyType->name; ?></label>
-                                </div>
-                            <?php  
-                                endforeach;
-                             endif; 
-                        ?>  
-                                
-                    </div>
-                        
-                    <div class="row mb-3">
-                        <h5><?php pll_e( 'Recámaras' );?></h5>
-                        <div class="col-6 form-floating ps-0">
-                            <input type="number" class="form-control" id="min_beds" name="min_beds" placeholder="Recámaras" value="<?php echo get_query_var( 'min_beds', FALSE) ? get_query_var( 'min_beds', FALSE) : null ; ?>">
-                            <label class="ms-2" for="min_beds">Min</label>
-                        </div>
-                        <div class="col-6 form-floating pe-0">
-                            <input type="number" class="form-control" id="max_beds" name="max_beds" placeholder="Recámaras" value="<?php echo get_query_var( 'max_beds', FALSE) ? get_query_var( 'max_beds', FALSE) : null ; ?>">
-                            <label class="ms-2" for="max_beds">Max</label>
-                        </div>
-                    </div>
-                    
-                    <div class="row mb-3">
-                        <h5><?php pll_e( 'Precio' );?></h5>
-                        <div class="col-6 form-floating ps-0">
-                            <input type="text" class="form-control" id="min_price" name="min_price" placeholder="Precio" value="<?php echo get_query_var( 'min_price', FALSE) ? get_query_var( 'min_price', FALSE) : null ; ?>">
-                            <label class="ms-2" for="min_price">Min</label>
-                        </div>
-
-                        <div class="col-6 form-floating pe-0">
-                            <input type="text" class="form-control" id="max_price" name="max_price" placeholder="Precio" value="<?php echo get_query_var( 'max_price', FALSE) ? get_query_var( 'max_price', FALSE) : null ; ?>">
-                            <label class="ms-2" for="max_price">Max</label>
-                        </div>
-                    </div>
-
-                    <div class="mb-3">
-                        <button type="submit" class="btn btn-amarillo"><?php pll_e( 'Buscar' );?></button> 
-                    </div>
-                </form>
-            </aside>
-        </div>
         
     </div>
 

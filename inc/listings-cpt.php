@@ -66,7 +66,7 @@
             'update_item' => 'Update Property',
             'add_new_item' => 'Add New Property', 
             'new_item_name' => 'New Property Name',
-            'manu_name' => 'Property Type'
+            'menu_name' => 'Property Type'
         );
 
         $args = array(

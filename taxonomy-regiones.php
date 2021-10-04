@@ -44,7 +44,7 @@
                     <!--Nombre y Lugar del listing-->
                     <h2 class="fs-1 fw-bold mt-2">
                         <?php echo get_the_title();?> 
-                        <?php //tierra_get_list_terms(get_the_ID(), 'regiones'); ?>  
+                        <?php tierra_get_list_terms(get_the_ID(), 'regiones'); ?>  
                     </h2>
                 </div>
 

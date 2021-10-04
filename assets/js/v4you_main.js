@@ -178,13 +178,12 @@ document.addEventListener( 'DOMContentLoaded', () => wait(2000).then(() =>{
             const element = document.getElementById("menu-principal");
             element.prepend(navListEle);        
         }else{}
-    
-    /**Contact form submission */
+
 
     /**Contact form */
     $('.wpcf7 textarea').attr('rows', 5);
 
-    $('#osContactForm').on('submit', function (e) {
+    /* $('#osContactForm').on('submit', function (e) {
         e.preventDefault();
 
         $('.has-error').removeClass('has-error');
@@ -254,7 +253,6 @@ document.addEventListener( 'DOMContentLoaded', () => wait(2000).then(() =>{
         });
 
         console.log('Form submited');
-    });
+    }); */
 
-    
 

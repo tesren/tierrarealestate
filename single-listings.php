@@ -273,7 +273,13 @@
                         <input type="hidden" name="const" value="<?php echo rwmb_meta('construction'); ?>">
                         <input type="hidden" name="lote" value="<?php echo rwmb_meta('lot_area'); ?>">
                         <input type="hidden" name="furniture" value="<?php echo rwmb_meta('furniture'); ?>">
-                        <input type="hidden" name="imagen" value="<?php echo $images_full[0]['url'] ?>">
+                        <input type="hidden" name="imagen" value="<?php echo $images_full[0]['url']; ?>">
+                        <input type="hidden" name="imagen2" value="<?php echo $images_full[1]['url']; ?>">
+                        <input type="hidden" name="imagen3" value="<?php echo $images_full[2]['url']; ?>">
+                        <input type="hidden" name="imagen4" value="<?php echo $images_full[3]['url']; ?>">
+                        <input type="hidden" name="permalink" value="<?php echo get_the_permalink(); ?>">
+                        <input type="hidden" name="imglogo" value="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-negro.png';?>">
+                        <input type="hidden" name="directory" value="<?php echo get_template_directory_uri(); ?>">
                         <button type="submit" class="my-3 mx-5 btn btn-azul w-75" name="sendpdf">PDF</button>
                     </form>
                 </div>

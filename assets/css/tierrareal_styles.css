@@ -308,8 +308,8 @@ a{
     position:fixed;
     width:60px;
     height:60px;
-    bottom:25px;
-    right:30px;
+    bottom:75px;
+    right:48px;
     background-color:#07255B;
     color:#FFF;
     border-radius:50px;
@@ -332,6 +332,26 @@ a{
     top: 7px;
     left: 0;
     width: 100%;
+  }
+  /*Boton de contacto*/
+  .btn-contacto{
+    position:fixed;
+    width:fit-content;
+    bottom:25px;
+    right:15px;
+    background-color:#A28234;
+    color:#FFF !important;
+    font-weight: bold;
+    border-radius:5px;
+    text-align:center;
+    font-size:1.5rem;
+    z-index:100;
+    transition: 0.3s;
+  }
+
+  .btn-contacto:hover{
+    transition: 0.3s;
+    background-color:#BD9028;
   }
 
   /*boton de busqueda*/

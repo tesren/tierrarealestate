@@ -55,28 +55,24 @@
               ) );
             ?>
           </div>
-
-            <!-- <div class="d-flex justify-content-end iconos">
-                  <h3 id="tr-nosotros-grande" class="fs-5 pt-3">
-                    <a href="#" class="link-light my-5 mx-2"><i class="fas fa-globe"></i> En</a>
-                     /
-                    <a href="/wordpress-tierra/nosotros" class="link-light ms-2 me-4 my-5"> Nosotros</a>
-                  </h3>  
-           </div> -->
            
             <!--LOGO Tierra-->
-            <a href="<?php echo get_home_url(); ?>" class="d-none d-lg-block"><img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo"></a>
+            <!-- <a href="<?php echo get_home_url(); ?>" class="d-none d-lg-block">
+                    <img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo">
+                  </a> -->
             
            <!--Nav Bar Primario-->
                <nav class="navbar navbar-expand-lg navbar-dark bg-azul" role="navigation" id="main-navbar"> 
                   <div class="container-fluid">
+
                     <!-- Brand and toggle get grouped for better mobile display -->
-                    <a class="navbar-brand ms-2 d-md-none" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
-                     <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" id="nav_header_logo" alt="Logo Tierra" width="140px" height="auto">
+                    <a class="navbar-brand ms-2" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
+                     <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" id="nav_header_logo" alt="Logo Tierra">
                     </a>
-                      <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                      </button>
+
+                    <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
                     
                         <?php
                         wp_nav_menu( array(
@@ -108,7 +104,7 @@
                             'container'         => 'div',
                             'container_class'   => 'collapse navbar-collapse',
                             'container_id'      => 'navbarSec',
-                            'menu_class'        => 'navbar-nav mx-auto mb-2 mb-lg-0',
+                            'menu_class'        => 'navbar-nav mx-auto d-none d-md-flex',
                             'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
                             'walker'            => new WP_Bootstrap_Navwalker(),
                         ) );

@@ -124,8 +124,14 @@
             endwhile;
 
             the_posts_pagination();
+
+        else:?>
+            <div class="row justify-content-center">
+                <div class="col-11 col-md-8 text-center " style="min-height:60vh;">
+                    <span class="d-block fs-1 my-5"><?php pll_e('Aún no hay propiedades, vuelve mas tarde'); ?></span>
+                </div>
+            </div>
             
-        endif;
-    ?>
+        <?php endif;?>
 
 <?php get_footer(); ?>

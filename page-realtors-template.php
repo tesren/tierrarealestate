@@ -133,12 +133,4 @@
         </div>   
     </div>
 
-    <!--contacto-->
-    <div class="container-fluid py-5 animatable fadeInUp">
-
-        <?php get_template_part( 'partials/content', 'contact-form' ); ?>
-
-    </div>
-
-
 <?php get_footer(); ?>

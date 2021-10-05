@@ -527,6 +527,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'group' => 'tierra contact form',
                 'multiline' => false,
             ),
+            array(
+                'name' => 'no_posts',
+                'string' => 'Aún no hay propiedades, vuelve mas tarde',
+                'group' => 'tierra lifestyle',
+                'multiline' => false,
+            ),
         );
 
 

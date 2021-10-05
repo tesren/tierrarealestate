@@ -334,16 +334,9 @@
 
             <?php 
             $modalId++;
-            endforeach; 
+            endforeach; ?>
         
-            // Get the queried object and sanitize it
-            $current_page = sanitize_post( $GLOBALS['wp_the_query']->get_queried_object() );
-            var_dump($current_page );
-            // Get the page slug
-            $post_slug = $current_page->post_name;
-            ?>
-            <a class="btn btn-azul" href="<?php echo get_home_url()."/area/".$post_slug;?>"><?php pll_e('Ver Todos');?></a>
-            </div>
+        </div>
 
         <?php endif;?>
 

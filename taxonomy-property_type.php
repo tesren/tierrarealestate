@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<div class="row">
+<div class="row justify-content-center">
     <?php 
 
         if ( have_posts() ) :
@@ -112,8 +112,13 @@
         endwhile;
         the_posts_pagination();
 
-    endif;
-    ?>
+    else:?>
+
+    <div class="col-11 col-md-8 text-center " style="min-height:60vh;">
+        <span class="d-block fs-1 my-5"><?php pll_e('Aún no hay propiedades, vuelve mas tarde'); ?></span>
+    </div>
+
+    <?php endif;?>
 
 </div><!--row-->
 

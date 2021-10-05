@@ -29,19 +29,19 @@ $(window).scroll(function () {
 
         if (scrolled > (navHeigth) ) {
             //$('#mainHeader').addClass('fixed-top');
-            $('#tr-logo-header-grande').addClass('d-none');
-            $('#tr-header-brand-1').removeClass('d-md-none');
-            $('.navbar-nav').addClass('ms-auto');
-            $('.navbar-nav').removeClass('mx-auto');
+            // $('#tr-logo-header-grande').addClass('d-none');
+            // $('#tr-header-brand-1').removeClass('d-md-none');
+            // $('.navbar-nav').addClass('ms-auto');
+            // $('.navbar-nav').removeClass('mx-auto');
           
             //$('#tr-boton-nosotros').css('display','block');
 
         } else {
             //$('#mainHeader').removeClass('fixed-top');
-            $('#tr-logo-header-grande').removeClass('d-none');
-            $('#tr-header-brand-1').addClass('d-md-none');
-            $('.navbar-nav').addClass('mx-auto');
-            $('.navbar-nav').removeClass('ms-auto');
+            // $('#tr-logo-header-grande').removeClass('d-none');
+            // $('#tr-header-brand-1').addClass('d-md-none');
+            // $('.navbar-nav').addClass('mx-auto');
+            // $('.navbar-nav').removeClass('ms-auto');
            
             //$('#tr-boton-nosotros').css('display','none');
         }
@@ -157,102 +157,33 @@ document.addEventListener( 'DOMContentLoaded', () => wait(2000).then(() =>{
         });
 
 
-        if ($(window).width() < 768) {
-    
+        //Logo en Menú movil y elementos del menu
+        if($(window).width() <= 992){
+            
             const navListEle = document.createElement("li");
-            navListEle.setAttribute('class', 'nav-item py-3');
-            navListEle.setAttribute('id', 'tr-boton-idioma');
-        
+            navListEle.setAttribute('class', 'nav-item py-2 text-start');
+            navListEle.setAttribute('id', 'logo-mobile');
+
             const navListAnc = document.createElement("a");
-            navListAnc.setAttribute('src', '/');
-            navListAnc.setAttribute('class', 'navbar-brand ms-2 d-md-none');
-            navListAnc.setAttribute('id', 'tr-header-brand-2');
+            navListAnc.setAttribute('href', '/');
+            navListAnc.setAttribute('class', 'navbar-brand ms-2 d-lg-none');
+            navListAnc.setAttribute('id', 'logo-anchor');
             navListEle.appendChild(navListAnc);
-        
+
             const navListImg = document.createElement("img");
             const logoImg = document.getElementById('nav_header_logo');
             srcLogo = logoImg.getAttribute('src');
             navListImg.setAttribute('src', srcLogo);
+            navListImg.setAttribute('class', 'w-75');
             navListAnc.appendChild(navListImg);
                 
-            const element = document.getElementById("menu-principal");
-            element.prepend(navListEle);        
-        }else{}
+            const element = document.getElementById("navbarSupportedContent");
+            element.prepend(navListEle);       
+        }
+        if($(window).width() < 768){
+            $('#menu-menu-principal').append($('#menu-menu-secundario .nav-item'));
+        }
 
 
     /**Contact form */
     $('.wpcf7 textarea').attr('rows', 5);
-
-    /* $('#osContactForm').on('submit', function (e) {
-        e.preventDefault();
-
-        $('.has-error').removeClass('has-error');
-        $('.js-show-feedback').removeClass('js-show-feedback');
-
-        var form = $(this);
-
-        var name = form.find('#name').val(),
-            email = form.find('#email').val(),
-            message = form.find('#message').val(),
-            phone = form.find('#phone').val(),
-            ajaxurl = form.data('url');
-
-        if (name === '') {
-            $('#name').parent('.col').addClass('has-error');
-            return;
-        }
-
-        if (email === '') {
-            $('#email').parent('.col').addClass('has-error');
-            return;
-        }
-
-        if (message === '') {
-            $('#message').parent('.col').addClass('has-error');
-            return;
-        }
-
-        form.find('input, button, textarea').attr('disabled', 'disabled');
-
-        $('.js-form-submission').addClass('js-show-feedback');
-
-        $.ajax({
-            url: ajaxurl,
-            type: 'post',
-            data: {
-                name: name,
-                email: email,
-                phone: phone,
-                message: message,
-                action: 'v4you_save_contact'
-            },
-
-            error: function (response) {
-                $('.js-form-submission').removeClass('js-show-feedback');
-                $('.js-form-error').removeClass('js-show-feedback');
-                form.find('input, button, textarea').removeAttr('disabled');
-            },
-            success: function (response) {
-                if (response == 0) {
-                    setTimeout(function () {
-                        $('.js-form-submission').removeClass('js-show-feedback');
-                        $('.js-form-error').removeClass('js-show-feedback');
-                        form.find('input, button, textarea').removeAttr('disabled');
-                    }, 1500);
-
-
-                } else {
-                    setTimeout(function () {
-                        $('.js-form-submission').removeClass('js-show-feedback');
-                        $('.js-form-success').removeClass('js-show-feedback');
-                        form.find('input, button, textarea').removeAttr('disabled').val('');
-                    }, 1500);
-
-                }
-            }
-        });
-
-        console.log('Form submited');
-    }); */
-
-

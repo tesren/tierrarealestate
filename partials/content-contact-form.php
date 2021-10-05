@@ -9,7 +9,7 @@
     <div class="col-lg-6 text-center">
         <h3 class="pt-3 px-3 px-xxl-5 fs-1"><?php pll_e( 'Título Formulario Contacto' );?></h3>
 
-        <?php echo do_shortcode( '[cf7form cf7key="formulario-de-contacto-1"]', true ) ?>
+        <?php echo do_shortcode( '[cf7form cf7key="contact-form-1"]', true ) ?>
     </div>
 
 </div>

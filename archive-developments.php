@@ -7,7 +7,7 @@
 
             <!--Developments-->
             <div class="container-fluid my-5 p-0">
-                <div class="d-flex justify-content-center">
+                <div class="d-flex justify-content-center pt-5">
                     <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
                     <h1 class="fw-bold fs-1"><?php pll_e('Desarrollos');?></h1>
                     <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">

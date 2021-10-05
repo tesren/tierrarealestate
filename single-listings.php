@@ -261,7 +261,7 @@
                 <?php endif; ?>
 
                 <div class="col-md-4">
-                    <?php $descr = get_the_content(); ?>
+                    <?php $descr = get_the_excerpt(); ?>
                     <form action="<?php echo get_template_directory_uri(); ?>/inc/convertopdf.php" method="post">
                         <input type="hidden" name="titulo" value="<?php echo the_title(); ?>">
                         <input type="hidden" name="descripcion" value="<?php echo $descr; ?>">

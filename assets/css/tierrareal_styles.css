@@ -9,27 +9,18 @@
 #pre_header_menu{
     margin-right: 30px;
     margin-bottom: 0;
+    height: 30px;
 }
 
 #pre_header_menu li{
     display: block;
     float: right;
-    margin-left: 30px;
-    margin-top: 20px;
-
-}
-
-#pre_header_menu li:first-child:before{
-    content: '/';
-    color: white;
-    padding-right:20px;
-
 }
 
 #pre_header_menu li a{
-    font-size: 20px;
+    font-size: 16px;
     color: white;
-
+    line-height: 1 !important;
 }
 
 .dropdown-toggle::after{
@@ -85,6 +76,23 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.3)
+}
+
+/*logos y navbar*/
+#nav_header_logo{
+    width: 235px;
+    height: auto;
+    margin-left: 20px;
+}
+
+#sec-navbar{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: #022140;
+}
+
+#main-navbar{
+    padding-top: 0;
 }
 
 .logo-ampi{
@@ -308,8 +316,8 @@ a{
     position:fixed;
     width:60px;
     height:60px;
-    bottom:75px;
-    right:48px;
+    bottom:55px;
+    right:25px;
     background-color:#07255B;
     color:#FFF;
     border-radius:50px;
@@ -337,12 +345,12 @@ a{
   .btn-contacto{
     position:fixed;
     width:fit-content;
-    bottom:25px;
+    bottom:0px;
     right:15px;
     background-color:#A28234;
     color:#FFF !important;
     font-weight: bold;
-    border-radius:5px;
+    border-radius:0;
     text-align:center;
     font-size:1.5rem;
     z-index:100;
@@ -408,7 +416,7 @@ a{
     position: relative;
     height: 395px;
     object-fit: contain;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 /*Paginación*/
 .pagination{
@@ -475,7 +483,7 @@ a{
 }
 
  #tr-contenedor-resoluciones-grandes{
-    margin-top: 11rem;
+    margin-top: 155px;
 } 
 
 #tr-boton-idioma-nav{
@@ -940,7 +948,7 @@ a{
 }
 
  #tr-contenedor-resoluciones-grandes{
-    margin-top: 1.7rem !important;
+    margin-top: 4rem !important;
 } 
 
 .caption-bucerias h1{
@@ -1138,6 +1146,14 @@ a{
     #main-navbar .navbar-toggler.collapsed ~ .navbar-collapse {
         transition: left 500ms ease-in-out;
     }
+
+    #nav_header_logo{
+        width: 135px;
+        margin-left: 0;
+    }
+    #main-navbar{
+        padding-top: 0.5rem;
+    }
 }
 
 @media (min-width: 767px) and (max-width: 992px) {
@@ -1156,9 +1172,9 @@ a{
     }
     
     #tr-contenedor-resoluciones-grandes{
-        margin-top: 5rem;
+        margin-top: 9rem;
     } 
-/*Navbar Ipad*/
+    /*Navbar Ipad*/
     #main-navbar .navbar-collapse {
         position: fixed;
         top: 0px;
@@ -1185,6 +1201,14 @@ a{
 
     #main-navbar .navbar-toggler.collapsed ~ .navbar-collapse {
         transition: left 500ms ease-in-out;
+    }
+
+    #sec-navbar .nav-link{
+        margin-left: 0.5rem !important;
+        margin-right: 0.5rem !important;
+    }
+    #nav_header_logo {
+        width: 190px;
     }
 }
 

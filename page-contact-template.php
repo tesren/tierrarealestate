@@ -1,4 +1,8 @@
-<?php get_header();?>
+<?php
+/*
+ Template Name: Contact template 
+  */
+  get_header();?>
 
 
 <div class="container-fluid pt-5 mb-5" style="min-height:65vh;">

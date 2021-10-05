@@ -2,8 +2,13 @@
         
         </div><!--div resoluciones grandes-->
       
-        <!--Boton contacto-->
-        <a class="btn-contacto px-2" href="<?php echo get_home_url();?>/contacto"><?php pll_e('Contacto'); ?></a>
+        <!--Boton contacto segun lenguaje-->
+        <?php if(pll_current_language()=="es"): ?>
+            <a class="btn-contacto px-2" href="<?php echo get_permalink( get_page_by_title('Contacto'));?>"><i class="far fa-envelope"></i> Correo</a>
+        <?php else: ?>
+            <a class="btn-contacto px-2" href="<?php echo get_permalink( get_page_by_title('Contact'));?>"><i class="far fa-envelope"></i> Email Us</a>
+        <?php endif; ?>
+
 
         <!--boton whatsapp-->
         <a href="https://wa.me/523221350108?text=Hola%20quisiera%20saber%20mas%20información%20de%20Tierra%20Real%20Estate" id="whatsapp" target="_blank"> 

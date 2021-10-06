@@ -6,14 +6,9 @@
         <?php if( have_posts() ): $i=0; ?>
 
             <!--Developments-->
-            <div class="container-fluid my-5 p-0">
-                <div class="d-flex justify-content-center pt-5">
-                    <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                    <h1 class="fw-bold fs-1"><?php pll_e('Desarrollos');?></h1>
-                    <img src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg';?>" class="iconsvg">
-                </div>
-            </div>
-
+            <h1 class="fw-bold grey-title my-5 text-center pt-3"><?php pll_e('Desarrollos');?></h1>
+                    
+           
             <div class="row justify-content-center">
 
                 <?php while( have_posts() ) : the_post(); ?>
@@ -27,7 +22,7 @@
                         <div class="archive-dev-info">
                             <h2 class="fs-1 mb-0 mt-2"><?php echo the_title(); ?></h2>
                             <span class="fs-5 my-2 d-block"><i class="fas fa-map-marker-alt"></i> <?php echo tierra_get_list_terms(get_the_ID(), 'regiones'); ?></span>
-                            <a href="<?php echo get_the_permalink(); ?>" class="btn btn-amarillo btn-lg">More info</a>
+                            <a href="<?php echo get_the_permalink(); ?>" class="btn btn-amarillo btn-lg"><?php pll_e('Más info'); ?></a>
                         </div>
                         
                     </div>

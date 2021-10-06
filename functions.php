@@ -253,13 +253,13 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             ),
             array(
                 'name' => 'price_m2',
-                'string' => 'Precio m2 lote',
+                'string' => 'Precio m² lote',
                 'group' => 'tierra labels',
                 'multiline' => false,
             ),
             array(
                 'name' => 'price_m2',
-                'string' => 'Precio m2 const',
+                'string' => 'Precio m² const',
                 'group' => 'tierra labels',
                 'multiline' => false,
             ),
@@ -273,6 +273,30 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'name' => 'half_bathrooms',
                 'string' => 'Medios Baños',
                 'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'view',
+                'string' => 'Vista',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'desc_vender',
+                'string' => 'DescVender',
+                'group' => 'tierra vender',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'sell',
+                'string' => 'Vender',
+                'group' => 'tierra vender',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'properties_sell',
+                'string' => 'Propiedades en Venta actualmente',
+                'group' => 'tierra vender',
                 'multiline' => false,
             ),
             array(
@@ -356,6 +380,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             array(
                 'name' => 'desarrollos_in_title',
                 'string' => 'Desarrollos en',
+                'group' => 'tierra labels',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'desarrollos',
+                'string' => 'Desarrollos',
                 'group' => 'tierra labels',
                 'multiline' => false,
             ),

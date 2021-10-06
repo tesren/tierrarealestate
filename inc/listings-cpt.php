@@ -138,6 +138,7 @@ function listings_register_meta_boxes( $meta_boxes ) {
                     'name'       => 'Tipo propiedad',
                     'id'         => 'taxonomy',
                     'type'       => 'taxonomy',
+                    'required'   => true,
 
                     // Taxonomy slug.
                     'taxonomy'   => 'property_type',
@@ -176,14 +177,14 @@ function listings_register_meta_boxes( $meta_boxes ) {
             ],
              [
                 'name'  => 'Recámaras',
-                'required'=> true,
+                'required'=> false,
                 'desc'  => 'Solo numeros',
                 'id'    => 'bedrooms',
                 'type'  => 'number',
             ],
             [
                 'name'  => 'Baños',
-                'required'=> true,
+                'required'=> false,
                 'desc'  => 'Solo números',
                 'id'    => 'bathrooms',
                 'type'  => 'number',
@@ -224,6 +225,28 @@ function listings_register_meta_boxes( $meta_boxes ) {
                 'type'  => 'text',
             ],
             [
+                'name'            => 'Vista',
+                'id'              => 'view',
+                'type'            => 'select',
+                'desc'            =>'Eliga la vista principal desde la propiedad',
+                // Array of 'value' => 'Label' pairs
+                'options'         => array(
+                    'Mar'       => 'Mar',
+                    'Playa'     => 'Playa',
+                    'Montañas'  => 'Montañas',
+                    'Ciudad'    => 'Ciudad',
+                    'Río'       => 'Río',
+                    'Lago'      => 'Lago',
+                    'Canal'     => 'Canal',
+                ),
+                // Allow to select multiple value?
+                'multiple'        => false,
+                // Placeholder text
+                'placeholder'     => 'Seccione uno',
+                // Display "Select All / None" button?
+                'select_all_none' => false,
+            ],
+            [
                 'name'  => 'Estacionamiento',
                 'desc'  => 'Especificar tipo de estacionamiento',
                 'id'    => 'parking_type',
@@ -259,31 +282,6 @@ function listings_register_meta_boxes( $meta_boxes ) {
             // More fields.
         ],
     ];
-
-    // $meta_boxes[] = [
-    //     'title'      => 'Descripciones',
-    //     'post_types' => 'listings',
-
-    //     'fields' => [
-            
-    //          [
-    //             'name'  => 'Descripción Español',
-    //             'placeholder'  => 'Describe the place',
-    //             'id'    => 'place_description_es',
-    //             'type'  => 'textarea',
-    //             'rows'  => '14',
-    //         ],
-    //         [
-    //             'name'  => 'Descripción Inglés',
-    //             'placeholder'  => 'Describe the place',
-    //             'id'    => 'place_description_en',
-    //             'type'  => 'textarea',
-    //             'rows'  => '14',
-    //         ],
-
-            
-    //     ],
-    // ];
 
     // Add more field groups if you want
     $meta_boxes[] = [

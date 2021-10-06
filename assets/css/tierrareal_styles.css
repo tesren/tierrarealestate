@@ -27,8 +27,21 @@
     content: none;
 }
 
+.oneline-heading{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 #titulo-propiedades{
-    padding-top: 7.5rem;
+    padding-top: 3.5rem;
+}
+
+.grey-title{
+    font-weight: 600;
+    font-size: 6rem;
+    letter-spacing: 0.05em;
+    color: #B2BEC3;
 }
 
 #loading{
@@ -273,18 +286,22 @@ a{
     color: white !important;
     background-color: #BD9028 !important;
     border-radius: 5px;
+    transition: 0.3s;
 }
 
 .btn-amarillo:hover{
     background-color: #A28234 !important;
+    transition: 0.3s;
 }
 .btn-azul{
     color: white !important;
     background-color: #080F24 !important;
     border-radius: 5px !important;
+    transition: 0.3s;
 }
 .btn-azul:hover{
-    background-color: #000e20 !important;   
+    background-color: #000e20 !important; 
+    transition: 0.3s;  
 }
 
 #listings i{
@@ -324,14 +341,12 @@ a{
     text-align:center;
     font-size:45px;
     z-index:100;
-    opacity: 0.6;
     transition: 0.3s;
   }
 
   #whatsapp:hover{
-      background-color: #23ce63;
-      opacity: 1;
-      transition: 0.3s;
+    background-color:#080F24;
+    transition: 0.3s;
   }
 
   #whatsapp .fa-whatsapp {
@@ -349,7 +364,7 @@ a{
     right:15px;
     background-color:#A28234;
     color:#FFF !important;
-    font-weight: bold;
+    font-weight: normal;
     border-radius:0;
     text-align:center;
     font-size:1.5rem;
@@ -840,8 +855,8 @@ a{
 .imagen-archive-listing{
     object-fit: cover;
     height: 40vh;
-    border-top-right-radius: 30px;
-    border-top-left-radius: 30px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
 }
 
 .labels-form-small{
@@ -898,22 +913,8 @@ a{
     display: none;
 }
 
-/* .animatable { */
-
-    /* initially hide animatable objects */
-    /* visibility: visible !important; */
-    
-    /* initially pause animatable objects their animations */
-   /*  -webkit-animation-play-state: paused;   
-    -moz-animation-play-state: paused;     
-    -ms-animation-play-state: paused;
-    -o-animation-play-state: paused;   
-    animation-play-state: paused; 
-    } */
-
-
 #titulo-propiedades{
-    padding-top: 5rem;
+    padding-top: 4rem;
 }
 
 #lf-properties .card{
@@ -1154,9 +1155,16 @@ a{
     #main-navbar{
         padding-top: 0.5rem;
     }
+
+    .grey-title{
+        font-size: 2.5rem;
+    }
 }
 
 @media (min-width: 767px) and (max-width: 992px) {
+    .grey-title{
+        font-size: 3.5rem;
+    }
     #carouselFrontPage .carousel-caption p{
         font-size: 1.5rem !important;
         margin-top: 0 !important;

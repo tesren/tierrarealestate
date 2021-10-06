@@ -2,7 +2,9 @@
 
 if(isset($_POST['sendpdf'])){
 
-    require_once $_SERVER['DOCUMENT_ROOT'].'/wordpress-tierra/wp-content/themes/tierra/inc/vendor/autoload.php';
+    $directorio = $_POST['directory'];
+
+    require_once 'vendor/autoload.php';
 
     $titulo = $_POST['titulo'];
     $desc   = $_POST['descripcion'];
@@ -22,7 +24,7 @@ if(isset($_POST['sendpdf'])){
 
     $link = $_POST['permalink'];
     $logoSrc = $_POST['imglogo'];
-    $directorio = $_POST['directory'];
+    
     
     $css= file_get_contents($directorio.'/assets/css/pdf.css');
     $html = 
@@ -34,24 +36,27 @@ if(isset($_POST['sendpdf'])){
                 <th><a href="'.$link.'" target="_blank">'.$link.'</a></th>
             </tr>
         </table>
-        <h1 align="center">'.$titulo.', '.$region.'</h1>
     </div>
-    <img src="'.$imagenSrc.'" alt="Imagen" width="100%" style="height:250pt;">
-    <table style="width:100%">
+
+    <img src="'.$imagenSrc.'" alt="Imagen" width="100%" style="">
+
+    <h1 align="center">'.$titulo.', '.$region.'</h1>
+
+    <!--table style="width:100%">
         <tr>
             <th><img src="'.$imagenSrc2.'" alt=""></th>
             <th><img src="'.$imagenSrc3.'" alt=""></th>
             <th><img src="'.$imagenSrc4.'" alt=""></th>
         </tr>
-    </table>
-    <div style="background-color:#000; color:#fff;">
-        <hr>
-        <h2 align="center">Precio: '.number_format($precio).' '.$currency.'</h2>
-        <hr>
-        <h3 align="center">Detalles</h3>
-        <h5 align="center">'.$bedrooms.' Recámaras / '.$baths.' Baños / Construcción: '.$const.' m² / Lote: '.$lote.'m² / '.$muebles.'</h5>
-        <p style="margin:10pt;">'.$desc.'</p> 
-    </div>
+    </table-->
+
+    <hr>
+    <h2 align="center">Precio: '.number_format($precio).' '.$currency.'</h2>
+    <hr>
+    <h3 align="center" style="color: #002a49;">Detalles</h3>
+    <h5 align="center" style="color: #757575;">✔'.$bedrooms.' Recámaras ✔'.$baths.' Baños ✔Construcción: '.$const.' m² ✔Lote: '.$lote.'m² ✔'.$muebles.'</h5>
+    <p style="margin:10pt; color: #757575;">'.$desc.'</p>
+
     <div style="background-color:#A28234; color:#fff;">
         <h3 align="center">Citas</h3>
         <h6>Ignacio Escamilla: +52 322 779 7935</h6>

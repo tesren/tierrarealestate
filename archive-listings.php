@@ -18,7 +18,7 @@
     <div class="row">
         <div class="col-md-12">
             
-            <h1><?php echo pll_e('Listings a la venta');?></h1>
+            <h1 class="text-center grey-title mb-4"><?php echo pll_e('Listings a la venta');?></h1>
             
             <div class="row">
                 <?php 
@@ -43,21 +43,35 @@
                                             <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type( get_the_ID() ,'property_type' ); ?></span>
                                             <span class="fs-5 fw-bold ps-3 <?php echo rwmb_meta('avaliable');?>"><?php echo pll_e( rwmb_meta('avaliable') );?></span>
                                         </div>
+
                                         <div class="col-12 ">
                                             <!--Nombre y Lugar del listing-->
-                                            <h3 class="fs-1 fw-bold mt-2"><?php echo get_the_title();?> </h3>
-                                            <h4> <?php tierra_get_list_terms(get_the_ID(),'regiones');?> </h4>
+                                            <h2 class="fs-2 mt-2 oneline-heading"><?php echo get_the_title();?></h2>
+                                            <span class="d-block fs-5"><?php tierra_get_list_terms(get_the_ID(), 'regiones'); ?>  </span>
                                         </div>
+
                                         <div class="col-12">
                                             <span class="fs-1 my-3"><?php echo rwmb_meta( 'currency');?> $<?php echo number_format(rwmb_meta('price'));?></span>
                                         </div>
+
                                         <div class="col-12">
                                             <ul class="list-inline">
-                                                <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
-                                                <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
-                                                <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                                                <?php if( !empty(rwmb_meta( 'bedrooms') ) ): ?>
+                                                    <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
+                                                <?php endif;?>
+
+                                                <?php if( !empty(rwmb_meta( 'bathrooms') ) ): ?>
+                                                    <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
+                                                <?php endif;?>
+
+                                                <?php if( !empty(rwmb_meta( 'construction') ) ): ?>
+                                                    <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                                                <?php else:?>
+                                                    <li class="list-inline-item"><i class="fas fa-ruler-combined"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('lot_area'));?></li>
+                                                <?php endif;?>
                                             </ul>
                                         </div>
+
                                     </div>
 
                                     <div class="row justify-content-center pb-4 mb-5 bg-light text-center">
@@ -92,9 +106,19 @@
                                     <div class="row justify-content-center text-center">
                                         <div class="col-12">
                                             <ul class="list-inline fs-4 mb-0">
-                                                <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
-                                                <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
-                                                <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                                               <?php if( !empty(rwmb_meta( 'bedrooms') ) ): ?>
+                                                    <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
+                                                <?php endif;?>
+
+                                                <?php if( !empty(rwmb_meta( 'bathrooms') ) ): ?>
+                                                    <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
+                                                <?php endif;?>
+                                                
+                                                <?php if( !empty(rwmb_meta( 'construction') ) ): ?>
+                                                    <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                                                <?php else:?>
+                                                    <li class="list-inline-item"><i class="fas fa-ruler-combined"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('lot_area'));?></li>
+                                                <?php endif;?>
                                             </ul>
                                         </div>
                                     </div>

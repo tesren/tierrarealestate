@@ -101,7 +101,7 @@
             $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
 
             ?>
-            <article>
+            
                 <!--Imagen listing-->
                 <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
@@ -126,9 +126,19 @@
 
                     <div class="col-12 text-center">
                         <ul class="list-inline fs-4">
-                            <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
-                            <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></li>
-                            <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?></li>
+                            <?php if( !empty($unit->bedrooms) ): ?>
+                                <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
+                            <?php endif;?>
+
+                            <?php if( !empty($unit->bathrooms) ): ?>
+                                <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></li>
+                            <?php endif;?>
+
+                            <?php if( !empty($unit->construction) ): ?>
+                                <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?></li>
+                            <?php else:?>
+                                    <li class="list-inline-item"><i class="fas fa-ruler-combined"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->lot_area);?></li>
+                            <?php endif;?>
                         </ul>
                     </div>
                         
@@ -143,7 +153,7 @@
                         <a href="<?php echo get_the_permalink( $unit->ID );?>" class="btn btn-amarillo btn-lg w-75 mt-3 mt-md-4"><?php pll_e( 'Más info' );?></a>
                     </div>
                 </div>
-            </article>
+            
 
              <!-- Modal -->
             <div class="modal fade" id="modal-<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -161,9 +171,19 @@
                         <div class="row justify-content-center">
                             <div class="col-12">
                                 <ul class="list-inline fs-4">
-                                    <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
-                                    <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></li>
-                                    <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?></li>
+                                    <?php if( !empty($unit->bedrooms) ): ?>
+                                        <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
+                                    <?php endif;?>
+
+                                    <?php if( !empty($unit->bathrooms) ): ?>
+                                        <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo $unit->bathrooms;?> <?php pll_e( 'Baños' );?></li>
+                                    <?php endif;?>
+
+                                    <?php if( !empty($unit->construction) ): ?>
+                                        <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->construction);?></li>
+                                    <?php else:?>
+                                        <li class="list-inline-item"><i class="fas fa-ruler-combined"></i> <?php echo tierra_get_sqft(pll_current_language(), $unit->lot_area);?></li>
+                                    <?php endif;?>
                                 </ul>
                             </div>
                         </div>

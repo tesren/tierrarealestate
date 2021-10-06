@@ -15,16 +15,13 @@
  get_header();
 ?>
     <!--Acerca del proyecto-->
-    <div class="container d-flex justify-content-center mt-5 mb-4 pt-5 pt-md-4">
-        <img class="iconsvg mt-5" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">
-        <h2 class=" text-center fs-1 mt-5"><?php pll_e('Conócenos mejor');?></h2>
-        <img class="iconsvg mt-5" src="<?php echo get_template_directory_uri() .'/assets/images/decoration.svg'?>">           
-    </div>
-    
+
+    <h1 class=" text-center grey-title mt-5 pt-3"><?php pll_e('Conócenos mejor');?></h1>
+        
     <!--VENDEDORES-->
 
     <div class="container text-center">
-        <h2 class="fs-1 mt-3"><?php pll_e('Nuestro equipo');?></h2>
+        <h2 class="fs-1 mt-5"><?php pll_e('Nuestro equipo');?></h2>
         
         <div class="row justify-content-center mt-4">
            

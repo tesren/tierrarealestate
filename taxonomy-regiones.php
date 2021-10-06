@@ -5,7 +5,7 @@
             
             $modalId = 0; ?>
            
-            <h1 class="fs-1 mt-0 mb-5 my-md-5 text-center" id="titulo-propiedades">
+            <h1 class=" fs-1 mt-0 mb-5 my-md-5 text-center grey-title" id="titulo-propiedades">
                 <?php pll_e( 'Listings en' );?> 
                 <?php tierra_get_list_terms(get_the_ID() , 'regiones'); ?>
             </h1>
@@ -55,9 +55,19 @@
 
                     <div class="col-12">
                         <ul class="list-inline fs-4">
-                            <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
-                            <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
-                            <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                            <?php if( !empty(rwmb_meta( 'bedrooms') ) ): ?>
+                                <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
+                            <?php endif;?>
+
+                            <?php if( !empty(rwmb_meta( 'bathrooms') ) ): ?>
+                                <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
+                            <?php endif;?>
+                            
+                            <?php if( !empty(rwmb_meta( 'construction') ) ): ?>
+                                <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                            <?php else:?>
+                                <li class="list-inline-item"><i class="fas fa-ruler-combined"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('lot_area'));?></li>
+                            <?php endif;?>
                         </ul>
                     </div>
             </div>
@@ -85,10 +95,24 @@
                     </div>
 
                     <div class="modal-body mt-1">
-                        <div class="row justify-content-center">
-                            <h3 class="col-md-4 fs-3"> <i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></h3>
-                            <h3 class="col-md-4 fs-3"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(),rwmb_meta('construction'));?> </h3>
+                        <div class="row justify-content-center text-center">
+                            <div class="col-12">
+                                <ul class="list-inline fs-4 mb-0">
+                                    <?php if( !empty(rwmb_meta( 'bedrooms') ) ): ?>
+                                        <li class="list-inline-item"><i class="fas fa-bed"></i> <?php echo rwmb_meta('bedrooms');?> <?php pll_e( 'Recámaras' );?></li>
+                                    <?php endif;?>
+
+                                    <?php if( !empty(rwmb_meta( 'bathrooms') ) ): ?>
+                                        <li class="list-inline-item"><i class="fas fa-shower"></i> <?php echo rwmb_meta('bathrooms');?> <?php pll_e( 'Baños' );?></li>
+                                    <?php endif;?>
+                                    
+                                    <?php if( !empty(rwmb_meta( 'construction') ) ): ?>
+                                        <li class="list-inline-item"><i class="fas fa-home"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('construction'));?></li>
+                                    <?php else:?>
+                                        <li class="list-inline-item"><i class="fas fa-ruler-combined"></i> <?php echo tierra_get_sqft(pll_current_language(), rwmb_meta('lot_area'));?></li>
+                                    <?php endif;?>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 

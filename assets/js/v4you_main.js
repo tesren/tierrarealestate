@@ -181,7 +181,7 @@ document.addEventListener( 'DOMContentLoaded', () => wait(2000).then(() =>{
             element.prepend(navListEle);       
         }
         if($(window).width() < 768){
-            $('#menu-menu-principal').append($('#menu-menu-secundario .nav-item'));
+            $('#menu-menu-principal').append($('#menu-menu-secundario .dropdown'));
         }
 
 

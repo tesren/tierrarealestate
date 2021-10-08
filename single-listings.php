@@ -84,7 +84,7 @@
 
                             <?php if( !empty(rwmb_meta( 'construction') ) ): ?>
                                 <div class="col-6 col-md-3">
-                                    <h4><i class="fas fa-home"></i><?php echo tierra_get_sqft( pll_current_language(), rwmb_meta( 'construction' ) );?> total</h4>
+                                    <h4><i class="fas fa-home"></i> <?php echo tierra_get_sqft( pll_current_language(), rwmb_meta( 'construction' ) );?> Const.</h4>
                                 </div>
                             <?php endif;?>
                         
@@ -130,7 +130,7 @@
                             <?php if( !empty(rwmb_meta('view') )): ?>
                                 <div class="col-6 col-md-3">
                                     <!--Vista-->
-                                    <h4><?php pll_e('Vista');?>: <?php echo rwmb_meta( 'view' );?></h4>
+                                    <h4><?php pll_e('Vista');?>: <?php pll_e(rwmb_meta( 'view' ));?></h4>
                                 </div>
                             <?php endif;?>
                             

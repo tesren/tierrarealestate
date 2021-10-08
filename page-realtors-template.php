@@ -20,10 +20,10 @@
         
     <!--VENDEDORES-->
 
-    <div class="container text-center">
+    <div class="container-fluid text-center">
         <h2 class="fs-1 mt-5"><?php pll_e('Nuestro equipo');?></h2>
         
-        <div class="row justify-content-center mt-4">
+        <div class="row justify-content-evenly mt-4">
            
 
             <?php if( $realtors ): ?>
@@ -37,7 +37,7 @@
                     $qrcodes = rwmb_meta( 'realtor_qr', array( 'size' => 'thumbnail' ),$realtor->ID );
                     $qrcode = reset($qrcodes); ?>
 
-            <div class="col-11 col-md-5 bg-light my-3 mx-4 px-0 realtors" >
+            <div class="col-11 col-lg-4 bg-light my-3 mx-4 px-0 realtors" >
                     <div class="row justify-content-start justify-content-md-start text-center text-md-start shadow-7">
                         
                         <div class="col-md-6 round-borders">

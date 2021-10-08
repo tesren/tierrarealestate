@@ -5,7 +5,7 @@
 
         if ( have_posts() ) :
             $modalId = 0;
-       
+            $i = 0;
             while( have_posts() ) : the_post(); 
                 
                 $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );
@@ -21,9 +21,9 @@
                 <!-- Old layout -->
                     
                     <!--Imagen listing-->
-                    <img class="img-fluid w-100 imagen-archive-listing animatable fadeInUp" src="<?php echo $portada[0];?>" alt="Listing image">
+                    <img class="img-fluid w-100 imagen-archive-listing <?php if($i>2){echo'animatable fadeInUp';} ?>" src="<?php echo $portada[0];?>" alt="Listing image">
 
-                    <div class="row justify-content-center bg-light animatable fadeInDown text-center">
+                    <div class="row justify-content-center bg-light <?php if($i>2){echo'animatable fadeInUp';} ?> text-center">
                         <!--Disponibilidad-->
                         <div class="col-12 d-flex justify-content-center mt-2 mb-0">
                             <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type( get_the_ID() ,'property_type' ); ?></span>
@@ -127,7 +127,7 @@
     <?php           
             
         $modalId++;   
-        
+        $i++;
             endif;
         endwhile;
         the_posts_pagination();

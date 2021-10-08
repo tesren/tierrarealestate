@@ -69,7 +69,6 @@ function tierra_realtors_register_meta_boxes( $meta_boxes ) {
                 'id'    => 'realtor_email',
                 'type'  => 'text',
             ],
-
             [
                 'name'  => 'Phone',
                 'desc'  => 'Teléfono',

@@ -16,24 +16,18 @@
             if($postType!='listings'){
 
             }else{
-
+                $i = 0;
                 ?>
                 <!--Nuevo y mejorado diseño listings chido--> 
         <div class="container-fluid text-center contenedor-listings mt-5 px-1">
             <!--listing info-->
        
-  
-            
-                <?php 
-            //setup_postdata($unit);
-            //$photo = get_field('photo', $unit->ID);
-            $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );
-            ?>
+            <?php $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );?>
             
             <!--Imagen listing-->
-            <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $portada[0];?>" alt="Listing image">
+            <img class="img-fluid w-100 imagen-listing <?php if($i>0){echo'animatable fadeInUp';} ?>" src="<?php echo $portada[0];?>" alt="Listing image">
 
-            <div class="row justify-content-center bg-light animatable fadeInDown">
+            <div class="row justify-content-center bg-light <?php if($i>0){echo'animatable fadeInUp';} ?>">
                 <!--Disponibilidad y tipo-->
                 <div class="col-12 d-flex justify-content-center mt-2 mb-0">
                     <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type( get_the_ID() ,'property_type' ); ?></span>
@@ -144,7 +138,7 @@
 
         <?php } ?>
         
-<?php
+<?php       $i++;
             endwhile;
 
             the_posts_pagination();

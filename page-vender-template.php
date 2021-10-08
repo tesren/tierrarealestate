@@ -31,9 +31,9 @@
         
                 <div class="col-12 col-lg-4 text-center" style="border-radius:20px;">
                     <!--Imagen listing-->
-                    <img class="w-100 imagen-archive-listing animatable fadeInUp" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
+                    <img class="w-100 imagen-archive-listing" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
-                    <div class="row justify-content-center bg-light animatable fadeInDown">
+                    <div class="row justify-content-center bg-light">
                         <!--Disponibilidad y tipo-->
                         <div class="col-12 d-flex justify-content-center mt-2 mb-0">
                             <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></span>

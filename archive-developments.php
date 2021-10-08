@@ -6,7 +6,7 @@
         <?php if( have_posts() ): $i=0; ?>
 
             <!--Developments-->
-            <h1 class="fw-bold grey-title my-5 text-center pt-3"><?php pll_e('Desarrollos');?></h1>
+            <h1 class="fw-bold grey-title my-5 text-center pt-5"><?php pll_e('Desarrollos');?></h1>
                     
            
             <div class="row justify-content-center">

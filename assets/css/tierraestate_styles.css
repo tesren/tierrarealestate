@@ -23,7 +23,7 @@
     line-height: 1 !important;
 }
 
-.dropdown-toggle::after{
+#menu-menu-principal .dropdown-toggle::after{
     content: none;
 }
 
@@ -117,8 +117,8 @@
     color: white !important;
 }
 
-.logo-tierra{
-    max-width: 30% !important;
+.logo-tierra-footer{
+    width: 20%;
     height: auto;
     padding-top: 20px;
 }
@@ -874,13 +874,31 @@ a{
 }
 
 @media (max-width: 767px) {
+#menu-menu-principal .dropdown-toggle::after{
+    content: "";
+    vertical-align: 0.155em;
+}
+
+.logo-tierra-footer{
+    width: 60%;
+}
+
+#menu-menu-principal{
+    text-align: start;
+    margin-top: 0.5rem;
+}
+
+.menu-item-object-regiones{
+    background-color: #022140;
+}
 
 /*Boton de whatsapp mobile*/
 #whatsapp {
     width:50px;
     height:50px;
     bottom:15px;
-    right:20px;
+    left: 15px;
+    right:initial;
     font-size:35px;
   }
 
@@ -1162,6 +1180,10 @@ a{
 }
 
 @media (min-width: 767px) and (max-width: 992px) {
+    #menu-menu-principal{
+        margin-top: 0.5rem;
+        text-align: start;
+    }
     .grey-title{
         font-size: 3.5rem;
     }

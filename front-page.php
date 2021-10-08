@@ -94,6 +94,7 @@
             <?php 
             if( $listings ): 
                 $modalId = 0;
+                $j = 0;
                 ?>
   
             <?php foreach( $listings as $unit ): 
@@ -103,9 +104,9 @@
             ?>
             
                 <!--Imagen listing-->
-                <img class="img-fluid w-100 imagen-listing animatable fadeInUp" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
+                <img class="img-fluid w-100 imagen-listing <?php if($j>0){echo'animatable fadeInUp';} ?>" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
 
-                <div class="row justify-content-center bg-light animatable fadeInDown">
+                <div class="row justify-content-center bg-light <?php if($j>0){echo'animatable fadeInUp';} ?>">
                     <!--Disponibilidad y tipo-->
                     <div class="col-12 d-flex justify-content-center mt-2 mb-0">
                         <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type($unit->ID, 'property_type'); ?></span>
@@ -192,8 +193,8 @@
                     <div class="modal-footer d-block">
                         <div class="row">
                             <div class="col-12">
-                                <div class="fs-5 text-start py-3"><?php the_content($unit->ID);?></div>
-                            </div>
+                                <div class="fs-5 text-start py-3"><?php echo get_the_excerpt($unit->ID);?></div>
+                            </div> 
                         </div>
                         <div class="row justify-content-evenly">
                             <button type="button" class="btn btn-secondary col-4" data-bs-dismiss="modal"><?php pll_e('Cerrar'); ?></button>
@@ -208,6 +209,7 @@
 
             <?php 
             $modalId++;
+            $j++;
             endforeach; 
             wp_reset_postdata();?>
             

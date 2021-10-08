@@ -1,8 +1,43 @@
 <wpml-config>
     <custom-fields>
+        <!--Listings-->
         <custom-field action="copy">price</custom-field>
         <custom-field action="copy">bedrooms</custom-field>
+        <custom-field action="copy">bathrooms</custom-field>
+        <custom-field action="copy">half_baths</custom-field>
+        <custom-field action="copy">currency</custom-field>
+        <custom-field action="copy">avaliable</custom-field>
+        <custom-field action="copy">furniture</custom-field>
+        <custom-field action="copy">construction</custom-field>
+        <custom-field action="copy">lot_area</custom-field>
+        <custom-field action="copy">view</custom-field>
+        <custom-field action="copy">parking_stalls</custom-field>
+        <custom-field action="copy">featured_listing</custom-field>
+        <custom-field action="copy">listing_gallery</custom-field>
+        <custom-field action="copy">listing_video</custom-field>
+        <custom-field action="copy">listing_tour</custom-field>
+        <custom-field action="copy">listings_map</custom-field>
+        <!--Desarrollos-->
+        <custom-field action="copy">starting_at</custom-field>
+        <custom-field action="copy">dev_brochure</custom-field>
+        <custom-field action="copy">featured_development</custom-field>
+        <custom-field action="copy">residences_gallery</custom-field>
+        <custom-field action="copy">amenities_gallery</custom-field>
+        <custom-field action="copy">featured_img_2</custom-field>
+        <custom-field action="copy">more_photos</custom-field>
+        <custom-field action="copy">development_map</custom-field>
+        <!--Lifestyles-->
+        <custom-field action="copy">restaurant_gallery</custom-field>
+        <custom-field action="copy">bars_gallery</custom-field>
+        <custom-field action="copy">lifestyle_gallery</custom-field>
+        <custom-field action="copy">map</custom-field>
+        <!--Realtors-->
+        <custom-field action="copy">realtor_email</custom-field>
+        <custom-field action="copy">realtor_phone_number</custom-field>
+        <custom-field action="copy">realtor_qr</custom-field>
+        <custom-field action="copy">profile_picture</custom-field>
     </custom-fields>
+
     <!-- <custom-types>
         <custom-type translate="1">book</custom-type>
         <custom-type translate="1">DVD</custom-type>
@@ -21,4 +56,5 @@
         </key>
         <key name="simple_string_option" />
     </admin-texts> -->
+
 </wpml-config>

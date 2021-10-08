@@ -2,22 +2,18 @@
 <html <?php language_attributes();?>>
     <head>
         <meta charset="UTF-8">
-        <title> </title>
+        <title>Tierra - <?php echo the_title(); ?></title>
          <meta charset="<?php bloginfo('charset');?>">
         <?php if( is_singular() && pings_open( get_queried_object() )  ) : ?>
         <link rel="pingback" href="<?php bloginfo('pingback_url');?>">
         <?php endif; ?>
         <?php wp_head();?>
-        <!-- <link rel="shortcut icon" href="favicon.svg" type="image/x-icon"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
             
-        <!--Bootstrap-->
-        <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"-->
         <!--fuente-->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/css/splide.min.css">
         
     </head>
     
@@ -55,11 +51,6 @@
               ) );
             ?>
           </div>
-           
-            <!--LOGO Tierra-->
-            <!-- <a href="<?php echo get_home_url(); ?>" class="d-none d-lg-block">
-                    <img id="tr-logo-header-grande" class="logo-tierra p-0" width="300" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo">
-                  </a> -->
             
            <!--Nav Bar Primario-->
                <nav class="navbar navbar-expand-lg navbar-dark bg-azul" role="navigation" id="main-navbar"> 

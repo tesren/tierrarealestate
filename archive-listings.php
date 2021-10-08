@@ -24,20 +24,21 @@
                 <?php 
                     if ( have_posts() ) :
                         $modalId = 0;
+                        $i = 0;
                         while( have_posts() ) : the_post(); 
                             
                             $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );
 
                         ?>
                             
-                            <div class="col-12 col-md-6 col-lg-4 tre-listing-card px-2">
+                            <div class="col-12 col-md-6 col-lg-4 tre-listing-card px-2 ">
 
                                 <!-- Old layout -->
                                     
                                     <!--Imagen listing-->
-                                    <img class="img-fluid w-100 imagen-archive-listing animatable fadeInUp" src="<?php echo $portada[0];?>" alt="Listing image">
+                                    <img class="img-fluid w-100 imagen-archive-listing <?php if($i>2){echo'animatable fadeInUp';} ?>" src="<?php echo $portada[0];?>" alt="Listing image">
 
-                                    <div class="row justify-content-center bg-light animatable fadeInDown text-center">
+                                    <div class="row justify-content-center bg-light text-center <?php if($i>2){echo'animatable fadeInUp';} ?>">
                                         <!--Disponibilidad-->
                                         <div class="col-12 d-flex justify-content-center mt-2 mb-0">
                                             <span class="fs-5 px-2 tr-ptype"><?php tierra_get_property_type( get_the_ID() ,'property_type' ); ?></span>
@@ -47,7 +48,9 @@
                                         <div class="col-12 ">
                                             <!--Nombre y Lugar del listing-->
                                             <h2 class="fs-2 mt-2 oneline-heading"><?php echo get_the_title();?></h2>
-                                            <span class="d-block fs-5"><?php tierra_get_list_terms(get_the_ID(), 'regiones'); ?>  </span>
+                                            <span class="d-block fs-5">
+                                                <?php tierra_get_list_terms(get_the_ID(), 'regiones'); ?>
+                                            </span>
                                         </div>
 
                                         <div class="col-12">
@@ -142,9 +145,11 @@
                         </div><!--end Modal -->
 
                         
-                <?php $modalId++;   endwhile;
+                <?php   $i++;
+                        $modalId++;   
+                        endwhile;
                     
-                    the_posts_pagination();
+                        the_posts_pagination();
                         
                     endif;
                 ?>

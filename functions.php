@@ -226,6 +226,30 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'multiline'=>false,
             ),
             array(
+                'name'     =>'search',
+                'string'   =>'Busqueda',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'price_range',
+                'string'   =>'Rango de precios',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'bed_range',
+                'string'   =>'Rango de Recámaras',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'const_range',
+                'string'   =>'Rango de m²',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
                 'name'     =>'price',
                 'string'   =>'Precio',
                 'group'    =>'Listings',
@@ -595,6 +619,18 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
                 'name' => 'no_posts',
                 'string' => 'Aún no hay propiedades, vuelve mas tarde',
                 'group' => 'tierra lifestyle',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'no_results',
+                'string' => 'No hay resultados, intenta con otros datos',
+                'group' => 'Errors',
+                'multiline' => false,
+            ),
+            array(
+                'name' => 'go_back',
+                'string' => 'Volver',
+                'group' => 'Errors',
                 'multiline' => false,
             ),
         );

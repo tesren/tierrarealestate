@@ -11,7 +11,7 @@
 
 
         <!--boton whatsapp-->
-        <a href="https://wa.me/523221350108?text=Hola%20quisiera%20saber%20mas%20información%20de%20Tierra%20Real%20Estate" id="whatsapp" target="_blank"> 
+        <a href="https://wa.me/523221350108?text=Hola%20quisiera%20saber%20mas%20información%20de%20Tierra%20Real%20Estate" id="whatsapp" target="_blank" class="shadow-7"> 
             <i class="fab fa-whatsapp"></i>
         </a>
 

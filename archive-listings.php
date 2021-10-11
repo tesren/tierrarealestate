@@ -1,31 +1,158 @@
-<?php 
+<?php get_header(); 
 
-    $regiones = get_terms( array(
-        'taxonomy'          => 'regiones',
-        'parent'            => 0,
-        'hide_empty'        => false,
-    ) );
+    if($_GET['minprice'] && !empty($_GET['minprice']))
+    {
+        $minprice = $_GET['minprice'];
+    } else {
+        $minprice = 0;
+    }
 
-    $propertiesType = get_terms( array(
-        'taxonomy'          => 'property_type',
-        'parent'            => 0,
-        'hide_empty'        => false,
-    ) );
+    if($_GET['maxprice'] && !empty($_GET['maxprice']))
+    {
+        $maxprice = $_GET['maxprice'];
+    } else {
+        $maxprice = 999999999;
+    }
 
-    //global $wp_query; print_r($wp_query);
-    get_header(); ?>
+    if($_GET['minbeds'] && !empty($_GET['minbeds']))
+    {
+        $minbeds = $_GET['minbeds'];
+    } else {
+        $minbeds = -1;
+    }
+
+    if($_GET['maxbeds'] && !empty($_GET['maxbeds']))
+    {
+        $maxbeds = $_GET['maxbeds'];
+    } else {
+        $maxbeds = 999999999;
+    }
+
+    if($_GET['minconst'] && !empty($_GET['minconst']))
+    {
+        if(pll_current_language()=="en"){
+            $minconstfeet = $_GET['minconst'];
+
+            $minconst = $minconstfeet * 0.0929;
+
+        }else{
+            $minconst = $_GET['minconst'];
+        }
+
+    } else {
+        $minconst = -1;
+    }
+
+    if($_GET['maxconst'] && !empty($_GET['maxconst']))
+    {
+        if(pll_current_language()=="en"){
+            $maxconstfeet = $_GET['maxconst'];
+
+            $maxconst = $maxconstfeet * 0.0929;
+
+        }else{
+            $maxconst = $_GET['maxconst'];
+        }
+        
+    } else {
+        $maxconst = 999999999;
+    }
+
+?>
+
+<!-- Modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="searchModalLabel"><?php pll_e("Busqueda"); ?></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form action="<?php get_the_permalink(); ?>" method="get">
+
+            <div class="row justify-content-evenly mb-3">
+                <label class="text-center mb-2"><?php pll_e('Rango de precios')?></label>
+                <input class="col-5 search-form" type="number" name="minprice" id="minprice" placeholder="Min">
+                <input class="col-5 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max">
+            </div>
+
+            <div class="row justify-content-evenly mb-3">
+                <label class="text-center mb-2"><?php pll_e('Rango de Recámaras'); ?></label>
+                <input class="col-5 search-form" type="number" name="minbeds" id="minbeds" placeholder="Min">
+                <input class="col-5 search-form" type="number" name="maxbeds" id="maxbeds" placeholder="Max">
+            </div>
+
+            <div class="row justify-content-evenly mb-3">
+                <label class="text-center mb-2"><?php pll_e('Rango de m²'); ?></label>
+                <input class="col-5 search-form" type="number" name="minconst" id="minconst" placeholder="Min">
+                <input class="col-5 search-form" type="number" name="maxconst" id="maxconst" placeholder="Max">
+            </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-azul w-100"><?php pll_e("Buscar"); ?></button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <div class="container-fluid pt-5">
     <div class="row">
         <div class="col-md-12">
             
-            <h1 class="text-center grey-title mb-4"><?php echo pll_e('Listings a la venta');?></h1>
+        <span class="d-block d-md-flex text-center justify-content-center">
+            <h1 class="text-center grey-title mb-0 mb-lg-5"><?php echo pll_e('Listings a la venta');?></h1>
+            <button title="<?php pll_e("Buscar");?>" type="button" 
+                class="btn mb-4 mb-lg-5 d-flex d-md-block justify-content-center mx-auto mx-lg-1 btn-search" data-bs-toggle="modal" data-bs-target="#searchModal">
+                <i class="fas fa-search"></i>
+                <span class="d-flex d-md-none"><?php pll_e("Buscar");?></span>
+            </button>
+        </span>
+
+        <?php
+                $args = array(
+                    'post_type' => 'listings',
+                    'posts_per_page' => -1,
+                    'meta_query' => array(
+                        array(
+                            'key' => 'price',
+                            'type' => 'NUMERIC',
+                            'value' => array($minprice, $maxprice),
+                            'compare' => 'BETWEEN'
+                        ),
+
+                        array(
+                            'key' => 'bedrooms',
+                            'type' => 'NUMERIC',
+                            'value' => array($minbeds, $maxbeds),
+                            'compare' => 'BETWEEN'
+                        ),
+
+                        array(
+                            'key' => 'construction',
+                            'type' => 'NUMERIC',
+                            'value' => array($minconst, $maxconst),
+                            'compare' => 'BETWEEN'
+                        )
+                    )
+                );
+
+                $query = new WP_Query($args);
+                
+        ?>
             
             <div class="row">
                 <?php 
-                    if ( have_posts() ) :
+                    if ( $query -> have_posts() ) :
                         $modalId = 0;
                         $i = 0;
-                        while( have_posts() ) : the_post(); 
+                        while($query -> have_posts()) : $query -> the_post();
                             
                             $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );
 
@@ -145,14 +272,20 @@
                         </div><!--end Modal -->
 
                         
-                <?php   $i++;
-                        $modalId++;   
-                        endwhile;
-                    
-                        the_posts_pagination();
-                        
-                    endif;
-                ?>
+                    <?php   $i++;
+                            $modalId++;   
+                            endwhile;
+                            the_posts_pagination();
+                            wp_reset_query();
+
+                        else:?>
+
+                        <div class="container my-5 text-center" style="min-height:30vh;">
+                            <span class="fs-1 d-block"><?php pll_e('No hay resultados, intenta con otros datos'); ?></span>
+                            <a class="btn btn-amarillo" href="<?php echo get_post_type_archive_link( 'listings' ); ?>"><?php pll_e('Volver'); ?></a>
+                        </div>
+
+                <?php endif; ?>
             </div>
         </div>
         

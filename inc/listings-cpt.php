@@ -177,8 +177,8 @@ function listings_register_meta_boxes( $meta_boxes ) {
             ],
              [
                 'name'  => 'Recámaras',
-                'required'=> false,
-                'desc'  => 'Solo numeros',
+                'required'=> true,
+                'desc'  => 'Solo numeros, Si se trata de un terreno ingrese un 0',
                 'id'    => 'bedrooms',
                 'type'  => 'number',
             ],
@@ -214,9 +214,11 @@ function listings_register_meta_boxes( $meta_boxes ) {
             ],
             [
                 'name'  => 'Construcción',
-                'desc'  => 'Solo números (m2)',
+                'desc'  => 'Solo números (m2), Si se trata de un terreno ingrese un 0',
                 'id'    => 'construction',
                 'type'  => 'text',
+                'placeholder'=>'Solo números',
+                'required'=> true
             ],
             [
                 'name'  => 'Lote',

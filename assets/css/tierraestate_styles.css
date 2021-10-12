@@ -422,6 +422,15 @@ a{
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.ui-widget-header {
+    background: #07255B !important;
+}
+
+.ui-state-active{
+    background: #080F24 !important;
+    border: 1px solid #ccc !important;
+}
+
 
   footer{
       color: white;

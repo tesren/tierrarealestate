@@ -1,4 +1,47 @@
-<?php get_header(); 
+<?php 
+    $regiones = get_terms( array(
+        'taxonomy'          => 'regiones',
+        'parent'            => 0,
+        'hide_empty'        => false,
+    ) );
+
+    $propertiesType = get_terms( array(
+        'taxonomy'          => 'property_type',
+        'parent'            => 0,
+        'hide_empty'        => false,
+    ) );
+
+    get_header(); 
+
+    if($_GET['regiones_s'] && !empty($_GET['regiones_s']))
+    {
+        $regiones_s = $_GET['regiones_s'];
+
+    }else{
+        $regiones_s = array(); 
+
+        foreach($regiones as &$category):
+            $childrenTerms =  get_term_children( $category->term_id, 'regiones' );
+
+                foreach($childrenTerms as $child) :     
+                    $term = get_term_by( 'id', $child, 'regiones');
+                    array_push($regiones_s, $term->slug);
+                 endforeach; 
+
+         endforeach;
+    }
+
+    if($_GET['type_s'] && !empty($_GET['type_s']))
+    {
+        $pType = $_GET['type_s'];
+    }
+    else{
+        $pType = array();
+
+        foreach ($propertiesType as $propertyType){
+            array_push($pType, $propertyType->slug);
+        } 
+    }
 
     if($_GET['minprice'] && !empty($_GET['minprice']))
     {
@@ -72,35 +115,65 @@
 
       <div class="modal-body">
         <form action="<?php get_the_permalink(); ?>" method="get">
+            <label for="regiones_s"><?php pll_e('Ubicación'); ?></label>
+            <select class="form-select w-100 mb-3" aria-label="Default select example" id="regiones_s" name="regiones_s">
+                <option selected value=""><?php pll_e('Selecciona uno');?></option>
+                <?php foreach($regiones as &$category):
+                    $childrenTerms =  get_term_children( $category->term_id, 'regiones' );
 
-            <div class="row justify-content-evenly mb-3">
+                        foreach($childrenTerms as $child) :     
+                            $term = get_term_by( 'id', $child, 'regiones');?>
+                            <option value="<?php echo $term->slug; ?>"><?php echo $term->name; ?></option>
+                        <?php endforeach; ?>
+
+                <?php endforeach; ?>
+            </select>
+
+            <label for="type_s"><?php pll_e('Tipo de Propiedad');?></label>
+            <select class="form-select w-100 mb-3" aria-label="Default select example" id="type_s" name="type_s">
+                <option selected value=""><?php pll_e('Selecciona uno');?></option>
+
+                <?php foreach($propertiesType as &$type):?>
+                    <option value="<?php echo $type->slug; ?>"><?php echo $type->name; ?></option>
+                <?php endforeach; ?>
+            </select>
+
+            <div class="row justify-content-center mb-3">
                 <label class="text-center mb-2"><?php pll_e('Rango de precios')?></label>
-                <input class="col-5 search-form" type="number" name="minprice" id="minprice" placeholder="Min">
-                <input class="col-5 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max">
+
+                <input class="col-3 search-form" type="number" name="minprice" id="minprice" placeholder="Min" readonly>
+                <span class="col-1 fs-4 text-center">-</span>
+                <input class="col-3 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max" readonly>
+                <div id="slider-range-precios" class="mt-2 col-11"></div>
+                
             </div>
 
-            <div class="row justify-content-evenly mb-3">
+            <div class="row justify-content-center mb-3">
                 <label class="text-center mb-2"><?php pll_e('Rango de Recámaras'); ?></label>
-                <input class="col-5 search-form" type="number" name="minbeds" id="minbeds" placeholder="Min">
-                <input class="col-5 search-form" type="number" name="maxbeds" id="maxbeds" placeholder="Max">
+                <input class="col-3 search-form" type="number" name="minbeds" id="minbeds" placeholder="Min" readonly>
+                <span class="col-1 fs-4 text-center">-</span>
+                <input class="col-3 search-form" type="number" name="maxbeds" id="maxbeds" placeholder="Max" readonly>
+                <div id="slider-range-beds" class="mt-2 col-11"></div>
             </div>
 
-            <div class="row justify-content-evenly mb-3">
+            <div class="row justify-content-center mb-3">
                 <label class="text-center mb-2"><?php pll_e('Rango de m²'); ?></label>
-                <input class="col-5 search-form" type="number" name="minconst" id="minconst" placeholder="Min">
-                <input class="col-5 search-form" type="number" name="maxconst" id="maxconst" placeholder="Max">
+                <input class="col-3 search-form" type="number" name="minconst" id="minconst" placeholder="Min" readonly>
+                <span class="col-1 fs-4 text-center">-</span>
+                <input class="col-3 search-form" type="number" name="maxconst" id="maxconst" placeholder="Max" readonly>
+                <div id="slider-range-const" class="mt-2 col-11"></div>
             </div>
 
       </div>
 
       <div class="modal-footer">
-        <button type="submit" class="btn btn-azul w-100"><?php pll_e("Buscar"); ?></button>
+        <button type="submit" class="btn btn-amarillo w-100"><?php pll_e("Buscar"); ?></button>
         </form>
       </div>
 
     </div>
   </div>
-</div>
+</div> <!--End modal-->
 
 <div class="container-fluid pt-5">
     <div class="row">
@@ -140,7 +213,21 @@
                             'value' => array($minconst, $maxconst),
                             'compare' => 'BETWEEN'
                         )
-                    )
+                    ),
+                    'tax_query' => array(
+                        array(
+                            'taxonomy' => 'property_type',
+                            'field'    => 'slug',
+                            'terms'    => $pType,
+                        ),
+                        array(
+                            'taxonomy' => 'regiones',
+                            'field'    => 'slug',
+                            'include_children' => true,
+                            'terms'    => $regiones_s,
+                        ),
+                    ),
+
                 );
 
                 $query = new WP_Query($args);

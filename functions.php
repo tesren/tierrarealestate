@@ -36,6 +36,7 @@ function cb_register_styles()
     wp_enqueue_style('cb-bootstrap', get_template_directory_uri() . "/assets/css/bootstrap.min.css", array(), '5.0.0', 'all');
     wp_enqueue_style('tierra-style-primary', get_template_directory_uri() . "/assets/css/tierraestate_styles.css", array(), $version , 'all');
     //wp_enqueue_style('cb-fontawesome', get_template_directory_uri() . "/assets/css/all.min.css", array(), '5.15.1' , 'all');
+    wp_enqueue_style('range-slider', get_template_directory_uri() . "/assets/css/jquery-ui.min.css", array(), $version , 'all');
 }
 
 add_action('wp_enqueue_scripts', 'cb_register_styles');
@@ -46,6 +47,7 @@ function cb_register_scripts()
     
     $version = wp_get_theme()->get( 'Version' );
     wp_enqueue_script('v4you_jquery', 'https://code.jquery.com/jquery-3.5.1.min.js', array(), '3.5.1', true);
+    wp_enqueue_script('range_slider', get_template_directory_uri().'/assets/js/jquery-ui.min.js', array(), '2.0', true);
     wp_enqueue_script('cb_splide', 'https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.21/dist/js/splide.min.js', array(), '2.4.21', true);
     // wp_enqueue_script('cb_bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js', array(), '5.0.0', true);
     wp_enqueue_script('cb_bootstrap', get_template_directory_uri() .  '/assets/js/bootstrap.min.js', array(), '5.0.0', true);
@@ -288,6 +290,12 @@ add_filter( 'clean_url', 'os_async_scripts', 11, 1 );
             array(
                 'name'     =>'lake',
                 'string'   =>'Lago',
+                'group'    =>'Listings',
+                'multiline'=>false,
+            ),
+            array(
+                'name'     =>'select',
+                'string'   =>'Selecciona uno',
                 'group'    =>'Listings',
                 'multiline'=>false,
             ),

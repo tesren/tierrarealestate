@@ -327,13 +327,16 @@ a{
 .shadow-7 {
     box-shadow: 0 4px 5px -2px #0003,0 7px 10px 1px #00000024,0 2px 16px 1px #0000001f;
 }
+.shadow-10 {
+    box-shadow: 0 6px 6px -3px #0003,0 10px 14px 1px #00000024,0 4px 18px 3px #0000001f;
+}
 
 /*Boton de whatsapp*/
 #whatsapp {
     position:fixed;
     width:60px;
     height:60px;
-    bottom:55px;
+    bottom:50px;
     right:25px;
     background-color:#07255B;
     color:#FFF;
@@ -379,20 +382,23 @@ a{
 
   /*boton de busqueda*/
   .btn-search {
-    box-shadow: 0 4px 5px -2px #0003,0 7px 10px 1px #00000024,0 2px 16px 1px #0000001f;
+    padding: 2px;
+    position: fixed;
+    bottom: 120px;
+    right: 25px;
     width:60px;
     height:60px;
-    background-color:#BD9028;
+    background-color:#07255B;
     color:#FFF;
     border-radius:50px;
     text-align:center;
     font-size:37px;
-    margin-top: 33px;
     transition: 0.3s;
+    z-index: 200;
   }
 
   .btn-search:hover{
-      background-color: #A28234;
+      background-color: #080F24;
       color: #FFF;
       transition: 0.3s;
   }
@@ -400,7 +406,7 @@ a{
   .btn-search .fa-search {
     position: relative;
     vertical-align: top;
-    top: 5px;
+    top: 9px;
     left: 0;
     width: 100%;
   }
@@ -927,10 +933,11 @@ a{
 
   /*boton de busqueda mobile*/
   .btn-search {
-    width: 80%;
-    height: fit-content;
+    width:50px;
+    height:50px;
+    bottom:75px;
+    left: 15px;
     font-size:30px;
-    margin-top: 15px;
     transition: 0.3s;
   }
 
@@ -939,7 +946,6 @@ a{
     vertical-align: top;
     top: 5px;
     left: 0;
-    width: 16%;
   }
 
 .imagen-archive-listing{

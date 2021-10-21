@@ -27,7 +27,7 @@
 
             <?php foreach( $listings as $unit ): setup_postdata($unit);
 
-                $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );?>
+                $imgFull = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'large' );?>
         
                 <div class="col-12 col-lg-4 text-center" style="border-radius:20px;">
                     <!--Imagen listing-->

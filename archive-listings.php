@@ -176,7 +176,7 @@
                         $i = 0;
                         while($query -> have_posts()) : $query -> the_post();
                             
-                            $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'full' );
+                            $portada = wp_get_attachment_image_src( get_post_thumbnail_id( get_the_ID() ) , 'large' );
 
                         ?>
                             
@@ -185,7 +185,7 @@
                                 <!-- Old layout -->
                                     
                                     <!--Imagen listing-->
-                                    <img class="img-fluid w-100 imagen-archive-listing <?php if($i>2){echo'animatable fadeInUp';} ?>" src="<?php echo $portada[0];?>" alt="Listing image">
+                                    <img class="img-fluid w-100 imagen-archive-listing <?php if($i>2){echo'animatable fadeInUp';} ?>" src="<?php echo $portada[0];?>" alt="Listing image" <?php if($i>2){echo'loading="lazy"';} ?>>
 
                                     <div class="row justify-content-center bg-light text-center <?php if($i>2){echo'animatable fadeInUp';} ?>">
                                         <!--Disponibilidad-->
@@ -279,7 +279,7 @@
                                 <div class="modal-footer d-block">
                                     <div class="row">
                                         <div class="col-12">
-                                            <div class="fs-5 text-start py-3"><?php the_content();?></div>
+                                            <div class="fs-5 text-start py-3"><?php echo get_the_excerpt(get_the_ID());?></div>
                                         </div>
                                     </div>
                                     <div class="row justify-content-evenly">

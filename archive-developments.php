@@ -16,7 +16,7 @@
                     <!--Desarrollo--> 
                     <div class="col-11 col-md-8 text-center mb-5" style="position:relative">
                         
-                        <?php  $featImg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' ); ?>
+                        <?php  $featImg = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' ); ?>
                         <img class="w-100 archive-dev-img" src="<?php echo $featImg[0]; ?>" alt="<?php echo the_title();?>">
 
                         <div class="archive-dev-info">

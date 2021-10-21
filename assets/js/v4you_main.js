@@ -195,8 +195,8 @@ document.addEventListener( 'DOMContentLoaded', () => wait(2000).then(() =>{
     orientation: "horizontal",
     range: true,
     min: 0,
-    max: 5000000,
-    values: [0,5000000],
+    max: 20000000,
+    values: [0,20000000],
     step: 1000,
     slide: function( event, ui ) {
         $( "#minprice" ).val(ui.values[0]);

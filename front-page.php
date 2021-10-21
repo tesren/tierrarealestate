@@ -11,7 +11,6 @@
                 'value' => 1,
             )
     ),
-
         
     ));
     $listings = get_posts(array(
@@ -58,7 +57,7 @@
                                 sizes="(max-width: 480px) 100%,
                                         (max-width: 768px) 100%,
                                         992px"
-                                        src="<?php echo $profile[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $development->ID );?>">
+                                        src="<?php echo $profile[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $development->ID );?>" <?php if($i>0){echo 'loading="lazy"';}?>>
                                 
                                 <div class="carousel-caption d-md-block text-center" style="z-index:3;">
                                     <h1><?php echo get_the_title( $development->ID );?></h1>
@@ -104,7 +103,7 @@
             ?>
             
                 <!--Imagen listing-->
-                <img class="img-fluid w-100 imagen-listing <?php if($j>0){echo'animatable fadeInUp';} ?>" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>">
+                <img class="img-fluid w-100 imagen-listing <?php if($j>0){echo'animatable fadeInUp';} ?>" src="<?php echo $imgFull[0];?>" alt="<?php the_post_thumbnail_caption( $development->ID );?>" loading="lazy">
 
                 <div class="row justify-content-center bg-light <?php if($j>0){echo'animatable fadeInUp';} ?>">
                     <!--Disponibilidad y tipo-->
@@ -165,7 +164,7 @@
 
                         <h5 class="modal-title fw-bold fs-3" id="exampleModalLabel" style="position:absolute; bottom:20px; left:20px; color:#fff;"><?php echo get_the_title( $unit->ID );?></h5>                    
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:20px; right:20px; background-color:#fff;"></button>
-                        <img src="<?php echo $imgFull[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $unit->ID );?>">
+                        <img src="<?php echo $imgFull[0];?>" class="d-block w-100 tr-img-responsive " alt="<?php the_post_thumbnail_caption( $unit->ID );?>" loading="lazy">
                     </div>
 
                     <div class="modal-body mt-1">

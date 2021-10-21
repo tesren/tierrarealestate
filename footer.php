@@ -87,9 +87,9 @@
                         <div class="row justify-content-center mb-3">
                             <label class="text-center mb-2"><?php pll_e('Rango de precios')?></label>
 
-                            <input class="col-3 search-form" type="number" name="minprice" id="minprice" placeholder="Min" readonly>
+                            <input class="col-4 search-form" type="number" name="minprice" id="minprice" placeholder="Min" readonly>
                             <span class="col-1 fs-4 text-center">-</span>
-                            <input class="col-3 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max" readonly>
+                            <input class="col-4 search-form" type="number" name="maxprice" id="maxprice" placeholder="Max" readonly>
                             <div id="slider-range-precios" class="mt-2 col-11"></div>
                             
                         </div>

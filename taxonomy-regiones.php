@@ -113,7 +113,7 @@
                     <div class="modal-footer d-block">
                         <div class="row">
                             <div class="col-12">
-                                <div class="fs-5 text-start py-3"><?php the_content();?></div>
+                                <div class="fs-5 text-start py-3"><?php echo get_the_excerpt( get_the_ID() );?></div>
                             </div>
                         </div>
                         <div class="row justify-content-evenly">

@@ -77,13 +77,13 @@
             </div>
 
              <!-- Modal -->
-            <div class="modal fade" id="modal-<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="modal-<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="RegionModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-dialog modal-lg">
                     <div class="modal-content">
                     
                     <div class="modal-header d-block p-0" style="position:relative;">
 
-                        <h5 class="modal-title fw-bold fs-3" id="exampleModalLabel" style="position:absolute; bottom:20px; left:20px; color:#fff;"><?php echo get_the_title();?></h5>                    
+                        <h5 class="modal-title fw-bold fs-3" id="hRegionModalLabel" style="position:absolute; bottom:20px; left:20px; color:#fff;"><?php echo get_the_title();?></h5>                    
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="position:absolute; top:20px; right:20px; background-color:#fff;"></button>
                         <img class="img-fluid w-100" src="<?php echo $portada[0];?>" alt="Listing image">
                     </div>

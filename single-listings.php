@@ -219,7 +219,7 @@
 
                 <?php if( !empty(rwmb_meta( 'listing_tour') ) ): ?>
                 <div class="col-md-4">
-                     <a href="<?php echo rwmb_meta( 'listing_tour' );?>" class="my-3 mx-5 btn btn-amarillo w-75" target="_blank" ><?php pll_e( 'Tour Vitual' );?></a>
+                     <a href="<?php echo rwmb_meta( 'listing_tour' );?>" class="my-3 mx-5 btn btn-amarillo w-75" target="_blank" rel="noopener"><?php pll_e( 'Tour Vitual' );?></a>
                 </div>
 
                 <?php endif; ?>
@@ -230,7 +230,7 @@
                     foreach ( $files as $file ) {
                         ?>
                         <div class="col-md-4">
-                             <a href="<?php echo $file['url']; ?>" class="my-3 mx-5 btn btn-azul w-75" target="_blank" ><?php pll_e( 'Descargar brochure' );?></a>
+                             <a href="<?php echo $file['url']; ?>" class="my-3 mx-5 btn btn-azul w-75" target="_blank" rel="noopener"><?php pll_e( 'Descargar brochure' );?></a>
                         </div>
                         <?php
                     }?>

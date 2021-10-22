@@ -7,6 +7,7 @@
         <?php if( is_singular() && pings_open( get_queried_object() )  ) : ?>
         <link rel="pingback" href="<?php bloginfo('pingback_url');?>">
         <?php endif; ?>
+        <meta name="description" content="Tierra Real Estate & Lifestyle, luxury, vacation and beach life properties in Puerto Vallarta, México">
         <?php wp_head();?>
         <meta name="viewport" content="width=device-width, initial-scale=1">
             

@@ -33,7 +33,7 @@ if(isset($_POST['sendpdf'])){
             <tr>
                 <th><img width="30%" src="'.$logoSrc.'" alt="Logo"></th>
                 <th> </th>
-                <th><a href="'.$link.'" target="_blank">'.$link.'</a></th>
+                <th><a href="'.$link.'" target="_blank" rel="noopener">'.$link.'</a></th>
             </tr>
         </table>
     </div>

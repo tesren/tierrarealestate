@@ -11,7 +11,7 @@
 
 
         <!--boton whatsapp-->
-        <a href="https://wa.me/523221350108?text=Hola%20quisiera%20saber%20mas%20información%20de%20Tierra%20Real%20Estate" id="whatsapp" target="_blank" class="shadow-10"> 
+        <a href="https://wa.me/523221350108?text=Hola%20quisiera%20saber%20mas%20información%20de%20Tierra%20Real%20Estate" id="whatsapp" target="_blank" class="shadow-10" rel="noopener"> 
             <i class="fab fa-whatsapp"></i>
         </a>
 
@@ -39,7 +39,7 @@
                 <div class="modal-content">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="searchModalLabel"><?php pll_e("Busqueda"); ?></h5>
+                    <h5 class="modal-title" id="hsearchModalLabel"><?php pll_e("Busqueda"); ?></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
 
@@ -122,17 +122,17 @@
                         
             <!--iconos redes sociales-->
             <div class="d-flex justify-content-center iconos py-3">
-                <p class="pe-1"><?php pll_e('Afiliados')?> <a href=""><img class = "logo-ampi" src="<?php echo get_template_directory_uri() ."/assets/images/ampi-logo.png";?>" alt="ampi logo"></a> | </p>
+                <p class="pe-1"><?php pll_e('Afiliados')?> <img class = "logo-ampi" src="<?php echo get_template_directory_uri() ."/assets/images/ampi-logo.png";?>" alt="ampi logo"> | </p>
                 
-                <a href="https://www.facebook.com/Tierra-Real-Estate-Lifestyle-1865454683779555" class="link-light" target="_blank">
+                <a href="https://www.facebook.com/Tierra-Real-Estate-Lifestyle-1865454683779555" class="link-light" target="_blank" rel="noopener">
                     <i class="fab fa-facebook mt-2"></i>
                 </a>
 
-                <a href="https://www.instagram.com/tierrarealestate.pv/" class="link-light" target="_blank">
+                <a href="https://www.instagram.com/tierrarealestate.pv/" class="link-light" target="_blank" rel="noopener">
                     <i class="fab fa-instagram mt-2 mx-3"></i>
                 </a>
 
-                <a href="https://wa.me/523221350108?text= " class="link-light" target="_blank">
+                <a href="https://wa.me/523221350108?text= " class="link-light" target="_blank" rel="noopener">
                     <i class="fab fa-whatsapp pt-1"></i>
                 </a>
             </div>

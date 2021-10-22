@@ -234,7 +234,7 @@
                     $files = rwmb_meta( 'dev_brochure' );
                     foreach ( $files as $file ) {
                         ?>
-                        <a href="<?php echo $file['url']; ?>" class="mt-2 mb-5 mt-md-4 mb-md-5 mx-5 btn btn-azul w-50" target="_blank" ><?php pll_e( 'Descargar Brochure' );?></a>
+                        <a href="<?php echo $file['url']; ?>" class="mt-2 mb-5 mt-md-4 mb-md-5 mx-5 btn btn-azul w-50" target="_blank" rel="noopener"><?php pll_e( 'Descargar Brochure' );?></a>
                 <?php
                     }?>
               

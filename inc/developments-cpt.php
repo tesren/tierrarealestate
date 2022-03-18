@@ -304,7 +304,7 @@ function developments_register_meta_boxes( $meta_boxes ) {
                 'address_field' => 'address',
 
                 // Google API key
-                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
+                'api_key'       => 'AIzaSyAiP4bDQrRAFfAMTp4053WW_QpjHOx52LI',
             ]
         ],
     ];

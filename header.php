@@ -2,11 +2,19 @@
 <html <?php language_attributes();?>>
     <head>
         <meta charset="UTF-8">
-        <title>Tierra - <?php echo the_title(); ?></title>
          <meta charset="<?php bloginfo('charset');?>">
         <?php if( is_singular() && pings_open( get_queried_object() )  ) : ?>
         <link rel="pingback" href="<?php bloginfo('pingback_url');?>">
         <?php endif; ?>
+
+        <?php if(is_front_page()): ?>
+          <title>Tierra Vallarta - Real Estate & Lifestyle</title>
+        <?php elseif(is_post_type_archive()):?>
+          <title>Tierra Vallarta - <?php echo post_type_archive_title(); ?></title>
+        <?php else: ?>
+          <title>Tierra Vallarta - <?php echo the_title(); ?></title>
+        <?php endif; ?>
+
         <meta name="description" content="Tierra Real Estate & Lifestyle, luxury, vacation and beach life properties in Puerto Vallarta, México">
         <?php wp_head();?>
         <meta name="viewport" content="width=device-width, initial-scale=1">

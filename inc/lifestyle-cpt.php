@@ -165,7 +165,7 @@ function prefix_lifestyle_meta_boxes( $meta_boxes ) {
                 'address_field' => 'address',
 
                 // Google API key
-                'api_key'       => 'AIzaSyAiP4bDQrRAFfAMTp4053WW_QpjHOx52LI',
+                'api_key'       => 'AIzaSyDlDmMESUjBK1gwNJm5x4hyoS90qacpJmY',
             ]
         ],
     ];

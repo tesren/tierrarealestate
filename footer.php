@@ -117,7 +117,7 @@
         <footer class="page-footer bg-azul text-center">
 
             <a href="<?php echo get_home_url(); ?>">
-                <img class="logo-tierra-footer" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" alt="Logo Tierra Real Estate">
+                <img class="logo-tierra-footer" src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.png';?>" alt="Logo Tierra Real Estate">
             </a>
                         
             <!--iconos redes sociales-->
@@ -138,7 +138,7 @@
             </div>
             
             <div class="container-fluid text-center bg-azul-fuerte py-3">
-                <p class="m-0"> &copy;2014-2021 Tierra Vallarta 
+                <p class="m-0"> &copy;2014-2022 Tierra Vallarta 
                     <a style="text-decoration:underline;" class="link-light" href="<?php echo get_the_permalink(get_page_by_title("Aviso de Privacidad")); ?>">
                         <?php pll_e('Politicas de Privacidad')?>
                     </a>

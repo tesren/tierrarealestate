@@ -61,6 +61,12 @@
 
         </div>
 
+
+        <?php
+            $residences = rwmb_meta( 'residences_gallery', array( 'size' => 'full' ) ); 
+            if($residences):
+        ?>
+
         <!--Propiedades-->
         <div class="container-fluid text-center" id="propiedades">
             
@@ -71,10 +77,8 @@
             </div>
 
             <div class="row">
-            <?php 
-            
-                    $residences = rwmb_meta( 'residences_gallery', array( 'size' => 'full' ) ); 
-                    
+                <?php 
+                                
                     $total = count($residences);
                     
                     switch($total)
@@ -149,95 +153,91 @@
             </div>
         </div>
 
-         <!--carrusel de cards de propiedades-->
+        <!--carrusel de cards de propiedades-->
 
-         <div class="container-fluid text-center my-5">
+        <div class="container-fluid text-center my-5">
 
-<div class="row mx-auto my-auto justify-content-center">
-    <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
-        
-      <div class="carousel-inner" role="listbox">
-
-
-      <?php 
-
-          /*
-          *  Query posts for a relationship value.
-          *  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
-          */
-
-          $units = get_posts(array(
-              'post_type' => 'inventory',
-              'meta_query' => array(
-                  array(
-                      'key' => 'developments', // name of custom field
-                      'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
-                      'compare' => 'LIKE'
-                  )
-              )
-          ));
-
-      ?>
-      <?php if( $units ): ?>
-          <?php $i=1;?>
-          <?php foreach( $units as $unit ): ?>
-              <?php 
-
-          
-              $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
-
-              ?>
-              <div class="carousel-item<?php if($i==1){echo ' active';}?>">
-                  <div class="col-md-3">
-                      <div class="card" style="min-height:100%;">
-                          <img src="<?php echo $portada[0];?>" class="card-img-top" alt="...">
-                          <div class="card-body">
-                              <h5 class="card-title fw-bold"> <?php echo get_the_title( $unit->ID );?></h5>
-                              <p class="card-text">
-                                  <ul class="list-unstyled">
-                                      <li><?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
-                                      <li><?php echo $unit->bathrooms;?> <?php pll_e( 'baños' );?></li>
-                                      <li><?php echo $unit->half_baths;?> <?php pll_e( 'Medios Baños' );?></li>
-                                      <li><?php echo  tierra_get_sqft(pll_current_language(),$unit->construction);?> </li>
-                                  </ul>        
-                              </p>
-                              <?php if( !empty($unit->starting_at)):?>
-                                <h5 class="card-title fw-bold"><?php pll_e( 'Precios Desde' );?> <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
-                              <?php endif; ?>
-                          </div>
-                      </div>
-                  
-                  </div>
-              </div>
-          <?php $i++; ?>
-          <?php endforeach; ?>
-         
-      <?php endif; ?>
-            
-          
-          </div>
+            <div class="row mx-auto my-auto justify-content-center">
+                <div id="recipeCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
+                    
+                <div class="carousel-inner" role="listbox">
 
 
+                <?php 
 
-        <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </a>
-        <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </a>
-    </div>
-</div>
-</div>
+                    /*
+                    *  Query posts for a relationship value.
+                    *  This method uses the meta_query LIKE to match the string "123" to the database value a:1:{i:0;s:3:"123";} (serialized array)
+                    */
 
-            <div class="container text-center">
-            <?php if( !empty(rwmb_meta( 'dev_brochure') ) ): 
-                    $files = rwmb_meta( 'dev_brochure' );
-                    foreach ( $files as $file ) {
+                    $units = get_posts(array(
+                        'post_type' => 'inventory',
+                        'meta_query' => array(
+                            array(
+                                'key' => 'developments', // name of custom field
+                                'value' => '"' . get_the_ID() . '"', // matches exactly "123", not just 123. This prevents a match for "1234"
+                                'compare' => 'LIKE'
+                            )
+                        )
+                    ));
+
+                ?>
+                <?php if( $units ): ?>
+                    <?php $i=1;?>
+                    <?php foreach( $units as $unit ): ?>
+                        <?php 
+
+                    
+                        $portada = wp_get_attachment_image_src( get_post_thumbnail_id( $unit->ID ), 'full' );
+
                         ?>
+                        <div class="carousel-item<?php if($i==1){echo ' active';}?>">
+                            <div class="col-md-3">
+                                <div class="card" style="min-height:100%;">
+                                    <img src="<?php echo $portada[0];?>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title fw-bold"> <?php echo get_the_title( $unit->ID );?></h5>
+                                        <p class="card-text">
+                                            <ul class="list-unstyled">
+                                                <li><?php echo $unit->bedrooms;?> <?php pll_e( 'Recámaras' );?></li>
+                                                <li><?php echo $unit->bathrooms;?> <?php pll_e( 'baños' );?></li>
+                                                <li><?php echo $unit->half_baths;?> <?php pll_e( 'Medios Baños' );?></li>
+                                                <li><?php echo  tierra_get_sqft(pll_current_language(),$unit->construction);?> </li>
+                                            </ul>        
+                                        </p>
+                                        <?php if( !empty($unit->starting_at)):?>
+                                            <h5 class="card-title fw-bold"><?php pll_e( 'Precios Desde' );?> <?php echo $unit->currency;?>$<?php echo number_format($unit->starting_at);?></h5>
+                                        <?php endif; ?>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    <?php $i++; ?>
+                    <?php endforeach; ?>
+                    
+                <?php endif; ?>
+            
+            </div>
+
+            <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+            </div>
+        </div>
+    </div>
+
+    <?php endif; ?>
+    
+            <div class="container text-center">
+                <?php if( !empty(rwmb_meta( 'dev_brochure') ) ): 
+                    $files = rwmb_meta( 'dev_brochure' );
+                    foreach ( $files as $file ):?>
                         <a href="<?php echo $file['url']; ?>" class="mt-2 mb-5 mt-md-4 mb-md-5 mx-5 btn btn-azul w-50" target="_blank" rel="noopener"><?php pll_e( 'Descargar Brochure' );?></a>
-                <?php
-                    }?>
-              
+                    <?php endforeach; ?>
 
                 <?php endif; ?>
 

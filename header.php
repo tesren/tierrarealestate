@@ -67,7 +67,7 @@
 
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <a class="navbar-brand ms-2" href="<?php echo get_home_url(); ?>" id="tr-header-brand-1">
-                     <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.svg';?>" id="nav_header_logo" alt="Logo Tierra">
+                     <img src="<?php echo get_template_directory_uri() .'/assets/images/logo-tierra-final.png';?>" id="nav_header_logo" alt="Logo Tierra">
                     </a>
 
                     <button class="navbar-toggler me-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
